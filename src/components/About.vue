@@ -36,6 +36,7 @@ div {
         font-size: var(--size-title);
         padding-bottom: 20px;
         font-weight: bold;
+        text-transform: uppercase;
     }
     p {
         font-size: var(--size-text);
@@ -53,9 +54,12 @@ div {
 @media screen and (max-width: 1368px) {
     div {
         padding: 10px 5%;
-    }
-    img {
-        display: none;
+        h1 {
+            padding-bottom: 10px;
+        }
+        img {
+            display: none;
+        }
     }
 }
 @media screen and (max-width: 420px) {

@@ -1,13 +1,13 @@
 <script>
 import { ref } from "vue";
 export default {
-    setup() {
-        const allImg = [
-            "./src/assets/Header/Header-4.jpg",
-            "./src/assets/Header/Header-1.jpg",
-            "./src/assets/Header/Header-2.jpg",
-            "./src/assets/Header/Header-3.jpg",
-        ];
+    props: {
+        img: {
+            type: Array,
+        },
+    },
+    setup(props) {
+        const allImg = props.img;
         const currentImg = ref(0);
 
         const switchImg = (e) => {
