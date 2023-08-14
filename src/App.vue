@@ -16,15 +16,10 @@ export default {
             () => router.currentRoute.value.meta[0],
             async () => {
                 headerNumImg.value = router.currentRoute.value.meta[0];
-                console.log(router.currentRoute.value.meta[0]);
             }
         );
-        setInterval(() => {
-            console.log(router.currentRoute.value.meta[0]);
-            console.log("V", headerNumImg.value);
-        }, 1000);
+
         return {
-            //     router,
             headerNumImg,
         };
     },
@@ -45,7 +40,6 @@ export default {
     <div class="app">
         <Header :img="headerNumImg" />
         <RouterView />
-        <!-- {{ router.currentRoute.value.meta["0"] }} -->
         <!--<Footer />-->
     </div>
 </template>
@@ -95,8 +89,9 @@ export default {
 }
 
 ::-webkit-scrollbar {
-    background: var(--bg-secondary);
+    background: var(--bg-dark);
     width: 5px;
+    height: 5px;
 }
 ::-webkit-scrollbar-thumb {
     background: var(--bg-warning);

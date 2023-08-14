@@ -1,8 +1,11 @@
 <script>
 import About from "../components/About.vue";
+import Carusel from "../components/Carusel.vue";
+
 export default {
     components: {
         About,
+        Carusel,
     },
     setup() {
         const title = "Любители";
@@ -14,6 +17,8 @@ export default {
 </script>
 
 <template>
+    <About :title="title" :msg="msg" />
+    <Carusel />
     <About :title="title" :msg="msg" />
 </template>
 

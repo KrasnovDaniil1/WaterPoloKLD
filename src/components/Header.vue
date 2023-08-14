@@ -1,5 +1,9 @@
 <script>
 import { ref } from "vue";
+import Header1 from "../assets/Header/Header-1.jpg";
+import Header2 from "../assets/Header/Header-2.jpg";
+import Header3 from "../assets/Header/Header-3.jpg";
+import Header4 from "../assets/Header/Header-4.jpg";
 export default {
     props: {
         img: {
@@ -8,7 +12,7 @@ export default {
                 "https://s-cdn.sportbox.ru/images/styles/upload/fp_fotos/9f/8c/79f00daba1e3401fba2a3e91d7c1cd7c5d3ad36ad25c2616834560.jpg",
         },
     },
-    setup(props) {
+    setup() {
         const rout = [
             {
                 title: "Любителям",
@@ -29,14 +33,11 @@ export default {
             },
         ];
         const activeNavMobile = ref(false);
-
-        setInterval(() => {
-            console.log(props.img);
-        }, 1000);
-
+        const imgList = [Header1, Header2, Header3, Header4];
         return {
             rout,
             activeNavMobile,
+            imgList,
         };
     },
 };
@@ -73,7 +74,7 @@ export default {
                 {{ r.title }}
             </router-link>
         </nav>
-        <img :src="'src/assets/Header/Header-' + img + '.jpg'" />
+        <img :src="imgList[img - 1]" />
         <p>Water Polo</p>
     </header>
 </template>
