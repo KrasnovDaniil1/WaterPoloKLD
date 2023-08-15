@@ -166,7 +166,7 @@ header {
 @media screen and (max-width: 1368px) {
     header {
         height: inherit;
-        aspect-ratio: 16/9;
+        aspect-ratio: 16/10;
     }
 }
 @media screen and (max-width: 720px) {
