@@ -1,44 +1,49 @@
 <script>
 import { yandexMap, ymapMarker } from "vue-yandex-maps";
 export default {
+    props: {
+        table: {
+            type: Object,
+            default: {
+                title: "Ошибка",
+                msg: "Ошибка",
+                class: [
+                    {
+                        day: "Понедельник",
+                        time: "-",
+                    },
+                    {
+                        day: "Вторник",
+                        time: "-",
+                    },
+                    {
+                        day: "Среда",
+                        time: "-",
+                    },
+                    {
+                        day: "Четверг",
+                        time: "-",
+                    },
+                    {
+                        day: "Пятница",
+                        time: "-",
+                    },
+                    {
+                        day: "Суббота",
+                        time: "-",
+                    },
+                    {
+                        day: "Воскресенье",
+                        time: "-",
+                    },
+                ],
+                mapCoords: [54.720657, 20.351297],
+            },
+        },
+    },
     components: {
         yandexMap,
         ymapMarker,
-    },
-    setup() {
-        const tableDate = [
-            {
-                day: "Понедельник",
-                time: "10.00-12.00",
-            },
-            {
-                day: "Вторник",
-                time: "10.00-12.00",
-            },
-            {
-                day: "Среда",
-                time: "10.00-12.00",
-            },
-            {
-                day: "Четверг",
-                time: "10.00-12.00",
-            },
-            {
-                day: "Пятница",
-                time: "10.00-12.00",
-            },
-            {
-                day: "Суббота",
-                time: "10.00-12.00",
-            },
-            {
-                day: "Воскресенье",
-                time: "10.00-12.00",
-            },
-        ];
-        return {
-            tableDate,
-        };
     },
 };
 </script>
@@ -46,12 +51,9 @@ export default {
 <template>
     <section>
         <div class="info">
-            <h1>sdfsdfs</h1>
+            <h1>{{ table.title }}</h1>
             <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum
-                ipsam eveniet cumque, voluptatibus iste neque deleniti adipisci.
-                Quae, facere qui sint accusamus, molestias dolores ea vitae
-                alias natus doloribus voluptatum.
+                {{ table.msg }}
             </p>
             <img style="left: 0" src="../assets/TableDecor.png" />
             <img
@@ -60,7 +62,7 @@ export default {
             />
         </div>
         <table>
-            <tr v-for="(item, index) in tableDate" :key="index">
+            <tr v-for="(item, index) in table.class" :key="index">
                 <th>
                     {{ item.day }}
                 </th>
@@ -70,9 +72,9 @@ export default {
             </tr>
         </table>
         <div class="map">
-            <yandexMap :coords="[54.720657, 20.351297]" :zoom="12">
+            <yandexMap :coords="table.mapCoords" :zoom="12">
                 <ymapMarker
-                    :coords="[54.720657, 20.351297]"
+                    :coords="table.mapCoords"
                     marker-id="123"
                     hint-content="some hint"
                 />

@@ -1,13 +1,12 @@
 <script>
 export default {
     props: {
-        title: {
-            type: String,
-            default: "Заголовок",
-        },
-        msg: {
-            type: String,
-            default: "Текст",
+        about: {
+            type: Object,
+            default: {
+                title: "Ошибка",
+                msg: "Ошибка",
+            },
         },
     },
     setup() {},
@@ -15,9 +14,9 @@ export default {
 </script>
 <template>
     <div>
-        <h1>{{ title }}</h1>
+        <h1>{{ about.title }}</h1>
         <p>
-            {{ msg }}
+            {{ about.msg }}
         </p>
         <img style="left: 0" src="../assets/AboutDecor.png" />
         <img

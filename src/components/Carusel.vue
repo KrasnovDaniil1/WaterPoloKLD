@@ -1,13 +1,14 @@
 <script>
 import { ref } from "vue";
+
 export default {
     props: {
-        img: {
+        carusel: {
             type: Array,
         },
     },
     setup(props) {
-        const allImg = props.img;
+        const allImg = props.carusel;
         const currentImg = ref(0);
 
         const switchImg = (e) => {
