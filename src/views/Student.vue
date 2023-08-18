@@ -14,7 +14,7 @@ export default {
 </script>
 
 <template>
-    <About :title="title" :msg="msg" />
+    <About :title="title" :msg="msg" v-if="false" />
 </template>
 
 <style scoped></style>

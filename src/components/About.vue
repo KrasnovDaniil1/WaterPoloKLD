@@ -12,6 +12,7 @@ export default {
     setup() {},
 };
 </script>
+
 <template>
     <div>
         <h1>{{ about.title }}</h1>

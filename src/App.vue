@@ -1,16 +1,23 @@
 <script>
 import { ref, watch } from "vue";
 import Header from "./components/Header.vue";
-// import Footer from "./components/Footer.vue";
+import Footer from "./components/Footer.vue";
 import { useRouter } from "vue-router";
+
+import DecorImg1 from "./assets/Header/Header-1.jpg";
+import DecorImg2 from "./assets/Header/Header-2.jpg";
+import DecorImg3 from "./assets/Header/Header-3.jpg";
+import DecorImg4 from "./assets/Header/Header-4.jpg";
+
 export default {
     components: {
         Header,
-        // Footer,
+        Footer,
     },
     setup() {
         const router = useRouter();
         const headerNumImg = ref("1");
+        const imgDecorList = [DecorImg1, DecorImg2, DecorImg3, DecorImg4];
 
         watch(
             () => router.currentRoute.value.meta[0],
@@ -21,6 +28,7 @@ export default {
 
         return {
             headerNumImg,
+            imgDecorList,
         };
     },
 };
@@ -38,9 +46,9 @@ export default {
         rel="stylesheet"
     />
     <div class="app">
-        <Header :img="headerNumImg" />
+        <Header :img="imgDecorList[headerNumImg-1]" />
         <RouterView />
-        <!--<Footer />-->
+        <Footer :img="imgDecorList[headerNumImg-1]" />
     </div>
 </template>
 
