@@ -1,5 +1,5 @@
 <script>
-import About from "../components/About.vue";
+import About from "../../test/About.vue";
 export default {
     components: {
         About,

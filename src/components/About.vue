@@ -1,70 +1,72 @@
 <script>
+import AboutDecor from "../assets/AboutDecor.png";
 export default {
-    props: {
-        about: {
-            type: Object,
-            default: {
-                title: "Ошибка",
-                msg: "Ошибка",
-            },
-        },
+    setup() {
+        return {
+            AboutDecor,
+        };
     },
-    setup() {},
 };
 </script>
 
 <template>
     <div>
-        <h1>{{ about.title }}</h1>
+        <h1>Великому городу, достойную команду</h1>
         <p>
-            {{ about.msg }}
+            Командный водный олимпийский вид спорта, целью в котором является
+            забросить мяч в ворота соперника большее число раз, чем это сделает
+            оппонент в установленное время. Игра проходит в воде, а мяч держат и
+            забрасывают в ворота одной рукой. Прародителем водного поло можно
+            считать японскую игру, суть которой заключалась в передаче мяча
+            специальными шестами игрокам своей команды, находясь при этом на
+            плаву на соломенных бочках. Современное водное поло было изобретено
+            Уильямом Уилсоном во второй половине XIX века. Сначала игра очень
+            походила на регби, так как в первых редакциях правил было разрешено
+            применять силу в борьбе за мяч и удерживать соперника. Кроме этого
+            поле для игры в водное поло размечалось на неподвижном водоеме, а
+            вместо ворот в дно водоема были вкопаны палки, выступающие на 30-40
+            см над поверхностью воды. Игрокам было необходимо вплавь заносить
+            мяч в ворота. в дно водоема были вкопаны палки, выступающие на 30-40
+            см над поверхностью воды. Игрокам было необходимо вплавь заносить
+            мяч в ворота.
+            
         </p>
-        <img style="left: 0" src="../assets/AboutDecor.png" />
-        <img
-            style="right: 0; transform: scale(-1, 1)"
-            src="../assets/AboutDecor.png"
-        />
+        <img style="left: 0" :src="AboutDecor" />
+        <img style="right: 0; transform: scale(-1, 1)" :src="AboutDecor" />
     </div>
 </template>
+
 <style lang="scss" scoped>
 div {
     position: relative;
     color: var(--color-primary);
     text-align: center;
-    padding: 20px 20%;
+    padding: 1rem 15%;
+    line-height: 1.5;
+
     h1 {
         font-size: var(--size-title);
-        padding-bottom: 20px;
+        padding-bottom: 1rem;
         font-weight: bold;
         text-transform: uppercase;
     }
     p {
         font-size: var(--size-text);
-        line-height: 1.2;
     }
     img {
         position: absolute;
         top: 0;
-        // opacity: 0.5;
-        // height: 100%;
-        width: 20%;
+        width: 30%;
+        max-height: 100%;
+        opacity: 0.2;
     }
 }
-
-@media screen and (max-width: 1368px) {
-    div {
-        padding: 10px 5%;
-        h1 {
-            padding-bottom: 10px;
-        }
-        img {
-            display: none;
-        }
-    }
-}
-@media screen and (max-width: 420px) {
-    div {
-        padding: 10px 2%;
-    }
-}
+// @media screen and (max-width: 1368px) {
+//     div {
+//         padding: 1rem;
+//         img {
+//             display: none;
+//         }
+//     }
+// }
 </style>

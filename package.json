@@ -11,7 +11,8 @@
   "dependencies": {
     "vue": "^3.3.4",
     "vue-router": "^4.2.4",
-    "vue-yandex-maps": "^0.12.7"
+    "vue-yandex-maps": "^0.12.7",
+    "vuex": "^4.0.2"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.2.3",

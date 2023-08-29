@@ -1,36 +1,36 @@
 <script>
-import { ref, watch } from "vue";
+// import { ref, watch } from "vue";
 import Header from "./components/Header.vue";
-import Footer from "./components/Footer.vue";
-import { useRouter } from "vue-router";
+// import Footer from "./components/Footer.vue";
+// import { useRouter } from "vue-router";
 
-import DecorImg1 from "./assets/Header/Header-1.jpg";
-import DecorImg2 from "./assets/Header/Header-2.jpg";
-import DecorImg3 from "./assets/Header/Header-3.jpg";
-import DecorImg4 from "./assets/Header/Header-4.jpg";
+// import DecorImg1 from "./assets/Header/Header-1.jpg";
+// import DecorImg2 from "./assets/Header/Header-2.jpg";
+// import DecorImg3 from "./assets/Header/Header-3.jpg";
+// import DecorImg4 from "./assets/Header/Header-4.jpg";
 
 export default {
     components: {
         Header,
-        Footer,
+        // Footer,
     },
-    setup() {
-        const router = useRouter();
-        const headerNumImg = ref("1");
-        const imgDecorList = [DecorImg1, DecorImg2, DecorImg3, DecorImg4];
+    // setup() {
+    //     const router = useRouter();
+    //     const headerNumImg = ref("1");
+    //     const imgDecorList = [DecorImg1, DecorImg2, DecorImg3, DecorImg4];
 
-        watch(
-            () => router.currentRoute.value.meta[0],
-            async () => {
-                headerNumImg.value = router.currentRoute.value.meta[0];
-            }
-        );
+    //     watch(
+    //         () => router.currentRoute.value.meta[0],
+    //         async () => {
+    //             headerNumImg.value = router.currentRoute.value.meta[0];
+    //         }
+    //     );
 
-        return {
-            headerNumImg,
-            imgDecorList,
-        };
-    },
+    //     return {
+    //         headerNumImg,
+    //         imgDecorList,
+    //     };
+    // },
 };
 </script>
 
@@ -46,26 +46,33 @@ export default {
         rel="stylesheet"
     />
     <div class="app">
-        <Header :img="imgDecorList[headerNumImg-1]" />
+        <Header />
+        <!-- <Header :img="imgDecorList[headerNumImg-1]" /> -->
         <RouterView />
-        <Footer :img="imgDecorList[headerNumImg-1]" />
+        <!-- <Footer :img="imgDecorList[headerNumImg-1]" /> -->
     </div>
 </template>
 
 <style lang="scss">
 :root {
-    --size-title: 30px;
-    --size-text: 24px;
+    --size-title: 24px;
+    --size-text: 20px;
     --size-logo: 50px;
+    // --size-title: 30px;
+    // --size-text: 24px;
+    // --size-logo: 50px;
 
     --color-primary: #000;
     --color-secondary: #fff;
-    --color-warning: #e8ec2a;
+    --color-decor: #e8ec2a;
 
-    --bg-primary: #125197;
+    --bg-primary: rgba(45, 87, 129, 1);
     --bg-secondary: #fff;
-    --bg-warning: #e8ec2a;
-    --bg-dark: rgba(0, 0, 0, 0.5);
+    --bg-decor: #e8ec2a;
+
+    --w-icon: 40px;
+
+    // --bg-dark: rgba(0, 0, 0, 0.5);
 }
 
 @media screen and (max-width: 920px) {
@@ -102,7 +109,7 @@ export default {
     height: 5px;
 }
 ::-webkit-scrollbar-thumb {
-    background: var(--bg-warning);
+    background: var(--bg-decor);
 }
 
 #app {

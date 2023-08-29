@@ -1,0 +1,1 @@
+export const getPageData = (state) => state.pageData;
