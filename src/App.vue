@@ -1,41 +1,18 @@
 <script>
-// import { ref, watch } from "vue";
 import Header from "./components/Header.vue";
 // import Footer from "./components/Footer.vue";
-// import { useRouter } from "vue-router";
-
-// import DecorImg1 from "./assets/Header/Header-1.jpg";
-// import DecorImg2 from "./assets/Header/Header-2.jpg";
-// import DecorImg3 from "./assets/Header/Header-3.jpg";
-// import DecorImg4 from "./assets/Header/Header-4.jpg";
 
 export default {
     components: {
         Header,
         // Footer,
     },
-    // setup() {
-    //     const router = useRouter();
-    //     const headerNumImg = ref("1");
-    //     const imgDecorList = [DecorImg1, DecorImg2, DecorImg3, DecorImg4];
-
-    //     watch(
-    //         () => router.currentRoute.value.meta[0],
-    //         async () => {
-    //             headerNumImg.value = router.currentRoute.value.meta[0];
-    //         }
-    //     );
-
-    //     return {
-    //         headerNumImg,
-    //         imgDecorList,
-    //     };
-    // },
+    setup() {},
 };
 </script>
 
 <template>
-    <link
+    <!-- <link
         rel="stylesheet"
         href="https://pro.fontawesome.com/releases/v5.15.2/css/all.css"
     />
@@ -44,23 +21,22 @@ export default {
     <link
         href="https://fonts.googleapis.com/css2?family=Kablammo&family=Montserrat&display=swap"
         rel="stylesheet"
-    />
+    /> -->
     <div class="app">
         <Header />
-        <!-- <Header :img="imgDecorList[headerNumImg-1]" /> -->
         <RouterView />
         <!-- <Footer :img="imgDecorList[headerNumImg-1]" /> -->
     </div>
 </template>
 
 <style lang="scss">
+html {
+    font-size: 16px;
+}
 :root {
     --size-title: 24px;
     --size-text: 20px;
     --size-logo: 50px;
-    // --size-title: 30px;
-    // --size-text: 24px;
-    // --size-logo: 50px;
 
     --color-primary: #000;
     --color-secondary: #fff;
@@ -71,22 +47,47 @@ export default {
     --bg-decor: #e8ec2a;
 
     --w-icon: 40px;
+    --px-block: 10%;
 
     // --bg-dark: rgba(0, 0, 0, 0.5);
 }
 
-@media screen and (max-width: 920px) {
+@media screen and (max-width: 1024px) {
+    html {
+        font-size: 14px;
+    }
     :root {
-        --size-title: 24px;
-        --size-text: 20px;
+        --size-title: 22px;
+        --size-text: 18px;
         --size-logo: 40px;
+        --w-icon: 35px;
+        --px-block: 8%;
     }
 }
-@media screen and (max-width: 460px) {
+
+@media screen and (max-width: 768px) {
+    html {
+        font-size: 12px;
+    }
     :root {
         --size-title: 20px;
         --size-text: 16px;
-        --size-logo: 24px;
+        --size-logo: 30px;
+        --w-icon: 30px;
+        --px-block: 2rem;
+    }
+}
+
+@media screen and (max-width: 460px) {
+    html {
+        font-size: 10px;
+    }
+    :root {
+        --size-title: 18px;
+        --size-text: 16px;
+        --size-logo: 20px;
+        --w-icon: 25px;
+        --px-block: 1rem;
     }
 }
 

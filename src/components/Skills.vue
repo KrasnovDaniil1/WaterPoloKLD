@@ -1,8 +1,12 @@
 <script>
-import SkillIcon from "../assets/SkillIcon.png";
+import Swim from "../assets/SkillIcon/Swim.png";
+import Run from "../assets/SkillIcon/Run.png";
+import Winner from "../assets/SkillIcon/Winner.png";
+import Frendly from "../assets/SkillIcon/Frendly.png";
+
 export default {
     setup() {
-        return { SkillIcon };
+        return { Swim, Run, Winner, Frendly };
     },
 };
 </script>
@@ -11,7 +15,7 @@ export default {
     <div class="skills">
         <h1>Кандидат</h1>
         <div class="card_block" v-for="i in 3" :key="i">
-            <img :src="SkillIcon" />
+            <img :src="Swim" />
             <p>
                 Командный водный олимпийский вид спорта, целью в котором
                 является забросить мяч в ворота соперника большее число раз, чем

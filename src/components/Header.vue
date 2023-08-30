@@ -1,4 +1,5 @@
 <script>
+import menu from "../assets/Header/Menu.png";
 import logo from "../assets/logo.png";
 
 import { ref } from "vue";
@@ -24,16 +25,12 @@ export default {
                 name: "federation",
             },
             {
-                title: "Сборы",
-                name: "federation",
-            },
-            {
                 title: "Медио",
-                name: "federation",
+                name: "medio",
             },
             {
                 title: "Новости",
-                name: "federation",
+                name: "news",
             },
         ];
         const activeNavMobile = ref(false);
@@ -41,6 +38,7 @@ export default {
             rout,
             activeNavMobile,
             logo,
+            menu,
         };
     },
 };
@@ -53,10 +51,13 @@ export default {
             <span>Моржи</span>
         </nav>
         <div class="decor_line"></div>
-        <nav class="menu_block">
+        <nav class="menu_block" :class="{ menu_block_active: !activeNavMobile }">
             <router-link v-for="(r, i) in rout" :key="i" :to="{ name: r.name }">
                 {{ r.title }}
             </router-link>
+        </nav>
+        <nav class="burger" @click="activeNavMobile = !activeNavMobile">
+            <img :src="menu" />
         </nav>
     </header>
 </template>
@@ -111,6 +112,52 @@ header {
                 height: 2px;
                 background: var(--color-decor);
             }
+        }
+    }
+    .burger {
+        position: relative;
+        display: none;
+        cursor: pointer;
+        img {
+            width: var(--w-icon);
+            aspect-ratio: 1/1;
+        }
+    }
+}
+@media screen and (max-width: 1024px) {
+    header {
+        position: relative;
+    }
+}
+@media screen and (max-width: 768px) {
+    header {
+        flex-direction: row;
+        justify-content: space-between;
+        .decor_line {
+            display: none;
+        }
+        .menu_block {
+            position: absolute;
+            top: calc(2rem + var(--w-icon));
+            right: 0;
+            flex-direction: column;
+            padding: 0 1rem;
+            background: var(--bg-primary);
+            transition: all 1s;
+            a {
+                padding: 0.5rem;
+            }
+            .router-link-active {
+                &::before {
+                    top: 90%;
+                }
+            }
+        }
+        .menu_block_active {
+            right: -50%;
+        }
+        .burger {
+            display: block;
         }
     }
 }

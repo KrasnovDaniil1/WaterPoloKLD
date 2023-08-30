@@ -41,12 +41,16 @@ export default {
             ],
             price: [
                 {
-                    title: "Разовое занятие",
+                    title: "Разовое занятие в будни",
+                    price: "700",
+                },
+                {
+                    title: "Разовое занятие в воскресенье",
                     price: "800",
                 },
                 {
                     title: "Абонемент",
-                    price: "800",
+                    price: "3200",
                 },
             ],
             mapCoords: [54.720657, 20.351297],
@@ -88,7 +92,10 @@ export default {
                 </td>
             </tr>
         </table>
-        <table class="price_table">
+        <table
+            class="price_table"
+            :style="`grid-template-columns: repeat(${table.price.length}, 1fr);`"
+        >
             <tr v-for="(item, index) in table.price" :key="index">
                 <th>
                     {{ item.title }}
@@ -164,8 +171,8 @@ export default {
         grid-template-columns: repeat(7, 1fr);
     }
     .price_table {
-        font-size: var(--size-title);
-        grid-template-columns: repeat(2, 1fr);
+        // font-size: var(--size-title);
+        // grid-template-columns: repeat(auto, 1fr);
     }
     .map {
         width: 100vw;

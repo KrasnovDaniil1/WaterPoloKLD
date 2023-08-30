@@ -1,14 +1,11 @@
 <script>
 export default {
-    setup() {
-        const allVideo = [
-            '<iframe width="1056" height="594" src="https://www.youtube.com/embed/pQLGvi_byeg" title="Финал Азиады-2018 по водному поло. Япония - Казахстан" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>',
-            '<iframe width="1056" height="594" src="https://www.youtube.com/embed/KbMlp7lZUtw" title="Документальный цикл «Жестокий Спорт». Водное поло" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>',
-        ];
-        return {
-            allVideo,
-        };
+    props: {
+        allVideo: {
+            type: Array,
+        },
     },
+    setup() {},
 };
 </script>
 
@@ -26,13 +23,18 @@ export default {
 <style lang="scss" scoped>
 .video_block {
     padding: 1rem;
-    display: flex;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     grid-gap: 1rem;
     background: var(--bg-primary);
     .video {
         width: 100%;
         aspect-ratio: 16/9;
+    }
+}
+@media screen and (max-width: 460px) {
+    .video_block {
+        grid-template-columns: repeat(1, 1fr);
     }
 }
 </style>

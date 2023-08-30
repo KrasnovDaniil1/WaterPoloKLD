@@ -45,7 +45,7 @@ export default {
                 <i class="fas fa-volleyball-ball"></i>
                 <span>Water Polo</span>
             </div>
-            <div class="nav_block">
+            <div class="nav_block" >
                 <router-link
                     v-for="(r, i) in rout"
                     :key="i"

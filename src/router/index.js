@@ -27,6 +27,21 @@ const router = createRouter({
             component: () => import("../views/Federation.vue"),
             meta: "4",
         },
+        {
+            path: "/medio",
+            name: "medio",
+            component: () => import("../views/Medio.vue"),
+        },
+        {
+            path: "/news",
+            name: "news",
+            component: () => import("../views/News.vue"),
+        },
+        {
+            path: "/news:id",
+            name: "news_id",
+            component: () => import("../views/NewsID.vue"),
+        },
     ],
 });
 

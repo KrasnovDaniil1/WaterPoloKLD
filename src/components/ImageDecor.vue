@@ -2,6 +2,11 @@
 import logo from "../assets/logo.png";
 
 export default {
+    props: {
+        img: {
+            type: Image,
+        },
+    },
     setup() {
         return {
             logo,
@@ -12,10 +17,7 @@ export default {
 
 <template>
     <div class="decor">
-        <img
-            class="main_img"
-            src="https://static.legalcdn.org/66/85/5b8e3db68b2ac_1536048566.png"
-        />
+        <img class="main_img" :src="img" />
         <div class="dark_block"></div>
         <div class="logo_block">
             <img :src="logo" />
@@ -44,20 +46,32 @@ export default {
     }
     .logo_block {
         position: absolute;
-        top: 50%;
+        top: 55%;
         left: 50%;
         transform: translate(-50%, -50%);
         display: flex;
         flex-direction: column;
         align-items: center;
         img {
-            width: 150px;
+            width: 8rem;
             aspect-ratio: 1/1;
         }
         span {
             margin-top: 1rem;
             font-size: var(--size-logo);
             color: var(--color-secondary);
+        }
+    }
+}
+@media screen and (max-width: 1024px) {
+    .decor {
+        height: auto;
+        aspect-ratio: 16/9;
+        .logo_block {
+            top: 50%;
+            img {
+                width: 6rem;
+            }
         }
     }
 }

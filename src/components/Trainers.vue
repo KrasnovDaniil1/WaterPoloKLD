@@ -1,5 +1,13 @@
 <script>
 export default {
+    props: {
+        aboutTrainers: {
+            type: Object,
+        },
+        trainers: {
+            type: Array,
+        },
+    },
     setup() {},
 };
 </script>
@@ -7,28 +15,21 @@ export default {
 <template>
     <div class="trainers">
         <div class="info">
-            <h1>НАШИ ТРЕНЕРА</h1>
+            <h1>{{ aboutTrainers.title }}</h1>
             <p>
-                Командный водный олимпийский вид спорта, целью в котором
-                является забросить мяч в ворота соперника большее число раз, чем
-                это сделает оппонент в установленное время. Игра проходит в
-                воде, а мяч держат и забрасывают в ворота одной рукой.
-                Прародителем водного поло можно считать японскую игру, суть
-                которой заключалась в передаче мяча специальными шестами игрокам
-                своей команды, находясь при этом на плаву на соломенных бочках.
-                Современное водное поло было изобретено Уильямом Уилсоном во
-                второй половине XIX века.
+                {{ aboutTrainers.msg }}
             </p>
         </div>
-        <div class="cards_block">
-            <div class="card" v-for="i in 3" :key="i">
-                <img
-                    src="https://static.tildacdn.com/tild6361-6639-4662-b163-393938373363/DSC_18568.jpg"
-                />
+        <div
+            class="cards_block"
+            :style="`grid-template-columns: repeat(${trainers.length}, 1fr);`"
+        >
+            <div class="card" v-for="item in trainers" :key="item.id">
+                <img :src="item.img" />
                 <div class="card_text">
-                    <h1>Иван Иванович Иванов</h1>
-                    <p>Мастер Спорта</p>
-                    <span>+79990001122</span>
+                    <h1>{{ item.name }}</h1>
+                    <p>{{ item.rank }}</p>
+                    <span>{{ item.phone_number }}</span>
                 </div>
             </div>
         </div>
@@ -37,7 +38,7 @@ export default {
 
 <style lang="scss" scoped>
 .trainers {
-    padding: 1rem 15%;
+    padding: 1rem var(--px-block);
     .info {
         position: relative;
         color: var(--color-primary);
@@ -56,7 +57,7 @@ export default {
     }
     .cards_block {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        // grid-template-columns: repeat(3, 1fr);
         grid-gap: 2rem;
         .card {
             display: flex;
@@ -81,6 +82,18 @@ export default {
                 p {
                     padding: 0.5rem 0;
                 }
+            }
+        }
+    }
+}
+@media screen and (max-width: 1024px) {
+    .trainers {
+        .cards_block {
+            grid-template-columns: repeat(2, 1fr) !important;
+
+            .card:nth-child(2n + 1):last-child {
+                position: relative;
+                left: 50%;
             }
         }
     }
