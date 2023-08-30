@@ -46,7 +46,7 @@ div {
 
     h1 {
         font-size: var(--size-title);
-        padding-bottom: 1rem;
+        margin-bottom: 1rem;
         font-weight: bold;
         text-transform: uppercase;
     }

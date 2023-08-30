@@ -1,9 +1,9 @@
 <script>
 import About from "../src/components/About.vue";
 import Carusel from "./Carusel.vue";
-import Trainers from "../src/components/Trainers.vue";
-import Table from "../src/components/Table.vue";
-import Skill from "../src/components/Skill.vue";
+import Trainers from "./Trainers.vue";
+import Table from "./Table.vue";
+import Skill from "./Skill.vue";
 
 import Img1 from "../assets/Amateur/1.jpg";
 import Img2 from "../assets/Amateur/2.jpg";

@@ -1,13 +1,19 @@
 <script>
 import ImageDecor from "../components/ImageDecor.vue";
 import About from "../components/About.vue";
-import VideoCarusel from "../components/VideoCarusel.vue";
+import Video from "../components/Video.vue";
+import Trainers from "../components/Trainers.vue";
+import Skills from "../components/Skills.vue";
+import Table from "../components/Table.vue";
 
 export default {
     components: {
         ImageDecor,
         About,
-        VideoCarusel,
+        Video,
+        Trainers,
+        Skills,
+        Table,
     },
     setup() {},
 };
@@ -17,7 +23,10 @@ export default {
     <section>
         <ImageDecor />
         <About />
-        <VideoCarusel />
+        <Video />
+        <Trainers />
+        <Skills />
+        <Table />
     </section>
 </template>
 
