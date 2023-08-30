@@ -25,12 +25,16 @@ export default {
                 name: "federation",
             },
             {
-                title: "Медио",
-                name: "medio",
+                title: "Сборы",
+                name: "sbory",
             },
             {
                 title: "Новости",
                 name: "news",
+            },
+            {
+                title: "Медио",
+                name: "medio",
             },
         ];
         const activeNavMobile = ref(false);
@@ -51,7 +55,10 @@ export default {
             <span>Моржи</span>
         </nav>
         <div class="decor_line"></div>
-        <nav class="menu_block" :class="{ menu_block_active: !activeNavMobile }">
+        <nav
+            class="menu_block"
+            :class="{ menu_block_active: !activeNavMobile }"
+        >
             <router-link v-for="(r, i) in rout" :key="i" :to="{ name: r.name }">
                 {{ r.title }}
             </router-link>
@@ -154,7 +161,7 @@ header {
             }
         }
         .menu_block_active {
-            right: -50%;
+            right: -60%;
         }
         .burger {
             display: block;

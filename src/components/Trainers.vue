@@ -57,8 +57,7 @@ export default {
     }
     .cards_block {
         display: grid;
-        // grid-template-columns: repeat(3, 1fr);
-        grid-gap: 2rem;
+        grid-gap: 1rem;
         .card {
             display: flex;
             flex-direction: column;

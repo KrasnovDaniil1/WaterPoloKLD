@@ -1,5 +1,5 @@
 <script>
-import AboutDecor from "../assets/AboutDecor.png";
+import TableDecor from "../assets/TableDecor.png";
 export default {
     props: {
         about: {
@@ -12,7 +12,7 @@ export default {
     },
     setup() {
         return {
-            AboutDecor,
+            TableDecor,
         };
     },
 };
@@ -24,8 +24,8 @@ export default {
         <p>
             {{ about.msg }}
         </p>
-        <img style="left: 0" :src="AboutDecor" />
-        <img style="right: 0; transform: scale(-1, 1)" :src="AboutDecor" />
+        <img style="left: 0" :src="TableDecor" />
+        <img style="right: 0; transform: scale(-1, 1)" :src="TableDecor" />
     </div>
 </template>
 
@@ -54,5 +54,4 @@ div {
         opacity: 0.3;
     }
 }
-
 </style>

@@ -3,13 +3,18 @@ import ImageDecor from "../components/ImageDecor.vue";
 import About from "../components/About.vue";
 import Video from "../components/Video.vue";
 import Trainers from "../components/Trainers.vue";
-// import Skills from "../components/Skills.vue";
-// import Table from "../components/Table.vue";
+import Skills from "../components/Skills.vue";
+import TableAbout from "../components/TableAbout.vue";
 
-import Amateur from "../assets/Header/Amateur.jpg";
-// import Children from "./assets/Header/Children.jpg";
-// import Federation from "./assets/Header/Federation.jpg";
-// import Student from "./assets/Header/Student.jpg";
+import Table from "../components/Table.vue";
+import Map from "../components/Map.vue";
+
+import Bg from "../assets/Header/Amateur.jpg";
+
+import Swim from "../assets/SkillIcon/Swim.png";
+import Run from "../assets/SkillIcon/Run.png";
+import Winner from "../assets/SkillIcon/Winner.png";
+import Frendly from "../assets/SkillIcon/Frendly.png";
 
 export default {
     components: {
@@ -17,8 +22,10 @@ export default {
         About,
         Video,
         Trainers,
-        // Skills,
-        // Table,
+        Skills,
+        Table,
+        TableAbout,
+        Map,
     },
     setup() {
         const about = {
@@ -55,20 +62,68 @@ export default {
                 rank: "Мастер Спорта",
                 phone_number: "+79990001122",
             },
+        ];
+        const skills = [
             {
-                id: "3",
-                img: "https://static.tildacdn.com/tild6361-6639-4662-b163-393938373363/DSC_18568.jpg",
-                name: "Иван Иванович Иванович",
-                rank: "Мастер Спорта",
-                phone_number: "+79990001122",
+                icon: Run,
+                msg: "Командный водный олимпийский вид спорта, целью в котором является забросить мяч в ворота соперника большее число раз, чем это сделает оппонент в установленное время. Игра проходит в воде, а мяч держат и забрасывают в ворота одной рукой. Прародителем водного поло можно считать японскую игру, суть которой заключалась в передаче мяча специальными шестами игрокам своей команды, находясь при этом на плаву на соломенных бочках.",
+            },
+            {
+                icon: Winner,
+                msg: "Командный водный олимпийский вид спорта, целью в котором является забросить мяч в ворота соперника большее число раз, чем это сделает оппонент в установленное время. Игра проходит в воде, а мяч держат и забрасывают в ворота одной рукой. Прародителем водного поло можно считать японскую игру, суть которой заключалась в передаче мяча специальными шестами игрокам своей команды, находясь при этом на плаву на соломенных бочках. .",
+            },
+            {
+                icon: Frendly,
+                msg: "Командный водный олимпийский вид спорта, целью в котором является забросить мяч в ворота соперника большее число раз, чем это сделает оппонент в установленное время. Игра проходит в воде, а мяч держат и забрасывают в ворота одной рукой. Прародителем водного поло можно считать японскую игру, суть которой заключалась в передаче мяча специальными шестами игрокам своей команды, находясь при этом на плаву на соломенных бочках.",
+            },
+            {
+                icon: Swim,
+                msg: "Командный водный олимпийский вид спорта, целью в котором является забросить мяч в ворота соперника большее число раз, чем это сделает оппонент в установленное время. Игра проходит в воде, а мяч держат и забрасывают в ворота одной рукой. Прародителем водного поло можно считать японскую игру, суть которой заключалась в передаче мяча специальными шестами игрокам своей команды, находясь при этом на плаву на соломенных бочках.",
             },
         ];
+        const tableAbout = {
+            title: "Кто мы",
+            msg: "Для игр мужских команд расстояние между лицевыми линиями должно быть 30 м, ширина поля 20 м. Для игр женских команд расстояние между лицевыми линиями должно быть 25 м, ширина поля 17 м. Границы игрового поля (лицевые линии) должны находиться на расстоянии 0,30 м за линиями ворот.По обе стороны игрового поля устанавливаются ворота. Ворота представляют собой две стойки и перекладину прямоугольной формы толщиной 0,075 м, обращённые в сторону игрового поля и окрашенные в белый цвет. Они должны быть установлены строго посередине линии ворот и на расстоянии не менее 0,30 м от границ игрового поля. Расстояние между стойками ворот должно быть 3 м. Если глубина бассейна составляет 1,8 м и более, как того требуют правила игры, то нижний край перекладины должен находиться на высоте 0,90 м над поверхностью воды (при игре любительских и профессиональных команд в бассейнах, в которых есть глубокая и мелкая часть, правилами предусмотрена установка ворот при глубине от 1,5 м и менее таким образом, чтобы перекладина отстояла от дна бассейна не менее чем на 2,4 м).",
+        };
+        const tableGroups = [
+            {
+                title: "Группа 1",
+                time: [
+                    "-",
+                    "12.00-13.00",
+                    "-",
+                    "12.00-13.00",
+                    "-",
+                    "12.00-13.00",
+                    "12.00-13.00",
+                ],
+            },
+        ];
+        const tablePrice = [
+            {
+                title: "Одно занятие в будни",
+                price: "700",
+            },
+            {
+                title: "Одно занятие в воскресенье",
+                price: "800",
+            },
+            {
+                title: "Абонемент",
+                price: "3200",
+            },
+        ];
+
         return {
-            Amateur,
+            Bg,
             about,
             allVideo,
             aboutTrainers,
             trainers,
+            skills,
+            tableAbout,
+            tableGroups,
+            tablePrice,
         };
     },
 };
@@ -76,12 +131,14 @@ export default {
 
 <template>
     <section>
-        <ImageDecor :img="Amateur" />
+        <ImageDecor :img="Bg" />
         <About :about="about" />
         <Video :allVideo="allVideo" />
         <Trainers :aboutTrainers="aboutTrainers" :trainers="trainers" />
-        <!--<Skills />
-        <Table /> -->
+        <Skills title="Идеальный кандидат" :skills="skills" />
+        <TableAbout :about="tableAbout" />
+        <Table :tableGroups="tableGroups" :tablePrice="tablePrice" />
+        <Map :coords="[54.720657, 20.351297]" />
     </section>
 </template>
 

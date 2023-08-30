@@ -1,102 +1,57 @@
 <script>
-import { yandexMap, ymapMarker } from "vue-yandex-maps";
-
-import TableDecor from "../assets/TableDecor.png";
 export default {
-    components: {
-        yandexMap,
-        ymapMarker,
+    props: {
+        tableGroups: {
+            type: Array,
+        },
+        tablePrice: {
+            type: Array,
+        },
     },
     setup() {
-        const table = {
-            class: [
-                {
-                    day: "Понедельник",
-                    time: "12.00-14.00",
-                },
-                {
-                    day: "Вторник",
-                    time: "12.00-14.00",
-                },
-                {
-                    day: "Среда",
-                    time: "12.00-14.00",
-                },
-                {
-                    day: "Четверг",
-                    time: "12.00-14.00",
-                },
-                {
-                    day: "Пятница",
-                    time: "12.00-14.00",
-                },
-                {
-                    day: "Суббота",
-                    time: "12.00-14.00",
-                },
-                {
-                    day: "Воскресенье",
-                    time: "12.00-14.00",
-                },
-            ],
-            price: [
-                {
-                    title: "Разовое занятие в будни",
-                    price: "700",
-                },
-                {
-                    title: "Разовое занятие в воскресенье",
-                    price: "800",
-                },
-                {
-                    title: "Абонемент",
-                    price: "3200",
-                },
-            ],
-            mapCoords: [54.720657, 20.351297],
-        };
+        const tableDay = [
+            "Понедельник",
+            "Вторник",
+            "Среда",
+            "Четверг",
+            "Пятница",
+            "Суббота",
+            "Воскресенье",
+        ];
+
         return {
-            TableDecor,
-            table,
+            tableDay,
         };
     },
 };
 </script>
 
 <template>
-    <div class="table_block">
-        <div class="info">
-            <h1>Занятия</h1>
-            <p>
-                Командный водный олимпийский вид спорта, целью в котором
-                является забросить мяч в ворота соперника большее число раз, чем
-                это сделает оппонент в установленное время. Игра проходит в
-                воде, а мяч держат и забрасывают в ворота одной рукой.
-                Прародителем водного поло можно считать японскую игру, суть
-                которой заключалась в передаче мяча специальными шестами игрокам
-                своей команды, находясь при этом на плаву на соломенных бочках.
-                Современное водное поло было изобретено Уильямом Уилсоном во
-                второй половине XIX века. Сначала игра очень походила на регби,
-                так как в первых редакциях правил было разрешено
-            </p>
-            <img style="left: 0" :src="TableDecor" />
-            <img style="right: 0; transform: scale(-1, 1)" :src="TableDecor" />
-        </div>
-        <table class="date_table">
-            <tr v-for="(item, index) in table.class" :key="index">
-                <th>
-                    {{ item.day }}
-                </th>
-                <td>
-                    {{ item.time }}
-                </td>
-            </tr>
-        </table>
+    <div class="table">
         <table
-            class="price_table"
-            :style="`grid-template-columns: repeat(${table.price.length}, 1fr);`"
+            class="date_table"
+            v-for="(item, index) in tableGroups"
+            :key="index"
         >
-            <tr v-for="(item, index) in table.price" :key="index">
+            <h1>{{ item.title }}</h1>
+            <div class="table_block">
+                <tr v-for="(item, index) in item.time" :key="index">
+                    <th>
+                        {{ tableDay[index] }}
+                    </th>
+                    <td>
+                        {{ item }}
+                    </td>
+                </tr>
+            </div>
+        </table>
+
+        <table
+            v-if="tablePrice"
+            class="price_table"
+            :style="`grid-template-columns: repeat(${tablePrice.length}, 1fr);`"
+        >
+            <tr v-for="(item, index) in tablePrice" :key="index">
                 <th>
                     {{ item.title }}
                 </th>
@@ -105,82 +60,84 @@ export default {
                 </td>
             </tr>
         </table>
-        <div class="map">
-            <yandexMap :coords="table.mapCoords" :zoom="12">
-                <ymapMarker
-                    :coords="table.mapCoords"
-                    marker-id="123"
-                    hint-content="some hint"
-                />
-            </yandexMap>
-        </div>
     </div>
 </template>
 
 <style lang="scss" scoped>
-.table_block {
+.table {
     padding: 1rem 0;
-    .info {
-        position: relative;
-        color: var(--color-primary);
-        text-align: center;
-        padding: 0 15%;
-        line-height: 1.5;
+    font-size: var(--size-text);
+    line-height: 1.2;
+    .date_table {
+        display: grid;
+        grid-template-columns: 1fr;
         h1 {
+            padding: 0.5rem 0;
+            text-align: center;
+            background: var(--bg-primary);
             font-size: var(--size-title);
+            color: var(--color-secondary);
             font-weight: bold;
-            text-transform: uppercase;
-            padding-bottom: 1rem;
         }
-        p {
-            font-size: var(--size-text);
-        }
-        img {
-            position: absolute;
-            top: 0;
-            width: 20%;
-            max-height: 100%;
-            opacity: 0.3;
+        .table_block {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            tr {
+                display: flex;
+                flex-direction: column;
+                text-align: center;
+                th,
+                td {
+                    border: 1px solid var(--bg-primary);
+                    padding: 0.5rem;
+                }
+            }
         }
     }
-    .date_table,
     .price_table {
-        padding: 1rem 10%;
         display: grid;
-        font-size: var(--size-text);
+        grid-template-columns: repeat(7, 1fr);
         tr {
             display: flex;
             flex-direction: column;
             text-align: center;
+            font-weight: bold;
 
             th {
-                font-weight: bold;
                 background: var(--bg-primary);
-                color: var(--color-secondary);
                 border: 1px solid var(--bg-secondary);
-                padding: 10px 0;
+                color: var(--color-secondary);
+                padding: 0.5rem;
             }
+
             td {
                 border: 1px solid var(--bg-primary);
-                background: var(--bg-secondary);
-                padding: 10px 0;
+                padding: 0.5rem;
             }
         }
     }
-    .date_table {
-        grid-template-columns: repeat(7, 1fr);
+}
+@media screen and (max-width: 1024px) {
+    .table {
+        .price_table {
+            grid-template-columns: repeat(1, 1fr) !important;
+        }
     }
-    .price_table {
-        // font-size: var(--size-title);
-        // grid-template-columns: repeat(auto, 1fr);
-    }
-    .map {
-        width: 100vw;
-        aspect-ratio: 4/1;
-        .ymap-container {
-            position: relative;
-            width: 100%;
-            height: 100%;
+}
+
+@media screen and (max-width: 768px) {
+    .table {
+        .date_table {
+            .table_block {
+                grid-template-columns: repeat(1, 1fr);
+                tr {
+                    flex-direction: row;
+                    th,
+                    td {
+                        width: 50%;
+                    }
+                }
+            }
         }
     }
 }
