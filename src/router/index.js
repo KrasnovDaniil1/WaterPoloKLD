@@ -28,24 +28,28 @@ const router = createRouter({
             meta: "4",
         },
         {
-            path: "/medio",
-            name: "medio",
-            component: () => import("../views/Medio.vue"),
-        },
-        {
             path: "/sbory",
             name: "sbory",
             component: () => import("../views/Sbory.vue"),
+            meta: "5",
         },
         {
             path: "/news",
             name: "news",
             component: () => import("../views/News.vue"),
+            meta: "6",
         },
         {
-            path: "/news:id",
+            path: "/news/:id",
             name: "news_id",
             component: () => import("../views/NewsID.vue"),
+            meta: "7",
+        },
+        {
+            path: "/medio",
+            name: "medio",
+            component: () => import("../views/Medio.vue"),
+            meta: "8",
         },
     ],
 });

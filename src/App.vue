@@ -1,11 +1,11 @@
 <script>
 import Header from "./components/Header.vue";
-// import Footer from "./components/Footer.vue";
+import Footer from "./components/Footer.vue";
 
 export default {
     components: {
         Header,
-        // Footer,
+        Footer,
     },
     setup() {},
 };
@@ -15,17 +15,17 @@ export default {
     <!-- <link
         rel="stylesheet"
         href="https://pro.fontawesome.com/releases/v5.15.2/css/all.css"
-    />
+    /> -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
         href="https://fonts.googleapis.com/css2?family=Kablammo&family=Montserrat&display=swap"
         rel="stylesheet"
-    /> -->
+    />
     <div class="app">
         <Header />
         <RouterView />
-        <!-- <Footer :img="imgDecorList[headerNumImg-1]" /> -->
+        <Footer />
     </div>
 </template>
 
@@ -47,12 +47,12 @@ html {
     --bg-decor: #e8ec2a;
 
     --w-icon: 40px;
-    --px-block: 10%;
+    --px-block: 8%;
 
     // --bg-dark: rgba(0, 0, 0, 0.5);
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1368px) {
     html {
         font-size: 14px;
     }
@@ -61,7 +61,7 @@ html {
         --size-text: 18px;
         --size-logo: 40px;
         --w-icon: 35px;
-        --px-block: 8%;
+        --px-block: 5%;
     }
 }
 
@@ -74,7 +74,7 @@ html {
         --size-text: 16px;
         --size-logo: 30px;
         --w-icon: 30px;
-        --px-block: 2rem;
+        --px-block: 1rem;
     }
 }
 
@@ -87,7 +87,7 @@ html {
         --size-text: 16px;
         --size-logo: 20px;
         --w-icon: 25px;
-        --px-block: 1rem;
+        --px-block: 0.5rem;
     }
 }
 

@@ -3,6 +3,7 @@ import ImageDecor from "../components/ImageDecor.vue";
 import About from "../components/About.vue";
 import Video from "../components/Video.vue";
 import Trainers from "../components/Trainers.vue";
+import Goals from "../components/Goals.vue";
 
 import Bg from "../assets/Header/Federation.jpg";
 
@@ -13,6 +14,7 @@ export default {
         Video,
         Trainers,
         Map,
+        Goals,
     },
     setup() {
         const about = {
@@ -67,6 +69,7 @@ export default {
         <ImageDecor :img="Bg" />
         <About :about="about" />
         <Video :allVideo="allVideo" />
+        <Goals />
         <Trainers :aboutTrainers="aboutTrainers" :trainers="trainers" />
     </section>
 </template>

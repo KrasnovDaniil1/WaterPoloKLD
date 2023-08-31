@@ -2,10 +2,12 @@
 import menu from "../assets/Header/Menu.png";
 import logo from "../assets/logo.png";
 
-import { ref } from "vue";
+import { useRouter } from "vue-router";
+import { ref, watch } from "vue";
 
 export default {
     setup() {
+        const router = useRouter();
         const rout = [
             {
                 title: "Любителям",
@@ -38,18 +40,30 @@ export default {
             },
         ];
         const activeNavMobile = ref(false);
+        const headerAbsolute = ref(true);
+        watch(
+            () => router.currentRoute.value.meta[0],
+            async () => {
+                if (router.currentRoute.value.meta[0] > 4) {
+                    headerAbsolute.value = false;
+                } else {
+                    headerAbsolute.value = true;
+                }
+            }
+        );
         return {
             rout,
             activeNavMobile,
             logo,
             menu,
+            headerAbsolute,
         };
     },
 };
 </script>
 
 <template>
-    <header>
+    <header :style="headerAbsolute ? 'position:absolute' : 'position:relative'">
         <nav class="logo_block">
             <img :src="logo" />
             <span>Моржи</span>
@@ -59,7 +73,12 @@ export default {
             class="menu_block"
             :class="{ menu_block_active: !activeNavMobile }"
         >
-            <router-link v-for="(r, i) in rout" :key="i" :to="{ name: r.name }">
+            <router-link
+                v-for="(r, i) in rout"
+                :key="i"
+                :to="{ name: r.name }"
+                @click="activeNavMobile = false"
+            >
                 {{ r.title }}
             </router-link>
         </nav>
@@ -133,7 +152,7 @@ header {
 }
 @media screen and (max-width: 1024px) {
     header {
-        position: relative;
+        position: relative !important;
     }
 }
 @media screen and (max-width: 768px) {

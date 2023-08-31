@@ -35,7 +35,7 @@ div {
     color: var(--color-primary);
     text-align: center;
     padding: 1rem var(--px-block);
-    line-height: 1.5;
+    line-height: 1.2;
 
     h1 {
         font-size: var(--size-title);

@@ -117,4 +117,40 @@ export default {
         }
     }
 }
+@media screen and (max-width: 1024px) {
+    .carusel {
+        .menu {
+            grid-template-columns: 1fr 6fr 1fr;
+            .arrow {
+                img {
+                    width: 50px;
+                }
+            }
+        }
+        .preview {
+            .video_block {
+                min-width: 30%;
+            }
+        }
+    }
+}
+@media screen and (max-width: 468px) {
+    .carusel {
+        .menu {
+            grid-template-columns: 1fr 8fr 1fr;
+            .arrow {
+                img {
+                    padding: 0 0.5rem;
+                    width: 30px;
+                    aspect-ratio: 2/3;
+                }
+            }
+        }
+        .preview {
+            .video_block {
+                min-width: 40%;
+            }
+        }
+    }
+}
 </style>

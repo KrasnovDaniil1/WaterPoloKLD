@@ -44,7 +44,7 @@ section {
         font-weight: bold;
         text-transform: uppercase;
         text-align: center;
-        line-height: 1.5;
+        line-height: 1.2;
     }
     .card_block {
         position: relative;

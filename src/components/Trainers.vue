@@ -43,7 +43,7 @@ export default {
         position: relative;
         color: var(--color-primary);
         text-align: center;
-        line-height: 1.5;
+        line-height: 1.2;
         margin-bottom: 1rem;
         h1 {
             font-size: var(--size-title);
