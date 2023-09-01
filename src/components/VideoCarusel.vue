@@ -4,21 +4,13 @@ import { ref } from "vue";
 import Arrow from "../assets/Arrow.png";
 
 export default {
-    setup() {
-        const allVideo = [
-            '<iframe width="1056" height="594" src="https://www.youtube.com/embed/pQLGvi_byeg" title="Финал Азиады-2018 по водному поло. Япония - Казахстан" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>',
-            '<iframe width="1056" height="594" src="https://www.youtube.com/embed/KbMlp7lZUtw" title="Документальный цикл «Жестокий Спорт». Водное поло" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>',
-            '<iframe width="1056" height="594" src="https://www.youtube.com/embed/pQLGvi_byeg" title="Финал Азиады-2018 по водному поло. Япония - Казахстан" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>',
-            '<iframe width="1056" height="594" src="https://www.youtube.com/embed/KbMlp7lZUtw" title="Документальный цикл «Жестокий Спорт». Водное поло" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>',
-            '<iframe width="1056" height="594" src="https://www.youtube.com/embed/pQLGvi_byeg" title="Финал Азиады-2018 по водному поло. Япония - Казахстан" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>',
-            '<iframe width="1056" height="594" src="https://www.youtube.com/embed/KbMlp7lZUtw" title="Документальный цикл «Жестокий Спорт». Водное поло" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>',
-            '<iframe width="1056" height="594" src="https://www.youtube.com/embed/pQLGvi_byeg" title="Финал Азиады-2018 по водному поло. Япония - Казахстан" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>',
-            '<iframe width="1056" height="594" src="https://www.youtube.com/embed/KbMlp7lZUtw" title="Документальный цикл «Жестокий Спорт». Водное поло" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>',
-            '<iframe width="1056" height="594" src="https://www.youtube.com/embed/pQLGvi_byeg" title="Финал Азиады-2018 по водному поло. Япония - Казахстан" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>',
-            '<iframe width="1056" height="594" src="https://www.youtube.com/embed/KbMlp7lZUtw" title="Документальный цикл «Жестокий Спорт». Водное поло" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>',
-            '<iframe width="1056" height="594" src="https://www.youtube.com/embed/pQLGvi_byeg" title="Финал Азиады-2018 по водному поло. Япония - Казахстан" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>',
-            '<iframe width="1056" height="594" src="https://www.youtube.com/embed/KbMlp7lZUtw" title="Документальный цикл «Жестокий Спорт». Водное поло" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>',
-        ];
+    props: {
+        videos: {
+            type: Array,
+        },
+    },
+    setup(props) {
+        const allVideo = props.videos;
         const currentVideo = ref(0);
 
         const switchVideo = (e) => {
@@ -50,7 +42,7 @@ export default {
             <div class="arrow" @click="switchVideo(-1)">
                 <img :src="Arrow" />
             </div>
-            <div class="video_main" v-html="allVideo[currentVideo]" />
+            <div class="video_main" v-html="allVideo[currentVideo].frame" />
             <div class="arrow" @click="switchVideo(1)">
                 <img style="transform: scale(-1, 1)" :src="Arrow" />
             </div>
@@ -61,7 +53,7 @@ export default {
                 :class="{ active_video: currentVideo == index }"
                 @click="switchVideoClick(index)"
                 v-for="(item, index) in allVideo"
-                v-html="item"
+                v-html="item.frame"
                 :key="index"
             />
         </div>
@@ -98,6 +90,7 @@ export default {
         display: flex;
         grid-gap: 1rem;
         overflow-x: scroll;
+        justify-content: center;
         .video_block {
             position: relative;
             min-width: 15%;

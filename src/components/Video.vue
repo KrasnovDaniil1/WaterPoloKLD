@@ -14,7 +14,7 @@ export default {
         <div
             class="video"
             v-for="(item, index) in allVideo"
-            v-html="item"
+            v-html="item.frame"
             :key="index"
         />
     </div>

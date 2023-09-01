@@ -1,14 +1,14 @@
 <script>
-import test1 from "../assets/Federation/1.jpg";
-import test2 from "../assets/Federation/2.jpg";
-import test3 from "../assets/Federation/3.jpg";
-import test4 from "../assets/Federation/4.jpg";
-
 import { ref } from "vue";
 
 export default {
-    setup() {
-        const allImg = [test1, test2, test3, test4];
+    props: {
+        images: {
+            type: Array,
+        },
+    },
+    setup(props) {
+        const allImg = props.images;
         const currentImg = ref(0);
 
         return {
@@ -21,14 +21,14 @@ export default {
 
 <template>
     <div class="carusel">
-        <img class="main" :src="allImg[currentImg]" />
+        <img class="main" :src="allImg[currentImg].src" />
         <div class="block">
             <img
                 @click="currentImg = i"
                 class="preview"
-                :class="{ preview_active: (currentImg == i) }"
+                :class="{ preview_active: currentImg == i }"
                 v-for="(item, i) in allImg"
-                :src="item"
+                :src="item.src"
                 :key="i"
             />
         </div>

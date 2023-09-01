@@ -20,12 +20,9 @@ export default {
                 {{ aboutTrainers.msg }}
             </p>
         </div>
-        <div
-            class="cards_block"
-            :style="`grid-template-columns: repeat(${trainers.length}, 1fr);`"
-        >
-            <div class="card" v-for="item in trainers" :key="item.id">
-                <img :src="item.img" />
+        <div class="cards_block">
+            <div class="card" v-for="(item, i) in trainers" :key="i">
+                <img :src="item.src" />
                 <div class="card_text">
                     <h1>{{ item.name }}</h1>
                     <p>{{ item.rank }}</p>
@@ -58,6 +55,7 @@ export default {
     .cards_block {
         display: grid;
         grid-gap: 1rem;
+        grid-template-columns: repeat(3, 1fr);
         .card {
             display: flex;
             flex-direction: column;

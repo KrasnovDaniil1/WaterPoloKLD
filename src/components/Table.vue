@@ -1,10 +1,10 @@
 <script>
 export default {
     props: {
-        tableGroups: {
+        groups: {
             type: Array,
         },
-        tablePrice: {
+        price: {
             type: Array,
         },
     },
@@ -30,14 +30,14 @@ export default {
     <div class="table">
         <table
             class="date_table"
-            v-for="(item, index) in tableGroups"
+            v-for="(item, index) in groups"
             :key="index"
         >
             <h1>{{ item.title }}</h1>
             <div class="table_block">
-                <tr v-for="(item, index) in item.time" :key="index">
+                <tr v-for="(item, i) in item.data" :key="i">
                     <th>
-                        {{ tableDay[index] }}
+                        {{ tableDay[i] }}
                     </th>
                     <td>
                         {{ item }}
@@ -47,11 +47,11 @@ export default {
         </table>
 
         <table
-            v-if="tablePrice"
+            v-if="price"
             class="price_table"
-            :style="`grid-template-columns: repeat(${tablePrice.length}, 1fr);`"
+            :style="`grid-template-columns: repeat(${price.length}, 1fr);`"
         >
-            <tr v-for="(item, index) in tablePrice" :key="index">
+            <tr v-for="(item, i) in price" :key="i">
                 <th>
                     {{ item.title }}
                 </th>

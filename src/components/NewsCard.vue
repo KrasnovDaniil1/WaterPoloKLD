@@ -1,5 +1,4 @@
 <script>
-import src from "../assets/Federation/1.jpg";
 import { ref } from "vue";
 
 export default {
@@ -34,7 +33,6 @@ export default {
 
         return {
             newsPage,
-            src,
         };
     },
 };
@@ -43,7 +41,12 @@ export default {
 <template>
     <div class="news">
         <div class="news_block">
-            <router-link :to="{ name: 'news_id', params: { id: '1' } }" class="card" v-for="(item, i) in newsPage.news" :key="i">
+            <router-link
+                :to="{ name: 'news_id', params: { id: '1' } }"
+                class="card"
+                v-for="(item, i) in newsPage.news"
+                :key="i"
+            >
                 <img :src="item.url" />
                 <h1>{{ item.title }}</h1>
                 <p>
