@@ -19,6 +19,8 @@ export default {
         };
         return {
             store,
+            pageNews: computed(() => store.getters.getPageNews),
+            store,
             about,
         };
     },
@@ -28,7 +30,7 @@ export default {
 <template>
     <section>
         <About :about="about" />
-        <NewsCard />
+        <NewsCard :pageNews="pageNews" />
     </section>
 </template>
 

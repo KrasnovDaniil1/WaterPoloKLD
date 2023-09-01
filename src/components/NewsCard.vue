@@ -2,37 +2,15 @@
 import { ref } from "vue";
 
 export default {
-    setup() {
-        const newsPage = ref({
-            pageCount: 3,
-            currentPage: 2,
-            news: [
-                {
-                    id: "1",
-                    title: "Балтика выйграла матч",
-                    msg: "Расстояние между стойками ворот должно быть 3 м. Если глубина бассейна составляет 1,8 м и более, как того требуют правила игры, то нижний край перекладины должен находиться на высоте 0,90 м над поверхностью воды (при игре любительских и профессиональных команд в бассейнах, в которых есть глубокая и мелкая часть, правилами предусмотрена установка ворот при глубине от 1,5 м и менее таким образом, чтобы перекладина отстояла от дна бассейна не менее чем на 2,4 м).",
-                    time: "27.08.2023",
-                    url: "https://cska.ru/upload/thumbs/920w0h761d9796630c96f1a2d27cb38dd6fb3e.jpg",
-                },
-                {
-                    id: "1",
-                    title: "Балтика выйграла матч",
-                    msg: "Расстояние между стойками ворот должно быть 3 м. Если глубина бассейна составляет 1,8 м и более, как того требуют правила игры, то нижний край перекладины должен находиться на высоте 0,90 м над поверхностью воды (при игре любительских и профессиональных команд в бассейнах, в которых есть глубокая и мелкая часть, правилами предусмотрена установка ворот при глубине от 1,5 м и менее таким образом, чтобы перекладина отстояла от дна бассейна не менее чем на 2,4 м).",
-                    time: "27.08.2023",
-                    url: "https://cska.ru/upload/thumbs/920w0h761d9796630c96f1a2d27cb38dd6fb3e.jpg",
-                },
-                {
-                    id: "1",
-                    title: "Балтика выйграла матч",
-                    msg: "Расстояние между стойками ворот должно быть 3 м. Если глубина бассейна составляет 1,8 м и более, как того требуют правила игры, то нижний край перекладины должен находиться на высоте 0,90 м над поверхностью воды (при игре любительских и профессиональных команд в бассейнах, в которых есть глубокая и мелкая часть, правилами предусмотрена установка ворот при глубине от 1,5 м и менее таким образом, чтобы перекладина отстояла от дна бассейна не менее чем на 2,4 м).",
-                    time: "27.08.2023",
-                    url: "https://cska.ru/upload/thumbs/920w0h761d9796630c96f1a2d27cb38dd6fb3e.jpg",
-                },
-            ],
-        });
-
+    props: {
+        pageNews: {
+            type: Object,
+        },
+    },
+    setup(props) {
+        const currentPage = ref(props.pageNews.page);
         return {
-            newsPage,
+            currentPage,
         };
     },
 };
@@ -42,28 +20,28 @@ export default {
     <div class="news">
         <div class="news_block">
             <router-link
-                :to="{ name: 'news_id', params: { id: '1' } }"
+                v-for="item in pageNews.news"
+                :to="{ name: 'news_id', params: { id: item.id } }"
                 class="card"
-                v-for="(item, i) in newsPage.news"
-                :key="i"
+                :key="item.id"
             >
-                <img :src="item.url" />
+                <img :src="item.src" />
                 <h1>{{ item.title }}</h1>
                 <p>
                     {{ item.msg }}
                 </p>
                 <div class="btn_block">
-                    <span>11.02.2003</span>
+                    <span>{{ item.time }}</span>
                     <button>Подробнее</button>
                 </div>
             </router-link>
         </div>
         <nav class="pagination">
             <button
-                v-for="i in newsPage.pageCount"
+                v-for="i in pageNews.count"
                 :key="i"
-                :class="{ page_active: newsPage.currentPage == i }"
-                @click="newsPage.currentPage = i"
+                :class="{ page_active: currentPage == i }"
+                @click="currentPage = i"
             >
                 {{ i }}
             </button>

@@ -3,7 +3,7 @@ import ImageCarusel from "../components/ImageCarusel.vue";
 import VideoCarusel from "../components/VideoCarusel.vue";
 
 import arrow from "../assets/ArrowNews.png";
-import { computed } from "vue";
+import { computed, onMounted } from "vue";
 import { useStore } from "vuex";
 
 export default {
@@ -13,6 +13,12 @@ export default {
     },
     setup() {
         const store = useStore();
+        onMounted(() => {
+            window.scrollTo({
+                top: 0,
+                left: 0,
+            });
+        });
         return {
             arrow,
             store,
@@ -31,6 +37,7 @@ export default {
             {{ newsId.msg }}
         </p>
         <VideoCarusel :videos="newsId.videos" />
+        <span>{{ newsId.time }}</span>
     </section>
 </template>
 
@@ -54,6 +61,13 @@ section {
             float: right;
             width: 50%;
         }
+    }
+    span {
+        display: block;
+        font-size: var(--size-text);
+        text-align: center;
+        margin: 1rem;
+        font-weight: bold;
     }
 }
 @media screen and (max-width: 768px) {

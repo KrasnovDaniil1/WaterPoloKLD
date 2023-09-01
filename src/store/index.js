@@ -192,11 +192,11 @@ const state = {
         ],
     },
     pageNews: {
-        pageCount: 3,
-        currentPage: 2,
+        count: 3,
+        page: 1,
         news: [
             {
-                id: "1",
+                id: "0",
                 title: "Балтика выйграла матч",
                 msg: "Расстояние между стойками ворот должно быть 3 м. Если глубина бассейна составляет 1,8 м и более, как того требуют правила игры, то нижний край перекладины должен находиться на высоте 0,90 м над поверхностью воды (при игре любительских и профессиональных команд в бассейнах, в которых есть глубокая и мелкая часть, правилами предусмотрена установка ворот при глубине от 1,5 м и менее таким образом, чтобы перекладина отстояла от дна бассейна не менее чем на 2,4 м).",
                 time: "27.08.2023",
@@ -210,7 +210,7 @@ const state = {
                 src: "https://cska.ru/upload/thumbs/920w0h761d9796630c96f1a2d27cb38dd6fb3e.jpg",
             },
             {
-                id: "1",
+                id: "2",
                 title: "Балтика выйграла матч",
                 msg: "Расстояние между стойками ворот должно быть 3 м. Если глубина бассейна составляет 1,8 м и более, как того требуют правила игры, то нижний край перекладины должен находиться на высоте 0,90 м над поверхностью воды (при игре любительских и профессиональных команд в бассейнах, в которых есть глубокая и мелкая часть, правилами предусмотрена установка ворот при глубине от 1,5 м и менее таким образом, чтобы перекладина отстояла от дна бассейна не менее чем на 2,4 м).",
                 time: "27.08.2023",
@@ -221,6 +221,7 @@ const state = {
     newsId: {
         id: 1,
         title: "Прошли соревнования",
+        time: "27.08.2023",
         images: [
             {
                 id: 0,
@@ -267,6 +268,72 @@ const state = {
             },
         ],
     },
+    pageMedio: [
+        {
+            title: "Спартакиада",
+            time: "26.02.2022 - 28.02.2022",
+            place: "г. Калининград, ул. Чайковского",
+            msg: "Что начало повседневной работы по формированию позиции требуют от нас анализа системы обучения кадров, соответствует насущным потребностям. Повседневная практика показывает, что консультация с широким активом требуют от нас анализа существенных финансовых и административных условий. Не следует, однако забывать, что новая модель организационной деятельности обеспечивает широкому кругу (специалистов) у",
+            images: [
+                {
+                    id: 0,
+                    src: "https://i-fakt.ru/wp-content/uploads/2020/02/fakty-vodnoe-polo.jpg",
+                },
+                {
+                    id: 1,
+                    src: "https://sportstar.by/upload/medialibrary/da4/da47bef974f1b41d05e60c334c756b27.jpg",
+                },
+                {
+                    id: 2,
+                    src: "https://luxsolsport.ru/images/article/narusheniya-v-vaterpole.jpg",
+                },
+                {
+                    id: 3,
+                    src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzIMRVRYzKfuKk3qmJ6iZGx3jenj-GvnOPbw&usqp=CAU",
+                },
+                {
+                    id: 4,
+                    src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWn7yLL5K64WIKHKdXVdRdFSrTZJ2kwnKdWw&usqp=CAU",
+                },
+                {
+                    id: 5,
+                    src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOE4qXGiWy6yZz8GyIhGD94mGx50bZWGOqyQ&usqp=CAU",
+                },
+            ],
+        },
+        {
+            title: "Спартакиада",
+            time: "26.02.2022 - 28.02.2022",
+            place: "г. Калининград, ул. Чайковского",
+            msg: "Что начало повседневной работы по формированию позиции требуют от нас анализа системы обучения кадров, соответствует насущным потребностям. Повседневная практика показывает, что консультация с широким активом требуют от нас анализа существенных финансовых и административных условий. Не следует, однако забывать, что новая модель организационной деятельности обеспечивает широкому кругу (специалистов) у",
+            images: [
+                {
+                    id: 0,
+                    src: "https://i-fakt.ru/wp-content/uploads/2020/02/fakty-vodnoe-polo.jpg",
+                },
+                {
+                    id: 1,
+                    src: "https://sportstar.by/upload/medialibrary/da4/da47bef974f1b41d05e60c334c756b27.jpg",
+                },
+                {
+                    id: 2,
+                    src: "https://luxsolsport.ru/images/article/narusheniya-v-vaterpole.jpg",
+                },
+                {
+                    id: 3,
+                    src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzIMRVRYzKfuKk3qmJ6iZGx3jenj-GvnOPbw&usqp=CAU",
+                },
+                {
+                    id: 4,
+                    src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWn7yLL5K64WIKHKdXVdRdFSrTZJ2kwnKdWw&usqp=CAU",
+                },
+                {
+                    id: 5,
+                    src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOE4qXGiWy6yZz8GyIhGD94mGx50bZWGOqyQ&usqp=CAU",
+                },
+            ],
+        },
+    ],
 };
 
 const store = createStore({

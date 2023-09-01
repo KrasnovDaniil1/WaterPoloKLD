@@ -68,7 +68,7 @@ export default {
     background: var(--bg-primary);
     .menu {
         display: grid;
-        grid-template-columns: 1fr 3fr 1fr;
+        grid-template-columns: 1fr 5fr 1fr;
         .arrow {
             display: flex;
             justify-content: center;
