@@ -5,6 +5,7 @@ import VideoCarusel from "../components/VideoCarusel.vue";
 import arrow from "../assets/ArrowNews.png";
 import { computed, onMounted } from "vue";
 import { useStore } from "vuex";
+import { useRoute } from "vue-router";
 
 export default {
     components: {
@@ -13,31 +14,41 @@ export default {
     },
     setup() {
         const store = useStore();
-        onMounted(() => {
+        const route = useRoute();
+        onMounted(async () => {
+            await store.dispatch("actPage", "pageNews");
             window.scrollTo({
                 top: 0,
                 left: 0,
             });
         });
         return {
+            route,
+            newsId: computed(() => route.params.id),
             arrow,
             store,
-            newsId: computed(() => store.getters.getNewsId),
+            pageNews: computed(() => store.getters.getPageNews),
         };
     },
 };
 </script>
 
 <template>
-    <section>
-        <h1>{{ newsId.title }}</h1>
+    <section v-if="Object.keys(pageNews).length != 0">
+        <h1>{{ pageNews.news[newsId].title }}</h1>
 
         <p>
-            <ImageCarusel class="carusel" :images="newsId.images" />
-            {{ newsId.msg }}
+            <ImageCarusel
+                class="carusel"
+                :images="pageNews.news[newsId].images"
+            />
+            <span v-html="pageNews.news[newsId].msg"></span>
         </p>
-        <VideoCarusel :videos="newsId.videos" />
-        <span>{{ newsId.time }}</span>
+        <VideoCarusel
+            v-if="pageNews.news[newsId].videos.length > 0"
+            :videos="pageNews.news[newsId].videos"
+        />
+        <span>{{ pageNews.news[newsId].time }}</span>
     </section>
 </template>
 

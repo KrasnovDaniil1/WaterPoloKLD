@@ -8,7 +8,7 @@ import Goals from "../components/Goals.vue";
 import Bg from "../assets/Header/Federation.jpg";
 
 import { useStore } from "vuex";
-import { computed } from "vue";
+import { computed, onMounted } from "vue";
 
 export default {
     components: {
@@ -40,7 +40,9 @@ export default {
             title: "Менеджмент",
             msg: "Командный водный олимпийский вид спорта, целью в котором является забросить мяч в ворота соперника большее число раз, чем это сделает оппонент в установленное время. Игра проходит в воде, а мяч держат и забрасывают в ворота одной рукой. Прародителем водного поло можно считать японскую игру, суть которой заключалась в передаче мяча специальными шестами игрокам своей команды, находясь при этом на плаву на соломенных бочках. Современное водное поло было изобретено Уильямом Уилсоном во второй половине XIX века.",
         };
-
+        onMounted(async () => {
+            await store.dispatch("actPage", "pageFederation");
+        });
         return {
             store,
             pageFederation: computed(() => store.getters.getPageFederation),

@@ -36,6 +36,7 @@ export default {
         font-weight: bold;
         text-transform: uppercase;
         text-align: center;
+        padding: 1rem 0;
     }
     .card_block {
         display: flex;

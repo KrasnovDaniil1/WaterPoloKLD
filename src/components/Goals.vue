@@ -44,7 +44,7 @@ export default {
 
 <style lang="scss" scoped>
 .goals {
-    padding: 1rem var(--px-block);
+    padding: 1rem var(--px-block) 0 var(--px-block);
     text-align: center;
     line-height: 1.2;
     h1 {

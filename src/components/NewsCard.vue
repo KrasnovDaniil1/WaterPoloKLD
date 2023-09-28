@@ -1,17 +1,10 @@
 <script>
-import { ref } from "vue";
 
 export default {
     props: {
         pageNews: {
             type: Object,
         },
-    },
-    setup(props) {
-        const currentPage = ref(props.pageNews.page);
-        return {
-            currentPage,
-        };
     },
 };
 </script>
@@ -20,32 +13,20 @@ export default {
     <div class="news">
         <div class="news_block">
             <router-link
-                v-for="item in pageNews.news"
-                :to="{ name: 'news_id', params: { id: item.id } }"
+                v-for="(item, index) in pageNews"
+                :to="{ name: 'news_id', params: { id: index } }"
                 class="card"
-                :key="item.id"
+                :key="index"
             >
-                <img :src="item.src" />
+                <img :src="item.images[0]" />
                 <h1>{{ item.title }}</h1>
-                <p>
-                    {{ item.msg }}
-                </p>
+                <p v-html="item.msg"></p>
                 <div class="btn_block">
                     <span>{{ item.time }}</span>
                     <button>Подробнее</button>
                 </div>
             </router-link>
         </div>
-        <nav class="pagination">
-            <button
-                v-for="i in pageNews.count"
-                :key="i"
-                :class="{ page_active: currentPage == i }"
-                @click="currentPage = i"
-            >
-                {{ i }}
-            </button>
-        </nav>
     </div>
 </template>
 
@@ -97,27 +78,6 @@ export default {
                     border-radius: 10px 0 0 0;
                 }
             }
-        }
-    }
-    .pagination {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        button {
-            padding: 1rem;
-            border-radius: 10px;
-            font-size: var(--size-title);
-            width: 3rem;
-            height: 3rem;
-            margin: 1rem;
-            border: 2px solid var(--bg-primary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .page_active {
-            background: var(--bg-primary);
-            color: var(--color-secondary);
         }
     }
 }

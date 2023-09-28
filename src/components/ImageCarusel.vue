@@ -21,14 +21,14 @@ export default {
 
 <template>
     <div class="carusel">
-        <img class="main" :src="allImg[currentImg].src" />
+        <img class="main" :src="allImg[currentImg]" />
         <div class="block">
             <img
                 @click="currentImg = i"
                 class="preview"
                 :class="{ preview_active: currentImg == i }"
                 v-for="(item, i) in allImg"
-                :src="item.src"
+                :src="item"
                 :key="i"
             />
         </div>

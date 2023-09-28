@@ -44,7 +44,7 @@ export default {
         margin-bottom: 1rem;
         h1 {
             font-size: var(--size-title);
-            padding-bottom: 1rem;
+            padding: 1rem 0;
             font-weight: bold;
             text-transform: uppercase;
         }
@@ -54,7 +54,7 @@ export default {
     }
     .cards_block {
         display: grid;
-        grid-gap: 1rem;
+        grid-gap: 1rem var(--px-block);
         grid-template-columns: repeat(3, 1fr);
         .card {
             display: flex;
@@ -95,4 +95,16 @@ export default {
         }
     }
 }
+// @media screen and (max-width: 420px) {
+//     .trainers {
+//         .cards_block {
+//             grid-template-columns: repeat(1, 1fr) !important;
+//             padding: 0 5rem;
+//             .card:nth-child(2n + 1):last-child {
+//                 // position: relative;
+//                 left: 0;
+//             }
+//         }
+//     }
+// }
 </style>

@@ -42,7 +42,7 @@ export default {
             <div class="arrow" @click="switchVideo(-1)">
                 <img :src="Arrow" />
             </div>
-            <div class="video_main" v-html="allVideo[currentVideo].frame" />
+            <div class="video_main" v-html="allVideo[currentVideo]" />
             <div class="arrow" @click="switchVideo(1)">
                 <img style="transform: scale(-1, 1)" :src="Arrow" />
             </div>
@@ -53,7 +53,7 @@ export default {
                 :class="{ active_video: currentVideo == index }"
                 @click="switchVideoClick(index)"
                 v-for="(item, index) in allVideo"
-                v-html="item.frame"
+                v-html="item"
                 :key="index"
             />
         </div>
