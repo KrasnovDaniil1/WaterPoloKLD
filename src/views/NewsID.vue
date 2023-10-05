@@ -37,18 +37,18 @@ export default {
     <section v-if="Object.keys(pageNews).length != 0">
         <h1>{{ pageNews.news[newsId].title }}</h1>
 
-        <p>
+        <div>
             <ImageCarusel
                 class="carusel"
                 :images="pageNews.news[newsId].images"
             />
-            <span v-html="pageNews.news[newsId].msg"></span>
-        </p>
+            <p v-html="pageNews.news[newsId].msg"></p>
+        </div>
         <VideoCarusel
             v-if="pageNews.news[newsId].videos.length > 0"
             :videos="pageNews.news[newsId].videos"
         />
-        <span>{{ pageNews.news[newsId].time }}</span>
+        <span>{{ pageNews.news[newsId].time }} </span>
     </section>
 </template>
 
@@ -63,10 +63,16 @@ section {
         font-weight: bold;
         text-transform: uppercase;
     }
-    p {
+    div {
         font-size: var(--size-text);
         line-height: 1.2;
         padding-bottom: 1rem;
+        p {
+            ul,
+            ol {
+                display: none !important;
+            }
+        }
         .carusel {
             padding-left: 1rem;
             float: right;
@@ -75,10 +81,10 @@ section {
     }
     span {
         display: block;
-        font-size: var(--size-text);
         text-align: center;
-        margin: 1rem;
+        font-size: var(--size-text);
         font-weight: bold;
+        margin-top: 1rem;
     }
 }
 @media screen and (max-width: 768px) {
