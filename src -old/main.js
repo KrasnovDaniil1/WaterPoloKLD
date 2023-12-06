@@ -1,6 +1,4 @@
-import "./assets/style/fonts.css";
-import "./assets/style/variables.css";
-import "./assets/style/reset.css";
+import "./reset.css";
 
 import { createApp } from "vue";
 import App from "./App.vue";

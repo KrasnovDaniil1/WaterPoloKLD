@@ -1,190 +1,66 @@
 <script>
-import menu from "../assets/Header/Menu.png";
-import logo from "../assets/logo.png";
-
-import { useRouter } from "vue-router";
-import { ref, watch } from "vue";
-
 export default {
-    setup() {
-        const router = useRouter();
-        const rout = [
-            {
-                title: "Любителям",
-                name: "amateur",
-            },
-            {
-                title: "Детям",
-                name: "children",
-            },
-            {
-                title: "Студентам",
-                name: "student",
-            },
-
-            {
-                title: "Федерация",
-                name: "federation",
-            },
-            {
-                title: "Сборы",
-                name: "sbory",
-            },
-            {
-                title: "Новости",
-                name: "news",
-            },
-            {
-                title: "Медио",
-                name: "medio",
-            },
-        ];
-        const activeNavMobile = ref(false);
-        const headerAbsolute = ref(true);
-        watch(
-            () => router.currentRoute.value.meta[0],
-            async () => {
-                if (router.currentRoute.value.meta[0] > 4) {
-                    headerAbsolute.value = false;
-                } else {
-                    headerAbsolute.value = true;
-                }
-            }
-        );
-        return {
-            rout,
-            activeNavMobile,
-            logo,
-            menu,
-            headerAbsolute,
-        };
-    },
+    setup() {},
 };
 </script>
 
 <template>
-    <header :style="headerAbsolute ? 'position:absolute' : 'position:relative'">
-        <nav class="logo_block">
-            <img :src="logo" />
-            <span>Моржи</span>
-        </nav>
-        <div class="decor_line"></div>
-        <nav
-            class="menu_block"
-            :class="{ menu_block_active: !activeNavMobile }"
-        >
-            <router-link
-                v-for="(r, i) in rout"
-                :key="i"
-                :to="{ name: r.name }"
-                @click="activeNavMobile = false"
-            >
-                {{ r.title }}
-            </router-link>
-        </nav>
-        <nav class="burger" @click="activeNavMobile = !activeNavMobile">
-            <img :src="menu" />
-        </nav>
+    <header>
+        <div class="header-top">
+            <div class="header-top__left">
+                <a>waterpolo@gmail.com</a>
+                <a>+7 888 888 88 88</a>
+            </div>
+            <nav class="header-top__right">
+                <a>waterpolo@gmail.com</a>
+                <a>+7 888 888 88 88</a>
+                <a>+7 888 888 88 88</a>
+                <a>+7 888 888 88 88</a>
+            </nav>
+        </div>
+        <div class="header-bottom"></div>
+        <h1>Заголовок - 200 ExtraBold</h1>
+        <h2>Меню - 24 Black</h2>
+        <h3>Важная инфа - 24 Bold</h3>
+        <h4>Кнопки со стрелкой - 24 Medium</h4>
+        <h5>Инфа - 20 Regular</h5>
     </header>
 </template>
 
 <style lang="scss" scoped>
 header {
-    position: absolute;
-    top: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 1rem;
-    width: 100%;
-    background: var(--bg-primary);
-    color: var(--color-secondary);
-    z-index: 999;
-    nav {
-        display: flex;
-        align-items: center;
+    background: var(--bg-secondary);
+    color: #fffcf2;
+    h1 {
+        font-family: "Akrobat";
+        font-size: 64px;
+        font-style: normal;
+        font-weight: 800;
+        letter-spacing: 1.28px;
     }
-    .logo_block {
-        font-size: var(--size-title);
-        img {
-            width: var(--w-icon);
-            aspect-ratio: 1/1;
-        }
-        span {
-            margin-left: 0.5rem;
-        }
+    h2 {
+        font-family: Cruinn;
+        font-size: 64px;
+        font-weight: 900;
+        letter-spacing: 1.28px;
     }
-    .decor_line {
-        margin: 1rem 0;
-        width: 100%;
-        height: 1px;
-        background: var(--color-secondary);
+    h3 {
+        font-family: Cruinn;
+        font-size: 64px;
+        font-weight: 700;
+        letter-spacing: 1.28px;
     }
-    .menu_block {
-        font-size: var(--size-text);
-        a {
-            position: relative;
-            margin: 0 1rem;
-        }
-        .router-link-active {
-            color: var(--color-decor);
-            &::before {
-                content: "";
-                position: absolute;
-                left: 50%;
-                top: 120%;
-                transform: translateX(-50%);
-                width: 110%;
-                height: 2px;
-                background: var(--color-decor);
-            }
-        }
+    h4 {
+        font-family: Cruinn;
+        font-size: 64px;
+        font-weight: 500;
+        letter-spacing: 1.28px;
     }
-    .burger {
-        position: relative;
-        display: none;
-        cursor: pointer;
-        img {
-            width: var(--w-icon);
-            aspect-ratio: 1/1;
-        }
-    }
-}
-@media screen and (max-width: 1024px) {
-    header {
-        position: relative !important;
-    }
-}
-@media screen and (max-width: 768px) {
-    header {
-        flex-direction: row;
-        justify-content: space-between;
-        .decor_line {
-            display: none;
-        }
-        .menu_block {
-            position: absolute;
-            top: calc(2rem + var(--w-icon));
-            right: 0;
-            flex-direction: column;
-            padding: 0 1rem;
-            background: var(--bg-primary);
-            transition: all 1s;
-            a {
-                padding: 0.5rem;
-            }
-            .router-link-active {
-                &::before {
-                    top: 90%;
-                }
-            }
-        }
-        .menu_block_active {
-            right: -60%;
-        }
-        .burger {
-            display: block;
-        }
+    h5 {
+        font-family: Montserrat;
+        font-size: 64px;
+        font-weight: 400;
+        letter-spacing: 1.28px;
     }
 }
 </style>
