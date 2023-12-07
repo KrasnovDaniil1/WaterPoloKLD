@@ -1,39 +1,43 @@
 @font-face {
-    font-family: "Akrobat";
-    font-style: normal;
+    font-family: "Akrobat ExtraBold";
     font-weight: 800;
-    src: local("Akrobat"),
-        url("/src/assets/fonts/akrobat/Akrobat-ExtraBold.otf") format("otf");
-}
-
-@font-face {
-    font-family: "Cruinn";
     font-style: normal;
+    src: url("../fonts/akrobat/akrobat-extrabold.eot");
+    src: url("../fonts/akrobat/akrobat-extrabold.eot?#iefix")
+            format("embedded-opentype"),
+        url("../fonts/akrobat/akrobat-extrabold.woff2") format("woff2"),
+        url("../fonts/akrobat/akrobat-extrabold.woff") format("woff"),
+        url("../fonts/akrobat/akrobat-extrabold.ttf") format("truetype"),
+        url("../fonts/akrobat/akrobat-extrabold.svg#akrobat-extrabold")
+            format("svg");
+}
+@font-face {
+    font-family: "Cruinn Black";
     font-weight: 900;
-    src: local("Cruinn"),
-        url("/src/assets/fonts/cruinn/Cruinn\ Black.ttf") format("ttf");
-}
-
-@font-face {
-    font-family: "Cruinn";
     font-style: normal;
+    src: url("../fonts/cruinn/CruinnBlack.ttf") format("truetype");
+}
+@font-face {
+    font-family: "Cruinn Bold";
     font-weight: 700;
-    src: local("Cruinn"),
-        url("/src/assets/fonts/cruinn/Cruinn\ Bold.ttf") format("ttf");
-}
-
-@font-face {
-    font-family: "Cruinn";
     font-style: normal;
+    src: url("../fonts/cruinn/CruinnBold.ttf") format("truetype");
+}
+@font-face {
+    font-family: "Cruinn Medium";
     font-weight: 500;
-    src: local("Cruinn"),
-        url("/src/assets/fonts/cruinn/Cruinn\ Medium.ttf") format("ttf");
-}
-
-@font-face {
-    font-family: "Montserrat";
     font-style: normal;
+    src: url("../fonts/cruinn/CruinnMedium.ttf") format("truetype");
+}
+@font-face {
+    font-family: "Montserrat Regular";
     font-weight: 400;
-    src: local("Montserrat")
-        url("/src/assets/fonts/montserrat/Montserrat-Regular.ttf") format("ttf");
+    src: url("../fonts/montserrat/montserrat_regular.eot");
+    src: url("../fonts/montserrat/montserrat_regular.eot?#iefix")
+            format("embedded-opentype"),
+        url("../fonts/montserrat/montserrat_regular.woff2") format("woff2"),
+        url("../fonts/montserrat/montserrat_regular.woff") format("woff"),
+        url("../fonts/montserrat/montserrat_regular.ttf") format("truetype"),
+        url("../fonts/montserrat/montserrat_regular.svg#montserrat_regular")
+            format("svg");
 }

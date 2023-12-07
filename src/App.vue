@@ -12,11 +12,6 @@ export default {
 </script>
 
 <template>
-    <link
-        rel="stylesheet"
-        href="https://pro.fontawesome.com/releases/v5.15.2/css/all.css"
-    />
-
     <div class="app">
         <Header />
         <RouterView />
@@ -25,12 +20,16 @@ export default {
 </template>
 
 <style lang="scss">
-body {
-    background: var(--bg-warning);
-    min-height: 100vh;
-}
-.app {
-    max-width: 1920px;
-    margin: 0 auto;
+html {
+    font-size: 10px;
+    body {
+        min-height: 100vh;
+        background: var(--bg-warning);
+        letter-spacing: 1.28px;
+        .app {
+            max-width: 1920px;
+            margin: 0 auto;
+        }
+    }
 }
 </style>
