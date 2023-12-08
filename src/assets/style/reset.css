@@ -9,7 +9,6 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-    
 }
 
 html,
@@ -121,6 +120,12 @@ q:after {
 table {
     border-collapse: collapse;
     border-spacing: 0;
+}
+
+a,
+a:visited {
+    color: inherit;
+    text-decoration: none;
 }
 /*
 
