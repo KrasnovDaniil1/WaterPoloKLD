@@ -1,15 +1,18 @@
 <script>
+import MainWindow from "../components/MainWindow.vue";
+
 export default {
-    setup() {
-        
+    components: {
+        MainWindow,
     },
-}
+    setup() {},
+};
 </script>
 
 <template>
-    
+    <section>
+        <MainWindow />
+    </section>
 </template>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

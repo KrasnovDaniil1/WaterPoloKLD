@@ -125,7 +125,15 @@ table {
 a,
 a:visited {
     color: inherit;
+    cursor: pointer;
     text-decoration: none;
+}
+button {
+    border: none;
+    font: inherit;
+    color: inherit;
+    background-color: transparent;
+    cursor: pointer;
 }
 /*
 
