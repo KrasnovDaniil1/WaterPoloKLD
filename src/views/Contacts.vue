@@ -1,13 +1,16 @@
 <script>
 import AllWindow from "../components/AllWindow.vue";
-import Map from "../components/Map.vue";
+import Map from "../components/Other/Map.vue";
 
 import main from "../assets/images/allWindow/main.png";
+
+import Icons from "../components/Other/Icons.vue";
 
 export default {
     components: {
         AllWindow,
         Map,
+        Icons,
     },
     setup() {
         const allWindow = {
@@ -37,36 +40,24 @@ export default {
                     <div class="block__item">
                         <h3 class="item__title">Контакты</h3>
                         <a href="#" class="item__link">
-                            <img
-                                class="link__icon"
-                                src="../assets/icons/phone.svg"
-                            />
+                            <Icons icons="phone" class="link__icon" />
                             <span class="link__text">+7 888 888 88 88</span>
                         </a>
                         <a href="#" class="item__link">
-                            <img
-                                class="link__icon"
-                                src="../assets/icons/email.svg"
-                            />
+                            <Icons icons="email" class="link__icon" />
                             <span class="link__text">waterpolo@gmail.com</span>
                         </a>
                     </div>
                     <div class="block__item">
                         <h3 class="item__title">Адрес</h3>
                         <a href="#" class="item__link">
-                            <img
-                                class="link__icon"
-                                src="../assets/icons/location.svg"
-                            />
+                            <Icons icons="location" class="link__icon" />
                             <span class="link__text"
                                 >Тихоокеанская улица, 5</span
                             >
                         </a>
                         <a href="#" class="item__link">
-                            <img
-                                class="link__icon"
-                                src="../assets/icons/clock.svg"
-                            />
+                            <Icons icons="clock" class="link__icon" />
                             <span class="link__text">08:00 - 22:00</span>
                         </a>
                     </div>
@@ -74,22 +65,13 @@ export default {
                         <h3 class="item__title">Социальные сети</h3>
                         <nav class="item__nav">
                             <a href="#" class="nav__link">
-                                <img
-                                    class="link__icon"
-                                    src="../assets/icons/vk.svg"
-                                />
+                                <Icons icons="vk" class="link__icon" />
                             </a>
                             <a href="#" class="nav__link">
-                                <img
-                                    class="link__icon"
-                                    src="../assets/icons/telegram.svg"
-                                />
+                                <Icons icons="telegram" class="link__icon" />
                             </a>
                             <a href="#" class="nav__link">
-                                <img
-                                    class="link__icon"
-                                    src="../assets/icons/youtube.svg"
-                                />
+                                <Icons icons="youtube" class="link__icon" />
                             </a>
                         </nav>
                     </div>

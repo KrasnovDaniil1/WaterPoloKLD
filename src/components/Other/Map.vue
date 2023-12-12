@@ -11,13 +11,29 @@ export default {
         yandexMap,
         ymapMarker,
     },
-    setup() {},
+    setup() {
+        return {
+            settings: {
+                apiKey: "",
+                lang: "ru_RU",
+                coordorder: "latlong",
+                enterprise: false,
+                version: "2.1",
+            },
+        };
+    },
 };
 </script>
 
 <template>
     <div class="map">
-        <yandexMap :coords="coords" :zoom="12">
+        <yandexMap
+            :coords="coords"
+            :zoom="12"
+            :settings="settings"
+            :behaviors="['drag', 'scrollZoom']"
+            :controls="[]"
+        >
             <ymapMarker
                 :coords="coords"
                 marker-id="123"
