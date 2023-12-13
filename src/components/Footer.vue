@@ -59,19 +59,21 @@ export default {
         <div class="footer__right">
             <h6 class="right__title">Записаться на тренировку</h6>
             <p class="right__info">Lorem ipsum dolor sit amet, consectetur.</p>
-            <BtnSignTraining class="right__btn-sign" />
-            <BtnToMain />
+            <nav class="right__btn-block">
+                <BtnSignTraining class="right__btn-sign" />
+                <BtnToMain />
+            </nav>
         </div>
     </footer>
 </template>
 
 <style lang="scss" scoped>
 .footer {
-    // background: #041d56;
+    background: #041d56;
     display: flex;
     padding-top: 40px;
     padding-bottom: 40px;
-    padding-left: 190px;
+    padding-left: clamp(75px, calc(190vw / var(--ratio)), 190px);
     color: #fffcf2;
     .footer__logo {
         max-width: 54px;
@@ -90,7 +92,7 @@ export default {
         }
     }
     .footer__icons {
-        margin-left: 51px;
+        margin-left: clamp(15px, calc(51vw / var(--ratio)), 51px);
         max-width: 331px;
         .icons__info {
             font-family: "Montserrat Regular";
@@ -113,14 +115,14 @@ export default {
         display: flex;
         flex-direction: column;
         height: 100%;
-        margin-left: 75px;
+        margin-left: clamp(45px, calc(75vw / var(--ratio)), 75px);
         .block__contacts {
             display: flex;
             flex-direction: column;
             font-size: 24px;
             letter-spacing: 0.48px;
             &:last-child {
-                margin-top: 70px;
+                margin-top: clamp(40px, calc(70vw / var(--ratio)), 70px);
             }
             .contacts__title {
                 font-family: "Cruinn Black";
@@ -131,6 +133,7 @@ export default {
                 margin-left: 8px;
                 font-family: "Cruinn Bold";
                 opacity: 0.4;
+                white-space: nowrap;
                 &:not(:last-child) {
                     margin-bottom: 16px;
                 }
@@ -140,7 +143,7 @@ export default {
     .footer__menu {
         display: flex;
         flex-direction: column;
-        margin-left: 140px;
+        margin-left: clamp(75px, calc(140vw / var(--ratio)), 140px);
         font-size: 24px;
         letter-spacing: 0.48px;
         .menu__title {
@@ -161,7 +164,7 @@ export default {
     .footer__right {
         display: flex;
         flex-direction: column;
-        margin-left: 126px;
+        margin-left: clamp(75px, calc(126vw / var(--ratio)), 126px);
         max-width: 250px;
         .right__title {
             margin-bottom: 24px;
@@ -178,8 +181,187 @@ export default {
             letter-spacing: 1.28px;
             opacity: 0.6;
         }
-        .right__btn-sign {
-            margin-bottom: 16px;
+        .right__btn-block {
+            display: flex;
+            flex-direction: column;
+            .right__btn-sign {
+                margin-bottom: 16px;
+            }
+        }
+    }
+}
+@media screen and (max-width: 1600px) {
+    .footer {
+        .footer__menu {
+            display: none;
+        }
+    }
+}
+@media screen and (max-width: 1200px) {
+    .footer {
+        .footer__logo {
+            height: fit-content;
+            max-width: 100px;
+            flex-direction: row;
+            align-items: center;
+
+            .logo__label {
+                font-size: 16px;
+                line-height: 85%;
+            }
+        }
+        .footer__icons {
+            display: none;
+        }
+    }
+}
+@media screen and (max-width: 834px) {
+    .footer {
+        padding-top: 24px;
+        padding-bottom: 24px;
+        padding-left: clamp(48px, calc(75vw / var(--ratio)), 75px);
+        .footer__logo {
+            .logo__icon {
+                width: 48px;
+                height: 48px;
+            }
+            .logo__label {
+                font-size: 14px;
+            }
+        }
+
+        .footer__block {
+            margin-left: clamp(24px, calc(66vw / var(--ratio)), 66px);
+            .block__contacts {
+                letter-spacing: 0.48px;
+                &:last-child {
+                    margin-top: clamp(20px, calc(40vw / var(--ratio)), 40px);
+                }
+                .contacts__title {
+                    font-size: 20px;
+                    margin-bottom: 16px;
+                }
+                .contacts__link {
+                    font-size: 16px;
+                    margin-left: 4px;
+                    &:not(:last-child) {
+                        margin-bottom: 8px;
+                    }
+                }
+            }
+        }
+        .footer__right {
+            margin-left: clamp(20px, calc(75vw / var(--ratio)), 75px);
+            max-width: 175px;
+            .right__title {
+                margin-bottom: 8px;
+                font-size: 20px;
+                letter-spacing: 0.4px;
+            }
+            .right__info {
+                margin-bottom: 22px;
+                font-size: 12px;
+                letter-spacing: 0.96px;
+            }
+            .right__btn-block {
+                .right__btn-sign {
+                    margin-bottom: 16px;
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 600px) {
+    .footer {
+        flex-wrap: wrap;
+        padding-left: calc(48vw / var(--ratio));
+        .footer__logo {
+            max-width: 56px;
+            .logo__icon {
+                width: 24px;
+                height: 24px;
+            }
+            .logo__label {
+                font-size: 10px;
+            }
+        }
+        .footer__block {
+            flex-direction: row;
+            margin-left: 0;
+            .block__contacts {
+                margin-left: calc(24vw / var(--ratio));
+                &:last-child {
+                    margin-top: 0;
+                }
+                .contacts__title {
+                    font-size: 14px;
+                }
+                .contacts__link {
+                    font-size: 12px;
+                }
+            }
+        }
+        .footer__right {
+            margin-top: 16px;
+            margin-left: 0;
+            max-width: inherit;
+            width: 100%;
+            text-align: center;
+            .right__title {
+                margin-bottom: 4px;
+                font-size: 14px;
+                letter-spacing: 0.4px;
+            }
+            .right__info {
+                margin-bottom: 8px;
+                font-size: 8px;
+                letter-spacing: 0.96px;
+            }
+            .right__btn-block {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                .right__btn-sign {
+                    margin-bottom: 0;
+                    margin-right: 8px;
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 390px) {
+    .footer {
+        .footer__logo {
+            .logo__label {
+                font-size: 8px;
+                margin-left: 4px;
+            }
+        }
+        .footer__block {
+            .block__contacts {
+                .contacts__title {
+                    font-size: 12px;
+                    letter-spacing: 0.24px;
+                    margin-bottom: 8px;
+                }
+                .contacts__link {
+                    font-size: 8px;
+                    letter-spacing: 0.16px;
+                }
+                :not(:last-child) {
+                    margin-bottom: 4px;
+                }
+            }
+        }
+        .footer__right {
+            .right__title {
+                font-size: 12px;
+                letter-spacing: 0.24px;
+            }
+            .right__info {
+                font-size: 6px;
+                letter-spacing: 0.48px;
+            }
         }
     }
 }

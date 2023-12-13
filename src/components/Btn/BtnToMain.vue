@@ -6,7 +6,7 @@ export default {
 
 <template>
     <button class="btn-sign-training font-btn">
-        <a href="#">Записаться</a>
+        <router-link to="/">На главную</router-link>
     </button>
 </template>
 
@@ -14,18 +14,34 @@ export default {
 .btn-sign-training {
     width: fit-content;
     padding: clamp(10px, calc(16vw / var(--ratio)), 16px)
-        clamp(36px, calc(56vw / var(--ratio)), 56px);
-    background: #004df3;
+        clamp(37px, calc(58vw / var(--ratio)), 58px);
+    font-family: "Cruinn Medium";
+    font-size: 24px;
+    letter-spacing: 0.48px;
+    color: #fffcf2;
+    border: 1px solid #fffcf2;
+    opacity: 0.75;
+    white-space: nowrap;
+    transition: all 0.25s;
+    &:hover {
+        background: #fffcf2;
+        color: #004df3;
+        opacity: 1;
+    }
 }
 @media screen and (max-width: 834px) {
     .btn-sign-training {
         padding: clamp(8px, calc(10vw / var(--ratio)), 10px)
-            clamp(22px, calc(36vw / var(--ratio)), 36px);
+            clamp(25px, calc(37vw / var(--ratio)), 37px);
+        font-size: 16px;
+        letter-spacing: 0.32px;
     }
 }
 @media screen and (max-width: 390px) {
     .btn-sign-training {
-        padding: calc(8vw / var(--ratio)) calc(22vw / var(--ratio));
+        padding: calc(8vw / var(--ratio)) calc(25vw / var(--ratio));
+        font-size: 12px;
+        letter-spacing: 0.24px;
     }
 }
 </style>
