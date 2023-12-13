@@ -13,9 +13,9 @@ export default {
 
 <template>
     <div class="app">
-        <Header />
+        <Header v-if="false" />
         <RouterView />
-        <Footer />
+        <Footer v-if="false" />
     </div>
 </template>
 
