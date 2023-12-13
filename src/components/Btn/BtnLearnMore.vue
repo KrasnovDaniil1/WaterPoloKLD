@@ -12,13 +12,18 @@ export default {
 
 <style lang="scss" scoped>
 .btn-learn-more {
+    width: fit-content;
+    height: fit-content;
     padding: clamp(10px, calc(16vw / var(--ratio)), 16px)
         clamp(25px, calc(39vw / var(--ratio)), 39px);
-    background: rgba(0, 77, 243, 0.5);
     font-size: 24px;
     font-family: "Cruinn Black";
     letter-spacing: 0.48px;
+    background: rgba(0, 77, 243, 0.5);
+    color: #fffcf2;
     transition: all 0.25s;
+    white-space: nowrap;
+
     &:hover {
         background: #fffcf2;
         color: #004df3;
@@ -33,10 +38,10 @@ export default {
         letter-spacing: 0.32px;
     }
 }
-@media screen and (max-width: 390px) {
+@media screen and (max-width: 500px) {
     .btn-learn-more {
-        padding: calc(8vw / var(--ratio)) calc(16vw / var(--ratio));
-        font-size: 8px;
+        padding: 8px calc(16vw / var(--ratio));
+        font-size: 12px;
         letter-spacing: 0.16px;
     }
 }

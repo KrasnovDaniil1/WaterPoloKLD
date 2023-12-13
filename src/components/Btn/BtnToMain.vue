@@ -5,14 +5,15 @@ export default {
 </script>
 
 <template>
-    <button class="btn-sign-training font-btn">
+    <button class="btn-to-main">
         <router-link to="/">На главную</router-link>
     </button>
 </template>
 
 <style lang="scss" scoped>
-.btn-sign-training {
+.btn-to-main {
     width: fit-content;
+    height: fit-content;
     padding: clamp(10px, calc(16vw / var(--ratio)), 16px)
         clamp(37px, calc(58vw / var(--ratio)), 58px);
     font-family: "Cruinn Medium";
@@ -30,16 +31,16 @@ export default {
     }
 }
 @media screen and (max-width: 834px) {
-    .btn-sign-training {
+    .btn-to-main {
         padding: clamp(8px, calc(10vw / var(--ratio)), 10px)
             clamp(25px, calc(37vw / var(--ratio)), 37px);
         font-size: 16px;
         letter-spacing: 0.32px;
     }
 }
-@media screen and (max-width: 390px) {
-    .btn-sign-training {
-        padding: calc(8vw / var(--ratio)) calc(25vw / var(--ratio));
+@media screen and (max-width: 500px) {
+    .btn-to-main {
+        padding: 7px calc(25vw / var(--ratio));
         font-size: 12px;
         letter-spacing: 0.24px;
     }

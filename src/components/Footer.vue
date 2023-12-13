@@ -9,6 +9,37 @@ export default {
         BtnSignTraining,
         BtnToMain,
     },
+
+    setup() {
+        return {
+            links: [
+                {
+                    to: "/children",
+                    name: "Детям",
+                },
+                {
+                    to: "/amateurs",
+                    name: "Любителям",
+                },
+                {
+                    to: "/students",
+                    name: "Студентам",
+                },
+                {
+                    to: "/federation",
+                    name: "Федерация",
+                },
+                {
+                    to: "/blog",
+                    name: "Блог",
+                },
+                {
+                    to: "/contacts",
+                    name: "Контакты",
+                },
+            ],
+        };
+    },
 };
 </script>
 <template>
@@ -41,19 +72,12 @@ export default {
         </div>
         <div class="footer__menu">
             <h6 class="menu__title">Меню</h6>
-            <router-link class="menu__href" to="/children">Детям</router-link>
-            <router-link class="menu__href" to="/amateurs"
-                >Любителям</router-link
-            >
-            <router-link class="menu__href" to="/students"
-                >Студентам</router-link
-            >
-            <router-link class="menu__href" to="/federation"
-                >Федерация</router-link
-            >
-            <router-link class="menu__href" to="/news">Блог</router-link>
-            <router-link class="menu__href" to="/contacts"
-                >Контакты</router-link
+            <router-link
+                v-for="(item, index) in links"
+                :key="index"
+                class="menu__href"
+                :to="item.to"
+                >{{ item.name }}</router-link
             >
         </div>
         <div class="footer__right">
@@ -190,6 +214,9 @@ export default {
         }
     }
 }
+.router-link-active {
+    opacity: 1 !important;
+}
 @media screen and (max-width: 1600px) {
     .footer {
         .footer__menu {
@@ -287,7 +314,7 @@ export default {
         }
         .footer__block {
             flex-direction: row;
-            margin-left: 0;
+            // margin-left: clamp(40px, calc(75vw / var(--ratio)), 75px);
             .block__contacts {
                 margin-left: calc(24vw / var(--ratio));
                 &:last-child {
@@ -329,7 +356,7 @@ export default {
         }
     }
 }
-@media screen and (max-width: 390px) {
+@media screen and (max-width: 420px) {
     .footer {
         .footer__logo {
             .logo__label {
@@ -338,6 +365,8 @@ export default {
             }
         }
         .footer__block {
+            // margin-left: clamp(10px, calc(24vw / var(--ratio)), 24px);
+            margin-left: 0;
             .block__contacts {
                 .contacts__title {
                     font-size: 12px;

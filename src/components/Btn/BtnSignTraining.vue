@@ -5,7 +5,7 @@ export default {
 </script>
 
 <template>
-    <button class="btn-sign-training font-btn">
+    <button class="btn-sign-training">
         <a href="#">Записаться</a>
     </button>
 </template>
@@ -13,12 +13,15 @@ export default {
 <style lang="scss" scoped>
 .btn-sign-training {
     width: fit-content;
+    height: fit-content;
+
     padding: clamp(10px, calc(16vw / var(--ratio)), 16px)
         clamp(36px, calc(56vw / var(--ratio)), 56px);
-    background: #004df3;
     font-size: 24px;
     font-family: "Cruinn Black";
     letter-spacing: 0.48px;
+    background: #004df3;
+    color: #fffcf2;
     transition: all 0.25s;
     &:hover {
         background: #fffcf2;
@@ -34,10 +37,10 @@ export default {
         letter-spacing: 0.32px;
     }
 }
-@media screen and (max-width: 390px) {
+@media screen and (max-width: 500px) {
     .btn-sign-training {
-        padding: calc(8vw / var(--ratio)) calc(22vw / var(--ratio));
-        font-size: 8px;
+        padding: 8px calc(22vw / var(--ratio));
+        font-size: 12px;
         letter-spacing: 0.16px;
     }
 }

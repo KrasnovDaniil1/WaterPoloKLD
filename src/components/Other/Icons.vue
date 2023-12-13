@@ -156,4 +156,78 @@ export default {
             </g>
         </g>
     </svg>
+    <svg
+        width="30"
+        height="22"
+        viewBox="0 0 30 22"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        v-else-if="icons == 'burger'"
+    >
+        <g id="Group 14">
+            <line
+                id="Line 8"
+                y1="1"
+                x2="30"
+                y2="1"
+                stroke="#FFFCF2"
+                stroke-width="2"
+            />
+            <line
+                id="Line 9"
+                y1="11"
+                x2="30"
+                y2="11"
+                stroke="#FFFCF2"
+                stroke-width="2"
+            />
+            <line
+                id="Line 10"
+                y1="21"
+                x2="30"
+                y2="21"
+                stroke="#FFFCF2"
+                stroke-width="2"
+            />
+        </g>
+    </svg>
+    <svg
+        width="22"
+        height="22"
+        viewBox="0 0 22 22"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        v-else-if="icons == 'close'"
+    >
+        <g id="Group 15">
+            <line
+                id="Line 8"
+                y1="-1"
+                x2="27.6489"
+                y2="-1"
+                transform="matrix(0.690476 -0.723355 0.690476 0.723355 1.90918 22)"
+                stroke="#FFFCF2"
+                stroke-width="2"
+            />
+            <line
+                id="Line 9"
+                y1="-1"
+                x2="27.6489"
+                y2="-1"
+                transform="matrix(0.690476 0.723355 -0.690476 0.723355 1 2)"
+                stroke="#FFFCF2"
+                stroke-width="2"
+            />
+            <line
+                id="Line 10"
+                y1="-1"
+                x2="27.6489"
+                y2="-1"
+                transform="matrix(0.690476 0.723355 -0.690476 0.723355 1 2)"
+                stroke="#FFFCF2"
+                stroke-width="2"
+            />
+        </g>
+    </svg>
 </template>
+

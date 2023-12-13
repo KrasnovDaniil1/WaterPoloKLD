@@ -9,14 +9,14 @@ const router = createRouter({
             component: () => import("../views/Main.vue"),
         },
         {
-            path: "/amateurs",
-            name: "amateurs",
-            component: () => import("../views/Amateurs.vue"),
-        },
-        {
             path: "/children",
             name: "children",
             component: () => import("../views/Children.vue"),
+        },
+        {
+            path: "/amateurs",
+            name: "amateurs",
+            component: () => import("../views/Amateurs.vue"),
         },
         {
             path: "/students",
@@ -29,14 +29,14 @@ const router = createRouter({
             component: () => import("../views/Federation.vue"),
         },
         {
-            path: "/news",
-            name: "news",
-            component: () => import("../views/News.vue"),
+            path: "/blog",
+            name: "blog",
+            component: () => import("../views/Blog.vue"),
         },
         {
-            path: "/news/:id",
-            name: "news_id",
-            component: () => import("../views/NewsID.vue"),
+            path: "/blog/:id",
+            name: "blog_id",
+            component: () => import("../views/BlogID.vue"),
         },
         {
             path: "/contacts",

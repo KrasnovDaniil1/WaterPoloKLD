@@ -1,15 +1,55 @@
 <script>
+import { ref } from "vue";
+
+import Main from "../views/Main.vue";
+import BtnLearnMore from "./Btn/BtnLearnMore.vue";
+import BtnSignTraining from "./Btn/BtnSignTraining.vue";
 import Icons from "./Other/Icons.vue";
+
 export default {
     components: {
         Icons,
+        BtnSignTraining,
+        Main,
+        BtnLearnMore,
     },
-    setup() {},
+    setup() {
+        const activeMenu = ref(false);
+        return {
+            activeMenu,
+            links: [
+                {
+                    to: "/children",
+                    name: "Детям",
+                },
+                {
+                    to: "/amateurs",
+                    name: "Любителям",
+                },
+                {
+                    to: "/students",
+                    name: "Студентам",
+                },
+                {
+                    to: "/federation",
+                    name: "Федерация",
+                },
+                {
+                    to: "/blog",
+                    name: "Блог",
+                },
+                {
+                    to: "/contacts",
+                    name: "Контакты",
+                },
+            ],
+        };
+    },
 };
 </script>
 
 <template>
-    <header>
+    <header class="header-xl">
         <div class="header-top">
             <nav class="top__left">
                 <a href="#" class="left__email">waterpolo@gmail.com</a>
@@ -28,16 +68,79 @@ export default {
                 </a>
             </nav>
         </div>
-        <div class="header-bottom"></div>
+        <div class="decor__line__h"></div>
+        <div class="header-bottom">
+            <a href="#" class="bottom__logo">
+                <Icons icons="logo" class="logo__icon" />
+                <p class="logo__label">Water Polo</p>
+            </a>
+            <nav class="bottom__menu">
+                <router-link
+                    v-for="(link, index) in links"
+                    :key="index"
+                    :to="link.to"
+                    class="menu__link"
+                    >{{ link.name }}</router-link
+                >
+            </nav>
+            <BtnSignTraining class="bottom__btn" />
+        </div>
     </header>
+    <header class="header-sm">
+        <a class="header__logo" href="#">
+            <Icons icons="logo" class="logo__icon" />
+            <p class="logo__label">Water Polo</p>
+        </a>
+        <a href="#" class="header__phone">+7 888 888 88 88</a>
+        <Icons
+            icons="burger"
+            class="header__burger"
+            @click="activeMenu = true"
+        />
+    </header>
+    <main class="pop-header" :class="{ 'pop-active': activeMenu }">
+        <div class="header__top">
+            <a class="top__logo" href="#">
+                <Icons icons="logo" class="logo__icon" />
+                <p class="logo__label">Water Polo</p>
+            </a>
+            <div class="top__center">
+                <a href="#" class="center__phone">+7 888 888 88 88</a>
+                <a href="#" class="center__email">waterpolo@gmail.com</a>
+                <nav class="center__menu">
+                    <router-link
+                        v-for="(link, index) in links"
+                        :key="index"
+                        :to="link.to"
+                        class="menu__link"
+                        >{{ link.name }}</router-link
+                    >
+                </nav>
+                <div class="center__block">
+                    <BtnSignTraining class="block__btn-sign" />
+                    <BtnLearnMore />
+                </div>
+                <div class="center__icons">
+                    <Icons icons="vk" class="icons__contacts" />
+                    <Icons icons="telegram" class="icons__contacts" />
+                    <Icons icons="youtube" class="icons__contacts" />
+                </div>
+            </div>
+            <Icons
+                icons="close"
+                class="top__close"
+                @click="activeMenu = false"
+            />
+        </div>
+    </main>
 </template>
 
 <style lang="scss" scoped>
-header {
-    padding: var(--px-content);
+.header-xl {
+    padding: 0 clamp(81px, calc(190vw / var(--ratio)), 190px);
     font-size: 24px;
     color: #fffcf2;
-    background: var(--bg-secondary);
+    background: #041d56;
     .header-top {
         display: flex;
         justify-content: space-between;
@@ -47,6 +150,7 @@ header {
         .top__left {
             display: flex;
             align-items: center;
+            opacity: 0.8;
             .left__decor-line {
                 width: 2px;
                 height: 58px;
@@ -62,8 +166,302 @@ header {
             }
         }
     }
+    .decor__line__h {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: #fffcf2;
+        opacity: 0.2;
+    }
     .header-bottom {
-        font-family: "Cruinn Black";
+        padding: 23px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .bottom__logo {
+            max-width: 54px;
+            display: flex;
+            flex-direction: column;
+            color: #ffd842;
+            .logo__icon {
+                width: 54px;
+                height: 54px;
+            }
+            .logo__label {
+                text-align: center;
+                font-family: "Cruinn Bold";
+                font-size: 12px;
+                line-height: 85%;
+            }
+        }
+        .bottom__menu {
+            font-family: "Cruinn Black";
+            font-size: 24px;
+            letter-spacing: 0.48px;
+            display: flex;
+            justify-content: space-between;
+            margin: 0 clamp(50px, calc(114vw / var(--ratio)), 114px);
+            width: 100%;
+            .menu__link {
+                opacity: 0.4;
+                &:not(:last-child) {
+                    margin-right: 20px;
+                }
+            }
+        }
+        .bottom__btn {
+        }
+    }
+}
+.header-sm,
+.pop-header {
+    display: none;
+}
+
+.router-link-active {
+    opacity: 1 !important;
+}
+.pop-active {
+    top: 0 !important;
+}
+@media screen and (max-width: 1300px) {
+    .header-xl {
+        display: none;
+    }
+    .header-sm {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 16px clamp(48px, calc(86vw / var(--ratio)), 86px);
+        color: #fffcf2;
+        .header__logo {
+            display: flex;
+            align-items: center;
+            color: #ffd842;
+            .logo__icon {
+                width: 48px;
+                height: 48px;
+            }
+            .logo__label {
+                max-width: 48px;
+                margin-left: 8px;
+                font-family: "Cruinn Bold";
+                font-size: 14px;
+                line-height: 85%;
+            }
+        }
+        .header__phone {
+            font-family: "Cruinn Bold";
+            font-size: 24px;
+            letter-spacing: 0.48px;
+            opacity: 0.8;
+        }
+        .header__burger {
+            width: 30px;
+            height: 20px;
+            opacity: 0.8;
+        }
+    }
+    .pop-header {
+        padding: 16px clamp(48px, calc(86vw / var(--ratio)), 86px);
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: -100vh;
+        width: 100%;
+        height: 100vh;
+        background: #161616;
+        z-index: 2;
+        transition: all 0.25s;
+        .header__top {
+            display: flex;
+            justify-content: space-between;
+            color: #fffcf2;
+            .top__logo {
+                height: fit-content;
+                display: flex;
+                align-items: center;
+                color: #ffd842;
+                .logo__icon {
+                    width: 48px;
+                    height: 48px;
+                }
+                .logo__label {
+                    max-width: 48px;
+                    margin-left: 8px;
+                    font-family: "Cruinn Bold";
+                    font-size: 14px;
+                    line-height: 85%;
+                }
+            }
+            .top__center {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                .center__email,
+                .center__phone {
+                    color: #fffcf2;
+                    font-family: "Cruinn Bold";
+                    font-size: 24px;
+                    letter-spacing: 0.48px;
+                    text-align: center;
+                }
+                .center__phone {
+                    margin-top: 12px;
+                }
+                .center__email {
+                    margin-top: 40px;
+                }
+                .center__menu {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    .menu__link {
+                        color: #fffcf2;
+                        opacity: 0.4;
+                        font-family: "Cruinn Black";
+                        font-size: 36px;
+                        letter-spacing: 0.72px;
+                        margin-top: 46px;
+                    }
+                }
+                .center__block {
+                    display: flex;
+                    justify-content: center;
+                    margin-top: 40px;
+                    .block__btn-sign {
+                        margin-right: 17px;
+                    }
+                }
+                .center__icons {
+                    display: flex;
+                    justify-content: center;
+                    margin-top: 40px;
+                    .icons__contacts {
+                        width: 48px;
+                        height: 48px;
+                        &:not(:last-child) {
+                            margin-right: 24px;
+                        }
+                    }
+                }
+            }
+            .top__close {
+                margin-top: 14px;
+                width: 20px;
+                height: 20px;
+            }
+        }
+    }
+}
+@media screen and (max-width: 550px) {
+    .header-sm {
+        padding: calc(16vw / var(--ratio));
+        .header__logo {
+            .logo__icon {
+                width: 24px;
+                height: 24px;
+            }
+            .logo__label {
+                max-width: 28px;
+                margin-left: 4px;
+                font-size: 8px;
+                line-height: 85%;
+            }
+        }
+        .header__phone {
+            font-size: 12px;
+            letter-spacing: 0.24px;
+        }
+        .header__burger {
+            width: 16px;
+            height: 10px;
+        }
+    }
+    .pop-header {
+        padding: 8px clamp(15px, calc(48vw / var(--ratio)), 48px);
+        .header__top {
+            .top__logo {
+                .logo__icon {
+                    width: 24px;
+                    height: 24px;
+                }
+                .logo__label {
+                    max-width: 28px;
+                    margin-left: 4px;
+                    font-size: 8px;
+                }
+            }
+            .top__center {
+                .center__email,
+                .center__phone {
+                    font-size: 12px;
+                    letter-spacing: 0.24px;
+                }
+                .center__phone {
+                    margin-top: 6px;
+                }
+                .center__email {
+                    margin-top: 7px;
+                }
+                .center__menu {
+                    .menu__link {
+                        font-size: 24px;
+                        letter-spacing: 0.48px;
+                        margin-top: clamp(
+                            15px,
+                            calc(24vw / var(--ratio)),
+                            24px
+                        );
+                    }
+                }
+                .center__block {
+                    margin-top: clamp(15px, calc(24vw / var(--ratio)), 24px);
+                    .block__btn-sign {
+                        margin-right: 8px;
+                    }
+                }
+                .center__icons {
+                    display: flex;
+                    justify-content: center;
+                    margin-top: clamp(15px, calc(24vw / var(--ratio)), 24px);
+                    .icons__contacts {
+                        width: 24px;
+                        height: 24px;
+                        &:not(:last-child) {
+                            margin-right: clamp(
+                                15px,
+                                calc(24vw / var(--ratio)),
+                                24px
+                            );
+                        }
+                    }
+                }
+            }
+            .top__close {
+                margin-top: 7px;
+                min-width: 12px;
+                height: 12px;
+            }
+        }
+    }
+}
+@media screen and (max-width: 360px) {
+    .pop-header {
+        .header__top {
+            .top__center {
+                .center__block {
+                    margin-top: clamp(15px, calc(24vw / var(--ratio)), 24px);
+                    flex-direction: column;
+                    align-items: center;
+                    .block__btn-sign {
+                        margin-right: 0px;
+                        margin-bottom: 8px;
+                    }
+                }
+            }
+        }
     }
 }
 </style>

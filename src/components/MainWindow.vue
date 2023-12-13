@@ -117,6 +117,7 @@ export default {
             margin-top: calc(20vw / var(--ratio));
             font-size: 16px;
             letter-spacing: 0.64px;
+            max-width: 198px;
         }
         .block__btn {
             margin-top: calc(16vw / var(--ratio));
