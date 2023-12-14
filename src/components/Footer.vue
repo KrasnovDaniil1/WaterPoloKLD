@@ -301,7 +301,7 @@ export default {
 @media screen and (max-width: 600px) {
     .footer {
         flex-wrap: wrap;
-        padding-left: calc(48vw / var(--ratio));
+        padding-left: clamp(24px, calc(48vw / var(--ratio)), 48px);
         .footer__logo {
             max-width: 56px;
             .logo__icon {
@@ -356,8 +356,9 @@ export default {
         }
     }
 }
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 450px) {
     .footer {
+        padding-left: clamp(16px, calc(24vw / var(--ratio)), 24px);
         .footer__logo {
             .logo__label {
                 font-size: 8px;
@@ -365,7 +366,6 @@ export default {
             }
         }
         .footer__block {
-            // margin-left: clamp(10px, calc(24vw / var(--ratio)), 24px);
             margin-left: 0;
             .block__contacts {
                 .contacts__title {
