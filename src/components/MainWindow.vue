@@ -21,12 +21,10 @@ export default {
         <img class="block__img" :src="main" />
         <h1 class="block__title">
             Начни
-            <p class="block__title-break" style="color: var(--text-info)">
-                сегодня!
-            </p>
+            <span style="color: var(--text-info)"> сегодня! </span>
         </h1>
 
-        <p class="block__info">Оставь заявку и первое занятие бесплатно!</p>
+        <p class="block__info">Оставь заявку и получи первое занятие бесплатно!</p>
         <div class="block__btn">
             <BtnSignTraining class="btn__left" />
             <BtnLearnMore />
@@ -37,6 +35,7 @@ export default {
 <style lang="scss" scoped>
 .block {
     position: relative;
+
     padding-top: clamp(40px, calc(80vw / var(--ratio)), 80px);
     padding-bottom: clamp(40px, calc(74vw / var(--ratio)), 80px);
     padding-left: clamp(110px, calc(288vw / var(--ratio)), 288px);
@@ -54,8 +53,9 @@ export default {
         object-fit: cover;
     }
     .block__title {
+        max-width: 704px;
         font-family: "Akrobat ExtraBold";
-        font-size: 200px;
+        font-size: clamp(96px, calc(200vw / var(--ratio)), 200px);
         letter-spacing: 4px;
         line-height: 65%;
         z-index: 1;

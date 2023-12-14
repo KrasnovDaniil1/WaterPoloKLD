@@ -2,12 +2,14 @@
 import MainWindow from "../components/MainWindow.vue";
 import MainResult from "../components/Main/MainResult.vue";
 import MainGallery from "../components/Main/MainGallery.vue";
+import Trainers from "../components/Trainers.vue";
 
 export default {
     components: {
         MainWindow,
         MainResult,
         MainGallery,
+        Trainers,
     },
     setup() {},
 };
@@ -20,6 +22,7 @@ export default {
             <MainResult />
             <MainGallery />
         </main>
+        <Trainers />
     </section>
 </template>
 

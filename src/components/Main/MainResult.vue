@@ -8,42 +8,33 @@ export default {
 
 <template>
     <div class="result__num">
-        <div class="result__card">
+        <div class="result__card" style="grid-area: first">
             <h2 class="card__num">3+</h2>
             <h5 class="card__title">Полученных наград</h5>
-            <p class="card__des">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            </p>
+            <p class="card__des">Были полученны за успехи на соревнованиях</p>
         </div>
-        <div class="result__card">
+        <div class="result__card" style="grid-area: second">
             <h2 class="card__num">40+</h2>
             <h5 class="card__title">Активных участников</h5>
-            <p class="card__des">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            </p>
+            <p class="card__des">Набор в команду всегда открыт для желающих</p>
         </div>
-        <div class="result__card">
+        <div class="result__card" style="grid-area: third">
             <h2 class="card__num">5+</h2>
             <h5 class="card__title">Сыгранных соревнований</h5>
-            <p class="card__des">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            </p>
+            <p class="card__des">Каждый раз мы растём как настоящая команда</p>
         </div>
     </div>
-    
 </template>
 
 <style lang="scss" scoped>
 .result__num {
-    width: 100%;
-    max-width: 1330px;
+    max-width: 1650px;
     margin: 0 auto;
     padding-top: clamp(40px, calc(80vw / var(--ratio)), 80px);
     display: flex;
-    justify-content: space-between;
-    grid-gap: clamp(32px, calc(130vw / var(--ratio)), 130px);
-
+    justify-content: space-evenly;
     .result__card {
+        max-width: 340px;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -79,12 +70,12 @@ export default {
 }
 @media screen and (max-width: 834px) {
     .result__num {
-        max-width: 100%;
-        margin-top: clamp(24px, calc(40vw / var(--ratio)), 40px);
-        justify-content: center;
+        max-width: 526px;
+        padding-top: clamp(24px, calc(40vw / var(--ratio)), 40px);
+        justify-content: space-between;
         grid-gap: clamp(23px, calc(32vw / var(--ratio)), 32px);
         .result__card {
-            max-width: clamp(115px, calc(155vw / var(--ratio)), 155px);
+            max-width: 154px;
             .card__num {
                 font-size: clamp(32px, calc(64vw / var(--ratio)), 64px);
                 letter-spacing: 1.28px;
@@ -106,10 +97,12 @@ export default {
 }
 @media screen and (max-width: 390px) {
     .result__num {
-        margin-top: 24px;
-        grid-gap: calc(23vw / var(--ratio));
+        max-width: 294px;
+        padding-top: 24px;
+        // grid-gap: 0 clamp(10px, calc(22vw / var(--ratio)), 22px);
+        grid-gap: 0;
         .result__card {
-            max-width: 85px;
+            max-width: 90px;
             .card__num {
                 font-size: 32px;
                 letter-spacing: 0.64px;

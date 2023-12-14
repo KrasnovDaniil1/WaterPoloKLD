@@ -22,6 +22,8 @@ export default {
 <style lang="scss">
 html {
     font-size: 10px;
+    overflow-x: hidden;
+
     body {
         min-height: 100vh;
         background: var(--bg-warning);
