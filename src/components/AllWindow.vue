@@ -49,7 +49,7 @@ export default {
     }
     .block__title {
         font-family: "Akrobat ExtraBold";
-        font-size: 200px;
+        font-size: clamp(96px, calc(200vw / var(--ratio)), 200px);
         letter-spacing: 4px;
         line-height: 65%;
         z-index: 1;
@@ -78,7 +78,7 @@ export default {
         padding: clamp(16px, calc(40vw / var(--ratio)), 40px) 10px;
 
         .block__title {
-            font-size: 96px;
+            font-size: clamp(40px, calc(96vw / var(--ratio)), 96px);
             letter-spacing: 1.92px;
         }
         .block__info {

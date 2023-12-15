@@ -15,7 +15,7 @@ export default {
     setup() {
         const allWindow = {
             title: "Контакты",
-            info: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus suscipit metus sit amet nisi lacinia condimentum. Phasellus eu nibh lobortis, tincidunt nisi in, ornare leo.",
+            info: "Не стесняйтесь связаться с нами для любых вопросов, комментариев или запросов. Мы готовы делиться радостью водных приключений с вами!",
             image: main,
         };
         return {

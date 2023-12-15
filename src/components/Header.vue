@@ -70,10 +70,10 @@ export default {
         </div>
         <div class="decor__line__h"></div>
         <div class="header-bottom">
-            <a href="#" class="bottom__logo">
+            <router-link to="/" class="bottom__logo">
                 <Icons icons="logo" class="logo__icon" />
                 <p class="logo__label">Water Polo</p>
-            </a>
+            </router-link>
             <nav class="bottom__menu">
                 <router-link
                     v-for="(link, index) in links"
@@ -291,11 +291,10 @@ export default {
         }
     }
     .pop-header {
-        position: relative;
         padding: 16px clamp(48px, calc(86vw / var(--ratio)), 86px);
         display: flex;
         justify-content: center;
-        position: absolute;
+        position: fixed;
         top: -100vh;
         width: 100%;
         height: 100vh;
