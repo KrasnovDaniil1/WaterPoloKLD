@@ -2,11 +2,21 @@
 import { ref } from "vue";
 import BtnLearnMoreDark from "../Btn/BtnLearnMoreDark.vue";
 import Icons from "../Other/Icons.vue";
+import BtnSignTraining from "../Btn/BtnSignTraining.vue";
+import BtnLearnMore from "../Btn/BtnLearnMore.vue";
 export default {
-    components: { BtnLearnMoreDark, Icons },
+    components: { BtnLearnMoreDark, Icons, BtnSignTraining, BtnLearnMore },
     setup() {
         const currentQuestion = ref(0);
         const questions = [
+            {
+                title: "Со скольких лет могут заниматься дети водным поло?",
+                answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus suscipit metus sit amet nisi lacinia condimentum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus suscipit metus sit amet nisi lacinia condimentum. ",
+            },
+            {
+                title: "Со скольких лет могут заниматься дети водным поло?",
+                answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus suscipit metus sit amet nisi lacinia condimentum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus suscipit metus sit amet nisi lacinia condimentum. ",
+            },
             {
                 title: "Со скольких лет могут заниматься дети водным поло?",
                 answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus suscipit metus sit amet nisi lacinia condimentum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus suscipit metus sit amet nisi lacinia condimentum. ",
@@ -61,6 +71,10 @@ export default {
             </p>
             <div class="block__decor__line"></div>
         </div>
+        <div class="questions__btn">
+            <BtnSignTraining class="btn__sign" />
+            <BtnLearnMore />
+        </div>
     </main>
 </template>
 
@@ -74,7 +88,7 @@ export default {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin-bottom: 96px;
+        margin-bottom: clamp(40px, calc(96vw / var(--ratio)), 96px);
         .header__title {
             max-width: clamp(400px, calc(764vw / var(--ratio)), 764px);
             font-family: "Akrobat ExtraBold";
@@ -108,20 +122,21 @@ export default {
         }
     }
     .questions__block {
-        padding: 0 40px 24px 40px;
+        padding: 0 clamp(30px, calc(40vw / var(--ratio)), 40px) 24px
+            clamp(30px, calc(40vw / var(--ratio)), 40px);
         .block__title {
             display: flex;
             justify-content: space-between;
             align-items: center;
             .title {
                 font-family: "Cruinn Bold";
-                font-size: 40px;
+                font-size: clamp(24px, calc(40vw / var(--ratio)), 40px);
                 line-height: normal;
                 letter-spacing: 0.8px;
             }
             .icon {
-                max-width: 48px;
-                max-height: 48px;
+                max-width: clamp(32px, calc(48vw / var(--ratio)), 48px);
+                max-height: clamp(32px, calc(48vw / var(--ratio)), 48px);
                 transform: rotate(45deg);
                 transition: all 0.25s;
             }
@@ -133,13 +148,13 @@ export default {
             max-width: 1024px;
             margin: 0 auto;
             font-family: "Montserrat Medium";
-            font-size: 24px;
+            font-size: clamp(16px, calc(24vw / var(--ratio)), 24px);
             line-height: 150%; /* 36px */
             letter-spacing: 1.92px;
             transition: all 0.25s;
         }
         .block__decor__line {
-            margin-top: 24px;
+            margin-top: clamp(16px, calc(24vw / var(--ratio)), 24px);
             width: 100%;
             height: 1px;
             background: #fffcf2;
@@ -149,25 +164,30 @@ export default {
     .questions__block__active {
         .block__answer {
             max-height: 300px;
-            padding-top: 24px;
+            padding-top: clamp(16px, calc(24vw / var(--ratio)), 24px);
         }
         .block__title {
             .icon {
-                max-width: 48px;
-                max-height: 48px;
                 transform: rotate(0deg);
             }
         }
     }
+
+    .questions__btn {
+        display: none;
+    }
 }
 @media screen and (max-width: 834px) {
     .questions {
-        max-width: 549px;
+        max-width: 600px;
         padding: clamp(24px, calc(40vw / var(--ratio)), 40px) 20px;
         .questions__header {
             flex-direction: column;
             align-items: center;
+            margin-bottom: clamp(24px, 96vw / var(--ratio), 40px);
+
             .header__title {
+                white-space: nowrap;
                 max-width: 100%;
                 font-size: clamp(24px, calc(48vw / var(--ratio)), 48px);
                 letter-spacing: 0.96px;
@@ -176,16 +196,91 @@ export default {
                 display: none;
             }
         }
+        .questions__block {
+            padding: 0 clamp(8px, calc(30vw / var(--ratio)), 30px)
+                clamp(8px, calc(16vw / var(--ratio)), 16px)
+                clamp(8px, calc(30vw / var(--ratio)), 30px);
+            .block__title {
+                .title {
+                    font-size: clamp(16px, calc(24vw / var(--ratio)), 24px);
+                    letter-spacing: 0.48px;
+                }
+                .icon {
+                    max-width: clamp(16px, calc(32vw / var(--ratio)), 32px);
+                    max-height: clamp(16px, calc(32vw / var(--ratio)), 32px);
+                    margin-left: 24px;
+                }
+            }
+            .block__answer {
+                max-width: 400px;
+                font-size: clamp(12px, calc(16vw / var(--ratio)), 16px);
+                letter-spacing: 1.28px;
+            }
+            .block__decor__line {
+                margin-top: clamp(4px, calc(16vw / var(--ratio)), 16px);
+            }
+        }
+        .questions__block__active {
+            .block__answer {
+                padding-top: clamp(16px, calc(24vw / var(--ratio)), 24px);
+            }
+        }
+
+        .questions__btn {
+            display: flex;
+            justify-content: center;
+            margin-top: clamp(16px, calc(40vw / var(--ratio)), 40px);
+            .btn__sign {
+                margin-right: clamp(8px, calc(16vw / var(--ratio)), 16px);
+            }
+        }
     }
 }
 @media screen and (max-width: 390px) {
     .questions {
-        max-width: 1330px;
-        padding: clamp(10px, calc(15vw / var(--ratio)), 15px) 30px;
+        max-width: 300px;
+        padding: clamp(10px, calc(15vw / var(--ratio)), 15px) 10px;
         .questions__header {
+            margin-bottom: clamp(16px, 24vw / var(--ratio), 24px);
             .header__title {
                 font-size: clamp(18px, calc(24vw / var(--ratio)), 24px);
                 letter-spacing: 0.48px;
+            }
+        }
+        .questions__block {
+            padding: 0 10px 8px 10px;
+            .block__title {
+                .title {
+                    font-size: clamp(12px, calc(16vw / var(--ratio)), 16px);
+                    letter-spacing: 0.32px;
+                }
+                .icon {
+                    max-width: 16px;
+                    max-height: 16px;
+                    margin-left: 20px;
+                }
+            }
+            .block__answer {
+                max-width: 240px;
+                font-size: clamp(10px, calc(12vw / var(--ratio)), 12px);
+                letter-spacing: 0.96px;
+            }
+            .block__decor__line {
+                margin-top: 4px;
+            }
+        }
+        .questions__block__active {
+            .block__answer {
+                padding-top: 4px;
+            }
+        }
+
+        .questions__btn {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+            .btn__sign {
+                margin-right: 8px;
             }
         }
     }
