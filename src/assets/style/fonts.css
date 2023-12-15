@@ -41,3 +41,15 @@
         url("../fonts/montserrat/montserrat_regular.svg#montserrat_regular")
             format("svg");
 }
+@font-face {
+    font-family: "Montserrat Medium";
+    font-weight: 500;
+    src: url("../fonts/montserrat/montserrat_medium.eot");
+    src: url("../fonts/montserrat/montserrat_medium.eot?#iefix")
+            format("embedded-opentype"),
+        url("../fonts/montserrat/montserrat_medium.woff2") format("woff2"),
+        url("../fonts/montserrat/montserrat_medium.woff") format("woff"),
+        url("../fonts/montserrat/montserrat_medium.ttf") format("truetype"),
+        url("../fonts/montserrat/montserrat_medium.svg#montserrat_medium")
+            format("svg");
+}

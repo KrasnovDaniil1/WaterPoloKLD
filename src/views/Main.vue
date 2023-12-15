@@ -3,6 +3,7 @@ import MainWindow from "../components/MainWindow.vue";
 import MainResult from "../components/Main/MainResult.vue";
 import MainGallery from "../components/Main/MainGallery.vue";
 import Trainers from "../components/Trainers.vue";
+import Questions from "../components/Main/Questions.vue";
 
 export default {
     components: {
@@ -10,6 +11,7 @@ export default {
         MainResult,
         MainGallery,
         Trainers,
+        Questions,
     },
     setup() {},
 };
@@ -18,17 +20,20 @@ export default {
 <template>
     <section class="main">
         <MainWindow />
-        <main class="result">
+        <main class="block__bg">
             <MainResult />
             <MainGallery />
         </main>
         <Trainers />
+        <main class="block__bg">
+            <Questions />
+        </main>
     </section>
 </template>
 
 <style lang="scss" scoped>
 .main {
-    .result {
+    .block__bg {
         background: linear-gradient(
             180deg,
             rgba(0, 77, 243, 0.5) 0%,
