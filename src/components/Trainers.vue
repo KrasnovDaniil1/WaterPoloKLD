@@ -2,35 +2,24 @@
 import Icons from "./Other/Icons.vue";
 import { ref } from "vue";
 export default {
+    props: {
+        trainers: Object,
+    },
     components: { Icons },
-    setup() {
+    setup(props) {
         const currentTrainer = ref(0);
-        const trainers = [
-            {
-                img: "https://s-cdn.sportbox.ru/images/styles/upload/fp_fotos/9f/8c/79f00daba1e3401fba2a3e91d7c1cd7c5d3ad36ad25c2616834560.jpg",
-                name: "Павлик Морозов",
-                des: "Был  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus suscipit metus sit amet nisi lacinia condimentum.",
-                contacts: "+7 888 888 88 88",
-            },
-            {
-                img: "https://ru.sport-wiki.org/wp-content/themes/sportwiki/img/water-polo.jpg",
-                name: "Павлик Ltl",
-                des: "Стало  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus suscipit metus sit amet nisi lacinia condimentum.",
-                contacts: "+7 999 999 99 99",
-            },
-        ];
+       
         const slideTrainers = (e) => {
-            if (trainers.length - 1 < currentTrainer.value + e) {
+            if (props.trainers.length - 1 < currentTrainer.value + e) {
                 currentTrainer.value = 0;
             } else if (currentTrainer.value + e < 0) {
-                currentTrainer.value = trainers.length + e;
+                currentTrainer.value = props.trainers.length + e;
             } else {
                 currentTrainer.value += e;
             }
         };
         return {
             currentTrainer,
-            trainers,
             slideTrainers,
         };
     },
