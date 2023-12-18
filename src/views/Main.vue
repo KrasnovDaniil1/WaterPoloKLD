@@ -5,6 +5,8 @@ import MainGallery from "../components/Main/MainGallery.vue";
 import Trainers from "../components/Trainers.vue";
 import Questions from "../components/Main/Questions.vue";
 import Goals from "../components/Goals.vue";
+import News from "../components/News.vue";
+
 
 export default {
     components: {
@@ -14,6 +16,7 @@ export default {
         Trainers,
         Questions,
         Goals,
+        News,
     },
     setup() {
         const goals = {
@@ -66,10 +69,11 @@ export default {
             <MainGallery />
         </main>
         <Trainers :trainers="trainers" />
+        <Goals :goals="goals" />
         <main class="block__bg">
             <Questions />
         </main>
-        <Goals :goals="goals" />
+        <News />
     </section>
 </template>
 
@@ -83,5 +87,4 @@ section {
         );
     }
 }
-
 </style>

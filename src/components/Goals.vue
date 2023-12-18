@@ -132,7 +132,7 @@ export default {
                 margin-bottom: calc(16vw / var(--ratio));
             }
             .card__img {
-                max-width: calc(191vw / var(--ratio));
+                max-width: clamp(150px, calc(180vw / var(--ratio)), 180px);
                 aspect-ratio: 193/103;
             }
             .card__block {
