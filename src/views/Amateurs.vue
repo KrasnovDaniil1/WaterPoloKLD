@@ -1,13 +1,14 @@
 <script>
 import AllWindow from "../components/AllWindow.vue";
 import Goals from "../components/Goals.vue";
-
+import TimeTable from "../components/TimeTable.vue";
 import main from "../assets/images/allWindow/main.png";
 
 export default {
     components: {
         AllWindow,
         Goals,
+        TimeTable,
     },
     setup() {
         const allWindow = {
@@ -49,6 +50,7 @@ export default {
         <main class="block__bg">
             <Goals :goals="goals" />
         </main>
+        <TimeTable />
     </section>
 </template>
 

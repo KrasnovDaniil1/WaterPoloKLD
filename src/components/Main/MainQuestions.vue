@@ -239,7 +239,7 @@ export default {
 @media screen and (max-width: 390px) {
     .questions {
         max-width: 300px;
-        padding: clamp(10px, calc(15vw / var(--ratio)), 15px) 10px;
+        padding: clamp(10px, calc(15vw / var(--ratio)), 15px) 0px;
         .questions__header {
             margin-bottom: clamp(16px, 24vw / var(--ratio), 24px);
             .header__title {

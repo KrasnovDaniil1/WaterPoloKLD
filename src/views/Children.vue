@@ -3,12 +3,15 @@ import AllWindow from "../components/AllWindow.vue";
 import Goals from "../components/Goals.vue";
 import main from "../assets/images/allWindow/main.png";
 import Trainers from "../components/Trainers.vue";
-
+import TimeTable from "../components/TimeTable.vue";
+import DecorTrainerBlock from "../components/DecorTrainerBlock.vue";
 export default {
     components: {
         AllWindow,
         Goals,
         Trainers,
+        TimeTable,
+        DecorTrainerBlock,
     },
     setup() {
         const allWindow = {
@@ -66,6 +69,8 @@ export default {
             <Goals :goals="goals" />
         </main>
         <Trainers :trainers="trainers" />
+        <TimeTable />
+        <DecorTrainerBlock />
     </section>
 </template>
 
