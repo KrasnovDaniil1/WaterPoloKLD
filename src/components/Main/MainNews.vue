@@ -1,7 +1,7 @@
 <script>
 import { ref } from "vue";
-import BtnSeeAll from "./Btn/BtnSeeAll.vue";
-import Icons from "./Other/Icons.vue";
+import BtnSeeAll from "../Btn/BtnSeeAll.vue";
+import Icons from "../Other/Icons.vue";
 
 export default {
     components: {

@@ -1,7 +1,7 @@
 <script>
-import BtnLearnMore from "./Btn/BtnLearnMore.vue";
-import BtnSignTraining from "./Btn/BtnSignTraining.vue";
-import main from "../assets/images/allWindow/main.png";
+import BtnLearnMore from "../Btn/BtnLearnMore.vue";
+import BtnSignTraining from "../Btn/BtnSignTraining.vue";
+import main from "../../assets/images/allWindow/main.png";
 
 export default {
     components: {

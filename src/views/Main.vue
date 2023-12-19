@@ -1,12 +1,13 @@
 <script>
-import MainWindow from "../components/MainWindow.vue";
+import MainWindow from "../components/Main/MainWindow.vue";
 import MainResult from "../components/Main/MainResult.vue";
 import MainGallery from "../components/Main/MainGallery.vue";
 import Trainers from "../components/Trainers.vue";
-import Questions from "../components/Main/Questions.vue";
+import Questions from "../components/Main/MainQuestions.vue";
 import Goals from "../components/Goals.vue";
-import News from "../components/News.vue";
-
+import News from "../components/Main/MainNews.vue";
+import TimeTable from "../components/TimeTable.vue";
+import DecorTrainerBlock from "../components/DecorTrainerBlock.vue";
 
 export default {
     components: {
@@ -17,6 +18,8 @@ export default {
         Questions,
         Goals,
         News,
+        TimeTable,
+        DecorTrainerBlock,
     },
     setup() {
         const goals = {
@@ -69,6 +72,8 @@ export default {
             <MainGallery />
         </main>
         <Trainers :trainers="trainers" />
+        <TimeTable />
+        <DecorTrainerBlock />
         <Goals :goals="goals" />
         <main class="block__bg">
             <Questions />
