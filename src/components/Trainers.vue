@@ -39,7 +39,7 @@ export default {
         </div>
 
         <div class="trainers__des">
-            <h3 class="des__title">Наши тренера</h3>
+            <h3 class="des__title">Наши тренеры</h3>
             <p class="des__info">Мастера своего дела!</p>
         </div>
         <h4

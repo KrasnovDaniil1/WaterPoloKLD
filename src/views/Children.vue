@@ -5,6 +5,9 @@ import main from "../assets/images/allWindow/main.png";
 import Trainers from "../components/Trainers.vue";
 import TimeTable from "../components/TimeTable.vue";
 import DecorTrainerBlock from "../components/DecorTrainerBlock.vue";
+import Gallery from "../components/Children/ChildrenGallery.vue";
+import Reviews from "../components/Children/ChildrenReviews.vue";
+
 export default {
     components: {
         AllWindow,
@@ -12,6 +15,8 @@ export default {
         Trainers,
         TimeTable,
         DecorTrainerBlock,
+        Gallery,
+        Reviews,
     },
     setup() {
         const allWindow = {
@@ -66,8 +71,10 @@ export default {
     <section>
         <AllWindow :allWindow="allWindow" />
         <main class="block__bg">
-            <Goals :goals="goals" />
+            <Gallery />
         </main>
+        <Goals :goals="goals" />
+        <Reviews />
         <Trainers :trainers="trainers" />
         <TimeTable />
         <DecorTrainerBlock />

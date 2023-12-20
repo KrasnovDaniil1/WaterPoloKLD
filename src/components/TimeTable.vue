@@ -63,7 +63,7 @@ export default {
             <div class="lesson__info">
                 <h4 class="info">12.00</h4>
                 <h4 class="info">Дети</h4>
-                <h4 class="info">600 / 3500 р.</h4>
+                <h4 class="info">Тихоокеанская улица, 5</h4>
             </div>
             <div class="table__decor__line"></div>
         </nav>
@@ -71,7 +71,7 @@ export default {
             <div class="lesson__info">
                 <h4 class="info">12.00</h4>
                 <h4 class="info">Дети</h4>
-                <h4 class="info">600 / 3500 р.</h4>
+                <h4 class="info">Тихоокеанская улица, 5</h4>
             </div>
             <div class="table__decor__line"></div>
         </nav>
@@ -79,7 +79,7 @@ export default {
             <div class="lesson__info">
                 <h4 class="info">12.00</h4>
                 <h4 class="info">Дети</h4>
-                <h4 class="info">600 / 3500 р.</h4>
+                <h4 class="info">Тихоокеанская улица, 5</h4>
             </div>
             <div class="table__decor__line"></div>
         </nav>

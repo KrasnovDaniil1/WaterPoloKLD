@@ -16,20 +16,20 @@ export default {
                 icon: "new",
             },
             {
-                title: "Новости",
-                icon: "news",
-            },
-            {
-                title: "БФУ",
-                icon: "bfu",
+                title: "Дети",
+                icon: "children",
             },
             {
                 title: "Любители",
                 icon: "amateur",
             },
             {
-                title: "Дети",
-                icon: "children",
+                title: "Студенты",
+                icon: "bfu",
+            },
+            {
+                title: "Федерация",
+                icon: "news",
             },
         ];
         const blockCard = [
@@ -158,7 +158,7 @@ export default {
                 max-width: 0;
                 overflow: hidden;
                 font-family: "Cruinn Black";
-                font-size: clamp(16px, calc(56vw / var(--ratio)), 36px);
+                font-size: clamp(16px, calc(36vw / var(--ratio)), 36px);
                 line-height: normal;
                 letter-spacing: 0.72px;
                 transition: all 0.25s;

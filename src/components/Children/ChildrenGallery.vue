@@ -36,13 +36,17 @@ export default {
 
 <template>
     <div class="galery">
-        <h2 class="galery__title">Галерея</h2>
+        <h2 class="galery__title">Что же такое Водное поло?</h2>
         <p class="galery__info">
-            Наслаждайтесь потрясающими моментами преодоления преград, точных
-            бросков и блестящих командных действий. Галерея водного поло — это
-            искусство водной борьбы, запечатленное в волнующих кадрах.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus
+            suscipit metus sit amet nisi lacinia condimentum. Phasellus eu nibh
+            lobortis, tincidunt nisi in, ornare leo. Donec hendrerit interdum
+            mollis. Vestibulum consequat erat sapien, a pellentesque quam
+            accumsan nec. Mauris ex ex, placerat sollicitudin nisi sed, pharetra
+            cursus mauris. Ut pretium eros eget mauris tempor dictum. Aenean non
+            lorem erat. Quisque a tristique lorem.
         </p>
-        <BtnLearnMoreDark class="galery__btn-learn-more" />
+        <!-- <BtnLearnMoreDark class="galery__btn-learn-more" /> -->
         <nav class="galery__check">
             <div class="check__block">
                 <p class="block__num">
@@ -94,29 +98,27 @@ export default {
 .galery {
     max-width: 1600px;
     margin: 0 auto;
-    margin-top: 60px;
-    padding-bottom: 40px;
+    padding: clamp(40px, calc(80vw / var(--ratio)), 80px) 0;
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     grid-template-areas:
-        ". title title title title img img img img img img img"
-        ". info info info info img img img img img img img "
-        ". btn btn . . img img img img img img img "
-        ". btn btn . . img img img img img img img "
-        ". btn btn . . img img img img img img img "
-        ". btn btn . . img img img img img img img "
-        ". check check check check img img img img img img img ";
+        ". title title title title title img img img img img img"
+        ". title title title title title img img img img img img "
+        ". info info info info info img img img img img img "
+        ". info info info info info img img img img img img"
+        ". info info info info info img img img img img img "
+        ". check check check check check img img img img img img ";
     grid-gap: 0px clamp(10px, calc(20vw / var(--ratio)), 20px);
     color: #fffcf2;
     .galery__title {
         grid-area: title;
         font-family: "Akrobat ExtraBold";
-        font-size: clamp(64px, calc(160vw / var(--ratio)), 160px);
-        font-weight: 800;
-        line-height: 65%; /* 104px */
-        letter-spacing: 3.2px;
+        font-size: clamp(48px, calc(96vw / var(--ratio)), 96px);
+        line-height: 85%; /* 81.6px */
+        letter-spacing: 1.92px;
     }
     .galery__info {
+        margin-top: clamp(40px, calc(80vw / var(--ratio)), 80px);
         grid-area: info;
         font-family: "Montserrat Regular";
         font-size: clamp(12px, calc(20vw / var(--ratio)), 20px);
@@ -124,9 +126,9 @@ export default {
         letter-spacing: 1.6px;
         margin-top: 10px;
     }
-    .galery__btn-learn-more {
-        grid-area: btn;
-    }
+    // .galery__btn-learn-more {
+    //     grid-area: btn;
+    // }
     .galery__check {
         margin-top: auto;
         grid-area: check;
@@ -201,34 +203,31 @@ export default {
 }
 @media screen and (max-width: 834px) {
     .galery {
-        margin-top: clamp(24px, calc(35vw / var(--ratio)), 35px);
+        padding: clamp(24px, calc(40vw / var(--ratio)), 40px) 10px;
         max-width: 720px;
         grid-template-columns: repeat(8, 1fr);
         grid-template-areas:
-            ". title title title btn btn btn . "
-            ". img img img img img img . "
+            ". title title title title title title . "
             ". info info info info info info . "
+            ". info info info info info info . "
+            ". img img img img img img . "
             ". check check check check check check . ";
-        grid-gap: 0px 16px;
-        align-items: center;
+        grid-gap: 0px;
         .galery__title {
-            font-size: clamp(32px, calc(64vw / var(--ratio)), 64px);
-            letter-spacing: 1.28px;
+            text-align: center;
+            font-size: clamp(24px, calc(48vw / var(--ratio)), 48px);
+            letter-spacing: 0.48px;
         }
         .galery__visible-image {
-            margin-top: clamp(12px, calc(24vw / var(--ratio)), 24px);
+            margin-top: clamp(16px, calc(24vw / var(--ratio)), 24px);
             max-width: 100%;
             aspect-ratio: 526/318;
         }
         .galery__info {
             text-align: center;
             font-size: 14px;
-            letter-spacing: 0.96px;
-            margin-top: 16px;
-        }
-        .galery__btn-learn-more {
-            margin-top: clamp(3px, calc(16vw / var(--ratio)), 16px);
-            margin-left: auto;
+            letter-spacing: 1.12px;
+            margin-top: clamp(16px, calc(24vw / var(--ratio)), 24px);
         }
         .galery__check {
             margin-top: 16px;
@@ -263,34 +262,33 @@ export default {
 }
 @media screen and (max-width: 390px) {
     .galery {
-        margin-top: calc(24vw / var(--ratio));
-        padding-bottom: 24px;
+        padding: calc(24vw / var(--ratio)) 0px;
         max-width: 294px;
         grid-template-columns: repeat(6, 1fr);
         grid-template-areas:
-            "title title title btn btn btn "
-            "img img img img img img  "
-            "info info info info info info "
-            "check check check check check check  ";
-        grid-gap: 0px 8px;
+            "title title title title title title"
+            "info info info info info info"
+            "info info info info info info"
+            "img img img img img img"
+            "check check check check check check";
         .galery__title {
-            font-size: calc(36vw / var(--ratio));
-            letter-spacing: 0.72px;
+            font-size: calc(24vw / var(--ratio));
+            letter-spacing: 0.48px;
         }
         .galery__visible-image {
-            margin-top: 16px;
-            aspect-ratio: 294/180;
+            margin-top: 10px;
+            aspect-ratio: 214/130;
         }
         .galery__info {
-            font-size: 10px;
-            letter-spacing: 0.4px;
-            margin-top: 16px;
+            font-size: 12px;
+            letter-spacing: 0.6px;
+            margin-top: 10px;
         }
         .galery__btn-learn-more {
             margin-top: 3px;
         }
         .galery__check {
-            margin-top: 18px;
+            margin-top: 10px;
             .check__block {
                 .block__num {
                     font-size: 24px;
@@ -304,10 +302,6 @@ export default {
                             margin-right: 6px;
                         }
                     }
-                }
-            }
-            .galery__indicator {
-                .indicator__bg {
                 }
             }
         }

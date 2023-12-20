@@ -112,6 +112,7 @@ export default {
                     :key="index"
                     :to="link.to"
                     class="menu__link"
+                    @click="activeMenu = false"
                     >{{ link.name }}</router-link
                 >
             </nav>
@@ -126,39 +127,6 @@ export default {
             </div>
         </div>
         <Icons icons="close" class="top__close" @click="activeMenu = false" />
-        <!-- <div class="header__top">
-            <a class="top__logo" href="#">
-                <Icons icons="logo" class="logo__icon" />
-                <p class="logo__label">Water Polo</p>
-            </a>
-            <div class="top__center">
-                <a href="#" class="center__phone">+7 888 888 88 88</a>
-                <a href="#" class="center__email">waterpolo@gmail.com</a>
-                <nav class="center__menu">
-                    <router-link
-                        v-for="(link, index) in links"
-                        :key="index"
-                        :to="link.to"
-                        class="menu__link"
-                        >{{ link.name }}</router-link
-                    >
-                </nav>
-                <div class="center__block">
-                    <BtnSignTraining class="block__btn-sign" />
-                    <BtnLearnMore />
-                </div>
-                <div class="center__icons">
-                    <Icons icons="vk" class="icons__contacts" />
-                    <Icons icons="telegram" class="icons__contacts" />
-                    <Icons icons="youtube" class="icons__contacts" />
-                </div>
-            </div>
-            <Icons
-                icons="close"
-                class="top__close"
-                @click="activeMenu = false"
-            />
-        </div> -->
     </main>
 </template>
 

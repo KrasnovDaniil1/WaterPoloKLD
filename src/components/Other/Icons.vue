@@ -865,4 +865,30 @@ export default {
             </clipPath>
         </defs>
     </svg>
+    <svg
+        width="64"
+        height="46"
+        viewBox="0 0 64 46"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        v-else-if="icons == 'quote'"
+    >
+        <g id="mdi:format-quote-close" clip-path="url(#clip0_748_1995)">
+            <path
+                id="Vector"
+                d="M22.8571 -1.88556e-05L9.14285 -2.00546e-05L-5.23751e-06 18.24L-7.62939e-06 45.6L27.4286 45.6L27.4286 18.24L13.7143 18.24M59.4286 -1.56584e-05L45.7143 -1.68574e-05L36.5714 18.24L36.5714 45.6L64 45.6L64 18.24L50.2857 18.24L59.4286 -1.56584e-05Z"
+                fill="#FFD601"
+            />
+        </g>
+        <defs>
+            <clipPath id="clip0_748_1995">
+                <rect
+                    width="64"
+                    height="46"
+                    fill="white"
+                    transform="translate(64 46) rotate(-180)"
+                />
+            </clipPath>
+        </defs>
+    </svg>
 </template>
