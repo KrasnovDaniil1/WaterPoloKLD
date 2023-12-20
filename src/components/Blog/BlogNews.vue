@@ -1,12 +1,14 @@
 <script>
 import { ref } from "vue";
-import BtnSeeAll from "./Btn/BtnSeeAll.vue";
-import Icons from "./Other/Icons.vue";
+import BtnSeeAll from "../Btn/BtnSeeAll.vue";
+import Icons from "../Other/Icons.vue";
+import BtnToMain from "../Btn/BtnToMain.vue";
 
 export default {
     components: {
         BtnSeeAll,
         Icons,
+        BtnToMain,
     },
     setup() {
         const activeBtn = ref(0);
@@ -68,10 +70,6 @@ export default {
 </script>
 <template>
     <main class="news">
-        <div class="news__top">
-            <h2 class="news__title">Новостной блог</h2>
-            <BtnSeeAll class="news__btn" />
-        </div>
         <nav class="news__panel">
             <button
                 v-for="(item, index) in panelBtn"
@@ -101,17 +99,11 @@ export default {
                 </button>
             </nav>
         </div>
-        <nav class="news__navigation">
-            <h4 class="navigation__page">
-                Стр. 1<span class="page__all">/5</span>
-            </h4>
-            <button class="navigation__num navigation__num-active">1</button>
-            <button class="navigation__num">2</button>
-            <button class="navigation__num">3</button>
-            <button class="navigation__num">
-                <Icons icons="arrowDouble" class="num__icon" />
-            </button>
-        </nav>
+
+        <div class="news__btn">
+            <button class="btn__download">Загрузить еще</button>
+            <BtnToMain />
+        </div>
     </main>
 </template>
 <style lang="scss" scoped>
@@ -121,24 +113,9 @@ export default {
     width: 100%;
     margin: 0 auto;
     color: #fffcf2;
-    .news__top {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
 
-        .news__title {
-            font-family: "Akrobat ExtraBold";
-            font-size: clamp(48px, calc(96vw / var(--ratio)), 96px);
-            line-height: 85%; /* 81.6px */
-            letter-spacing: 1.92px;
-        }
-        .news__btn {
-            margin-left: auto;
-        }
-    }
     .news__panel {
         display: flex;
-        margin-top: clamp(40px, calc(80vw / var(--ratio)), 80px);
         .panel__btn {
             display: flex;
             align-items: center;
@@ -232,46 +209,28 @@ export default {
             }
         }
     }
-    .news__navigation {
-        margin-top: clamp(15px, calc(56vw / var(--ratio)), 56px);
+
+    .news__btn {
+        margin-top: 40px;
         display: flex;
         justify-content: center;
-        align-items: center;
-        font-family: "Montserrat Regular";
-        .navigation__page {
-            margin-right: clamp(16px, calc(40vw / var(--ratio)), 40px);
-            font-size: clamp(16px, calc(32vw / var(--ratio)), 32px);
-            line-height: normal;
-            letter-spacing: 0.64px;
-            .page__all {
-                opacity: 0.4;
-            }
-        }
-        .navigation__num {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: clamp(24px, calc(40vw / var(--ratio)), 40px);
-            height: clamp(24px, calc(40vw / var(--ratio)), 40px);
-            border-radius: 50%;
-            font-size: clamp(12px, calc(24vw / var(--ratio)), 24px);
-            line-height: normal;
+        .btn__download {
+            width: fit-content;
+            height: fit-content;
+            padding: clamp(10px, calc(16vw / var(--ratio)), 16px)
+                clamp(25px, calc(40vw / var(--ratio)), 40px);
+            font-size: clamp(16px, calc(24vw / var(--ratio)), 24px);
+            font-family: "Cruinn Black";
             letter-spacing: 0.48px;
-            border: 1px solid #fffcf2;
-            opacity: 0.4;
+            background: #004df3;
+            color: #fffcf2;
             transition: all 0.25s;
-            &:not(:last-child) {
-                margin-right: 8px;
+            margin-right: 20px;
+            &:hover {
+                background: #fffcf2;
+                color: #004df3;
+                opacity: 1;
             }
-            .num__icon {
-                width: clamp(12px, calc(18vw / var(--ratio)), 18px);
-                height: clamp(12px, calc(18vw / var(--ratio)), 18px);
-            }
-        }
-        .navigation__num-active {
-            opacity: 1;
-            background: #fffcf2;
-            color: #161616;
         }
     }
 }
@@ -279,14 +238,8 @@ export default {
     .news {
         padding: clamp(24px, calc(40vw / var(--ratio)), 40px) 10px;
         max-width: 526px;
-        .news__top {
-            .news__title {
-                font-size: clamp(24px, calc(48vw / var(--ratio)), 48px);
-                letter-spacing: 0.96px;
-            }
-        }
+
         .news__panel {
-            margin-top: clamp(24px, calc(40vw / var(--ratio)), 40px);
             .panel__btn {
                 padding: 8px clamp(8px, calc(16vw / var(--ratio)), 16px);
                 border: 1px solid #fffcf2;
@@ -351,25 +304,13 @@ export default {
                 }
             }
         }
-        .news__navigation {
-            margin-top: 16px;
-            .navigation__page {
-                margin-right: 16px;
-                font-size: 16px;
+        .news__btn {
+            margin-top: clamp(24px, calc(40vw / var(--ratio)), 40px);
+            .btn__download {
+                padding: clamp(8px, calc(10vw / var(--ratio)), 10px)
+                    clamp(16px, calc(25vw / var(--ratio)), 25px);
+                font-size: clamp(12px, calc(24vw / var(--ratio)), 16px);
                 letter-spacing: 0.32px;
-            }
-            .navigation__num {
-                width: 24px;
-                height: 24px;
-                font-size: 12px;
-                letter-spacing: 0.32px;
-                &:not(:last-child) {
-                    margin-right: 8px;
-                }
-                .num__icon {
-                    width: 12px;
-                    height: 12px;
-                }
             }
         }
     }
@@ -378,14 +319,8 @@ export default {
     .news {
         padding: clamp(16px, calc(24vw / var(--ratio)), 24px) 5px;
         max-width: 294px;
-        .news__top {
-            .news__title {
-                font-size: clamp(16px, calc(24vw / var(--ratio)), 20px);
-                letter-spacing: 0.48px;
-            }
-        }
+
         .news__panel {
-            margin-top: clamp(16px, calc(24vw / var(--ratio)), 24px);
             .panel__btn {
                 padding: 8px;
                 &:not(:last-child) {
@@ -441,6 +376,15 @@ export default {
                         height: 20px;
                     }
                 }
+            }
+        }
+        .news__btn {
+            margin-top: clamp(16px, calc(24vw / var(--ratio)), 24px);
+            .btn__download {
+                padding: 8px calc(16vw / var(--ratio));
+                font-size: 12px;
+                letter-spacing: 0.24px;
+                margin-right: 8px;
             }
         }
     }

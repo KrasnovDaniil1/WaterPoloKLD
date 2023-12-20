@@ -26,14 +26,13 @@ export default {
     &:hover {
         background: #fffcf2;
         color: #004df3;
-        opacity: 1;
     }
 }
 @media screen and (max-width: 834px) {
     .btn-sign-training {
         padding: clamp(8px, calc(10vw / var(--ratio)), 10px)
             clamp(22px, calc(36vw / var(--ratio)), 36px);
-        font-size: clamp(12px, calc(16vw / var(--ratio)), 16px);;
+        font-size: clamp(12px, calc(16vw / var(--ratio)), 16px);
         letter-spacing: 0.32px;
     }
 }

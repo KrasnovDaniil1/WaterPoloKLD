@@ -1,10 +1,12 @@
 <script>
 import AllWindow from "../components/AllWindow.vue";
 import main from "../assets/images/allWindow/main.png";
+import News from "../components/Blog/BlogNews.vue";
 
 export default {
     components: {
         AllWindow,
+        News,
     },
     setup() {
         const allWindow = {
@@ -22,6 +24,7 @@ export default {
 <template>
     <section>
         <AllWindow :allWindow="allWindow" />
+        <News />
     </section>
 </template>
 
