@@ -7,6 +7,7 @@ import TimeTable from "../components/TimeTable.vue";
 import DecorTrainerBlock from "../components/DecorTrainerBlock.vue";
 import Gallery from "../components/Children/ChildrenGallery.vue";
 import Reviews from "../components/Children/ChildrenReviews.vue";
+import Carusel from "../components/Children/ChildrenCarusel.vue";
 
 export default {
     components: {
@@ -17,6 +18,7 @@ export default {
         DecorTrainerBlock,
         Gallery,
         Reviews,
+        Carusel,
     },
     setup() {
         const allWindow = {
@@ -78,6 +80,9 @@ export default {
         <Trainers :trainers="trainers" />
         <TimeTable />
         <DecorTrainerBlock />
+        <main class="block__bg">
+            <Carusel />
+        </main>
     </section>
 </template>
 

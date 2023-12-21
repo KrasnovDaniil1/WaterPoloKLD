@@ -82,10 +82,6 @@ export default {
                 :src="item"
                 :key="index"
             />
-            <img
-                class="visible__image"
-                src="../../assets/images/allWindow/main.png"
-            />
         </nav>
     </div>
 </template>

@@ -180,6 +180,7 @@ export default {
     }
     .time__lesson {
         width: 100%;
+        
         &:not(:last-child) {
             margin-bottom: clamp(8px, calc(24vw / var(--ratio)), 24px);
         }
