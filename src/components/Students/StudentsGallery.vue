@@ -1,0 +1,333 @@
+<script>
+import Icons from "../Other/Icons.vue";
+import BtnLearnMoreDark from "../Btn/BtnLearnMoreDark.vue";
+import { onMounted, ref } from "vue";
+export default {
+    components: { Icons, BtnLearnMoreDark },
+    setup() {
+        const currentImage = ref(0);
+        const imagesGalery = [
+            "https://s-cdn.sportbox.ru/images/styles/upload/fp_fotos/9f/8c/79f00daba1e3401fba2a3e91d7c1cd7c5d3ad36ad25c2616834560.jpg",
+            "https://upload.wikimedia.org/wikipedia/commons/1/1d/DFC_Sete_v_FNC_Douai_Coupe_de_la_Ligue_2014_t144334.jpg",
+            "https://ru.sport-wiki.org/wp-content/themes/sportwiki/img/water-polo.jpg",
+        ];
+        const slideImage = (e) => {
+            if (imagesGalery.length - 1 < currentImage.value + e) {
+                currentImage.value = 0;
+            } else if (currentImage.value + e < 0) {
+                currentImage.value = imagesGalery.length + e;
+            } else {
+                currentImage.value += e;
+            }
+        };
+        onMounted(() => {
+            window.setInterval(() => {
+                slideImage(1);
+            }, 1500);
+        });
+        return {
+            currentImage,
+            imagesGalery,
+            slideImage,
+        };
+    },
+};
+</script>
+
+<template>
+    <div class="galery">
+        <h2 class="galery__title__block">Наша команда</h2>
+        <h2 class="galery__title">Краснов Даниил</h2>
+        <p class="galery__info">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus
+            suscipit metus sit amet nisi lacinia condimentum. Phasellus eu nibh
+            lobortis, tincidunt nisi in, ornare leo. Donec hendrerit interdum
+            mollis. Vestibulum consequat erat sapien, a pellentesque quam
+        </p>
+        <!-- <BtnLearnMoreDark class="galery__btn-learn-more" /> -->
+        <nav class="galery__check">
+            <div class="check__block">
+                <p class="block__num">
+                    {{ currentImage + 1 }}/{{ imagesGalery.length }}
+                </p>
+                <div class="num_btn">
+                    <Icons
+                        icons="arrow"
+                        style="transform: rotate(180deg)"
+                        class="btn__arrow"
+                        @click="slideImage(-1)"
+                    />
+                    <Icons
+                        icons="arrow"
+                        class="btn__arrow"
+                        @click="slideImage(1)"
+                    />
+                </div>
+            </div>
+            <div class="galery__indicator">
+                <div class="indicator__bg"></div>
+                <div
+                    class="indicator__going"
+                    :style="{
+                        width:
+                            (currentImage + 1) * (100 / imagesGalery.length) +
+                            '%',
+                    }"
+                ></div>
+            </div>
+        </nav>
+        <nav class="galery__visible-image">
+            <img
+                v-for="(item, index) in imagesGalery"
+                class="visible__image"
+                :class="{ visible__image__active: currentImage == index }"
+                :src="item"
+                :key="index"
+            />
+            <img
+                class="visible__image"
+                src="../../assets/images/allWindow/main.png"
+            />
+        </nav>
+    </div>
+</template>
+
+<style lang="scss" scoped>
+.galery {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: clamp(40px, calc(80vw / var(--ratio)), 80px) 0;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-areas:
+        "titlemain titlemain titlemain titlemain titlemain titlemain titlemain titlemain titlemain titlemain titlemain titlemain"
+        ". title title title title title img img img img img img"
+        ". title title title title title img img img img img img "
+        ". info info info info info img img img img img img "
+        ". info info info info info img img img img img img"
+        ". info info info info info img img img img img img "
+        ". check check check check check img img img img img img ";
+    grid-gap: 0px clamp(10px, calc(20vw / var(--ratio)), 20px);
+    color: #fffcf2;
+    .galery__title__block {
+        grid-area: titlemain;
+        font-family: "Akrobat ExtraBold";
+        font-size: clamp(64px, calc(160vw / var(--ratio)), 160px);
+        line-height: 85%; /* 136px */
+        letter-spacing: 3.2px;
+        text-align: center;
+        margin-bottom: clamp(40px, calc(80vw / var(--ratio)), 80px);
+    }
+    .galery__title {
+        grid-area: title;
+        font-family: "Akrobat ExtraBold";
+        font-size: clamp(48px, calc(96vw / var(--ratio)), 96px);
+        line-height: 85%; /* 81.6px */
+        letter-spacing: 1.92px;
+        word-spacing: 9999999px;
+    }
+    .galery__info {
+        max-width: 75%;
+        margin-top: clamp(40px, calc(80vw / var(--ratio)), 80px);
+        grid-area: info;
+        font-family: "Montserrat Regular";
+        font-size: clamp(12px, calc(20vw / var(--ratio)), 20px);
+        line-height: 150%; /* 30px */
+        letter-spacing: 1.6px;
+        margin-top: 10px;
+    }
+    // .galery__btn-learn-more {
+    //     grid-area: btn;
+    // }
+    .galery__check {
+        margin-top: auto;
+        grid-area: check;
+        .check__block {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            .block__num {
+                font-family: "Akrobat ExtraBold";
+                font-size: clamp(40px, calc(80vw / var(--ratio)), 80px);
+                line-height: 85%; /* 68px */
+                letter-spacing: 1.6px;
+            }
+            .num_btn {
+                .btn__arrow {
+                    width: clamp(36px, calc(72vw / var(--ratio)), 72px);
+                    height: clamp(36px, calc(72vw / var(--ratio)), 72px);
+                    opacity: 0.4;
+                    transition: all 0.25s;
+                    &:not(:last-child) {
+                        margin-right: clamp(
+                            10px,
+                            calc(20vw / var(--ratio)),
+                            20px
+                        );
+                    }
+                    &:hover {
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+        .galery__indicator {
+            position: relative;
+            margin-top: clamp(12px, calc(24vw / var(--ratio)), 24px);
+            .indicator__bg {
+                width: 100%;
+                height: 8px;
+                opacity: 0.4;
+                background: #ffd601;
+            }
+            .indicator__going {
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 8px;
+                background: #ffd601;
+                transition: all 0.25s;
+            }
+        }
+    }
+
+    .galery__visible-image {
+        position: relative;
+        grid-area: img;
+        max-width: clamp(400px, calc(925vw / var(--ratio)), 925px);
+        aspect-ratio: 925/858;
+        .visible__image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.5s;
+            opacity: 0;
+        }
+        .visible__image__active {
+            opacity: 1;
+        }
+    }
+}
+@media screen and (max-width: 834px) {
+    .galery {
+        padding: clamp(24px, calc(40vw / var(--ratio)), 40px) 10px;
+        max-width: 720px;
+        grid-template-columns: repeat(8, 1fr);
+        grid-template-areas:
+            "titlemain titlemain titlemain titlemain titlemain titlemain titlemain titlemain"
+            ". check check check check check check . "
+            ". img img img img img img . "
+            ". title title title title title title . "
+            ". info info info info info info . ";
+        grid-gap: 0px;
+        .galery__title__block {
+            font-size: clamp(36px, calc(64vw / var(--ratio)), 64px);
+            letter-spacing: 1.28px;
+            margin-bottom: clamp(24px, calc(40vw / var(--ratio)), 40px);
+        }
+        .galery__title {
+            margin-top: clamp(16px, calc(24vw / var(--ratio)), 24px);
+            text-align: center;
+            font-size: clamp(24px, calc(48vw / var(--ratio)), 48px);
+            letter-spacing: 0.48px;
+            word-spacing: inherit;
+        }
+        .galery__visible-image {
+            margin-top: clamp(16px, calc(24vw / var(--ratio)), 24px);
+            max-width: 100%;
+            aspect-ratio: 526/240;
+        }
+        .galery__info {
+            max-width: 100%;
+            text-align: center;
+            font-size: 14px;
+            letter-spacing: 1.12px;
+            margin-top: clamp(16px, calc(24vw / var(--ratio)), 24px);
+        }
+        .galery__check {
+            // margin-top: 16px;
+            .check__block {
+                .block__num {
+                    font-size: clamp(24px, calc(40vw / var(--ratio)), 40px);
+                    letter-spacing: 0.8px;
+                }
+                .num_btn {
+                    .btn__arrow {
+                        width: clamp(24px, calc(36vw / var(--ratio)), 36px);
+                        height: clamp(24px, calc(36vw / var(--ratio)), 36px);
+                        &:not(:last-child) {
+                            margin-right: clamp(
+                                10px,
+                                calc(20vw / var(--ratio)),
+                                20px
+                            );
+                        }
+                    }
+                }
+            }
+            .galery__indicator {
+                margin-top: 8px;
+                .indicator__bg,
+                .indicator__going {
+                    height: 2px;
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 390px) {
+    .galery {
+        padding: calc(24vw / var(--ratio)) 0px;
+        max-width: 294px;
+        grid-template-columns: repeat(6, 1fr);
+        grid-template-areas:
+            "titlemain titlemain titlemain titlemain titlemain titlemain "
+            "check check  check check check check"
+            "img img img img img img "
+            "title  title title  title title title"
+            "info info info info  info info";
+        .galery__title__block {
+            font-size: clamp(24px, calc(36vw / var(--ratio)), 36px);
+            letter-spacing: 0.72px;
+            margin-bottom: clamp(16px, calc(24vw / var(--ratio)), 24px);
+        }
+        .galery__title {
+            font-size: calc(24vw / var(--ratio));
+            letter-spacing: 0.48px;
+        }
+        .galery__visible-image {
+            margin-top: 10px;
+            aspect-ratio: 214/130;
+        }
+        .galery__info {
+            font-size: 12px;
+            letter-spacing: 0.6px;
+            margin-top: 10px;
+        }
+        .galery__btn-learn-more {
+            margin-top: 3px;
+        }
+        .galery__check {
+            margin-top: 10px;
+            .check__block {
+                .block__num {
+                    font-size: 24px;
+                    letter-spacing: 0.4px;
+                }
+                .num_btn {
+                    .btn__arrow {
+                        width: 24px;
+                        height: 24px;
+                        &:not(:last-child) {
+                            margin-right: 6px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+</style>

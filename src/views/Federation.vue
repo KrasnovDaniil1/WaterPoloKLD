@@ -1,10 +1,13 @@
 <script>
 import AllWindow from "../components/AllWindow.vue";
+import Carusel from "../components/Federation/FederationCarusel.vue";
+
 import main from "../assets/images/allWindow/main.png";
 
 export default {
     components: {
         AllWindow,
+        Carusel,
     },
     setup() {
         const allWindow = {
@@ -22,7 +25,20 @@ export default {
 <template>
     <section>
         <AllWindow :allWindow="allWindow" />
+        <main class="block__bg">
+            <Carusel />
+        </main>
     </section>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+section {
+    .block__bg {
+        background: linear-gradient(
+            180deg,
+            rgba(0, 77, 243, 0.5) 0%,
+            rgba(0, 77, 243, 0.1) 100%
+        );
+    }
+}
+</style>

@@ -2,6 +2,9 @@
 import AllWindow from "../components/AllWindow.vue";
 import Goals from "../components/Goals.vue";
 import Trainers from "../components/Trainers.vue";
+import Progress from "../components/Progress.vue";
+import TimeTable from "../components/TimeTable.vue";
+import Gallery from "../components/Students/StudentsGallery.vue";
 
 import main from "../assets/images/allWindow/main.png";
 
@@ -10,6 +13,9 @@ export default {
         AllWindow,
         Goals,
         Trainers,
+        Progress,
+        TimeTable,
+        Gallery,
     },
     setup() {
         const allWindow = {
@@ -67,7 +73,11 @@ export default {
             <Goals :goals="goals" />
         </main>
         <Trainers :trainers="trainers" />
-        
+        <TimeTable />
+        <main class="block__bg">
+            <Progress />
+        </main>
+        <Gallery />
     </section>
 </template>
 

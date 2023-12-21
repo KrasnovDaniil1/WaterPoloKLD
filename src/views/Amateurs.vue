@@ -2,7 +2,9 @@
 import AllWindow from "../components/AllWindow.vue";
 import Goals from "../components/Goals.vue";
 import TimeTable from "../components/TimeTable.vue";
-import Progress from "../components/Amateurs/AmateursProgress.vue";
+import Progress from "../components/Progress.vue";
+import Benefit from "../components/Amateurs/AmateursBenefit.vue";
+
 import main from "../assets/images/allWindow/main.png";
 
 export default {
@@ -11,6 +13,7 @@ export default {
         Goals,
         TimeTable,
         Progress,
+        Benefit,
     },
     setup() {
         const allWindow = {
@@ -56,6 +59,7 @@ export default {
         <main class="block__bg">
             <Progress />
         </main>
+        <Benefit v-if="false" />
     </section>
 </template>
 
