@@ -2,6 +2,7 @@
 import AllWindow from "../components/AllWindow.vue";
 import Goals from "../components/Goals.vue";
 import Trainers from "../components/Trainers.vue";
+
 import main from "../assets/images/allWindow/main.png";
 
 export default {
@@ -66,6 +67,7 @@ export default {
             <Goals :goals="goals" />
         </main>
         <Trainers :trainers="trainers" />
+        
     </section>
 </template>
 
