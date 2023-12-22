@@ -43,6 +43,10 @@ const router = createRouter({
             name: "contacts",
             component: () => import("../views/Contacts.vue"),
         },
+        {
+            path: "/:pathMatch(.*)*",
+            component: () => import("../views/PageNotFound.vue"),
+        },
     ],
 });
 

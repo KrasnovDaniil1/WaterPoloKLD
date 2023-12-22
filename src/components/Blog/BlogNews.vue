@@ -83,7 +83,8 @@ export default {
             </button>
         </nav>
         <div class="news__block">
-            <nav
+            <router-link
+                to="/blog/2"
                 v-for="(item, index) in blockCard"
                 class="block__card"
                 :key="index"
@@ -97,7 +98,7 @@ export default {
                 <button class="card__btn">
                     Подробнее <Icons icons="arrowDefault" class="btn__icon" />
                 </button>
-            </nav>
+            </router-link>
         </div>
 
         <div class="news__btn">
