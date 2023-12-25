@@ -1,10 +1,18 @@
 <script>
 import BtnToMain from "../components/Btn/BtnToMain.vue";
 import BtnToBlog from "../components/Btn/BtnToBlog.vue";
+import { onMounted } from "vue";
 
 export default {
     components: { BtnToMain, BtnToBlog },
-    setup() {},
+    setup() {
+        onMounted(() => {
+            window.scrollTo({
+                top: 0,
+                left: 0,
+            });
+        });
+    },
 };
 </script>
 

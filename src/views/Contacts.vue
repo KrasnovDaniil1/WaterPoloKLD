@@ -1,5 +1,5 @@
 <script>
-import AllWindow from "../components/AllWindow.vue";
+import Window from "../components/Contacts/ContactsWindow.vue";
 import Map from "../components/Other/Map.vue";
 
 import main from "../assets/images/allWindow/main.png";
@@ -8,7 +8,7 @@ import Icons from "../components/Other/Icons.vue";
 
 export default {
     components: {
-        AllWindow,
+        Window,
         Map,
         Icons,
     },
@@ -27,7 +27,7 @@ export default {
 
 <template>
     <section class="contacts">
-        <AllWindow :allWindow="allWindow" />
+        <Window :allWindow="allWindow" />
         <main class="contacts__content">
             <h2 class="content__title-sm">Как нас найти</h2>
             <Map :coords="[54.720657, 20.351297]" class="content__map" />
