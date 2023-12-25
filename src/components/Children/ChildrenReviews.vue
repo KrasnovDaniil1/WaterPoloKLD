@@ -44,18 +44,6 @@ export default {
             }
         };
 
-        // const scrolRight = () => {
-        //     if (reviews.length >= activeElem.value + 3) {
-        //         activeElem.value += 1;
-        //         cardBlock.value.style.transform = `translateX(-${
-        //             transformTranslate.value * (activeElem.value - 1) +
-        //             scrolAdaptive.value
-        //         }px)`;
-        //     } else {
-        //         activeElem.value = 1;
-        //         cardBlock.value.style.transform = `translateX(0px)`;
-        //     }
-        // };
         const scrolRight = () => {
             activeElem.value += 1;
             if (activeElem.value >= reviews.value.length - 1) {

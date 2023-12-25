@@ -3,11 +3,13 @@ import AllWindow from "../components/AllWindow.vue";
 import Carusel from "../components/Federation/FederationCarusel.vue";
 
 import main from "../assets/images/allWindow/main.png";
+import FederationPeople from "../components/Federation/FederationPeople.vue";
 
 export default {
     components: {
         AllWindow,
         Carusel,
+        FederationPeople,
     },
     setup() {
         const allWindow = {
@@ -28,6 +30,7 @@ export default {
         <main class="block__bg">
             <Carusel />
         </main>
+        <FederationPeople />
     </section>
 </template>
 
