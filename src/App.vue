@@ -26,7 +26,7 @@ html {
 
     body {
         min-height: 100vh;
-        background: var(--bg-warning);
+        background: #003362;
         .app {
             max-width: 1920px;
             margin: 0 auto;

@@ -138,6 +138,10 @@ button {
 svg {
     cursor: pointer;
 }
+img {
+    width: 100%;
+    object-fit: cover;
+}
 /*
 
 

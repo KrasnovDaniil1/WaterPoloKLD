@@ -4,12 +4,16 @@ import Carusel from "../components/Federation/FederationCarusel.vue";
 
 import main from "../assets/images/allWindow/main.png";
 import FederationPeople from "../components/Federation/FederationPeople.vue";
+import FederationNews from "../components/Federation/FederationNews.vue";
+import FederationContacts from "../components/Federation/FederationContacts.vue";
 
 export default {
     components: {
         AllWindow,
         Carusel,
         FederationPeople,
+        FederationNews,
+        FederationContacts,
     },
     setup() {
         const allWindow = {
@@ -31,6 +35,10 @@ export default {
             <Carusel />
         </main>
         <FederationPeople />
+        <main class="block__bg">
+            <FederationNews />
+        </main>
+        <FederationContacts />
     </section>
 </template>
 

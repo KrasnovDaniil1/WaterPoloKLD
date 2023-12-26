@@ -1,24 +1,4 @@
 :root {
-    --bg-primary: linear-gradient(
-        327deg,
-        rgba(0, 53, 111, 0) 36.2%,
-        rgba(0, 53, 111, 0.95) 54.23%,
-        #003362 75.38%
-    );
-    --bg-secondary: #041d56;
-    --bg-success: #004df3;
-    --bg-info: linear-gradient(
-        180deg,
-        rgba(0, 77, 243, 0.5) 0%,
-        rgba(0, 77, 243, 0.1) 100%
-    );
-    --bg-warning: #003362; /*цвет для вопросов ???*/
-    --bg-dark: #b0b0b0;
-
-    --text-info: #ffd601;
-    --text-light: #fffcf2;
-    --br-light: #fffcf2;
-
     /* --px-content: 0 160px; */
 
     /* 24px */
