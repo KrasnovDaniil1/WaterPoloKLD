@@ -5,7 +5,8 @@ import Trainers from "../components/Trainers.vue";
 import Progress from "../components/Progress.vue";
 import TimeTable from "../components/TimeTable.vue";
 import Gallery from "../components/Students/StudentsGallery.vue";
-
+import { useStore } from "vuex";
+import { computed } from "@vue/runtime-core";
 import main from "../assets/images/allWindow/main.png";
 
 export default {
@@ -18,6 +19,7 @@ export default {
         Gallery,
     },
     setup() {
+        const store = useStore();
         const allWindow = {
             title: "Студентам",
             info: "БФУ им. Канта приглашает тебя в нашу сборную по водному поло, где каждый бросок и каждый матч наполняют жизнь увлекательными моментами.",
@@ -43,24 +45,11 @@ export default {
                 },
             ],
         };
-        const trainers = [
-            {
-                img: "https://s-cdn.sportbox.ru/images/styles/upload/fp_fotos/9f/8c/79f00daba1e3401fba2a3e91d7c1cd7c5d3ad36ad25c2616834560.jpg",
-                name: "Павлик Морозов",
-                des: "Был  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus suscipit metus sit amet nisi lacinia condimentum.",
-                contacts: "+7 888 888 88 88",
-            },
-            {
-                img: "https://ru.sport-wiki.org/wp-content/themes/sportwiki/img/water-polo.jpg",
-                name: "Павлик Ltl",
-                des: "Стало  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus suscipit metus sit amet nisi lacinia condimentum.",
-                contacts: "+7 999 999 99 99",
-            },
-        ];
+
         return {
             allWindow,
             goals,
-            trainers,
+            trainers: computed(() => store.getters.getTrainers("amateur")),
         };
     },
 };

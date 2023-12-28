@@ -4,7 +4,9 @@ import Goals from "../components/Goals.vue";
 import TimeTable from "../components/TimeTable.vue";
 import Progress from "../components/Progress.vue";
 import Benefit from "../components/Amateurs/AmateursBenefit.vue";
-
+import Trainers from "../components/Trainers.vue";
+import { useStore } from "vuex";
+import { computed } from "@vue/runtime-core";
 import main from "../assets/images/allWindow/main.png";
 
 export default {
@@ -13,9 +15,11 @@ export default {
         Goals,
         TimeTable,
         Progress,
+        Trainers,
         Benefit,
     },
     setup() {
+        const store = useStore();
         const allWindow = {
             title: "Любителям",
             info: "Погружение в мир водных увлечений – это не только способ отдыха, но и настоящее приключение, которое пробуждает чувства и подарит невероятные впечатления!",
@@ -44,6 +48,8 @@ export default {
         return {
             allWindow,
             goals,
+            trainers: computed(() => store.getters.getTrainers("amateur")),
+            store,
         };
     },
 };
@@ -55,6 +61,7 @@ export default {
         <main class="block__bg">
             <Goals :goals="goals" />
         </main>
+        <Trainers :trainers="trainers" />
         <TimeTable />
         <main class="block__bg">
             <Progress />

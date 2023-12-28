@@ -8,7 +8,7 @@ export default {
     components: { Icons },
     setup(props) {
         const currentTrainer = ref(0);
-       
+
         const slideTrainers = (e) => {
             if (props.trainers.length - 1 < currentTrainer.value + e) {
                 currentTrainer.value = 0;
@@ -32,7 +32,7 @@ export default {
             <img
                 v-for="(item, index) in trainers"
                 :key="index"
-                :src="item.img"
+                :src="item.src"
                 class="img__train"
                 :class="{ elem__active: currentTrainer == index }"
             />
@@ -56,13 +56,20 @@ export default {
             :key="index"
             :class="{ elem__active: currentTrainer == index }"
         >
-            {{ item.des }}
+            {{ item.info }}
         </p>
 
         <div class="trainers__contacts">
             <nav class="contacts__block">
-                <Icons icons="vk" class="contacts__icon" />
-                <Icons icons="telegram" class="contacts__icon" />
+                <a :href="trainers[currentTrainer].vk" class="contacts__icon">
+                    <Icons icons="vk" class="contacts__icon" />
+                </a>
+                <a
+                    :href="trainers[currentTrainer].telegram"
+                    class="contacts__icon"
+                >
+                    <Icons icons="telegram" class="contacts__icon" />
+                </a>
             </nav>
 
             <p
@@ -71,7 +78,7 @@ export default {
                 :key="index"
                 :class="{ elem__active: currentTrainer == index }"
             >
-                {{ item.contacts }}
+                {{ item.phone_number }}
             </p>
         </div>
         <Icons
@@ -80,7 +87,6 @@ export default {
             @click="slideTrainers(1)"
         />
         <div class="decor__block"></div>
-        <!-- <div class="decor__block decor__second"></div> -->
     </main>
 </template>
 

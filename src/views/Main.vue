@@ -8,7 +8,8 @@ import Goals from "../components/Goals.vue";
 import News from "../components/Main/MainNews.vue";
 import TimeTable from "../components/TimeTable.vue";
 import DecorTrainerBlock from "../components/DecorTrainerBlock.vue";
-
+import { useStore } from "vuex";
+import { computed, onMounted } from "@vue/runtime-core";
 export default {
     components: {
         MainWindow,
@@ -22,6 +23,7 @@ export default {
         DecorTrainerBlock,
     },
     setup() {
+        const store = useStore();
         const goals = {
             title: "Наши цели",
             cards: [
@@ -31,7 +33,7 @@ export default {
                     des: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus suscipit metus sit amet nisi lacinia condimentum.",
                 },
                 {
-                    img: "https://ss.sport-express.ru/userfiles/materials/169/1699153/volga.jpg",
+                    img: "https://ss.sport-express.ru/userfiles/materials/169/1699153/volga.jpg",   
                     title: "Пункт 1",
                     des: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus suscipit metus sit amet nisi lacinia condimentum.",
                 },
@@ -42,23 +44,14 @@ export default {
                 },
             ],
         };
-        const trainers = [
-            {
-                img: "https://s-cdn.sportbox.ru/images/styles/upload/fp_fotos/9f/8c/79f00daba1e3401fba2a3e91d7c1cd7c5d3ad36ad25c2616834560.jpg",
-                name: "Павлик Морозов",
-                des: "Был  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus suscipit metus sit amet nisi lacinia condimentum.",
-                contacts: "+7 888 888 88 88",
-            },
-            {
-                img: "https://ru.sport-wiki.org/wp-content/themes/sportwiki/img/water-polo.jpg",
-                name: "Павлик Ltl",
-                des: "Стало  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus suscipit metus sit amet nisi lacinia condimentum.",
-                contacts: "+7 999 999 99 99",
-            },
-        ];
+
+        onMounted(async () => {
+            await store.dispatch("actPage", "pageAmateur");
+        });
         return {
             goals,
-            trainers,
+            trainers: computed(() => store.getters.getTrainers("amateur")),
+            store,
         };
     },
 };

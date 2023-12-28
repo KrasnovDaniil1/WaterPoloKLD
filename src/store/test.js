@@ -4,7 +4,7 @@ let trainers = [
         name: "Алексей Иванович",
         phone_number: "+79990001122",
         info: "Тренер с хорошей карьерой",
-        vk: "https:///",
+        vk: "https://",
         telegram: "https:///",
         train: "children, amateur, student",
     },

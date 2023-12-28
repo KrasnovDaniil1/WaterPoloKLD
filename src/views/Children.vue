@@ -8,19 +8,22 @@ import DecorTrainerBlock from "../components/DecorTrainerBlock.vue";
 import Gallery from "../components/Children/ChildrenGallery.vue";
 import Reviews from "../components/Children/ChildrenReviews.vue";
 import Carusel from "../components/Children/ChildrenCarusel.vue";
+import { useStore } from "vuex";
+import { computed } from "@vue/runtime-core";
 
 export default {
     components: {
         AllWindow,
         Goals,
-        Trainers,
         TimeTable,
         DecorTrainerBlock,
         Gallery,
         Reviews,
         Carusel,
+        Trainers,
     },
     setup() {
+        const store = useStore();
         const allWindow = {
             title: "Детям",
             info: "Дорогие дети и родители, представляем вам захватывающий мир водного поло, где вашему ребенку откроются удивительные возможности развития и веселья в водной среде.",
@@ -46,24 +49,12 @@ export default {
                 },
             ],
         };
-        const trainers = [
-            {
-                img: "https://s-cdn.sportbox.ru/images/styles/upload/fp_fotos/9f/8c/79f00daba1e3401fba2a3e91d7c1cd7c5d3ad36ad25c2616834560.jpg",
-                name: "Павлик Морозов",
-                des: "Был  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus suscipit metus sit amet nisi lacinia condimentum.",
-                contacts: "+7 888 888 88 88",
-            },
-            {
-                img: "https://ru.sport-wiki.org/wp-content/themes/sportwiki/img/water-polo.jpg",
-                name: "Павлик Ltl",
-                des: "Стало  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus suscipit metus sit amet nisi lacinia condimentum.",
-                contacts: "+7 999 999 99 99",
-            },
-        ];
+
         return {
+            store,
             allWindow,
             goals,
-            trainers,
+            trainers: computed(() => store.getters.getTrainers("children")),
         };
     },
 };
