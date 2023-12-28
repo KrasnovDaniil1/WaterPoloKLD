@@ -77,7 +77,7 @@ export default {
         <main class="block__bg">
             <Progress />
         </main>
-        <Gallery />
+        <Gallery v-if="false" />
     </section>
 </template>
 

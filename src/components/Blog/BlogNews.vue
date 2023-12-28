@@ -101,7 +101,7 @@ export default {
             </router-link>
         </div>
 
-        <div class="news__btn">
+        <div class="news__btn" >
             <button class="btn__download">Загрузить еще</button>
             <BtnToMain />
         </div>

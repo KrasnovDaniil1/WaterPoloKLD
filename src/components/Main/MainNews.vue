@@ -101,7 +101,12 @@ export default {
                 </button>
             </nav>
         </div>
-        <nav class="news__navigation">
+        <div class="news__btn">
+            <router-link to="/blog" class="btn__download"
+                >Загрузить еще</router-link
+            >
+        </div>
+        <!-- <nav class="news__navigation">
             <h4 class="navigation__page">
                 Стр. 1<span class="page__all">/5</span>
             </h4>
@@ -111,7 +116,7 @@ export default {
             <button class="navigation__num">
                 <Icons icons="arrowDouble" class="num__icon" />
             </button>
-        </nav>
+        </nav> -->
     </main>
 </template>
 <style lang="scss" scoped>
@@ -232,48 +237,71 @@ export default {
             }
         }
     }
-    .news__navigation {
-        margin-top: clamp(15px, calc(56vw / var(--ratio)), 56px);
+    .news__btn {
+        margin-top: 40px;
         display: flex;
         justify-content: center;
-        align-items: center;
-        font-family: "Montserrat Regular";
-        .navigation__page {
-            margin-right: clamp(16px, calc(40vw / var(--ratio)), 40px);
-            font-size: clamp(16px, calc(32vw / var(--ratio)), 32px);
-            line-height: normal;
-            letter-spacing: 0.64px;
-            .page__all {
-                opacity: 0.4;
-            }
-        }
-        .navigation__num {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: clamp(24px, calc(40vw / var(--ratio)), 40px);
-            height: clamp(24px, calc(40vw / var(--ratio)), 40px);
-            border-radius: 50%;
-            font-size: clamp(12px, calc(24vw / var(--ratio)), 24px);
-            line-height: normal;
+        .btn__download {
+            width: fit-content;
+            height: fit-content;
+            padding: clamp(10px, calc(16vw / var(--ratio)), 16px)
+                clamp(25px, calc(40vw / var(--ratio)), 40px);
+            font-size: clamp(16px, calc(24vw / var(--ratio)), 24px);
+            font-family: "Cruinn Black";
             letter-spacing: 0.48px;
-            border: 1px solid #fffcf2;
-            opacity: 0.4;
+            background: #004df3;
+            color: #fffcf2;
             transition: all 0.25s;
-            &:not(:last-child) {
-                margin-right: 8px;
+            // margin-right: 20px;
+            &:hover {
+                background: #fffcf2;
+                color: #004df3;
+                opacity: 1;
             }
-            .num__icon {
-                width: clamp(12px, calc(18vw / var(--ratio)), 18px);
-                height: clamp(12px, calc(18vw / var(--ratio)), 18px);
-            }
-        }
-        .navigation__num-active {
-            opacity: 1;
-            background: #fffcf2;
-            color: #161616;
         }
     }
+    // .news__navigation {
+    //     margin-top: clamp(15px, calc(56vw / var(--ratio)), 56px);
+    //     display: flex;
+    //     justify-content: center;
+    //     align-items: center;
+    //     font-family: "Montserrat Regular";
+    //     .navigation__page {
+    //         margin-right: clamp(16px, calc(40vw / var(--ratio)), 40px);
+    //         font-size: clamp(16px, calc(32vw / var(--ratio)), 32px);
+    //         line-height: normal;
+    //         letter-spacing: 0.64px;
+    //         .page__all {
+    //             opacity: 0.4;
+    //         }
+    //     }
+    //     .navigation__num {
+    //         display: flex;
+    //         justify-content: center;
+    //         align-items: center;
+    //         width: clamp(24px, calc(40vw / var(--ratio)), 40px);
+    //         height: clamp(24px, calc(40vw / var(--ratio)), 40px);
+    //         border-radius: 50%;
+    //         font-size: clamp(12px, calc(24vw / var(--ratio)), 24px);
+    //         line-height: normal;
+    //         letter-spacing: 0.48px;
+    //         border: 1px solid #fffcf2;
+    //         opacity: 0.4;
+    //         transition: all 0.25s;
+    //         &:not(:last-child) {
+    //             margin-right: 8px;
+    //         }
+    //         .num__icon {
+    //             width: clamp(12px, calc(18vw / var(--ratio)), 18px);
+    //             height: clamp(12px, calc(18vw / var(--ratio)), 18px);
+    //         }
+    //     }
+    //     .navigation__num-active {
+    //         opacity: 1;
+    //         background: #fffcf2;
+    //         color: #161616;
+    //     }
+    // }
 }
 @media screen and (max-width: 834px) {
     .news {
@@ -351,27 +379,36 @@ export default {
                 }
             }
         }
-        .news__navigation {
-            margin-top: 16px;
-            .navigation__page {
-                margin-right: 16px;
-                font-size: 16px;
+        .news__btn {
+            margin-top: clamp(24px, calc(40vw / var(--ratio)), 40px);
+            .btn__download {
+                padding: clamp(8px, calc(10vw / var(--ratio)), 10px)
+                    clamp(16px, calc(25vw / var(--ratio)), 25px);
+                font-size: clamp(12px, calc(24vw / var(--ratio)), 16px);
                 letter-spacing: 0.32px;
-            }
-            .navigation__num {
-                width: 24px;
-                height: 24px;
-                font-size: 12px;
-                letter-spacing: 0.32px;
-                &:not(:last-child) {
-                    margin-right: 8px;
-                }
-                .num__icon {
-                    width: 12px;
-                    height: 12px;
-                }
             }
         }
+        // .news__navigation {
+        //     margin-top: 16px;
+        //     .navigation__page {
+        //         margin-right: 16px;
+        //         font-size: 16px;
+        //         letter-spacing: 0.32px;
+        //     }
+        //     .navigation__num {
+        //         width: 24px;
+        //         height: 24px;
+        //         font-size: 12px;
+        //         letter-spacing: 0.32px;
+        //         &:not(:last-child) {
+        //             margin-right: 8px;
+        //         }
+        //         .num__icon {
+        //             width: 12px;
+        //             height: 12px;
+        //         }
+        //     }
+        // }
     }
 }
 @media screen and (max-width: 390px) {
@@ -441,6 +478,15 @@ export default {
                         height: 20px;
                     }
                 }
+            }
+        }
+        .news__btn {
+            margin-top: clamp(16px, calc(24vw / var(--ratio)), 24px);
+            .btn__download {
+                padding: 8px calc(16vw / var(--ratio));
+                font-size: 12px;
+                letter-spacing: 0.24px;
+                // margin-right: 8px;
             }
         }
     }
