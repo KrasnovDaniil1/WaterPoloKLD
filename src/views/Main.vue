@@ -9,7 +9,7 @@ import News from "../components/Main/MainNews.vue";
 import TimeTable from "../components/TimeTable.vue";
 import DecorTrainerBlock from "../components/DecorTrainerBlock.vue";
 import { useStore } from "vuex";
-import { computed, onMounted } from "@vue/runtime-core";
+import { computed } from "@vue/runtime-core";
 export default {
     components: {
         MainWindow,
@@ -45,9 +45,7 @@ export default {
             ],
         };
 
-        onMounted(async () => {
-            await store.dispatch("actPage", "pageAmateur");
-        });
+        
         return {
             goals,
             trainers: computed(() => store.getters.getTrainers("amateur")),

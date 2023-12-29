@@ -25,11 +25,11 @@ export default {
             },
             {
                 title: "Студенты",
-                icon: "bfu",
+                icon: "students",
             },
             {
                 title: "Федерация",
-                icon: "news",
+                icon: "federation",
             },
         ];
         const blockCard = [

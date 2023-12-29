@@ -18,11 +18,20 @@ export const getTrainers = (state) => (sort) => {
     return sortTrainers;
 };
 
-export const getBlogs = (state) => (sort) => {
-    let sortBlogs = state.trainers.filter((item) => {
-        if (item.train.includes(sort) || sort == "all") {
+export const getBlog = (state) => (sort) => {
+    let sortBlog = state.blog.filter((item) => {
+        if (item.category == sort || sort == "new") {
             return true;
         }
     });
-    return sortTrainers;
+    console.log(sortBlog);
+    return sortBlog;
+};
+
+export const getBlogId = (state) => (id) => {
+    for (let blog of state.blog) {
+        if (blog.id == id) {
+            return blog;
+        }
+    }
 };

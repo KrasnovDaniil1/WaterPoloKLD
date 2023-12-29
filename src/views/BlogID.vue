@@ -1,17 +1,20 @@
 <script>
 import BtnToMain from "../components/Btn/BtnToMain.vue";
 import BtnToBlog from "../components/Btn/BtnToBlog.vue";
-import { onMounted } from "vue";
-
+import { computed } from "vue";
+import { useStore } from "vuex";
+import { useRoute } from "vue-router";
 export default {
     components: { BtnToMain, BtnToBlog },
     setup() {
-        onMounted(() => {
-            window.scrollTo({
-                top: 0,
-                left: 0,
-            });
-        });
+        const store = useStore();
+        const route = useRoute();
+
+        return {
+            route,
+            store,
+            blogId: computed(() => store.getters.getBlogId(route.params.id)),
+        };
     },
 };
 </script>
@@ -19,28 +22,13 @@ export default {
 <template>
     <section class="id">
         <nav class="id__window">
-            <img
-                class="window__image"
-                src="https://s-cdn.sportbox.ru/images/styles/upload/fp_fotos/9f/8c/79f00daba1e3401fba2a3e91d7c1cd7c5d3ad36ad25c2616834560.jpg"
-            />
-            <p class="window__data">9.12.2003</p>
+            <img class="window__image" :src="blogId.src" />
+            <p class="window__data">{{ blogId.data }}</p>
             <h1 class="window__title">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                {{ blogId.title }}
             </h1>
         </nav>
-        <p class="id__content">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus
-            suscipit metus sit amet nisi lacinia condimentum. Phasellus eu nibh
-            lobortis, tincidunt nisi in, ornare leo. Donec hendrerit interdum
-            mollis. Vestibulum consequat erat sapien, a pellentesque quam
-            accumsan nec. Mauris ex ex, placerat sollicitudin nisi sed, pharetra
-            cursus mauris. Ut pretium eros eget mauris tempor dictum. Aenean non
-            lorem erat. Quisque a tristique lorem. Lorem ipsum dolor sit amet,
-            consectetur adipiscing elit. Vivamus suscipit metus sit amet nisi
-            lacinia condimentum. Phasellus eu nibh lobortis, tincidunt nisi in,
-            ornare leo. Donec hendrerit interdum mollis. Vestibulum consequat
-            erat sapien, a pellentesque quam accumsan
-        </p>
+        <p class="id__content" v-html="blogId.title"></p>
         <div class="btn__block">
             <BtnToBlog class="btn_to_blog" />
             <BtnToMain />

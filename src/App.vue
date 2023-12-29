@@ -4,6 +4,7 @@ import Footer from "./components/Footer.vue";
 import Loader from "./components/Other/Loader.vue";
 import { useStore } from "vuex";
 import { computed } from "@vue/runtime-core";
+import { onMounted } from "vue";
 
 export default {
     components: {
@@ -13,6 +14,9 @@ export default {
     },
     setup() {
         const store = useStore();
+        onMounted(async () => {
+            await store.dispatch("actPage");
+        });
         return {
             store,
             loader: computed(() => store.getters.getLoader),

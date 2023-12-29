@@ -4,12 +4,6 @@ import * as actions from "./actions";
 import * as mutations from "./mutations";
 
 const state = {
-    // pageAmateur: {},
-    // pageChildren: {},
-    // pageStudent: {},
-    // pageFederation: {},
-    // pageNews: {},
-    // pageMedio: {},
     trainers: [
         {
             src: "https://klwp.pro/uploads/657b8bb0.jpg",
@@ -39,34 +33,38 @@ const state = {
             train: ["children", "amateur"],
         },
     ],
-    blogs: [
+    blog: [
         {
+            id: 0,
             title: "Чемпионы",
             time: "11.12.2023",
-            msg: "sfsd",
+            info: "sfsd",
             src: "https://klwp.pro/uploads/2974e7a2.jpeg",
-            category: ["student", "amateur", "children", "federation"],
+            category: "students",
         },
         {
+            id: 1,
             title: "Чемпионы",
             time: "11.12.2023",
-            msg: "sfsd",
+            info: "sfsd",
             src: "https://klwp.pro/uploads/2974e7a2.jpeg",
-            category: ["student", "amateur", "children", "federation"],
+            category: "amateur",
         },
         {
+            id: 2,
             title: "Чемпионы",
             time: "11.12.2023",
-            msg: "sfsd",
+            info: "sfsd",
             src: "https://klwp.pro/uploads/2974e7a2.jpeg",
-            category: ["student", "amateur", "children", "federation"],
+            category: "children",
         },
         {
+            id: 3,
             title: "Чемпионы",
             time: "11.12.2023",
-            msg: "sfsd",
+            info: "sfsd",
             src: "https://klwp.pro/uploads/2974e7a2.jpeg",
-            category: ["student", "amateur", "children", "federation"],
+            category: "federation",
         },
     ],
     loader: false,
