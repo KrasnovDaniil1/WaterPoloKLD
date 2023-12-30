@@ -122,33 +122,34 @@ const state = {
             name: "Имя -1",
         },
     ],
-    time: {
-        month: 0,
-        children: [
-            {
-                time: 9.0,
-                address: "Тихоокеанская улица, 5",
-                date: [7, 14, 21, 28],
-            },
-            {
-                time: 9.0,
-                address: "Тихоокеанская улица, 5",
-                date: [7, 14, 21, 28],
-            },
-        ],
-        amateur: [
-            {
-                time: 9.0,
-                address: "Тихоокеанская улица, 5",
-                date: [7, 14, 21, 28],
-            },
-            {
-                time: 9.0,
-                address: "Тихоокеанская улица, 5",
-                date: [7, 14, 21, 28],
-            },
-        ],
-    },
+    time: [
+        {
+            25: [
+                {
+                    time: 12.0,
+                    category: "children",
+                    address: "Тихоокеанская улица, 5",
+                },
+                {
+                    time: 9.0,
+                    category: "children",
+                    address: "Тихоокеанская улица, 5",
+                },
+            ],
+            1: [
+                {
+                    time: 12.0,
+                    category: "children",
+                    address: "Тихоокеанская улица, 5",
+                },
+                {
+                    time: 9.0,
+                    category: "children",
+                    address: "Тихоокеанская улица, 5",
+                },
+            ],
+        },
+    ],
 
     price: [
         {

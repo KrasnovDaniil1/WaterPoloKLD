@@ -1,14 +1,82 @@
 <script>
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
 import BtnSignTraining from "./Btn/BtnSignTraining.vue";
 import Icons from "./Other/Icons.vue";
 
 export default {
     components: { BtnSignTraining, Icons },
     setup() {
-        const week = ref(["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"]);
+        // const week = ref(["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"]);
+        const week = ref([[], []]);
+        const dayOfWeek = ref("");
+
+        onMounted(() => {
+            generateTime();
+            // console.log(week.value);
+            getDayInMonth();
+            generateMonth();
+        });
+
+        const generateMonth = () => {
+            const date = new Date();
+            dayOfWeek.value = date.toLocaleString("default", { month: "long" });
+        };
+        const generateTime = () => {
+            let testNow = new Date().getTime();
+            let f = 24;
+            let currentWeek = 0;
+            for (let i = 0; i < 14; i++) {
+                let curData = new Date(testNow + f * 3600 * 1000);
+                f += 24;
+                let day = curData.toLocaleDateString("ru-RU", {
+                    day: "numeric",
+                });
+                if (i % 7 == 0 && i != 0) {
+                    currentWeek++;
+                }
+                week.value[currentWeek].push({
+                    day: day,
+                    dayWeek: getWeekDay(day),
+                });
+            }
+            console.log(week.value);
+        };
+
+        const getWeekDay = (day) => {
+            let currentTime = new Date();
+            let days = ["ВС", "ПН", "ВТ", "СР", "ЧТ", "ПТ", "СБ"];
+            let date = new Date(
+                currentTime.getFullYear(),
+                getDayInMonth(day),
+                day
+            );
+            return days[date.getDay()];
+        };
+
+        const getDayInMonth = (day) => {
+            Date.prototype.daysInMonth = function () {
+                return (
+                    33 -
+                    new Date(this.getFullYear(), this.getMonth(), 33).getDate()
+                );
+            };
+            let currentTime = new Date();
+            // console.log(currentTime.daysInMonth(), currentTime.getMonth());
+            if (day == currentTime.daysInMonth()) {
+                if (currentTime.getMonth() == 11) {
+                    return 0;
+                }
+                return currentTime.getMonth() + 1;
+            }
+            return currentTime.getMonth();
+        };
         return {
             week,
+            getDayInMonth,
+            generateTime,
+            getWeekDay,
+            generateMonth,
+            dayOfWeek,
         };
     },
 };
@@ -24,7 +92,7 @@ export default {
         </div>
         <nav class="time__table">
             <div class="table__header">
-                <h3 class="header__month">Октябрь</h3>
+                <h3 class="header__month">{{ dayOfWeek }}</h3>
                 <div class="header__btn">
                     <Icons
                         icons="arrow"
@@ -36,25 +104,19 @@ export default {
             </div>
             <div class="table__decor__line"></div>
             <div class="table__carusel">
-                <nav class="carusel__item">
+                <nav
+                    class="carusel__item"
+                    v-for="(item, index) in week"
+                    :key="index"
+                >
                     <button
-                        v-for="(item, index) in week"
+                        v-for="(elem, i) in item"
                         class="item__btn"
-                        :class="{ item__btn_active: index == 1 }"
-                        :key="index"
+                        :class="{ item__btn_active: i == 1 }"
+                        :key="i"
                     >
-                        <h3 class="btn__title">{{ item }}</h3>
-                        <h3 class="btn__title">25</h3>
-                    </button>
-                </nav>
-                <nav class="carusel__item">
-                    <button
-                        class="item__btn"
-                        v-for="(item, index) in week"
-                        :key="index"
-                    >
-                        <h3 class="btn__title">{{ item }}</h3>
-                        <h3 class="btn__title">26</h3>
+                        <h3 class="btn__title">{{ elem.dayWeek }}</h3>
+                        <h3 class="btn__title">{{ elem.day }}</h3>
                     </button>
                 </nav>
             </div>
@@ -133,6 +195,9 @@ export default {
                 font-size: clamp(24px, calc(40vw / var(--ratio)), 40px);
                 line-height: normal;
                 letter-spacing: 0.8px;
+                &:first-letter {
+                    text-transform: uppercase;
+                }
             }
             .header__btn {
                 .btn__arrow {
@@ -180,7 +245,7 @@ export default {
     }
     .time__lesson {
         width: 100%;
-        
+
         &:not(:last-child) {
             margin-bottom: clamp(8px, calc(24vw / var(--ratio)), 24px);
         }
