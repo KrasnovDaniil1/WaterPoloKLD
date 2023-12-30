@@ -49,7 +49,8 @@ export default {
         return {
             allWindow,
             goals,
-            trainers: computed(() => store.getters.getTrainers("amateur")),
+            trainers: computed(() => store.getters.getTrainers("student")),
+            progress: computed(() => store.getters.getBlog("student")),
         };
     },
 };
@@ -64,7 +65,7 @@ export default {
         <Trainers :trainers="trainers" />
         <TimeTable />
         <main class="block__bg">
-            <Progress />
+            <Progress :progress="progress" />
         </main>
         <Gallery v-if="false" />
     </section>

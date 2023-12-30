@@ -1,15 +1,20 @@
 <script>
 import { ref } from "vue";
 import BtnSeeAll from "../Btn/BtnSeeAll.vue";
+import BtnDownload from "../Btn/BtnDownload.vue";
+import { useStore } from "vuex";
 import Icons from "../Other/Icons.vue";
 
 export default {
     components: {
         BtnSeeAll,
         Icons,
+        BtnDownload,
     },
     setup() {
+        const store = useStore();
         const activeBtn = ref(0);
+        const blockCard = ref(store.getters.getBlog("new"));
         const panelBtn = [
             {
                 title: "Новые",
@@ -25,43 +30,24 @@ export default {
             },
             {
                 title: "Студенты",
-                icon: "students",
+                icon: "student",
             },
             {
                 title: "Федерация",
                 icon: "federation",
             },
         ];
-        const blockCard = [
-            {
-                img: "https://s-cdn.sportbox.ru/images/styles/upload/fp_fotos/9f/8c/79f00daba1e3401fba2a3e91d7c1cd7c5d3ad36ad25c2616834560.jpg",
-                date: "21.10.23",
-                category: "bfu",
-                title: "Lorem ipsum dolor sit amet, consectetur?",
-            },
-            {
-                img: "https://s-cdn.sportbox.ru/images/styles/upload/fp_fotos/9f/8c/79f00daba1e3401fba2a3e91d7c1cd7c5d3ad36ad25c2616834560.jpg",
-                date: "21.10.23",
-                category: "news",
-                title: "Lorem ipsum dolor sit amet, consectetur?",
-            },
-            {
-                img: "https://s-cdn.sportbox.ru/images/styles/upload/fp_fotos/9f/8c/79f00daba1e3401fba2a3e91d7c1cd7c5d3ad36ad25c2616834560.jpg",
-                date: "21.10.23",
-                category: "children",
-                title: "Lorem ipsum dolor sit amet, consectetur?",
-            },
-            {
-                img: "https://s-cdn.sportbox.ru/images/styles/upload/fp_fotos/9f/8c/79f00daba1e3401fba2a3e91d7c1cd7c5d3ad36ad25c2616834560.jpg",
-                date: "21.10.23",
-                category: "amateur",
-                title: "Lorem ipsum dolor sit amet, consectetur?",
-            },
-        ];
+        const changeCategory = (category, index) => {
+            blockCard.value = store.getters.getBlog(category);
+            activeBtn.value = index;
+        };
+
         return {
             panelBtn,
             activeBtn,
             blockCard,
+            store,
+            changeCategory,
         };
     },
 };
@@ -77,20 +63,21 @@ export default {
                 v-for="(item, index) in panelBtn"
                 class="panel__btn"
                 :class="{ 'panel__btn-active': index == activeBtn }"
-                @click="activeBtn = index"
                 :key="index"
+                @click="changeCategory(item.icon, index)"
             >
                 <Icons :icons="item.icon" class="btn__icon" />
                 <p class="btn__text">{{ item.title }}</p>
             </button>
         </nav>
         <div class="news__block">
-            <nav
-                v-for="(item, index) in blockCard"
+            <router-link
+                v-for="(item, index) in blockCard.slice(0, 4)"
                 class="block__card"
+                :to="{ name: 'blog_id', params: { id: item.id } }"
                 :key="index"
             >
-                <img :src="item.img" class="card__img" />
+                <img :src="item.src" class="card__img" />
                 <Icons :icons="item.category" class="card__icon" />
                 <p class="card__date">{{ item.date }}</p>
                 <h3 class="card__title">
@@ -99,12 +86,10 @@ export default {
                 <button class="card__btn">
                     Подробнее <Icons icons="arrowDefault" class="btn__icon" />
                 </button>
-            </nav>
+            </router-link>
         </div>
         <div class="news__btn">
-            <router-link to="/blog" class="btn__download"
-                >Загрузить еще</router-link
-            >
+            <BtnDownload />
         </div>
         <!-- <nav class="news__navigation">
             <h4 class="navigation__page">
@@ -241,24 +226,6 @@ export default {
         margin-top: 40px;
         display: flex;
         justify-content: center;
-        .btn__download {
-            width: fit-content;
-            height: fit-content;
-            padding: clamp(10px, calc(16vw / var(--ratio)), 16px)
-                clamp(25px, calc(40vw / var(--ratio)), 40px);
-            font-size: clamp(16px, calc(24vw / var(--ratio)), 24px);
-            font-family: "Cruinn Black";
-            letter-spacing: 0.48px;
-            background: #004df3;
-            color: #fffcf2;
-            transition: all 0.25s;
-            // margin-right: 20px;
-            &:hover {
-                background: #fffcf2;
-                color: #004df3;
-                opacity: 1;
-            }
-        }
     }
     // .news__navigation {
     //     margin-top: clamp(15px, calc(56vw / var(--ratio)), 56px);
@@ -381,12 +348,6 @@ export default {
         }
         .news__btn {
             margin-top: clamp(24px, calc(40vw / var(--ratio)), 40px);
-            .btn__download {
-                padding: clamp(8px, calc(10vw / var(--ratio)), 10px)
-                    clamp(16px, calc(25vw / var(--ratio)), 25px);
-                font-size: clamp(12px, calc(24vw / var(--ratio)), 16px);
-                letter-spacing: 0.32px;
-            }
         }
         // .news__navigation {
         //     margin-top: 16px;
@@ -482,12 +443,6 @@ export default {
         }
         .news__btn {
             margin-top: clamp(16px, calc(24vw / var(--ratio)), 24px);
-            .btn__download {
-                padding: 8px calc(16vw / var(--ratio));
-                font-size: 12px;
-                letter-spacing: 0.24px;
-                // margin-right: 8px;
-            }
         }
     }
 }

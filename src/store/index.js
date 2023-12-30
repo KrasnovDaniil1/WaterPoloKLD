@@ -40,7 +40,7 @@ const state = {
             time: "11.12.2023",
             info: "sfsd",
             src: "https://klwp.pro/uploads/2974e7a2.jpeg",
-            category: "students",
+            category: "student",
         },
         {
             id: 1,
@@ -65,6 +65,101 @@ const state = {
             info: "sfsd",
             src: "https://klwp.pro/uploads/2974e7a2.jpeg",
             category: "federation",
+        },
+    ],
+    federationMembers: [
+        {
+            src: "https://klwp.pro/uploads/657b8bb0.jpg",
+            name: "Алексей Иванович",
+            post: "Должность",
+            info: "Тренер с хорошей карьерой",
+        },
+        {
+            src: "https://klwp.pro/uploads/657b8bb0.jpg",
+            name: "Алексей Иванович",
+            post: "Должность",
+            info: "Тренер с хорошей карьерой",
+        },
+        {
+            src: "https://klwp.pro/uploads/657b8bb0.jpg",
+            name: "Алексей Иванович",
+            post: "Должность",
+            info: "Тренер с хорошей карьерой",
+        },
+        {
+            src: "https://klwp.pro/uploads/657b8bb0.jpg",
+            name: "Алексей Иванович",
+            post: "Должность",
+            info: "Тренер с хорошей карьерой",
+        },
+        {
+            src: "https://klwp.pro/uploads/657b8bb0.jpg",
+            name: "Алексей Иванович",
+            post: "Должность",
+            info: "Тренер с хорошей карьерой",
+        },
+    ],
+    reviews: [
+        {
+            text: "1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus suscipit metus sit amet nisi lacinia condimentum. Phasellus eu nibh lobortis, tincidunt nisi in, ornare leo. Donec hendrerit interdum mollis. Vestibulum consequat erat sapien, a pellentesque quam accumsan nec.",
+            name: "Имя Отчеств",
+        },
+        {
+            text: "2 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus suscipit metus sit amet nisi lacinia condimentum. Phasellus eu nibh lobortis, tincidunt nisi in, ornare leo. Donec hendrerit interdum mollis. Vestibulum consequat erat sapien, a pellentesque quam accumsan nec.",
+            name: "Имя Отчест",
+        },
+        {
+            text: "3 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus suscipit metus sit amet nisi lacinia condimentum. Phasellus eu nibh lobortis, tincidunt nisi in, ornare leo. Donec hendrerit interdum mollis. Vestibulum consequat erat sapien, a pellentesque quam accumsan nec.",
+            name: "Имя Отчес",
+        },
+
+        {
+            text: "4 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus suscipit metus sit amet nisi lacinia condimentum. Phasellus eu nibh lobortis, tincidunt nisi in, ornare leo. Donec hendrerit interdum mollis. ",
+            name: "Имя -2",
+        },
+        {
+            text: "5 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus suscipit metus sit amet nisi lacinia condimentum. Phasellus eu nibh lobortis, tincidunt nisi in, ornare leo. Donec hendrerit interdum mollis. ",
+            name: "Имя -1",
+        },
+    ],
+    time: {
+        month: 0,
+        children: [
+            {
+                time: 9.0,
+                address: "Тихоокеанская улица, 5",
+                date: [7, 14, 21, 28],
+            },
+            {
+                time: 9.0,
+                address: "Тихоокеанская улица, 5",
+                date: [7, 14, 21, 28],
+            },
+        ],
+        amateur: [
+            {
+                time: 9.0,
+                address: "Тихоокеанская улица, 5",
+                date: [7, 14, 21, 28],
+            },
+            {
+                time: 9.0,
+                address: "Тихоокеанская улица, 5",
+                date: [7, 14, 21, 28],
+            },
+        ],
+    },
+
+    price: [
+        {
+            title: "Разовое посещение",
+            info: "Разовый платеж",
+            cost: "600",
+            descriptions: [
+                "Первая тренировка бесплатно",
+                "Разовое посещение тренировки",
+            ],
+            category: "children",
         },
     ],
     loader: false,

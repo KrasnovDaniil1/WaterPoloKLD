@@ -1,12 +1,3 @@
-// export const getPageData = (state) => state.pageData;
-// export const getNewsId = (state) => state.newsId;
-// export const getPageAmateur = (state) => state.pageAmateur;
-// export const getPageChildren = (state) => state.pageChildren;
-// export const getPageStudent = (state) => state.pageStudent;
-// export const getPageFederation = (state) => state.pageFederation;
-// export const getPageNews = (state) => state.pageNews;
-// export const getPageMedio = (state) => state.pageMedio;
-
 export const getLoader = (state) => state.loader;
 
 export const getTrainers = (state) => (sort) => {
@@ -34,4 +25,25 @@ export const getBlogId = (state) => (id) => {
             return blog;
         }
     }
+};
+
+export const getFederationMembers = (state) => {
+    return state.federationMembers;
+};
+
+export const getReviews = (state) => {
+    return state.reviews;
+};
+
+export const getPrice = (state) => (sort) => {
+    let sortPrice = state.price.filter((item) => {
+        if (item.category == sort) {
+            return true;
+        }
+    });
+    return sortPrice;
+};
+
+export const getTime = (state) => {
+    return state.time;
 };

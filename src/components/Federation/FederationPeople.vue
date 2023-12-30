@@ -1,47 +1,13 @@
 <script>
 import { onMounted, ref } from "vue";
 import Icons from "../Other/Icons.vue";
+
+import { useStore } from "vuex";
 export default {
     components: { Icons },
     setup() {
-        const people = ref([
-            {
-                image: "https://www.omegasport.ru/images/thumbnails/300/300/cp_blog_post/129/%D0%B2%D1%8B%D0%B1%D1%80%D0%B0%D1%82%D1%8C_%D1%82%D1%80%D0%B5%D0%BD%D0%B5%D1%80%D0%B0_02.jpg",
-                name: "1Имя Отчество",
-                post: "Должность",
-                info: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus suscipit metus sit amet nisi lacinia odimentum. Lorem ipsum dolor sit.",
-            },
-            {
-                image: "https://www.omegasport.ru/images/thumbnails/300/300/cp_blog_post/129/%D0%B2%D1%8B%D0%B1%D1%80%D0%B0%D1%82%D1%8C_%D1%82%D1%80%D0%B5%D0%BD%D0%B5%D1%80%D0%B0_02.jpg",
-                name: "2Имя Отчество",
-                post: "Должность",
-                info: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus suscipit metus sit amet nisi lacinia odimentum. Lorem ipsum dolor sit.",
-            },
-            {
-                image: "https://www.omegasport.ru/images/thumbnails/300/300/cp_blog_post/129/%D0%B2%D1%8B%D0%B1%D1%80%D0%B0%D1%82%D1%8C_%D1%82%D1%80%D0%B5%D0%BD%D0%B5%D1%80%D0%B0_02.jpg",
-                name: "3Имя Отчество",
-                post: "Должность",
-                info: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus suscipit metus sit amet nisi lacinia odimentum. Lorem ipsum dolor sit.",
-            },
-            {
-                image: "https://www.omegasport.ru/images/thumbnails/300/300/cp_blog_post/129/%D0%B2%D1%8B%D0%B1%D1%80%D0%B0%D1%82%D1%8C_%D1%82%D1%80%D0%B5%D0%BD%D0%B5%D1%80%D0%B0_02.jpg",
-                name: "4Имя Отчество",
-                post: "Должность",
-                info: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus suscipit metus sit amet nisi lacinia odimentum. Lorem ipsum dolor sit.",
-            },
-            {
-                image: "https://www.omegasport.ru/images/thumbnails/300/300/cp_blog_post/129/%D0%B2%D1%8B%D0%B1%D1%80%D0%B0%D1%82%D1%8C_%D1%82%D1%80%D0%B5%D0%BD%D0%B5%D1%80%D0%B0_02.jpg",
-                name: "5Имя Отчество",
-                post: "Должность",
-                info: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus suscipit metus sit amet nisi lacinia odimentum. Lorem ipsum dolor sit.",
-            },
-            {
-                image: "https://www.omegasport.ru/images/thumbnails/300/300/cp_blog_post/129/%D0%B2%D1%8B%D0%B1%D1%80%D0%B0%D1%82%D1%8C_%D1%82%D1%80%D0%B5%D0%BD%D0%B5%D1%80%D0%B0_02.jpg",
-                name: "6Имя Отчество",
-                post: "Должность",
-                info: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus suscipit metus sit amet nisi lacinia odimentum. Lorem ipsum dolor sit.",
-            },
-        ]);
+        const store = useStore();
+        const people = ref(store.getters.getFederationMembers);
         const activeElem = ref(0);
         const cardBlock = ref();
         const transformTranslate = ref(34);
@@ -64,24 +30,7 @@ export default {
                 transformTranslate.value * activeElem.value
             }%)`;
         };
-        // const scrolRight = () => {
-        //     activeElem.value += 1;
-        //     if (activeElem.value >= people.value.length - 1) {
-        //         activeElem.value = 1;
-        //     }
-        //     cardBlock.value.style.transform = `translateX(-${
-        //         transformTranslate.value * (activeElem.value - 1)
-        //     }%)`;
-        // };
-        // const scrolLeft = () => {
-        //     activeElem.value -= 1;
-        //     if (activeElem.value < 1) {
-        //         activeElem.value = people.value.length - 2;
-        //     }
-        //     cardBlock.value.style.transform = `translateX(-${
-        //         transformTranslate.value * (activeElem.value - 1)
-        //     }%)`;
-        // };
+
         onMounted(() => {
             if (window.innerWidth <= 390) {
                 transformTranslate.value = 100;
@@ -95,6 +44,7 @@ export default {
             }
         });
         return {
+            store,
             people,
             scrolRight,
             scrolLeft,
@@ -123,7 +73,7 @@ export default {
                         v-for="(item, index) in people"
                         :key="index"
                     >
-                        <img class="card__image" :src="item.image" />
+                        <img class="card__image" :src="item.src" />
                         <h3 class="card__name">{{ item.name }}</h3>
                         <h4 class="card__post">{{ item.post }}</h4>
                         <p class="card__info">

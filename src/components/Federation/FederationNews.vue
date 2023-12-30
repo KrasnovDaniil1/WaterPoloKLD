@@ -1,11 +1,16 @@
 <script>
 import BtnToMain from "../Btn/BtnToMain.vue";
 import BtnDownload from "../Btn/BtnDownload.vue";
-
+import { useStore } from "vuex";
+import { ref } from "vue";
 import Icons from "../Other/Icons.vue";
 export default {
     components: { Icons, BtnToMain, BtnDownload },
-    setup() {},
+    setup() {
+        const store = useStore();
+        const blockCard = ref(store.getters.getBlog("federation"));
+        return { store, blockCard };
+    },
 };
 </script>
 
@@ -15,31 +20,22 @@ export default {
         <router-link
             to="/blog/2"
             class="news__card"
-            v-for="(item, index) in 3"
+            v-for="(item, index) in blockCard.slice(0, 3)"
             :key="index"
         >
             <div class="card__block">
-                <img
-                    src="https://s-cdn.sportbox.ru/images/styles/upload/fp_fotos/9f/8c/79f00daba1e3401fba2a3e91d7c1cd7c5d3ad36ad25c2616834560.jpg"
-                    class="block__image"
-                />
+                <img :src="item.src" class="block__image" />
                 <h4 class="block__text">
                     Подробнее
                     <Icons icons="arrowDefault" class="about__arrow" />
                 </h4>
             </div>
             <nav class="card__content">
-                <h5 class="content__data">4.11.2023</h5>
+                <h5 class="content__data">{{ item.time }}</h5>
                 <h3 class="content__title">
-                    Встреча с председателем Водного поло в Калининграде
+                    {{ item.title }}
                 </h3>
-                <h4 class="content__info">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Vivamus suscipit metus sit amet nisi lacinia odimentum.
-                    Lorem ipsum dolor sit. Lorem ipsum dolor sit amet,
-                    consectetur adipiscing elit. Vivamus suscipit metus sit amet
-                    nisi lacinia odimentum. Lorem ipsum dolor sit.
-                </h4>
+                <h4 class="content__info" v-html="item.info"></h4>
             </nav>
         </router-link>
         <div class="btn__block">

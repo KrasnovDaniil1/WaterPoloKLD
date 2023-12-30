@@ -29,7 +29,7 @@ export default {
             },
             {
                 title: "Студенты",
-                icon: "students",
+                icon: "student",
             },
             {
                 title: "Федерация",
@@ -39,7 +39,6 @@ export default {
         const changeCategory = (category, index) => {
             blockCard.value = store.getters.getBlog(category);
             activeBtn.value = index;
-            console.log(category, blockCard.value);
         };
         return {
             store,

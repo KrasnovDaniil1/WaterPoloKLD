@@ -1,36 +1,16 @@
 <script>
 import { onMounted, ref } from "vue";
 import Icons from "../Other/Icons.vue";
+import { useStore } from "vuex";
 export default {
     components: {
         Icons,
     },
     setup() {
+        const store = useStore();
         const activeElem = ref(1);
         const cardBlock = ref();
-        const reviews = ref([
-            {
-                text: "1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus suscipit metus sit amet nisi lacinia condimentum. Phasellus eu nibh lobortis, tincidunt nisi in, ornare leo. Donec hendrerit interdum mollis. Vestibulum consequat erat sapien, a pellentesque quam accumsan nec.",
-                name: "Имя Отчеств",
-            },
-            {
-                text: "2 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus suscipit metus sit amet nisi lacinia condimentum. Phasellus eu nibh lobortis, tincidunt nisi in, ornare leo. Donec hendrerit interdum mollis. Vestibulum consequat erat sapien, a pellentesque quam accumsan nec.",
-                name: "Имя Отчест",
-            },
-            {
-                text: "3 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus suscipit metus sit amet nisi lacinia condimentum. Phasellus eu nibh lobortis, tincidunt nisi in, ornare leo. Donec hendrerit interdum mollis. Vestibulum consequat erat sapien, a pellentesque quam accumsan nec.",
-                name: "Имя Отчес",
-            },
-
-            {
-                text: "4 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus suscipit metus sit amet nisi lacinia condimentum. Phasellus eu nibh lobortis, tincidunt nisi in, ornare leo. Donec hendrerit interdum mollis. ",
-                name: "Имя -2",
-            },
-            {
-                text: "5 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus suscipit metus sit amet nisi lacinia condimentum. Phasellus eu nibh lobortis, tincidunt nisi in, ornare leo. Donec hendrerit interdum mollis. ",
-                name: "Имя -1",
-            },
-        ]);
+        const reviews = ref(store.getters.getReviews);
         const widthBlock = ref(1600);
         const scrolAdaptive = ref(0);
         const transformTranslate = ref(0);
@@ -84,6 +64,7 @@ export default {
         });
 
         return {
+            store,
             reviews,
             activeElem,
             scrolCard,
