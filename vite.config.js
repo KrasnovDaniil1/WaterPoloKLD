@@ -9,7 +9,7 @@ export default defineConfig({
     build: {
         //cssCodeSplit: false, --- если нужно
         //jsCodeSplit: false,  --- если нужно
-        
+        // copyPublicDir: true,
         rollupOptions: {
             output: {
                 dir: "./waterpolo", //---- определяем КУДА нужно
