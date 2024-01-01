@@ -44,6 +44,8 @@ export const getPrice = (state) => (sort) => {
     return sortPrice;
 };
 
-export const getTime = (state) => {
-    return state.time;
+export const getTime = (state) => (sort) => {
+    let sortTime = state.time[sort];
+    console.log("сорт время", sortTime);
+    return sortTime;
 };

@@ -33,7 +33,7 @@ export default {
                     des: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus suscipit metus sit amet nisi lacinia condimentum.",
                 },
                 {
-                    img: "https://ss.sport-express.ru/userfiles/materials/169/1699153/volga.jpg",   
+                    img: "https://ss.sport-express.ru/userfiles/materials/169/1699153/volga.jpg",
                     title: "Пункт 1",
                     des: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus suscipit metus sit amet nisi lacinia condimentum.",
                 },
@@ -45,10 +45,9 @@ export default {
             ],
         };
 
-        
         return {
             goals,
-            trainers: computed(() => store.getters.getTrainers("amateur")),
+            trainers: computed(() => store.getters.getTrainers("all")),
             store,
         };
     },

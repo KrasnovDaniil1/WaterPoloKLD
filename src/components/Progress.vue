@@ -8,33 +8,7 @@ export default {
     },
     setup(props) {
         const progress = ref(props.progress);
-        // const progress = ref([
-        //     {
-        //         img: "https://s-cdn.sportbox.ru/images/styles/upload/fp_fotos/9f/8c/79f00daba1e3401fba2a3e91d7c1cd7c5d3ad36ad25c2616834560.jpg",
-        //         data: "14.12.2023",
-        //         title: "Победа в соревнованиях",
-        //     },
-        //     {
-        //         img: "https://s-cdn.sportbox.ru/images/styles/upload/fp_fotos/9f/8c/79f00daba1e3401fba2a3e91d7c1cd7c5d3ad36ad25c2616834560.jpg",
-        //         data: "15.12.2023",
-        //         title: "Победа в соревнованиях",
-        //     },
-        //     {
-        //         img: "https://s-cdn.sportbox.ru/images/styles/upload/fp_fotos/9f/8c/79f00daba1e3401fba2a3e91d7c1cd7c5d3ad36ad25c2616834560.jpg",
-        //         data: "16.12.2023",
-        //         title: "Победа в соревнованиях",
-        //     },
-        //     {
-        //         img: "https://s-cdn.sportbox.ru/images/styles/upload/fp_fotos/9f/8c/79f00daba1e3401fba2a3e91d7c1cd7c5d3ad36ad25c2616834560.jpg",
-        //         data: "17.12.2023",
-        //         title: "Победа в соревнованиях",
-        //     },
-        //     {
-        //         img: "https://s-cdn.sportbox.ru/images/styles/upload/fp_fotos/9f/8c/79f00daba1e3401fba2a3e91d7c1cd7c5d3ad36ad25c2616834560.jpg",
-        //         data: "18.12.2023",
-        //         title: "Победа в соревнованиях",
-        //     },
-        // ]);
+
         const carusel = ref();
         const current = ref(0);
         const elemCarusel = ref(3);

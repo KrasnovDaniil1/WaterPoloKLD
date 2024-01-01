@@ -2,81 +2,88 @@
 import { onMounted, ref } from "vue";
 import BtnSignTraining from "./Btn/BtnSignTraining.vue";
 import Icons from "./Other/Icons.vue";
+import { useStore } from "vuex";
+import { computed } from "@vue/runtime-core";
 
 export default {
     components: { BtnSignTraining, Icons },
     setup() {
-        // const week = ref(["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"]);
-        const week = ref([[], []]);
-        const dayOfWeek = ref("");
-
+        const store = useStore();
+        const carusel = ref();
+        const activeTime = ref({ week: "first", in: 0 });
+        const time = ref({
+            first: [
+                { week: "Пн", day: 0 },
+                { week: "Вт", day: 0 },
+                { week: "Ср", day: 0 },
+                { week: "Чт", day: 0 },
+                { week: "Пт", day: 0 },
+                { week: "Сб", day: 0 },
+                { week: "Вс", day: 0 },
+            ],
+            second: [
+                { week: "Пн", day: 0 },
+                { week: "Вт", day: 0 },
+                { week: "Ср", day: 0 },
+                { week: "Чт", day: 0 },
+                { week: "Пт", day: 0 },
+                { week: "Сб", day: 0 },
+                { week: "Вс", day: 0 },
+            ],
+        });
+        const currentTime = new Date();
+        const generateDay = () => {
+            let dayAll = currentTime.getDate() - currentTime.getDay();
+            for (let i = 0; i < 14; i++) {
+                dayAll++;
+                if (dayAll > dayInMonth()) {
+                    dayAll = 1;
+                }
+                if (i < 7) {
+                    time.value.first[i].day = dayAll;
+                } else {
+                    time.value.second[i - 7].day = dayAll;
+                }
+            }
+            console.log(time.value, "сколь");
+        };
+        const dayInMonth = () => {
+            let date1 = new Date(
+                currentTime.getFullYear(),
+                currentTime.getMonth(),
+                1
+            );
+            let date2 = new Date(
+                currentTime.getFullYear(),
+                currentTime.getMonth() + 1,
+                1
+            );
+            let dayMonth = Math.round((date2 - date1) / 1000 / 3600 / 24);
+            return dayMonth;
+        };
+        const clickLeft = () => {
+            activeTime.value = { week: "first", in: 0 };
+            carusel.value.children[0].style.transform = `translateX(0)`;
+            carusel.value.children[1].style.transform = `translateX(0)`;
+        };
+        const clickRight = () => {
+            activeTime.value = { week: "second", in: 0 };
+            carusel.value.children[0].style.transform = `translateX(100%)`;
+            carusel.value.children[1].style.transform = `translateX(-100%)`;
+        };
         onMounted(() => {
-            generateTime();
-            // console.log(week.value);
-            getDayInMonth();
-            generateMonth();
+            generateDay();
         });
 
-        const generateMonth = () => {
-            const date = new Date();
-            dayOfWeek.value = date.toLocaleString("default", { month: "long" });
-        };
-        const generateTime = () => {
-            let testNow = new Date().getTime();
-            let f = 24;
-            let currentWeek = 0;
-            for (let i = 0; i < 14; i++) {
-                let curData = new Date(testNow + f * 3600 * 1000);
-                f += 24;
-                let day = curData.toLocaleDateString("ru-RU", {
-                    day: "numeric",
-                });
-                if (i % 7 == 0 && i != 0) {
-                    currentWeek++;
-                }
-                week.value[currentWeek].push({
-                    day: day,
-                    dayWeek: getWeekDay(day),
-                });
-            }
-            console.log(week.value);
-        };
-
-        const getWeekDay = (day) => {
-            let currentTime = new Date();
-            let days = ["ВС", "ПН", "ВТ", "СР", "ЧТ", "ПТ", "СБ"];
-            let date = new Date(
-                currentTime.getFullYear(),
-                getDayInMonth(day),
-                day
-            );
-            return days[date.getDay()];
-        };
-
-        const getDayInMonth = (day) => {
-            Date.prototype.daysInMonth = function () {
-                return (
-                    33 -
-                    new Date(this.getFullYear(), this.getMonth(), 33).getDate()
-                );
-            };
-            let currentTime = new Date();
-            // console.log(currentTime.daysInMonth(), currentTime.getMonth());
-            if (day == currentTime.daysInMonth()) {
-                if (currentTime.getMonth() == 11) {
-                    return 0;
-                }
-                return currentTime.getMonth() + 1;
-            }
-            return currentTime.getMonth();
-        };
         return {
-            week,
-            getDayInMonth,
-            generateTime,
-            getWeekDay,
-            generateMonth,
-            dayOfWeek,
+            carusel,
+            clickLeft,
+            clickRight,
+            store,
+            currentTime,
+            time,
+            activeTime,
+            getTimes: computed(() => store.getters.getTime("children")),
         };
     },
 };
@@ -92,56 +99,80 @@ export default {
         </div>
         <nav class="time__table">
             <div class="table__header">
-                <h3 class="header__month">{{ dayOfWeek }}</h3>
+                <h3 class="header__month">
+                    {{
+                        currentTime.toLocaleString("default", { month: "long" })
+                    }}
+                </h3>
                 <div class="header__btn">
                     <Icons
                         icons="arrow"
                         class="btn__arrow"
                         style="transform: rotate(180deg)"
+                        @click="clickLeft()"
                     />
-                    <Icons icons="arrow" class="btn__arrow" />
+                    <Icons
+                        icons="arrow"
+                        class="btn__arrow"
+                        @click="clickRight()"
+                    />
                 </div>
             </div>
             <div class="table__decor__line"></div>
-            <div class="table__carusel">
-                <nav
-                    class="carusel__item"
-                    v-for="(item, index) in week"
-                    :key="index"
-                >
+            <div class="table__carusel" ref="carusel">
+                <nav class="carusel__item">
                     <button
-                        v-for="(elem, i) in item"
+                        v-for="(elem, i) in time.first"
                         class="item__btn"
-                        :class="{ item__btn_active: i == 1 }"
+                        :class="{
+                            item__btn_active:
+                                activeTime.week == 'first' &&
+                                activeTime.in == i,
+                        }"
+                        @click="
+                            activeTime = {
+                                week: 'first',
+                                in: i,
+                            }
+                        "
                         :key="i"
                     >
-                        <h3 class="btn__title">{{ elem.dayWeek }}</h3>
+                        <h3 class="btn__title">{{ elem.week }}</h3>
+                        <h3 class="btn__title">{{ elem.day }}</h3>
+                    </button>
+                </nav>
+                <nav class="carusel__item">
+                    <button
+                        v-for="(elem, i) in time.second"
+                        class="item__btn"
+                        :class="{
+                            item__btn_active:
+                                activeTime.week == 'second' &&
+                                activeTime.in == i,
+                        }"
+                        @click="
+                            activeTime = {
+                                week: 'second',
+                                in: i,
+                            }
+                        "
+                        :key="i"
+                    >
+                        <h3 class="btn__title">{{ elem.week }}</h3>
                         <h3 class="btn__title">{{ elem.day }}</h3>
                     </button>
                 </nav>
             </div>
         </nav>
-        <nav class="time__lesson">
+        <nav
+            class="time__lesson"
+            v-for="(t, index) in getTimes[activeTime.week][activeTime.in]"
+            :key="index"
+        >
             <div class="lesson__info">
-                <h4 class="info">12.00</h4>
-                <h4 class="info">Дети</h4>
-                <h4 class="info">Тихоокеанская улица, 5</h4>
-            </div>
-            <div class="table__decor__line"></div>
-        </nav>
-        <nav class="time__lesson">
-            <div class="lesson__info">
-                <h4 class="info">12.00</h4>
-                <h4 class="info">Дети</h4>
-                <h4 class="info">Тихоокеанская улица, 5</h4>
-            </div>
-            <div class="table__decor__line"></div>
-        </nav>
-        <nav class="time__lesson">
-            <div class="lesson__info">
-                <h4 class="info">12.00</h4>
-                <h4 class="info">Дети</h4>
-                <h4 class="info">Тихоокеанская улица, 5</h4>
+                <h4 class="info">{{ t.time }}</h4>
+                <h4 class="info">{{ t.category }}</h4>
+                <h4 class="info">{{ t.address }}</h4>
             </div>
             <div class="table__decor__line"></div>
         </nav>
@@ -219,7 +250,12 @@ export default {
             display: flex;
             overflow-x: hidden;
             .carusel__item {
-                // transform: translateX(-100%);
+                // &:nth-child(1) {
+                //     transform: translateX(100%);
+                // }
+                // &:nth-child(2) {
+                //     transform: translateX(-100%);
+                // }
                 min-width: 100.1%;
                 display: flex;
                 justify-content: space-between;
