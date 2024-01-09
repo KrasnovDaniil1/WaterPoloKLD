@@ -28,7 +28,7 @@ export default {
                 {{ blogId.title }}
             </h1>
         </nav>
-        <p class="id__content" v-html="blogId.title"></p>
+        <p class="id__content" v-html="blogId.msg"></p>
         <div class="btn__block">
             <BtnToBlog class="btn_to_blog" />
             <BtnToMain />

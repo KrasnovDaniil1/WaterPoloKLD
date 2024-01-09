@@ -62,7 +62,7 @@ export default {
             <MainGallery />
         </main>
         <Trainers :trainers="trainers" />
-        <TimeTable />
+        <TimeTable v-if="false" />
         <DecorTrainerBlock />
         <Goals :goals="goals" />
         <main class="block__bg">

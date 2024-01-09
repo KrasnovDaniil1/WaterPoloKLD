@@ -3,16 +3,21 @@ import { onMounted, ref } from "vue";
 import BtnSignTraining from "./Btn/BtnSignTraining.vue";
 import Icons from "./Other/Icons.vue";
 import { useStore } from "vuex";
-import { computed } from "@vue/runtime-core";
 
 export default {
+    props: {
+        category: {
+            typeof: String,
+            default: "children",
+        },
+    },
     components: { BtnSignTraining, Icons },
-    setup() {
+    setup(props) {
         const store = useStore();
         const carusel = ref();
-        const activeTime = ref({ week: "first", in: 0 });
+        const activeTime = ref({ week: "one", in: "Пн" });
         const time = ref({
-            first: [
+            one: [
                 { week: "Пн", day: 0 },
                 { week: "Вт", day: 0 },
                 { week: "Ср", day: 0 },
@@ -21,7 +26,7 @@ export default {
                 { week: "Сб", day: 0 },
                 { week: "Вс", day: 0 },
             ],
-            second: [
+            two: [
                 { week: "Пн", day: 0 },
                 { week: "Вт", day: 0 },
                 { week: "Ср", day: 0 },
@@ -31,6 +36,8 @@ export default {
                 { week: "Вс", day: 0 },
             ],
         });
+
+        const table = ref();
         const currentTime = new Date();
         const generateDay = () => {
             let dayAll = currentTime.getDate() - currentTime.getDay();
@@ -40,12 +47,11 @@ export default {
                     dayAll = 1;
                 }
                 if (i < 7) {
-                    time.value.first[i].day = dayAll;
+                    time.value.one[i].day = dayAll;
                 } else {
-                    time.value.second[i - 7].day = dayAll;
+                    time.value.two[i - 7].day = dayAll;
                 }
             }
-            console.log(time.value, "сколь");
         };
         const dayInMonth = () => {
             let date1 = new Date(
@@ -62,20 +68,38 @@ export default {
             return dayMonth;
         };
         const clickLeft = () => {
-            activeTime.value = { week: "first", in: 0 };
+            activeTime.value = { week: "one", in: "Пн" };
             carusel.value.children[0].style.transform = `translateX(0)`;
             carusel.value.children[1].style.transform = `translateX(0)`;
+            lookTime("one", "Пн");
+            console.log(activeTime.value, "sdfd");
         };
         const clickRight = () => {
-            activeTime.value = { week: "second", in: 0 };
+            activeTime.value = { week: "two", in: "Пн" };
             carusel.value.children[0].style.transform = `translateX(100%)`;
             carusel.value.children[1].style.transform = `translateX(-100%)`;
+            lookTime("two", "Пн");
+        };
+
+        const lookTime = async (week, i) => {
+            activeTime.value = {
+                week: week,
+                in: i,
+            };
+            table.value = await store.getters.getTime({
+                week: activeTime.value.week,
+                in: activeTime.value.in,
+                category: props.category,
+            });
         };
         onMounted(() => {
             generateDay();
+            lookTime("one", "Пн");
+            console.log(activeTime.value, " asdsed");
         });
 
         return {
+            table,
             carusel,
             clickLeft,
             clickRight,
@@ -83,7 +107,8 @@ export default {
             currentTime,
             time,
             activeTime,
-            getTimes: computed(() => store.getters.getTime("children")),
+            lookTime,
+            // getTimes: computed(() => store.getters.getTime("children")),s
         };
     },
 };
@@ -122,19 +147,14 @@ export default {
             <div class="table__carusel" ref="carusel">
                 <nav class="carusel__item">
                     <button
-                        v-for="(elem, i) in time.first"
+                        v-for="(elem, i) in time.one"
                         class="item__btn"
                         :class="{
                             item__btn_active:
-                                activeTime.week == 'first' &&
-                                activeTime.in == i,
+                                activeTime.week == 'one' &&
+                                activeTime.in == elem.week,
                         }"
-                        @click="
-                            activeTime = {
-                                week: 'first',
-                                in: i,
-                            }
-                        "
+                        @click="lookTime('one', elem.week)"
                         :key="i"
                     >
                         <h3 class="btn__title">{{ elem.week }}</h3>
@@ -143,19 +163,14 @@ export default {
                 </nav>
                 <nav class="carusel__item">
                     <button
-                        v-for="(elem, i) in time.second"
+                        v-for="(elem, i) in time.two"
                         class="item__btn"
                         :class="{
                             item__btn_active:
-                                activeTime.week == 'second' &&
-                                activeTime.in == i,
+                                activeTime.week == 'two' &&
+                                activeTime.in == elem.week,
                         }"
-                        @click="
-                            activeTime = {
-                                week: 'second',
-                                in: i,
-                            }
-                        "
+                        @click="lookTime('two', elem.week)"
                         :key="i"
                     >
                         <h3 class="btn__title">{{ elem.week }}</h3>
@@ -164,14 +179,10 @@ export default {
                 </nav>
             </div>
         </nav>
-        <nav
-            class="time__lesson"
-            v-for="(t, index) in getTimes[activeTime.week][activeTime.in]"
-            :key="index"
-        >
+        <nav class="time__lesson" v-for="(t, index) in table" :key="index">
             <div class="lesson__info">
                 <h4 class="info">{{ t.time }}</h4>
-                <h4 class="info">{{ t.category }}</h4>
+                <h4 class="info">{{ t.title }}</h4>
                 <h4 class="info">{{ t.address }}</h4>
             </div>
             <div class="table__decor__line"></div>

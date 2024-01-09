@@ -63,7 +63,7 @@ export default {
             <Goals :goals="goals" />
         </main>
         <Trainers :trainers="trainers" />
-        <TimeTable />
+        <TimeTable category="amateur" />
         <main class="block__bg">
             <Progress :progress="progress" />
         </main>

@@ -69,8 +69,8 @@ export default {
         <Goals :goals="goals" />
         <Reviews />
         <Trainers :trainers="trainers" />
-        <TimeTable />
-        <DecorTrainerBlock />
+        <TimeTable category="children" />
+        <DecorTrainerBlock v-if="false" />
         <main class="block__bg">
             <Carusel />
         </main>

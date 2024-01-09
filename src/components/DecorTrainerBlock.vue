@@ -40,7 +40,7 @@ export default {
     color: #fffcf2;
     max-width: 1330px;
     margin: 0 auto;
-    margin-bottom: clamp(40px, calc(80vw / var(--ratio)), 80px);
+    margin-top: clamp(40px, calc(80vw / var(--ratio)), 80px);
     padding: 0 10px;
     .decor__block {
         display: flex;
@@ -77,7 +77,7 @@ export default {
         justify-content: space-between;
         max-width: 100%;
         padding: 0px;
-        margin-bottom: 0px;
+        margin-top: 0px;
 
         .decor__block {
             padding: clamp(16px, calc(40vw / var(--ratio)), 40px) 0;
@@ -115,7 +115,7 @@ export default {
 }
 @media screen and (max-width: 390px) {
     .decor {
-        margin-bottom: clamp(16px, calc(24vw / var(--ratio)), 24px);
+        margin-top: clamp(16px, calc(24vw / var(--ratio)), 24px);
         .decor__block {
             padding: clamp(10px, calc(16vw / var(--ratio)), 16px) 0;
             .block__title {
