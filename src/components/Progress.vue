@@ -63,7 +63,7 @@ export default {
             <nav class="block__carusel">
                 <div class="carusel__item" ref="carusel">
                     <router-link
-                        to="/"
+                        :to="{ name: 'blog_id', params: { id: item.id } }"
                         class="item"
                         v-for="(item, index) in progress"
                         :key="index"

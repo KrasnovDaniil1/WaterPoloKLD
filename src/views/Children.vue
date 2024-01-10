@@ -10,6 +10,7 @@ import Reviews from "../components/Children/ChildrenReviews.vue";
 import Carusel from "../components/Children/ChildrenCarusel.vue";
 import { useStore } from "vuex";
 import { computed } from "@vue/runtime-core";
+import Price from "../components/Price.vue";
 
 export default {
     components: {
@@ -21,6 +22,7 @@ export default {
         Reviews,
         Carusel,
         Trainers,
+        Price,
     },
     setup() {
         const store = useStore();
@@ -70,6 +72,7 @@ export default {
         <Reviews />
         <Trainers :trainers="trainers" />
         <TimeTable category="children" />
+        <Price category="children" />
         <DecorTrainerBlock v-if="false" />
         <main class="block__bg">
             <Carusel />

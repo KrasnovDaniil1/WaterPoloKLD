@@ -15,7 +15,7 @@ export const getBlog = (state) => (sort) => {
             return true;
         }
     });
-    console.log(sortBlog);
+    console.log(sortBlog, 'progress');
     return sortBlog;
 };
 

@@ -8,6 +8,7 @@ import Trainers from "../components/Trainers.vue";
 import { useStore } from "vuex";
 import { computed } from "@vue/runtime-core";
 import main from "../assets/images/allWindow/main.png";
+import Price from "../components/Price.vue";
 
 export default {
     components: {
@@ -17,6 +18,7 @@ export default {
         Progress,
         Trainers,
         Benefit,
+        Price,
     },
     setup() {
         const store = useStore();
@@ -64,6 +66,7 @@ export default {
         </main>
         <Trainers :trainers="trainers" />
         <TimeTable category="amateur" />
+        <Price category="amateur" />
         <main class="block__bg">
             <Progress :progress="progress" />
         </main>
