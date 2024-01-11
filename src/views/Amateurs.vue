@@ -10,6 +10,10 @@ import { computed } from "@vue/runtime-core";
 import img3 from "../assets/images/allWindow/3.jpg";
 import Price from "../components/Price.vue";
 
+import img1G from "../assets/images/mainGoals/1.jpg";
+import img2G from "../assets/images/mainGoals/2.jpg";
+import img3G from "../assets/images/mainGoals/3.jpg";
+
 export default {
     components: {
         AllWindow,
@@ -31,19 +35,19 @@ export default {
             title: "Как проходят тренировки",
             cards: [
                 {
-                    img: "https://ss.sport-express.ru/userfiles/materials/169/1699153/volga.jpg",
-                    title: "Пункт 1",
-                    des: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus suscipit metus sit amet nisi lacinia condimentum.",
+                    img: img1G,
+                    title: "Техническая подготовка",
+                    des: "Улучшение навыков плавания, паса, подачи мяча и других базовых техник",
                 },
                 {
-                    img: "https://ss.sport-express.ru/userfiles/materials/169/1699153/volga.jpg",
-                    title: "Пункт 1",
-                    des: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus suscipit metus sit amet nisi lacinia condimentum.",
+                    img: img2G,
+                    title: "Физическая подготовка",
+                    des: "Работа над выносливостью, силой, скоростью и гибкостью через различные упражнения",
                 },
                 {
-                    img: "https://ss.sport-express.ru/userfiles/materials/169/1699153/volga.jpg",
-                    title: "Пункт 1",
-                    des: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus suscipit metus sit amet nisi lacinia condimentum.",
+                    img: img3G,
+                    title: "Тактическая подготовка",
+                    des: "Освоение основных тактик, стратегий и взаимодействие с партнерами по команде.",
                 },
             ],
         };

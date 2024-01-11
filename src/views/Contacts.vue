@@ -39,38 +39,64 @@ export default {
                 <nav class="link__block">
                     <div class="block__item">
                         <h3 class="item__title">Контакты</h3>
-                        <a href="#" class="item__link">
+                        <a
+                            href="tel:+89062376543"
+                            target="_blank"
+                            class="item__link"
+                        >
                             <Icons icons="phone" class="link__icon" />
-                            <span class="link__text">+7 888 888 88 88</span>
+                            <span class="link__text">+8 906 237 65 43</span>
                         </a>
-                        <a href="#" class="item__link">
+                        <a
+                            href="mailto:mail@vodnoepolo39@yandex.ru"
+                            target="_blank"
+                            class="item__link"
+                        >
                             <Icons icons="email" class="link__icon" />
-                            <span class="link__text">waterpolo@gmail.com</span>
+                            <span class="link__text"
+                                >vodnoepolo39@yandex.ru</span
+                            >
                         </a>
                     </div>
                     <div class="block__item">
                         <h3 class="item__title">Адрес</h3>
-                        <a href="#" class="item__link">
+                        <a
+                            href="https://yandex.ru/maps/-/CDuF7K4A"
+                            target="_blank"
+                            class="item__link"
+                        >
                             <Icons icons="location" class="link__icon" />
                             <span class="link__text"
                                 >Тихоокеанская улица, 5</span
                             >
                         </a>
-                        <a href="#" class="item__link">
+                        <p class="item__link">
                             <Icons icons="clock" class="link__icon" />
                             <span class="link__text">08:00 - 22:00</span>
-                        </a>
+                        </p>
                     </div>
                     <div class="block__item">
                         <h3 class="item__title">Социальные сети</h3>
                         <nav class="item__nav">
-                            <a href="#" class="nav__link">
+                            <a
+                                href="https://vk.com/waterpolo39"
+                                target="_blank"
+                                class="nav__link"
+                            >
                                 <Icons icons="vk" class="link__icon" />
                             </a>
-                            <a href="#" class="nav__link">
+                            <a
+                                href="https://t.me/waterpolo39_bot"
+                                target="_blank"
+                                class="nav__link"
+                            >
                                 <Icons icons="telegram" class="link__icon" />
                             </a>
-                            <a href="#" class="nav__link">
+                            <a
+                                href="https://www.youtube.com/watch?v=ohNP2Lvj2jA"
+                                target="_blank"
+                                class="nav__link"
+                            >
                                 <Icons icons="youtube" class="link__icon" />
                             </a>
                         </nav>
@@ -260,8 +286,8 @@ export default {
                         margin-bottom: 0px;
                         margin-left: clamp(
                             10px,
-                            calc(72vw / var(--ratio)),
-                            72px
+                            calc(50vw / var(--ratio)),
+                            50px
                         );
                         &:first-child {
                             padding-right: 0px;

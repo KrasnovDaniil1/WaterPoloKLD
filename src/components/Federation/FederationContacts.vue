@@ -17,18 +17,30 @@ export default {
         <div class="contacts__card">
             <h3 class="card__title">
                 Дата окончания аккредитации:
-                <span class="title__bold"> 24 октября 2025</span>
+                <span class="title__bold">24 октября 2025</span>
             </h3>
             <div class="card__social network">
                 <h3 class="social__title">Социальные сети</h3>
                 <nav class="social__block">
-                    <a href="/" class="block__icons">
+                    <a
+                        href="https://vk.com/waterpolo39"
+                        target="_blank"
+                        class="block__icons"
+                    >
                         <Icons icons="vk" class="icons" />
                     </a>
-                    <a href="/" class="block__icons">
+                    <a
+                        href="https://t.me/waterpolo39_bot"
+                        target="_blank"
+                        class="block__icons"
+                    >
                         <Icons icons="telegram" class="icons" />
                     </a>
-                    <a href="/" class="block__icons">
+                    <a
+                        href="https://www.youtube.com/watch?v=ohNP2Lvj2jA"
+                        target="_blank"
+                        class="block__icons"
+                    >
                         <Icons icons="youtube" class="icons" />
                     </a>
                 </nav>
@@ -36,23 +48,31 @@ export default {
             <div class="card__social contact">
                 <h3 class="social__title">Контакты</h3>
                 <nav class="social__block">
-                    <a href="/" class="block__icons">
+                    <a
+                        href="tel:+89062376543"
+                        target="_blank"
+                        class="block__icons"
+                    >
                         <Icons icons="phone" class="icons" />
-                        <p class="icons__text">+7 888 888 88 88</p>
+                        <p class="icons__text">+8 906 237 65 43</p>
                     </a>
-                    <a href="/" class="block__icons">
+                    <a
+                        href="mailto:mail@vodnoepolo39@yandex.ru"
+                        target="_blank"
+                        class="block__icons"
+                    >
                         <Icons icons="email" class="icons" />
-                        <p class="icons__text">waterpolo@gmail.com</p>
+                        <p class="icons__text">vodnoepolo39@yandex.ru</p>
                     </a>
                 </nav>
             </div>
             <div class="card__social name__first">
                 <h3 class="social__title">Президент Федерации</h3>
-                <p class="social__text">Фио</p>
+                <p class="social__text">в стадии открытия</p>
             </div>
             <div class="card__social name__second">
-                <h3 class="social__title">Вице-резидент</h3>
-                <p class="social__text">Фио</p>
+                <h3 class="social__title">Вице-президент</h3>
+                <p class="social__text">в стадии открытия</p>
             </div>
         </div>
     </main>

@@ -1,5 +1,5 @@
 <script>
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
 import BtnSeeAll from "../Btn/BtnSeeAll.vue";
 import BtnDownload from "../Btn/BtnDownload.vue";
 import { useStore } from "vuex";
@@ -41,7 +41,9 @@ export default {
             blockCard.value = store.getters.getBlog(category);
             activeBtn.value = index;
         };
-
+        onMounted(() => {
+            blockCard.value = store.getters.getBlog("new");
+        });
         return {
             panelBtn,
             activeBtn,

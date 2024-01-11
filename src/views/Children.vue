@@ -15,7 +15,6 @@ import Price from "../components/Price.vue";
 import img1G from "../assets/images/mainGoals/1.jpg";
 import img2G from "../assets/images/mainGoals/2.jpg";
 import img3G from "../assets/images/mainGoals/3.jpg";
-import img4G from "../assets/images/mainGoals/4.jpg";
 
 export default {
     components: {

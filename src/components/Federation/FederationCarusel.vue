@@ -73,13 +73,13 @@ export default {
                 :key="index"
             />
         </nav>
-        <h3 class="carusel__title-info">Тема</h3>
+        <h3 class="carusel__title-info">Наши цели</h3>
         <p class="carusel__info">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus
-            suscipit metus sit amet nisi lacinia condimentum. Phasellus eu nibh
-            lobortis, tincidunt nisi in, ornare leo. Donec hendrerit interdum
-            mollis. Vestibulum consequat erat sapien, a pellentesque quam
-            accumsan nec.
+            Цель федерации по водному полу включает в себя развитие этого
+            вида спорта и поддержку спортсменов,
+            организацию соревнований и тренировочных мероприятий. Наши основные
+            задачи: улучшение инфраструктуры, обучению тренеров и судей, а
+            также укреплению сотрудничества с другими регионами в этой области.
         </p>
     </main>
 </template>

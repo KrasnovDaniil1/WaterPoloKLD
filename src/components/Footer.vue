@@ -2,6 +2,8 @@
 import Icons from "./Other/Icons.vue";
 import BtnSignTraining from "./Btn/BtnSignTraining.vue";
 import BtnToMain from "./Btn/BtnToMain.vue";
+import { useRoute } from "vue-router";
+import { onMounted, ref, watch } from "vue";
 
 export default {
     components: {
@@ -11,7 +13,22 @@ export default {
     },
 
     setup() {
+        const adress = ref("");
+        const route = useRoute();
+
+        watch(
+            () => route.name,
+            () => {
+                if (route.name == "federation") {
+                    adress.value = "в стадии открытия";
+                } else {
+                    adress.value = "Тихоокеанская улица, 5";
+                }
+            }
+        );
         return {
+            adress,
+            route,
             links: [
                 {
                     to: "/children",
@@ -44,30 +61,51 @@ export default {
 </script>
 <template>
     <footer class="footer">
-        <a class="footer__logo" href="#">
+        <router-link to="/" class="footer__logo">
             <Icons icons="logo" class="logo__icon" />
             <p class="logo__label">Water Polo</p>
-        </a>
+        </router-link>
         <div class="footer__icons">
-            <p class="icons__info">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            </p>
+            <p class="icons__info">Подписывайтесь на наши соц. сети</p>
             <nav class="icons__block">
-                <Icons icons="vk" class="block__icon" />
-                <Icons icons="telegram" class="block__icon" />
-                <Icons icons="youtube" class="block__icon" />
+                <a href="https://vk.com/waterpolo39" target="_blank">
+                    <Icons icons="vk" class="block__icon" />
+                </a>
+                <a href="https://t.me/waterpolo39_bot" target="_blank">
+                    <Icons icons="telegram" class="block__icon" />
+                </a>
+                <a
+                    href="https://www.youtube.com/watch?v=ohNP2Lvj2jA"
+                    target="_blank"
+                >
+                    <Icons icons="youtube" class="block__icon" />
+                </a>
             </nav>
         </div>
         <div class="footer__block">
             <nav class="block__contacts">
                 <h6 class="contacts__title">Контакты</h6>
-                <a href="#" class="contacts__link">+7 888 888 88 88</a>
-                <a href="#" class="contacts__link">waterpolo@gmail.com</a>
+                <a
+                    href="tel:+89062376543"
+                    target="_blank"
+                    class="contacts__link"
+                    >+8 906 237 65 43</a
+                >
+                <a
+                    href="mailto:mail@vodnoepolo39@yandex.ru"
+                    target="_blank"
+                    class="contacts__link"
+                    >vodnoepolo39@yandex.ru</a
+                >
             </nav>
             <nav class="block__contacts">
                 <h6 class="contacts__title">Адрес</h6>
-                <a href="#" class="contacts__link">Тихоокеанская улица, 5</a>
-                <a href="#" class="contacts__link">08:00 - 22:00</a>
+                <a
+                    href="https://yandex.ru/maps/-/CDuF7K4A"
+                    class="contacts__link"
+                    >{{ adress }}</a
+                >
+                <p class="contacts__link">08:00 - 22:00</p>
             </nav>
         </div>
         <div class="footer__menu">
@@ -82,7 +120,7 @@ export default {
         </div>
         <div class="footer__right">
             <h6 class="right__title">Записаться на тренировку</h6>
-            <p class="right__info">Lorem ipsum dolor sit amet, consectetur.</p>
+            <p class="right__info">Для записи нажмите кнопку ниже</p>
             <nav class="right__btn-block">
                 <BtnSignTraining class="right__btn-sign" />
                 <BtnToMain />

@@ -61,25 +61,35 @@ export default {
 
         <div class="trainers__contacts">
             <nav class="contacts__block">
-                <a :href="trainers[currentTrainer].vk" class="contacts__icon">
+                <a
+                    :href="trainers[currentTrainer].vk"
+                    target="_blank"
+                    class="contacts__icon"
+                >
                     <Icons icons="vk" class="contacts__icon" />
                 </a>
                 <a
-                    :href="trainers[currentTrainer].telegram"
+                    :href="
+                        'https://t.me/' +
+                        trainers[currentTrainer].telegram.substr(1)
+                    "
+                    target="_blank"
                     class="contacts__icon"
                 >
                     <Icons icons="telegram" class="contacts__icon" />
                 </a>
             </nav>
 
-            <p
+            <a
+                :href="'tel:' + item.phone_number"
+                target="_blank"
                 class="contacts__phone"
                 v-for="(item, index) in trainers"
                 :key="index"
                 :class="{ elem__active: currentTrainer == index }"
             >
                 {{ item.phone_number }}
-            </p>
+            </a>
         </div>
         <Icons
             icons="arrow"
@@ -169,11 +179,13 @@ export default {
         display: flex;
         align-items: center;
         .contacts__block {
+            z-index: 1;
             display: flex;
             align-items: center;
             .contacts__icon {
                 width: clamp(24px, calc(40vw / var(--ratio)), 40px);
                 height: clamp(24px, calc(40vw / var(--ratio)), 40px);
+                cursor: pointer;
                 &:not(:first-child) {
                     margin-left: clamp(16px, calc(32vw / var(--ratio)), 32px);
                 }

@@ -9,6 +9,11 @@ import { useStore } from "vuex";
 import { computed } from "@vue/runtime-core";
 import img4 from "../assets/images/allWindow/4.jpg";
 
+import img1G from "../assets/images/mainGoals/1.jpg";
+import img2G from "../assets/images/mainGoals/2.jpg";
+import img3G from "../assets/images/mainGoals/3.jpg";
+import img4G from "../assets/images/mainGoals/4.jpg";
+
 export default {
     components: {
         AllWindow,
@@ -29,19 +34,24 @@ export default {
             title: "Как попасть в команду",
             cards: [
                 {
-                    img: "https://ss.sport-express.ru/userfiles/materials/169/1699153/volga.jpg",
-                    title: "Пункт 1",
-                    des: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus suscipit metus sit amet nisi lacinia condimentum.",
+                    img: img1G,
+                    title: "Технические навыки",
+                    des: "Умение плавать и быть знакомым с основами техники водного поло, такие как пасы и подача мяча",
                 },
                 {
-                    img: "https://ss.sport-express.ru/userfiles/materials/169/1699153/volga.jpg",
-                    title: "Пункт 1",
-                    des: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus suscipit metus sit amet nisi lacinia condimentum.",
+                    img: img2G,
+                    title: "Физическая подготовка",
+                    des: "Высокий уровень физической выносливости. Способность выдерживать тренировачные  нагрузки",
                 },
                 {
-                    img: "https://ss.sport-express.ru/userfiles/materials/169/1699153/volga.jpg",
-                    title: "Пункт 1",
-                    des: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus suscipit metus sit amet nisi lacinia condimentum.",
+                    img: img3G,
+                    title: "Тактическое понимание",
+                    des: "Знание основ тактики и умение адаптироваться к игровым ситуациям",
+                },
+                {
+                    img: img4G,
+                    title: "Успеваемость",
+                    des: "Поддержка среднего уровня академической успеваемости для участия в соревнованиях",
                 },
             ],
         };

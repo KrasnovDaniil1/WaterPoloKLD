@@ -53,14 +53,14 @@ export default {
         <div class="header-top">
             <nav class="top__left">
                 <a
-                    href="mailto:mail@waterpolo@gmail.com"
+                    href="mailto:mail@vodnoepolo39@yandex.ru"
                     class="left__email"
                     target="_blank"
-                    >waterpolo@gmail.com</a
+                    >vodnoepolo39@yandex.ru</a
                 >
                 <div class="left__decor-line"></div>
-                <a href="tel:+78888888888" class="left__phone" target="_blank"
-                    >+7 888 888 88 88</a
+                <a href="tel:+89062376543" class="left__phone" target="_blank"
+                    >+8 906 237 65 43</a
                 >
             </nav>
             <nav class="top__right">
@@ -110,8 +110,8 @@ export default {
             <Icons icons="logo" class="logo__icon" />
             <p class="logo__label">Water Polo</p>
         </router-link>
-        <a href="tel:+78888888888" target="_blank" class="header__phone"
-            >+7 888 888 88 88</a
+        <a href="tel:+89062376543" target="_blank" class="header__phone"
+            >+8 906 237 65 43</a
         >
         <Icons
             icons="burger"
@@ -125,14 +125,14 @@ export default {
             <p class="logo__label">Water Polo</p>
         </router-link>
         <div class="header__center">
-            <a href="tel:+78888888888" target="_blank" class="center__phone"
-                >+7 888 888 88 88</a
+            <a href="tel:+89062376543" target="_blank" class="center__phone"
+                >+8 906 237 65 43</a
             >
             <a
-                href="mailto:mail@waterpolo@gmail.com"
+                href="mailto:mail@vodnoepolo39@yandex.ru"
                 class="center__email"
                 target="_blank"
-                >waterpolo@gmail.com</a
+                >vodnoepolo39@yandex.ru</a
             >
             <nav class="center__menu">
                 <router-link
@@ -488,21 +488,5 @@ export default {
         }
     }
 }
-// @media screen and (max-width: 340px) {
-//     .pop-header {
-//         .header__top {
-//             .top__center {
-//                 .center__block {
-//                     margin-top: clamp(15px, calc(24vw / var(--ratio)), 24px);
-//                     flex-direction: column;
-//                     align-items: center;
-//                     .block__btn-sign {
-//                         margin-right: 0px;
-//                         margin-bottom: 8px;
-//                     }
-//                 }
-//             }
-//         }
-//     }
-// }
+
 </style>

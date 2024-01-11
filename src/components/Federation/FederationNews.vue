@@ -35,7 +35,7 @@ export default {
                 <h3 class="content__title">
                     {{ item.title }}
                 </h3>
-                <h4 class="content__info" v-html="item.info"></h4>
+                <h4 class="content__info" v-html="item.msg"></h4>
             </nav>
         </router-link>
         <div class="btn__block">
