@@ -7,7 +7,7 @@ import Benefit from "../components/Amateurs/AmateursBenefit.vue";
 import Trainers from "../components/Trainers.vue";
 import { useStore } from "vuex";
 import { computed } from "@vue/runtime-core";
-import main from "../assets/images/allWindow/main.png";
+import img3 from "../assets/images/allWindow/3.jpg";
 import Price from "../components/Price.vue";
 
 export default {
@@ -25,7 +25,7 @@ export default {
         const allWindow = {
             title: "Любителям",
             info: "Погружение в мир водных увлечений – это не только способ отдыха, но и настоящее приключение, которое пробуждает чувства и подарит невероятные впечатления!",
-            image: main,
+            image: img3,
         };
         const goals = {
             title: "Как проходят тренировки",

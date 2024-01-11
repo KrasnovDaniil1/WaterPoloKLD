@@ -38,13 +38,10 @@ export default {
     <div class="galery">
         <h2 class="galery__title">Что же такое Водное поло?</h2>
         <p class="galery__info">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus
-            suscipit metus sit amet nisi lacinia condimentum. Phasellus eu nibh
-            lobortis, tincidunt nisi in, ornare leo. Donec hendrerit interdum
-            mollis. Vestibulum consequat erat sapien, a pellentesque quam
-            accumsan nec. Mauris ex ex, placerat sollicitudin nisi sed, pharetra
-            cursus mauris. Ut pretium eros eget mauris tempor dictum. Aenean non
-            lorem erat. Quisque a tristique lorem.
+            Водное поло — командная водная игра, в которой две команды пытаются
+            забить мяч в ворота противника, плавая по бассейну. Игра проводится
+            в специальном бассейне, и участники должны соблюдать определенные
+            правила, включая ограниченное время на попытку заброса.    
         </p>
         <!-- <BtnLearnMoreDark class="galery__btn-learn-more" /> -->
         <nav class="galery__check">

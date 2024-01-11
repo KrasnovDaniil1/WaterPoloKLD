@@ -5,9 +5,16 @@ export default {
 </script>
 
 <template>
-    <button class="btn-sign-training">
-        <a href="#">Записаться</a>
-    </button>
+    <!-- <button class="btn-sign-training">
+        <a href="https://t.me/waterpolo39_bot" target="_blank">Записаться</a>
+    </button> -->
+    <a
+        href="https://t.me/waterpolo39_bot"
+        target="_blank"
+        class="btn-sign-training"
+    >
+        Записаться
+    </a>
 </template>
 
 <style lang="scss" scoped>

@@ -14,15 +14,15 @@ export default {
                 answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus suscipit metus sit amet nisi lacinia condimentum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus suscipit metus sit amet nisi lacinia condimentum. ",
             },
             {
-                title: "Со скольких лет могут заниматься дети водным поло?",
+                title: "Какие документы необходимы для записи ребенка на тренировки?",
                 answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus suscipit metus sit amet nisi lacinia condimentum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus suscipit metus sit amet nisi lacinia condimentum. ",
             },
             {
-                title: "Со скольких лет могут заниматься дети водным поло?",
+                title: "Каков график тренировок?",
                 answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus suscipit metus sit amet nisi lacinia condimentum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus suscipit metus sit amet nisi lacinia condimentum. ",
             },
             {
-                title: "Со скольких лет могут заниматься дети водным поло?",
+                title: "Какова стоимость занятий и есть ли скидки?",
                 answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus suscipit metus sit amet nisi lacinia condimentum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus suscipit metus sit amet nisi lacinia condimentum. ",
             },
         ];
@@ -41,9 +41,22 @@ export default {
             <div class="header__contacts">
                 <BtnLearnMoreDark class="contacts__btn" />
                 <div class="contacts__block">
-                    <p class="block__phone">+7 888 888 88 90</p>
-                    <Icons class="block__icon" icons="vk" />
-                    <Icons class="block__icon" icons="telegram" />
+                    <a
+                        href="tel:+78888888888"
+                        target="_blank"
+                        class="block__phone"
+                        >+7 888 888 88 90</a
+                    >
+                    <a href="https://vk.com/waterpolo39" target="_blank">
+                        <Icons class="block__icon" icons="vk" />
+                    </a>
+                    <a
+                        href="https://t.me/waterpolo39_bot"
+                        class="right__icon"
+                        target="_blank"
+                    >
+                        <Icons class="block__icon" icons="telegram" />
+                    </a>
                 </div>
             </div>
         </nav>
@@ -55,7 +68,7 @@ export default {
         >
             <div class="block__title">
                 <h3 class="title">
-                    Со скольких лет могут заниматься дети водным поло?
+                    {{ item.title }}
                 </h3>
                 <Icons
                     class="icon"
@@ -64,10 +77,7 @@ export default {
                 />
             </div>
             <p class="block__answer">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus
-                suscipit metus sit amet nisi lacinia condimentum. Lorem ipsum
-                dolor sit amet, consectetur adipiscing elit. Vivamus suscipit
-                metus sit amet nisi lacinia condimentum.
+                {{ item.answer }}
             </p>
             <div class="block__decor__line"></div>
         </div>

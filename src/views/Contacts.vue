@@ -2,7 +2,7 @@
 import Window from "../components/Contacts/ContactsWindow.vue";
 import Map from "../components/Other/Map.vue";
 
-import main from "../assets/images/allWindow/main.png";
+import img7 from "../assets/images/allWindow/7.jpg";
 
 import Icons from "../components/Other/Icons.vue";
 
@@ -16,7 +16,7 @@ export default {
         const allWindow = {
             title: "Контакты",
             info: "Не стесняйтесь связаться с нами для любых вопросов, комментариев или запросов. Мы готовы делиться радостью водных приключений с вами!",
-            image: main,
+            image: img7,
         };
         return {
             allWindow,

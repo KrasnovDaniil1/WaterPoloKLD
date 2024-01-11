@@ -5,9 +5,7 @@ export default {
 </script>
 
 <template>
-    <button class="btn-see-all">
-        <router-link to="/contacts">Посмотреть все</router-link>
-    </button>
+    <router-link to="/blog" class="btn-see-all"> Посмотреть все </router-link>
 </template>
 
 <style lang="scss" scoped>

@@ -7,7 +7,7 @@ import TimeTable from "../components/TimeTable.vue";
 import Gallery from "../components/Students/StudentsGallery.vue";
 import { useStore } from "vuex";
 import { computed } from "@vue/runtime-core";
-import main from "../assets/images/allWindow/main.png";
+import img4 from "../assets/images/allWindow/4.jpg";
 
 export default {
     components: {
@@ -23,7 +23,7 @@ export default {
         const allWindow = {
             title: "Студентам",
             info: "БФУ им. Канта приглашает тебя в нашу сборную по водному поло, где каждый бросок и каждый матч наполняют жизнь увлекательными моментами.",
-            image: main,
+            image: img4,
         };
         const goals = {
             title: "Как попасть в команду",

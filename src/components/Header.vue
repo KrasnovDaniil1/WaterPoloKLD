@@ -52,18 +52,37 @@ export default {
     <header class="header-xl">
         <div class="header-top">
             <nav class="top__left">
-                <a href="#" class="left__email">waterpolo@gmail.com</a>
+                <a
+                    href="mailto:mail@waterpolo@gmail.com"
+                    class="left__email"
+                    target="_blank"
+                    >waterpolo@gmail.com</a
+                >
                 <div class="left__decor-line"></div>
-                <a href="#" class="left__phone">+7 888 888 88 88</a>
+                <a href="tel:+78888888888" class="left__phone" target="_blank"
+                    >+7 888 888 88 88</a
+                >
             </nav>
             <nav class="top__right">
-                <a href="#" class="right__icon">
+                <a
+                    href="https://vk.com/waterpolo39"
+                    class="right__icon"
+                    target="_blank"
+                >
                     <Icons icons="vk" />
                 </a>
-                <a href="#" class="right__icon">
+                <a
+                    href="https://t.me/waterpolo39_bot"
+                    class="right__icon"
+                    target="_blank"
+                >
                     <Icons icons="telegram" />
                 </a>
-                <a href="#" class="right__icon">
+                <a
+                    href="https://www.youtube.com/watch?v=ohNP2Lvj2jA"
+                    target="_blank"
+                    class="right__icon"
+                >
                     <Icons icons="youtube" />
                 </a>
             </nav>
@@ -87,11 +106,13 @@ export default {
         </div>
     </header>
     <header class="header-sm">
-        <a class="header__logo" href="#">
+        <router-link to="/" class="header__logo">
             <Icons icons="logo" class="logo__icon" />
             <p class="logo__label">Water Polo</p>
-        </a>
-        <a href="#" class="header__phone">+7 888 888 88 88</a>
+        </router-link>
+        <a href="tel:+78888888888" target="_blank" class="header__phone"
+            >+7 888 888 88 88</a
+        >
         <Icons
             icons="burger"
             class="header__burger"
@@ -104,8 +125,15 @@ export default {
             <p class="logo__label">Water Polo</p>
         </router-link>
         <div class="header__center">
-            <a href="#" class="center__phone">+7 888 888 88 88</a>
-            <a href="#" class="center__email">waterpolo@gmail.com</a>
+            <a href="tel:+78888888888" target="_blank" class="center__phone"
+                >+7 888 888 88 88</a
+            >
+            <a
+                href="mailto:mail@waterpolo@gmail.com"
+                class="center__email"
+                target="_blank"
+                >waterpolo@gmail.com</a
+            >
             <nav class="center__menu">
                 <router-link
                     v-for="(link, index) in links"
@@ -121,9 +149,27 @@ export default {
                 <BtnLearnMore />
             </div>
             <div class="center__icons">
-                <Icons icons="vk" class="icons__contacts" />
-                <Icons icons="telegram" class="icons__contacts" />
-                <Icons icons="youtube" class="icons__contacts" />
+                <a
+                    href="https://vk.com/waterpolo39"
+                    target="_blank"
+                    class="icons__contacts"
+                >
+                    <Icons icons="vk" class="icons__contacts" />
+                </a>
+                <a
+                    href="https://t.me/waterpolo39_bot"
+                    class="icons__contacts"
+                    target="_blank"
+                >
+                    <Icons icons="telegram" class="icons__contacts" />
+                </a>
+                <a
+                    href="https://www.youtube.com/watch?v=ohNP2Lvj2jA"
+                    target="_blank"
+                    class="icons__contacts"
+                >
+                    <Icons icons="youtube" class="icons__contacts" />
+                </a>
             </div>
         </div>
         <Icons icons="close" class="top__close" @click="activeMenu = false" />

@@ -1,7 +1,7 @@
 <script>
 import AllWindow from "../components/AllWindow.vue";
 import Goals from "../components/Goals.vue";
-import main from "../assets/images/allWindow/main.png";
+import img2 from "../assets/images/allWindow/2.jpg";
 import Trainers from "../components/Trainers.vue";
 import TimeTable from "../components/TimeTable.vue";
 import DecorTrainerBlock from "../components/DecorTrainerBlock.vue";
@@ -11,6 +11,11 @@ import Carusel from "../components/Children/ChildrenCarusel.vue";
 import { useStore } from "vuex";
 import { computed } from "@vue/runtime-core";
 import Price from "../components/Price.vue";
+
+import img1G from "../assets/images/mainGoals/1.jpg";
+import img2G from "../assets/images/mainGoals/2.jpg";
+import img3G from "../assets/images/mainGoals/3.jpg";
+import img4G from "../assets/images/mainGoals/4.jpg";
 
 export default {
     components: {
@@ -29,25 +34,25 @@ export default {
         const allWindow = {
             title: "Детям",
             info: "Дорогие дети и родители, представляем вам захватывающий мир водного поло, где вашему ребенку откроются удивительные возможности развития и веселья в водной среде.",
-            image: main,
+            image: img2,
         };
         const goals = {
             title: "Почему Мы?",
             cards: [
                 {
-                    img: "https://ss.sport-express.ru/userfiles/materials/169/1699153/volga.jpg",
-                    title: "Пункт 1",
-                    des: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus suscipit metus sit amet nisi lacinia condimentum.",
+                    img: img1G,
+                    title: "Физическое развитие",
+                    des: "Водное поло способствует развитию физической выносливости, координации и силы.",
                 },
                 {
-                    img: "https://ss.sport-express.ru/userfiles/materials/169/1699153/volga.jpg",
-                    title: "Пункт 1",
-                    des: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus suscipit metus sit amet nisi lacinia condimentum.",
+                    img: img2G,
+                    title: "Мышление",
+                    des: "Водное поло учит детей командной работе и стратегическому мышлению",
                 },
                 {
-                    img: "https://ss.sport-express.ru/userfiles/materials/169/1699153/volga.jpg",
-                    title: "Пункт 1",
-                    des: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus suscipit metus sit amet nisi lacinia condimentum.",
+                    img: img3G,
+                    title: "Командная работа",
+                    des: "Водное поло формирует лидерские качества и пониманию важности сотрудничества",
                 },
             ],
         };

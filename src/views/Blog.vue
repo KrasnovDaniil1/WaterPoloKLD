@@ -1,6 +1,6 @@
 <script>
 import AllWindow from "../components/AllWindow.vue";
-import main from "../assets/images/allWindow/main.png";
+import img6 from "../assets/images/allWindow/6.jpg";
 import News from "../components/Blog/BlogNews.vue";
 
 export default {
@@ -12,7 +12,7 @@ export default {
         const allWindow = {
             title: "Новостной блог",
             info: "Наши талантливые спортсмены продолжают покорять водные глубины, устанавливая новые рекорды. Следите за нами, чтобы быть в курсе всех захватывающих моментов!",
-            image: main,
+            image: img6,
         };
         return {
             allWindow,

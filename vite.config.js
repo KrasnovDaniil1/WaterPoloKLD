@@ -7,14 +7,14 @@ import vue from "@vitejs/plugin-vue";
 export default defineConfig({
     plugins: [vue()],
     build: {
-        //cssCodeSplit: false, --- если нужно
-        //jsCodeSplit: false,  --- если нужно
-        // copyPublicDir: true,
+        //     //cssCodeSplit: false, --- если нужно
+        //     //jsCodeSplit: false,  --- если нужно
+        copyPublicDir: true,
         rollupOptions: {
             output: {
                 dir: "./waterpolo", //---- определяем КУДА нужно
-                assetFileNames: "site.css",
-                entryFileNames: "site.js",
+                assetFileNames: "css/site.css",
+                entryFileNames: "js/site.js",
             },
         },
         emptyDir: true,

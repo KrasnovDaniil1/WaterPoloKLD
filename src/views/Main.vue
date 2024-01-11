@@ -10,6 +10,13 @@ import TimeTable from "../components/TimeTable.vue";
 import DecorTrainerBlock from "../components/DecorTrainerBlock.vue";
 import { useStore } from "vuex";
 import { computed } from "@vue/runtime-core";
+
+
+import img1 from "../assets/images/mainGoals/1.jpg"
+import img2 from "../assets/images/mainGoals/2.jpg"
+import img3 from "../assets/images/mainGoals/3.jpg"
+import img4 from "../assets/images/mainGoals/4.jpg"
+
 export default {
     components: {
         MainWindow,
@@ -28,19 +35,24 @@ export default {
             title: "Наши цели",
             cards: [
                 {
-                    img: "https://ss.sport-express.ru/userfiles/materials/169/1699153/volga.jpg",
-                    title: "Пункт 1",
-                    des: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus suscipit metus sit amet nisi lacinia condimentum.",
+                    img: img1,
+                    title: "Популяризация",
+                    des: "Популяризация водного поло среди населения и увеличение числа участников",
                 },
                 {
-                    img: "https://ss.sport-express.ru/userfiles/materials/169/1699153/volga.jpg",
-                    title: "Пункт 1",
-                    des: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus suscipit metus sit amet nisi lacinia condimentum.",
+                    img: img2,
+                    title: "Проведение соревнований",
+                    des: "Проведение регулярных национальных и международных соревнований",
                 },
                 {
-                    img: "https://ss.sport-express.ru/userfiles/materials/169/1699153/volga.jpg",
-                    title: "Пункт 1",
-                    des: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus suscipit metus sit amet nisi lacinia condimentum.",
+                    img: img3,
+                    title: "Сотрудничество",
+                    des: "Сотрудничество с другими федерациями и организациями для обмена опытом и ресурсами",
+                },
+                {
+                    img: img4,
+                    title: "Развитие инфраструктуры",
+                    des: "Развитие инфраструктуры, включая строительство или реконструкцию бассейнов",
                 },
             ],
         };

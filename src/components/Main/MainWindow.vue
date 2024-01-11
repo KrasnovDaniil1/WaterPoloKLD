@@ -1,7 +1,7 @@
 <script>
 import BtnLearnMore from "../Btn/BtnLearnMore.vue";
 import BtnSignTraining from "../Btn/BtnSignTraining.vue";
-import main from "../../assets/images/allWindow/main.png";
+import img1 from "../../assets/images/allWindow/1.jpg";
 
 export default {
     components: {
@@ -10,7 +10,7 @@ export default {
     },
     setup() {
         return {
-            main,
+            img1,
         };
     },
 };
@@ -18,13 +18,15 @@ export default {
 
 <template>
     <main class="block">
-        <img class="block__img" :src="main" />
+        <img class="block__img" :src="img1" />
         <h1 class="block__title">
             Начни
-            <span style="color: var(--text-info)"> сегодня! </span>
+            <span style="color: #ffd601"> сегодня! </span>
         </h1>
 
-        <p class="block__info">Оставь заявку и получи первое занятие бесплатно!</p>
+        <p class="block__info">
+            Оставь заявку и получи первое занятие бесплатно!
+        </p>
         <div class="block__btn">
             <BtnSignTraining class="btn__left" />
             <BtnLearnMore />

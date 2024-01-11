@@ -75,11 +75,12 @@ export default {
         </nav>
         <h3 class="carusel__title-info">Первая победа</h3>
         <p class="carusel__info">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus
-            suscipit metus sit amet nisi lacinia condimentum. Phasellus eu nibh
-            lobortis, tincidunt nisi in, ornare leo. Donec hendrerit interdum
-            mollis. Vestibulum consequat erat sapien, a pellentesque quam
-            accumsan nec.
+            Тренировки в водном поло - это не просто физическая активность, это
+            путь к самосовершенствованию и достижению результатов. Каждая
+            тренировка становится шагом к улучшению техники, стратегии и
+            командной работы. И вот, после многих часов усердной работы, наступает тот долгожданный момент — ваша первая
+            победа. Это не просто победа в игре; это подтверждение вашего труда,
+            усердия и веры в себя и свою команду.
         </p>
     </main>
 </template>

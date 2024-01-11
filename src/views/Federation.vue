@@ -2,7 +2,7 @@
 import AllWindow from "../components/AllWindow.vue";
 import Carusel from "../components/Federation/FederationCarusel.vue";
 
-import main from "../assets/images/allWindow/main.png";
+import img5 from "../assets/images/allWindow/5.jpg";
 import FederationPeople from "../components/Federation/FederationPeople.vue";
 import FederationNews from "../components/Federation/FederationNews.vue";
 import FederationContacts from "../components/Federation/FederationContacts.vue";
@@ -19,7 +19,7 @@ export default {
         const allWindow = {
             title: "Федерация",
             info: "Наша федерация посвящена поддержке и развитию водного поло в Калининграде, объединяя в себе профессионалов, любителей и новичков",
-            image: main,
+            image: img5,
         };
         return {
             allWindow,
