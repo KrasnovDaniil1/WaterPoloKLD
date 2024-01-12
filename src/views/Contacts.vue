@@ -40,12 +40,12 @@ export default {
                     <div class="block__item">
                         <h3 class="item__title">Контакты</h3>
                         <a
-                            href="tel:+89062376543"
+                            href="tel:+79062376543"
                             target="_blank"
                             class="item__link"
                         >
                             <Icons icons="phone" class="link__icon" />
-                            <span class="link__text">+8 906 237 65 43</span>
+                            <span class="link__text">+7 906 237 65 43</span>
                         </a>
                         <a
                             href="mailto:mail@vodnoepolo39@yandex.ru"

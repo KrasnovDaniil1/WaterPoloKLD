@@ -42,10 +42,10 @@ export default {
                 <BtnLearnMoreDark class="contacts__btn" />
                 <div class="contacts__block">
                     <a
-                        href="tel:+78888888888"
+                        href="tel:+79062376543"
                         target="_blank"
                         class="block__phone"
-                        >+7 888 888 88 90</a
+                        >+7 906 237 65 43</a
                     >
                     <a href="https://vk.com/waterpolo39" target="_blank">
                         <Icons class="block__icon" icons="vk" />

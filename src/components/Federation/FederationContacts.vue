@@ -49,12 +49,12 @@ export default {
                 <h3 class="social__title">Контакты</h3>
                 <nav class="social__block">
                     <a
-                        href="tel:+89062376543"
+                        href="tel:+79062376543"
                         target="_blank"
                         class="block__icons"
                     >
                         <Icons icons="phone" class="icons" />
-                        <p class="icons__text">+8 906 237 65 43</p>
+                        <p class="icons__text">+7 906 237 65 43</p>
                     </a>
                     <a
                         href="mailto:mail@vodnoepolo39@yandex.ru"

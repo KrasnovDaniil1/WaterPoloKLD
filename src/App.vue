@@ -3,8 +3,7 @@ import Header from "./components/Header.vue";
 import Footer from "./components/Footer.vue";
 import Loader from "./components/Other/Loader.vue";
 import { useStore } from "vuex";
-import { computed } from "@vue/runtime-core";
-import { onMounted } from "vue";
+import { computed, onBeforeMount, onMounted } from "@vue/runtime-core";
 
 export default {
     components: {

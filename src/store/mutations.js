@@ -6,6 +6,9 @@ export const mutPage = (state, data) => {
     state.federationMembers = data.federationMembers;
     state.studentsTeams = data.studentsTeams;
     state.price = data.price;
+    state.statistics = data.statistics;
+    state.childrenGallery = data.childrenGallery;
+    state.allGallery = data.allGallery;
 };
 
 export const mutLoader = (state, status) => (state.loader = status);

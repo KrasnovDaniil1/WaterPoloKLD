@@ -1,21 +1,17 @@
 <script>
 import BtnToMain from "../Btn/BtnToMain.vue";
 import BtnDownload from "../Btn/BtnDownload.vue";
-import { useStore } from "vuex";
-import { ref } from "vue";
 import Icons from "../Other/Icons.vue";
 export default {
-    components: { Icons, BtnToMain, BtnDownload },
-    setup() {
-        const store = useStore();
-        const blockCard = ref(store.getters.getBlog("federation"));
-        return { store, blockCard };
+    props: {
+        blockCard: Array,
     },
+    components: { Icons, BtnToMain, BtnDownload },
 };
 </script>
 
 <template>
-    <main class="news">
+    <main class="news" v-if="blockCard.length != 0">
         <h2 class="news__title">Календарь мероприятий</h2>
         <router-link
             to="/blog/2"

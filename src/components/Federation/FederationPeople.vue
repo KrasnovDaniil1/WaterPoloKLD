@@ -5,9 +5,11 @@ import Icons from "../Other/Icons.vue";
 import { useStore } from "vuex";
 export default {
     components: { Icons },
-    setup() {
+    props: {
+        people: Array,
+    },
+    setup(props) {
         const store = useStore();
-        const people = ref(store.getters.getFederationMembers);
         const activeElem = ref(0);
         const cardBlock = ref();
         const transformTranslate = ref(34);
@@ -15,7 +17,7 @@ export default {
         const scrolLeft = () => {
             activeElem.value -= 1;
             if (activeElem.value < 0) {
-                activeElem.value = people.value.length - elemCarusel.value;
+                activeElem.value = props.people.length - elemCarusel.value;
             }
             cardBlock.value.style.transform = `translateX(-${
                 transformTranslate.value * activeElem.value
@@ -23,7 +25,7 @@ export default {
         };
         const scrolRight = () => {
             activeElem.value += 1;
-            if (activeElem.value > people.value.length - elemCarusel.value) {
+            if (activeElem.value > props.people.length - elemCarusel.value) {
                 activeElem.value = 0;
             }
             cardBlock.value.style.transform = `translateX(-${
@@ -45,7 +47,6 @@ export default {
         });
         return {
             store,
-            people,
             scrolRight,
             scrolLeft,
             activeElem,
@@ -57,7 +58,7 @@ export default {
 };
 </script>
 <template>
-    <main class="people">
+    <main class="people" v-if="people.length != 0">
         <h2 class="people__title">Состав</h2>
         <div class="people__block">
             <icons

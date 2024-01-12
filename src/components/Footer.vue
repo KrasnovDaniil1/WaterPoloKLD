@@ -86,10 +86,10 @@ export default {
             <nav class="block__contacts">
                 <h6 class="contacts__title">Контакты</h6>
                 <a
-                    href="tel:+89062376543"
+                    href="tel:+79062376543"
                     target="_blank"
                     class="contacts__link"
-                    >+8 906 237 65 43</a
+                    >+7 906 237 65 43</a
                 >
                 <a
                     href="mailto:mail@vodnoepolo39@yandex.ru"

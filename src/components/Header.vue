@@ -59,8 +59,8 @@ export default {
                     >vodnoepolo39@yandex.ru</a
                 >
                 <div class="left__decor-line"></div>
-                <a href="tel:+89062376543" class="left__phone" target="_blank"
-                    >+8 906 237 65 43</a
+                <a href="tel:+79062376543" class="left__phone" target="_blank"
+                    >+7 906 237 65 43</a
                 >
             </nav>
             <nav class="top__right">
@@ -110,8 +110,8 @@ export default {
             <Icons icons="logo" class="logo__icon" />
             <p class="logo__label">Water Polo</p>
         </router-link>
-        <a href="tel:+89062376543" target="_blank" class="header__phone"
-            >+8 906 237 65 43</a
+        <a href="tel:+79062376543" target="_blank" class="header__phone"
+            >+7 906 237 65 43</a
         >
         <Icons
             icons="burger"
@@ -120,13 +120,13 @@ export default {
         />
     </header>
     <main class="pop-header" :class="{ 'pop-active': activeMenu }">
-        <router-link class="header__logo" to="/">
+        <router-link class="header__logo" to="/" @click="activeMenu = false">
             <Icons icons="logo" class="logo__icon" />
             <p class="logo__label">Water Polo</p>
         </router-link>
         <div class="header__center">
-            <a href="tel:+89062376543" target="_blank" class="center__phone"
-                >+8 906 237 65 43</a
+            <a href="tel:+79062376543" target="_blank" class="center__phone"
+                >+7 906 237 65 43</a
             >
             <a
                 href="mailto:mail@vodnoepolo39@yandex.ru"
@@ -488,5 +488,4 @@ export default {
         }
     }
 }
-
 </style>

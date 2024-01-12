@@ -1,20 +1,22 @@
 <script>
 import Icons from "../Other/Icons.vue";
 import { onMounted, ref } from "vue";
+import { useStore } from "vuex";
 export default {
+    props: {
+        images: Array,
+    },
     components: { Icons },
-    setup() {
+    setup(props) {
+        const store = useStore();
         const currentImage = ref(0);
-        const imagesGalery = [
-            "https://s-cdn.sportbox.ru/images/styles/upload/fp_fotos/9f/8c/79f00daba1e3401fba2a3e91d7c1cd7c5d3ad36ad25c2616834560.jpg",
-            "https://upload.wikimedia.org/wikipedia/commons/1/1d/DFC_Sete_v_FNC_Douai_Coupe_de_la_Ligue_2014_t144334.jpg",
-            "https://ru.sport-wiki.org/wp-content/themes/sportwiki/img/water-polo.jpg",
-        ];
+        const imagesGalery = ref();
+
         const slideImage = (e) => {
-            if (imagesGalery.length - 1 < currentImage.value + e) {
+            if (props.images.length - 1 < currentImage.value + e) {
                 currentImage.value = 0;
             } else if (currentImage.value + e < 0) {
-                currentImage.value = imagesGalery.length + e;
+                currentImage.value = props.images.length + e;
             } else {
                 currentImage.value += e;
             }
@@ -26,20 +28,18 @@ export default {
         });
         return {
             currentImage,
-            imagesGalery,
             slideImage,
+            store,
         };
     },
 };
 </script>
 
 <template>
-    <main class="carusel">
+    <main class="carusel" v-if="images.length != 0">
         <h2 class="carusel__title">О Федерации</h2>
         <nav class="carusel__check">
-            <p class="check__num">
-                {{ currentImage + 1 }}/{{ imagesGalery.length }}
-            </p>
+            <p class="check__num">{{ currentImage + 1 }}/{{ images.length }}</p>
             <div class="check_btn">
                 <Icons
                     icons="arrow"
@@ -59,14 +59,13 @@ export default {
             <div
                 class="indicator__going"
                 :style="{
-                    width:
-                        (currentImage + 1) * (100 / imagesGalery.length) + '%',
+                    width: (currentImage + 1) * (100 / images.length) + '%',
                 }"
             ></div>
         </nav>
         <nav class="galery__visible-image">
             <img
-                v-for="(item, index) in imagesGalery"
+                v-for="(item, index) in images"
                 class="visible__image"
                 :class="{ visible__image__active: currentImage == index }"
                 :src="item"
@@ -75,11 +74,11 @@ export default {
         </nav>
         <h3 class="carusel__title-info">Наши цели</h3>
         <p class="carusel__info">
-            Цель федерации по водному полу включает в себя развитие этого
-            вида спорта и поддержку спортсменов,
-            организацию соревнований и тренировочных мероприятий. Наши основные
-            задачи: улучшение инфраструктуры, обучению тренеров и судей, а
-            также укреплению сотрудничества с другими регионами в этой области.
+            Цель федерации по водному полу включает в себя развитие этого вида
+            спорта и поддержку спортсменов, организацию соревнований и
+            тренировочных мероприятий. Наши основные задачи: улучшение
+            инфраструктуры, обучению тренеров и судей, а также укреплению
+            сотрудничества с другими регионами в этой области.
         </p>
     </main>
 </template>

@@ -1,21 +1,22 @@
 <script>
 import Icons from "../Other/Icons.vue";
 import BtnLearnMoreDark from "../Btn/BtnLearnMoreDark.vue";
+import { useStore } from "vuex";
 import { onMounted, ref } from "vue";
 export default {
     components: { Icons, BtnLearnMoreDark },
-    setup() {
+    props: {
+        images: Array,
+    },
+    setup(props) {
+        const store = useStore();
         const currentImage = ref(0);
-        const imagesGalery = [
-            "https://s-cdn.sportbox.ru/images/styles/upload/fp_fotos/9f/8c/79f00daba1e3401fba2a3e91d7c1cd7c5d3ad36ad25c2616834560.jpg",
-            "https://upload.wikimedia.org/wikipedia/commons/1/1d/DFC_Sete_v_FNC_Douai_Coupe_de_la_Ligue_2014_t144334.jpg",
-            "https://ru.sport-wiki.org/wp-content/themes/sportwiki/img/water-polo.jpg",
-        ];
+
         const slideImage = (e) => {
-            if (imagesGalery.length - 1 < currentImage.value + e) {
+            if (props.images.length - 1 < currentImage.value + e) {
                 currentImage.value = 0;
             } else if (currentImage.value + e < 0) {
-                currentImage.value = imagesGalery.length + e;
+                currentImage.value = props.images.length + e;
             } else {
                 currentImage.value += e;
             }
@@ -27,15 +28,15 @@ export default {
         });
         return {
             currentImage,
-            imagesGalery,
             slideImage,
+            store,
         };
     },
 };
 </script>
 
 <template>
-    <div class="galery">
+    <div class="galery" v-if="images.length != 0">
         <h2 class="galery__title">Галерея</h2>
         <p class="galery__info">
             Наслаждайтесь потрясающими моментами преодоления преград, точных
@@ -46,7 +47,7 @@ export default {
         <nav class="galery__check">
             <div class="check__block">
                 <p class="block__num">
-                    {{ currentImage + 1 }}/{{ imagesGalery.length }}
+                    {{ currentImage + 1 }}/{{ images.length }}
                 </p>
                 <div class="num_btn">
                     <Icons
@@ -67,16 +68,14 @@ export default {
                 <div
                     class="indicator__going"
                     :style="{
-                        width:
-                            (currentImage + 1) * (100 / imagesGalery.length) +
-                            '%',
+                        width: (currentImage + 1) * (100 / images.length) + '%',
                     }"
                 ></div>
             </div>
         </nav>
         <nav class="galery__visible-image">
             <img
-                v-for="(item, index) in imagesGalery"
+                v-for="(item, index) in images"
                 class="visible__image"
                 :class="{ visible__image__active: currentImage == index }"
                 :src="item"

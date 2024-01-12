@@ -60,6 +60,9 @@ export default {
             store,
             allWindow,
             goals,
+            images: computed(() => store.getters.getAllGallery),
+            imagesChildren: computed(() => store.getters.getChildrenGallery),
+
             trainers: computed(() => store.getters.getTrainers("children")),
         };
     },
@@ -70,7 +73,7 @@ export default {
     <section>
         <AllWindow :allWindow="allWindow" />
         <main class="block__bg">
-            <Gallery />
+            <Gallery :images="images" />
         </main>
         <Goals :goals="goals" />
         <Reviews />
@@ -79,7 +82,7 @@ export default {
         <Price category="children" />
         <DecorTrainerBlock v-if="false" />
         <main class="block__bg">
-            <Carusel />
+            <Carusel :images="imagesChildren" />
         </main>
     </section>
 </template>

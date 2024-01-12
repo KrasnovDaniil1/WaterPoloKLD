@@ -7,8 +7,6 @@ export default {
         progress: Array,
     },
     setup(props) {
-        const progress = ref(props.progress);
-
         const carusel = ref();
         const current = ref(0);
         const elemCarusel = ref(3);
@@ -16,7 +14,7 @@ export default {
         const clickLeft = () => {
             current.value -= 1;
             if (current.value < 0) {
-                current.value = progress.value.length - elemCarusel.value;
+                current.value = props.progress.length - elemCarusel.value;
             }
             carusel.value.style.transform = `translateX(-${
                 (100 / elemCarusel.value) * current.value
@@ -24,7 +22,7 @@ export default {
         };
         const clickRight = () => {
             current.value += 1;
-            if (current.value > progress.value.length - elemCarusel.value) {
+            if (current.value > props.progress.length - elemCarusel.value) {
                 current.value = 0;
             }
             carusel.value.style.transform = `translateX(-${
@@ -39,7 +37,6 @@ export default {
             }
         });
         return {
-            progress,
             carusel,
             current,
             clickLeft,
@@ -51,7 +48,7 @@ export default {
 </script>
 
 <template>
-    <main class="progress">
+    <main class="progress" v-if="progress.length != 0">
         <h2 class="progress__title">Наши достижения</h2>
         <div class="progress__block">
             <Icons

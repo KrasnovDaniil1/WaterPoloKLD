@@ -1,5 +1,5 @@
 <script>
-import { onMounted, ref } from "vue";
+import { computed, ref } from "vue";
 import BtnSeeAll from "../Btn/BtnSeeAll.vue";
 import BtnDownload from "../Btn/BtnDownload.vue";
 import { useStore } from "vuex";
@@ -14,7 +14,7 @@ export default {
     setup() {
         const store = useStore();
         const activeBtn = ref(0);
-        const blockCard = ref(store.getters.getBlog("new"));
+        const blockCard = ref();
         const panelBtn = [
             {
                 title: "Новые",
@@ -41,13 +41,11 @@ export default {
             blockCard.value = store.getters.getBlog(category);
             activeBtn.value = index;
         };
-        onMounted(() => {
-            blockCard.value = store.getters.getBlog("new");
-        });
+
         return {
             panelBtn,
             activeBtn,
-            blockCard,
+            blockCard: computed(() => store.getters.getBlog("new")),
             store,
             changeCategory,
         };
@@ -55,7 +53,7 @@ export default {
 };
 </script>
 <template>
-    <main class="news">
+    <main class="news" v-if="blockCard.length != 0">
         <div class="news__top">
             <h2 class="news__title">Новостной блог</h2>
             <BtnSeeAll class="news__btn" />

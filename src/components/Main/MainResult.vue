@@ -1,25 +1,33 @@
 <script>
 import BtnLearnMore from "../Btn/BtnLearnMore.vue";
+import { useStore } from "vuex";
+import { computed } from "@vue/runtime-core";
 export default {
     components: { BtnLearnMore },
-    setup() {},
+    setup() {
+        const store = useStore();
+        return {
+            store,
+            statistics: computed(() => store.getters.getStatistics),
+        };
+    },
 };
 </script>
 
 <template>
     <div class="result__num">
         <div class="result__card" style="grid-area: first">
-            <h2 class="card__num">3+</h2>
+            <h2 class="card__num">{{ statistics.awards }}+</h2>
             <h5 class="card__title">Полученных наград</h5>
             <p class="card__des">Были полученны за успехи на соревнованиях</p>
         </div>
         <div class="result__card" style="grid-area: second">
-            <h2 class="card__num">40+</h2>
+            <h2 class="card__num">{{ statistics.members }}+</h2>
             <h5 class="card__title">Активных участников</h5>
             <p class="card__des">Набор в команду всегда открыт для желающих</p>
         </div>
         <div class="result__card" style="grid-area: third">
-            <h2 class="card__num">5+</h2>
+            <h2 class="card__num">{{ statistics.competition }}+</h2>
             <h5 class="card__title">Сыгранных соревнований</h5>
             <p class="card__des">Каждый раз мы растём как настоящая команда</p>
         </div>

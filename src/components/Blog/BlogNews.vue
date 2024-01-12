@@ -1,5 +1,5 @@
 <script>
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
 import BtnSeeAll from "../Btn/BtnSeeAll.vue";
 import Icons from "../Other/Icons.vue";
 import BtnToMain from "../Btn/BtnToMain.vue";
@@ -40,6 +40,9 @@ export default {
             blockCard.value = store.getters.getBlog(category);
             activeBtn.value = index;
         };
+        onMounted(() => {
+            blockCard.value = store.getters.getBlog("new");
+        });
         return {
             store,
             panelBtn,
@@ -51,7 +54,7 @@ export default {
 };
 </script>
 <template>
-    <main class="news">
+    <main class="news" v-if="blockCard.length != 0">
         <nav class="news__panel">
             <button
                 v-for="(item, index) in panelBtn"

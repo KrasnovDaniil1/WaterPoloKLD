@@ -72,7 +72,6 @@ export default {
             carusel.value.children[0].style.transform = `translateX(0)`;
             carusel.value.children[1].style.transform = `translateX(0)`;
             lookTime("one", "Пн");
-            console.log(activeTime.value, "sdfd");
         };
         const clickRight = () => {
             activeTime.value = { week: "two", in: "Пн" };
@@ -95,7 +94,6 @@ export default {
         onMounted(() => {
             generateDay();
             lookTime("one", "Пн");
-            console.log(activeTime.value, " asdsed");
         });
 
         return {
@@ -186,6 +184,7 @@ export default {
                 <h4 class="info">{{ t.address }}</h4>
             </div>
             <div class="table__decor__line"></div>
+            <h4 class="info__trainer">{{ t.trainer }}</h4>
         </nav>
     </main>
 </template>
@@ -308,6 +307,14 @@ export default {
                 letter-spacing: 0.8px;
             }
         }
+        .info__trainer {
+            font-family: "Cruinn Black";
+            font-size: clamp(20px, calc(40vw / var(--ratio)), 40px);
+            line-height: normal;
+            letter-spacing: 0.8px;
+            text-align: center;
+            margin: clamp(8px, calc(24vw / var(--ratio)), 24px) 0;
+        }
     }
     // .time__lesson_active {
     //     .lesson__info {
@@ -389,6 +396,10 @@ export default {
                     letter-spacing: 0.4px;
                 }
             }
+            .info__trainer {
+                font-size: clamp(12px, calc(20vw / var(--ratio)), 20px);
+                margin: clamp(4px, calc(8vw / var(--ratio)), 8px) 0;
+            }
         }
     }
 }
@@ -452,6 +463,10 @@ export default {
                     font-size: 12px;
                     letter-spacing: 0.24px;
                 }
+            }
+            .info__trainer {
+                font-size: 12px;
+                letter-spacing: 0.24px;
             }
         }
     }

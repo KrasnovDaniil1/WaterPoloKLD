@@ -27,7 +27,7 @@ export default {
 </script>
 
 <template>
-    <main class="trainers">
+    <main class="trainers" v-if="trainers.length != 0">
         <div class="trainers__img">
             <img
                 v-for="(item, index) in trainers"

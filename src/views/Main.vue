@@ -11,11 +11,10 @@ import DecorTrainerBlock from "../components/DecorTrainerBlock.vue";
 import { useStore } from "vuex";
 import { computed } from "@vue/runtime-core";
 
-
-import img1 from "../assets/images/mainGoals/1.jpg"
-import img2 from "../assets/images/mainGoals/2.jpg"
-import img3 from "../assets/images/mainGoals/3.jpg"
-import img4 from "../assets/images/mainGoals/4.jpg"
+import img1 from "../assets/images/mainGoals/1.jpg";
+import img2 from "../assets/images/mainGoals/2.jpg";
+import img3 from "../assets/images/mainGoals/3.jpg";
+import img4 from "../assets/images/mainGoals/4.jpg";
 
 export default {
     components: {
@@ -60,6 +59,7 @@ export default {
         return {
             goals,
             trainers: computed(() => store.getters.getTrainers("all")),
+            images: computed(() => store.getters.getAllGallery),
             store,
         };
     },
@@ -71,7 +71,7 @@ export default {
         <MainWindow />
         <main class="block__bg">
             <MainResult />
-            <MainGallery />
+            <MainGallery :images="images" />
         </main>
         <Trainers :trainers="trainers" />
         <TimeTable v-if="false" />

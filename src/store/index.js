@@ -10,6 +10,9 @@ const state = {
     reviews: [],
     time: {},
     price: [],
+    statistics: {},
+    childrenGallery: [],
+    allGallery: [],
     loader: false,
 };
 

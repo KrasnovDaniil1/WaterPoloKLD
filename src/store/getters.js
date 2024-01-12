@@ -9,13 +9,22 @@ export const getTrainers = (state) => (sort) => {
     return sortTrainers;
 };
 
+export const getStatistics = (state) => {
+    return state.statistics;
+};
+export const getChildrenGallery = (state) => {
+    return state.childrenGallery;
+};
+export const getAllGallery = (state) => {
+    return state.allGallery;
+};
+
 export const getBlog = (state) => (sort) => {
     let sortBlog = state.blog.filter((item) => {
         if (item.category == sort || sort == "new") {
             return true;
         }
     });
-    console.log(sortBlog, 'progress');
     return sortBlog;
 };
 
@@ -45,7 +54,6 @@ export const getPrice = (state) => (sort) => {
 };
 
 export const getTime = (state) => (active) => {
-    console.log(state.time);
 
     if (active.in == "Пн") {
         active.in = "monday";
@@ -63,15 +71,12 @@ export const getTime = (state) => (active) => {
         active.in = "sunday";
     }
 
-    console.log(active, "получил");
-
     let sortTime = state.time.filter((elem) => {
         if (
             elem.week == active.in &&
             elem[active.week] &&
             elem.category == active.category
         ) {
-            console.log(elem);
             return true;
         }
     });
