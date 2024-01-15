@@ -103,6 +103,7 @@ export default {
                 <a
                     href="https://yandex.ru/maps/-/CDuF7K4A"
                     class="contacts__link"
+                    target="_blank"
                     >{{ adress }}</a
                 >
                 <p class="contacts__link">08:00 - 22:00</p>

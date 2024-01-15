@@ -309,7 +309,7 @@ export default {
         display: flex;
         justify-content: center;
         position: fixed;
-        top: -100vh;
+        top: -150vh;
         width: 100%;
         height: 100vh;
         background: #161616;
@@ -352,7 +352,7 @@ export default {
                 margin-top: 12px;
             }
             .center__email {
-                margin-top: 40px;
+                margin-top: clamp(24px, calc(40vw / var(--ratio)), 40px);;
             }
             .center__menu {
                 display: flex;
@@ -364,7 +364,7 @@ export default {
                     font-family: "Cruinn Black";
                     font-size: 36px;
                     letter-spacing: 0.72px;
-                    margin-top: 46px;
+                    margin-top: clamp(24px, calc(46vw / var(--ratio)), 46px);
                 }
             }
             .center__block {

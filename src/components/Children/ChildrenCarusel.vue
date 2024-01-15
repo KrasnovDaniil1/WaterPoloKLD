@@ -23,7 +23,7 @@ export default {
         onMounted(() => {
             window.setInterval(() => {
                 slideImage(1);
-            }, 1500);
+            }, 2000);
         });
         return { store, currentImage, slideImage };
     },
