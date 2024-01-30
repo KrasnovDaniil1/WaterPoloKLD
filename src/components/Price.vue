@@ -42,11 +42,13 @@ export default {
     padding-right: 20px;
 
     color: #fffcf2;
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+    // justify-content: space-between;
     .card {
         padding: 0 clamp(40px, calc(80vw / var(--ratio)), 80px);
-        width: 49%;
+        // width: 49%;
         background: linear-gradient(
             180deg,
             rgba(0, 77, 243, 0.5) 0%,
@@ -129,28 +131,30 @@ export default {
         }
     }
 }
-@media screen and (max-width: 394px) {
+@media screen and (max-width: 494px) {
     .price {
         max-width: 300px;
         padding-bottom: clamp(24px, calc(40vw / var(--ratio)), 40px);
         padding-left: 20px;
         padding-right: 20px;
-        flex-direction: column;
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap: 10px;
+        // flex-direction: column;
 
         .card {
             display: flex;
             flex-direction: column;
             padding: 0 10px;
-            width: 100%;
+            // width: 100%;
             background: linear-gradient(
                 180deg,
                 rgba(0, 77, 243, 0.5) 0%,
                 rgba(0, 77, 243, 0.1) 100%
             );
             border-radius: 24px;
-            &:first-child {
-                margin-bottom: 10px;
-            }
+            // &:first-child {
+            //     margin-bottom: 10px;
+            // }
 
             .card__title {
                 margin-top: 16px;
@@ -160,7 +164,7 @@ export default {
             .card__block {
                 flex-direction: row;
                 padding-top: 10px;
-                margin: 0 10px;
+                // margin: 0 10px;
                 .block__info {
                     font-size: 14px;
                     letter-spacing: 1.12px;

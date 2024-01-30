@@ -1,6 +1,6 @@
 <script>
 import Icons from "./Other/Icons.vue";
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 export default {
     props: {
         trainers: Object,
@@ -18,6 +18,11 @@ export default {
                 currentTrainer.value += e;
             }
         };
+        onMounted(() => {
+            window.setInterval(() => {
+                slideTrainers(1);
+            }, 3000);
+        });
         return {
             currentTrainer,
             slideTrainers,
@@ -110,9 +115,9 @@ export default {
     grid-template-columns: repeat(12, 1fr);
     grid-template-areas:
         "img img img img . des des des des des des ."
-        "img img img img . surname surname surname . . . ."
-        "img img img img . surname surname surname . . . ."
-        "img img img img . surname surname surname . . . ."
+        "img img img img . surname surname surname surname surname . ."
+        "img img img img . surname surname surname surname surname . ."
+        "img img img img . surname surname surname surname surname . ."
         "img img img img . info info info info . . arrow"
         "img img img img . contacts contacts contacts contacts contacts contacts .";
     grid-gap: 0px clamp(10px, calc(20vw / var(--ratio)), 20px);
@@ -251,8 +256,8 @@ export default {
         grid-template-columns: repeat(12, 1fr);
         grid-template-areas:
             "img img img img img des des des des des des  ."
-            "img img img img img surname surname surname surname surname  . ."
-            "img img img img img surname surname surname surname surname . ."
+            "img img img img img surname surname surname surname surname surname ."
+            "img img img img img surname surname surname surname surname surname ."
             "img img img img img info info info info info . arrow "
             "img img img img img contacts contacts contacts contacts contacts contacts  .";
         grid-gap: 0px 16px;
@@ -355,7 +360,7 @@ export default {
         .trainers__name {
             padding-top: 20px;
             margin-top: auto;
-            font-size: clamp(10px, calc(16vw / var(--ratio)), 16px);
+            font-size: clamp(10px, calc(13vw / var(--ratio)), 13px);
             letter-spacing: 0.32px;
         }
         .trainers__info {

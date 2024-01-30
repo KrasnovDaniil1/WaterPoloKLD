@@ -46,21 +46,24 @@ export default {
         };
 
         onMounted(() => {
-            reviews.value.push(reviews.value[reviews.value.length - 1]);
-            reviews.value.unshift(reviews.value[0]);
+            setTimeout(() => {
+                reviews.value.push(reviews.value[reviews.value.length - 1]);
+                reviews.value.unshift(reviews.value[0]);
 
-            transformTranslate.value = cardBlock.value.children[0].clientWidth;
-            if (window.innerWidth <= 834) {
-                widthBlock.value = 801;
-            }
-            if (window.innerWidth <= 390) {
-                widthBlock.value = 480;
-            }
-            if (widthBlock.value >= window.innerWidth) {
-                scrolAdaptive.value =
-                    (widthBlock.value - window.innerWidth) / 2;
-                cardBlock.value.style.transform = `translateX(-${scrolAdaptive.value}px)`;
-            }
+                transformTranslate.value =
+                    cardBlock.value.children[0].clientWidth;
+                if (window.innerWidth <= 834) {
+                    widthBlock.value = 801;
+                }
+                if (window.innerWidth <= 390) {
+                    widthBlock.value = 480;
+                }
+                if (widthBlock.value >= window.innerWidth) {
+                    scrolAdaptive.value =
+                        (widthBlock.value - window.innerWidth) / 2;
+                    cardBlock.value.style.transform = `translateX(-${scrolAdaptive.value}px)`;
+                }
+            }, 500);
         });
 
         return {

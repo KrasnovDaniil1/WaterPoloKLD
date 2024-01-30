@@ -91,7 +91,10 @@ export default {
         <div class="header-bottom">
             <router-link to="/" class="bottom__logo">
                 <Icons icons="logo" class="logo__icon" />
-                <p class="logo__label">Water Polo</p>
+                <p class="logo__label">
+                    Водное поло <br />
+                    Калининград
+                </p>
             </router-link>
             <nav class="bottom__menu">
                 <router-link
@@ -108,7 +111,10 @@ export default {
     <header class="header-sm">
         <router-link to="/" class="header__logo">
             <Icons icons="logo" class="logo__icon" />
-            <p class="logo__label">Water Polo</p>
+            <p class="logo__label">
+                Водное поло <br />
+                Калининград
+            </p>
         </router-link>
         <a href="tel:+79062376543" target="_blank" class="header__phone"
             >+7 906 237 65 43</a
@@ -122,7 +128,10 @@ export default {
     <main class="pop-header" :class="{ 'pop-active': activeMenu }">
         <router-link class="header__logo" to="/" @click="activeMenu = false">
             <Icons icons="logo" class="logo__icon" />
-            <p class="logo__label">Water Polo</p>
+            <p class="logo__label">
+                Водное поло <br />
+                Калининград
+            </p>
         </router-link>
         <div class="header__center">
             <a href="tel:+79062376543" target="_blank" class="center__phone"
@@ -221,9 +230,10 @@ export default {
         justify-content: space-between;
         align-items: center;
         .bottom__logo {
-            max-width: 54px;
+            // max-width: 54px;
             display: flex;
             flex-direction: column;
+            align-items: center;
             color: #ffd842;
             .logo__icon {
                 width: 54px;
@@ -285,7 +295,7 @@ export default {
                 height: 48px;
             }
             .logo__label {
-                max-width: 48px;
+                // max-width: 48px;
                 margin-left: 8px;
                 font-family: "Cruinn Bold";
                 font-size: 14px;
@@ -329,7 +339,7 @@ export default {
                 height: 48px;
             }
             .logo__label {
-                max-width: 48px;
+                // max-width: 48px;
                 margin-left: 8px;
                 font-family: "Cruinn Bold";
                 font-size: 14px;
@@ -352,7 +362,7 @@ export default {
                 margin-top: 12px;
             }
             .center__email {
-                margin-top: clamp(24px, calc(40vw / var(--ratio)), 40px);;
+                margin-top: clamp(24px, calc(40vw / var(--ratio)), 40px);
             }
             .center__menu {
                 display: flex;
@@ -408,7 +418,7 @@ export default {
                 height: 24px;
             }
             .logo__label {
-                max-width: 28px;
+                // max-width: 28px;
                 margin-left: 4px;
                 font-size: 8px;
                 line-height: 85%;
@@ -433,12 +443,14 @@ export default {
                 height: 24px;
             }
             .logo__label {
-                max-width: 28px;
+                // max-width: 28px;
+                display: none;
                 margin-left: 4px;
                 font-size: 8px;
             }
         }
         .header__center {
+            // margin-left: 50px;
             .center__email,
             .center__phone {
                 font-size: 12px;

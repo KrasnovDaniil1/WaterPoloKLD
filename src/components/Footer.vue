@@ -63,7 +63,10 @@ export default {
     <footer class="footer">
         <router-link to="/" class="footer__logo">
             <Icons icons="logo" class="logo__icon" />
-            <p class="logo__label">Water Polo</p>
+            <p class="logo__label">
+                Водное поло<br />
+                Калининград
+            </p>
         </router-link>
         <div class="footer__icons">
             <p class="icons__info">Подписывайтесь на наши соц. сети</p>
@@ -139,15 +142,17 @@ export default {
     padding-left: clamp(75px, calc(190vw / var(--ratio)), 190px);
     color: #fffcf2;
     .footer__logo {
-        max-width: 54px;
+        // max-width: 90px;
         display: flex;
         flex-direction: column;
+        align-items: center;
         color: #ffd842;
         .logo__icon {
             width: 54px;
             height: 54px;
         }
         .logo__label {
+            margin-left: 8px;
             text-align: center;
             font-family: "Cruinn Bold";
             font-size: 12px;
@@ -267,7 +272,7 @@ export default {
     .footer {
         .footer__logo {
             height: fit-content;
-            max-width: 100px;
+            // max-width: 150px;
             flex-direction: row;
             align-items: center;
 
@@ -281,7 +286,7 @@ export default {
         }
     }
 }
-@media screen and (max-width: 834px) {
+@media screen and (max-width: 900px) {
     .footer {
         padding-top: 24px;
         padding-bottom: 24px;
@@ -337,12 +342,12 @@ export default {
         }
     }
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 650px) {
     .footer {
         flex-wrap: wrap;
         padding-left: clamp(24px, calc(48vw / var(--ratio)), 48px);
         .footer__logo {
-            max-width: 56px;
+            // max-width: 106px;
             .logo__icon {
                 width: 24px;
                 height: 24px;
@@ -395,10 +400,11 @@ export default {
         }
     }
 }
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 530px) {
     .footer {
-        padding-left: clamp(16px, calc(24vw / var(--ratio)), 24px);
+        padding-left: 10px;
         .footer__logo {
+            margin-left: 4px;
             .logo__label {
                 font-size: 8px;
                 margin-left: 4px;
@@ -407,6 +413,7 @@ export default {
         .footer__block {
             margin-left: 0;
             .block__contacts {
+                margin-left: 10px;
                 .contacts__title {
                     font-size: 12px;
                     letter-spacing: 0.24px;
