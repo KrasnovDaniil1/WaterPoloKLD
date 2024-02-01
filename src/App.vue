@@ -3,7 +3,7 @@ import Header from "./components/Header.vue";
 import Footer from "./components/Footer.vue";
 import Loader from "./components/Other/Loader.vue";
 import { useStore } from "vuex";
-import { computed, onMounted } from "@vue/runtime-core";
+import { computed } from "@vue/runtime-core";
 
 export default {
     components: {
@@ -13,9 +13,7 @@ export default {
     },
     setup() {
         const store = useStore();
-        onMounted(async () => {
-            await store.dispatch("actPage");
-        });
+        store.dispatch("actPage");
         return {
             store,
             loader: computed(() => store.getters.getLoader),

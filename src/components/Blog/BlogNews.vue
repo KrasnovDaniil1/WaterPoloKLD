@@ -147,7 +147,8 @@ export default {
             background: #161616;
             .card__img {
                 width: 100%;
-                height: clamp(140px, calc(360vw / var(--ratio)), 360px);
+                //height: clamp(140px, calc(360vw / var(--ratio)), 360px);
+                aspect-ratio: 16/9;
                 object-fit: cover;
                 opacity: 0.5;
             }
@@ -253,9 +254,9 @@ export default {
             grid-gap: clamp(8px, calc(16vw / var(--ratio)), 16px);
             margin-top: clamp(24px, calc(40vw / var(--ratio)), 40px);
             .block__card {
-                .card__img {
-                    height: clamp(110px, calc(140vw / var(--ratio)), 140px);
-                }
+                // .card__img {
+                //     height: clamp(110px, calc(140vw / var(--ratio)), 140px);
+                // }
                 .card__icon {
                     top: 8px;
                     left: 12px;
@@ -333,9 +334,9 @@ export default {
             grid-gap: 8px;
             margin-top: 24px;
             .block__card {
-                .card__img {
-                    height: clamp(120px, calc(160vw / var(--ratio)), 160px);
-                }
+                // .card__img {
+                //     height: clamp(120px, calc(160vw / var(--ratio)), 160px);
+                // }
                 .card__icon {
                     top: 16px;
                     left: 16px;

@@ -10,7 +10,7 @@ export default {
         const store = useStore();
         const activeElem = ref(1);
         const cardBlock = ref();
-        const reviews = ref(store.getters.getReviews);
+        const reviews = ref([]);
         const widthBlock = ref(1600);
         const scrolAdaptive = ref(0);
         const transformTranslate = ref(0);
@@ -45,7 +45,8 @@ export default {
             }px)`;
         };
 
-        onMounted(() => {
+        onMounted(async () => {
+            reviews.value = await store.getters.getReviews;
             setTimeout(() => {
                 reviews.value.push(reviews.value[reviews.value.length - 1]);
                 reviews.value.unshift(reviews.value[0]);
@@ -82,7 +83,7 @@ export default {
 };
 </script>
 <template>
-    <main class="reviews">
+    <main class="reviews" v-if="reviews.length != 0">
         <h2 class="reviews__title">Отзывы</h2>
         <nav class="reviews__block">
             <div class="block__card" ref="cardBlock">

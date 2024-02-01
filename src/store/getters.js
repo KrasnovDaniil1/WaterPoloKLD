@@ -41,6 +41,7 @@ export const getFederationMembers = (state) => {
 };
 
 export const getReviews = (state) => {
+    console.log("1111");
     return state.reviews;
 };
 
@@ -54,7 +55,6 @@ export const getPrice = (state) => (sort) => {
 };
 
 export const getTime = (state) => (active) => {
-
     if (active.in == "Пн") {
         active.in = "monday";
     } else if (active.in == "Вт") {
