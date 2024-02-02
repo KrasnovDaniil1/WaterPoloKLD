@@ -53,7 +53,7 @@ export default {
         <div class="header-top">
             <nav class="top__left">
                 <a
-                    href="mailto:mail@vodnoepolo39@yandex.ru"
+                    href="mailto:vodnoepolo39@yandex.ru"
                     class="left__email"
                     target="_blank"
                     >vodnoepolo39@yandex.ru</a
@@ -138,7 +138,7 @@ export default {
                 >+7 906 237 65 43</a
             >
             <a
-                href="mailto:mail@vodnoepolo39@yandex.ru"
+                href="mailto:vodnoepolo39@yandex.ru"
                 class="center__email"
                 target="_blank"
                 >vodnoepolo39@yandex.ru</a

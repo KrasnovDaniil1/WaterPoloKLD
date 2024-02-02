@@ -28,7 +28,7 @@ export default {
             allWindow,
             images: computed(() => store.getters.getChildrenAllGallery),
             people: computed(() => store.getters.getFederationMembers),
-            news: computed(() => store.getters.getBlog("federation")),
+            news: computed(() => store.getters.getFederationEvent),
             store,
         };
     },

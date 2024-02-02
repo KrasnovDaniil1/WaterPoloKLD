@@ -95,7 +95,7 @@ export default {
                     >+7 906 237 65 43</a
                 >
                 <a
-                    href="mailto:mail@vodnoepolo39@yandex.ru"
+                    href="mailto:vodnoepolo39@yandex.ru"
                     target="_blank"
                     class="contacts__link"
                     >vodnoepolo39@yandex.ru</a

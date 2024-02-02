@@ -59,7 +59,7 @@ export default {
                         <p class="icons__text">+7 906 237 65 43</p>
                     </a>
                     <a
-                        href="mailto:mail@vodnoepolo39@yandex.ru"
+                        href="mailto:vodnoepolo39@yandex.ru"
                         target="_blank"
                         class="block__icons"
                     >

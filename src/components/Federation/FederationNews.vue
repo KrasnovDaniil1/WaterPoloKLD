@@ -14,9 +14,9 @@ export default {
     <main class="news" v-if="blockCard.length != 0">
         <h2 class="news__title">Календарь мероприятий</h2>
         <router-link
-            to="/blog/2"
+            :to="{ name: 'event_id', params: { id: item.id } }"
             class="news__card"
-            v-for="(item, index) in blockCard.slice(0, 3)"
+            v-for="(item, index) in blockCard"
             :key="index"
         >
             <div class="card__block">
@@ -72,10 +72,13 @@ export default {
         }
         .card__block {
             position: relative;
-            min-width: 25%;
+            min-width: 40%;
+            max-width: 40%;
+
             background: #161616;
             .block__image {
                 height: 100%;
+                aspect-ratio: 16/9;
                 opacity: 0.5;
             }
             .block__text {
@@ -111,6 +114,10 @@ export default {
                 font-size: clamp(24px, calc(40vw / var(--ratio)), 40px);
                 line-height: 85%; /* 34px */
                 letter-spacing: 0.8px;
+                display: -webkit-box;
+                -webkit-line-clamp: 1;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
             }
             .content__info {
                 margin-top: clamp(16px, calc(24vw / var(--ratio)), 24px);

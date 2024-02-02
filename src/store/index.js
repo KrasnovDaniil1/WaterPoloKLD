@@ -12,6 +12,7 @@ const state = {
     price: [],
     statistics: {},
     childrenGallery: [],
+    federationEvent: [],
     allGallery: [],
     loader: false,
 };

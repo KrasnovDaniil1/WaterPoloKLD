@@ -48,7 +48,7 @@ export default {
                             <span class="link__text">+7 906 237 65 43</span>
                         </a>
                         <a
-                            href="mailto:mail@vodnoepolo39@yandex.ru"
+                            href="mailto:vodnoepolo39@yandex.ru"
                             target="_blank"
                             class="item__link"
                         >

@@ -36,6 +36,28 @@ export const getBlogId = (state) => (id) => {
     }
 };
 
+export const getFederationEvent = (state) => {
+    let sortBlog = [];
+    const date1 = new Date();
+    for (let blog of state.federationEvent) {
+        const date2 = new Date(blog.time);
+
+        const diffInTime = date2.getTime() - date1.getTime();
+        if (diffInTime > 0) {
+            sortBlog.push(blog);
+        }
+    }
+    return sortBlog;
+};
+
+export const getFederationEventId = (state) => (id) => {
+    for (let blog of state.federationEvent) {
+        if (blog.id == id) {
+            return blog;
+        }
+    }
+};
+
 export const getFederationMembers = (state) => {
     return state.federationMembers;
 };

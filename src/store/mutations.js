@@ -9,6 +9,7 @@ export const mutPage = (state, data) => {
     state.statistics = data.statistics;
     state.childrenGallery = data.childrenGallery;
     state.allGallery = data.allGallery;
+    state.federationEvent = data.federationEvent;
 };
 
 export const mutLoader = (state, status) => (state.loader = status);
