@@ -8,6 +8,7 @@ import DecorTrainerBlock from "../components/DecorTrainerBlock.vue";
 import Gallery from "../components/Children/ChildrenGallery.vue";
 import Reviews from "../components/Children/ChildrenReviews.vue";
 import Carusel from "../components/Children/ChildrenCarusel.vue";
+import Progress from "../components/Progress.vue";
 import { useStore } from "vuex";
 import { computed } from "@vue/runtime-core";
 import Price from "../components/Price.vue";
@@ -27,6 +28,7 @@ export default {
         Carusel,
         Trainers,
         Price,
+        Progress,
     },
     setup() {
         const store = useStore();
@@ -60,10 +62,11 @@ export default {
             store,
             allWindow,
             goals,
-            images: computed(() => store.getters.getAllGallery),
+            images: computed(() => store.getters.getChildrenAllGallery),
             imagesChildren: computed(() => store.getters.getChildrenGallery),
 
             trainers: computed(() => store.getters.getTrainers("children")),
+            progress: computed(() => store.getters.getBlog("children")),
         };
     },
 };
@@ -84,6 +87,9 @@ export default {
         <main class="block__bg">
             <Carusel :images="imagesChildren" />
         </main>
+        <!-- <main class="block__bg"> -->
+        <Progress :progress="progress" />
+        <!-- </main> -->
     </section>
 </template>
 

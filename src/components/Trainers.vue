@@ -3,81 +3,61 @@ import Icons from "./Other/Icons.vue";
 import { ref, onMounted } from "vue";
 export default {
     props: {
-        trainers: Object,
+        trainers: Array,
     },
     components: { Icons },
     setup(props) {
-        const currentTrainer = ref(0);
-
-        const slideTrainers = (e) => {
-            if (props.trainers.length - 1 < currentTrainer.value + e) {
-                currentTrainer.value = 0;
-            } else if (currentTrainer.value + e < 0) {
-                currentTrainer.value = props.trainers.length + e;
-            } else {
-                currentTrainer.value += e;
-            }
-        };
-        onMounted(() => {
-            window.setInterval(() => {
-                slideTrainers(1);
-            }, 3000);
-        });
-        return {
-            currentTrainer,
-            slideTrainers,
-        };
+        // const currentTrainer = ref(0);
+        // const slideTrainers = (e) => {
+        //     if (props.trainers.length - 1 < currentTrainer.value + e) {
+        //         currentTrainer.value = 0;
+        //     } else if (currentTrainer.value + e < 0) {
+        //         currentTrainer.value = props.trainers.length + e;
+        //     } else {
+        //         currentTrainer.value += e;
+        //     }
+        // };
+        // onMounted(() => {
+        //     window.setInterval(() => {
+        //         slideTrainers(1);
+        //     }, 3000);
+        // });
+        // return {
+        //     currentTrainer,
+        //     slideTrainers,
+        // };
     },
 };
 </script>
 
-<template>
-    <main class="trainers" v-if="trainers.length != 0">
+<template v-if="trainers.length != 0">
+    <main class="trainers" v-for="(item, index) in trainers" :key="index">
         <div class="trainers__img">
             <img
-                v-for="(item, index) in trainers"
-                :key="index"
                 :src="item.src"
                 class="img__train"
-                :class="{ elem__active: currentTrainer == index }"
+                :class="{ elem__active: true }"
             />
         </div>
 
-        <div class="trainers__des">
+        <div class="trainers__des" v-if="index == 0">
             <h3 class="des__title">Наши тренеры</h3>
             <p class="des__info">Мастера своего дела!</p>
         </div>
-        <h4
-            class="trainers__name"
-            v-for="(item, index) in trainers"
-            :key="index"
-            :class="{ elem__active: currentTrainer == index }"
-        >
+        <h4 class="trainers__name" :class="{ elem__active: true }">
             {{ item.name }}
         </h4>
-        <p
-            class="trainers__info"
-            v-for="(item, index) in trainers"
-            :key="index"
-            :class="{ elem__active: currentTrainer == index }"
-        >
+        <p class="trainers__info" :class="{ elem__active: true }">
             {{ item.info }}
         </p>
 
         <div class="trainers__contacts">
             <nav class="contacts__block">
-                <a
-                    :href="trainers[currentTrainer].vk"
-                    target="_blank"
-                    class="contacts__icon"
-                >
+                <a :href="item.vk" target="_blank" class="contacts__icon">
                     <Icons icons="vk" class="contacts__icon" />
                 </a>
                 <a
-                    :href="
-                        'https://t.me/' +
-                        trainers[currentTrainer].telegram.substr(1)
-                    "
+                    :href="'https://t.me/' + item.telegram.substr(1)"
                     target="_blank"
                     class="contacts__icon"
                 >
@@ -89,18 +69,16 @@ export default {
                 :href="'tel:' + item.phone_number"
                 target="_blank"
                 class="contacts__phone"
-                v-for="(item, index) in trainers"
-                :key="index"
-                :class="{ elem__active: currentTrainer == index }"
+                :class="{ elem__active: true }"
             >
                 {{ item.phone_number }}
             </a>
         </div>
-        <Icons
+        <!-- <Icons
             icons="arrow"
             class="trainers__arrow"
             @click="slideTrainers(1)"
-        />
+        /> -->
         <div class="decor__block"></div>
     </main>
 </template>
@@ -113,21 +91,33 @@ export default {
     margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    grid-template-areas:
-        "img img img img . des des des des des des ."
-        "img img img img . surname surname surname surname surname . ."
-        "img img img img . surname surname surname surname surname . ."
-        "img img img img . surname surname surname surname surname . ."
-        "img img img img . info info info info . . arrow"
-        "img img img img . contacts contacts contacts contacts contacts contacts .";
-    grid-gap: 0px clamp(10px, calc(20vw / var(--ratio)), 20px);
 
+    grid-template-areas:
+        " . img img img  . des des des des des des ."
+        " . img img img  . surname surname surname surname surname . ."
+        " . img img img  . info info info info info . ."
+        " . img img img  . contacts contacts contacts contacts contacts . .";
+    grid-gap: 0px clamp(10px, calc(20vw / var(--ratio)), 20px);
+    &:nth-child(2n) {
+        padding-top: 20px;
+        grid-template-areas:
+            ". . surname surname surname surname surname . img img img ."
+            ". . surname surname surname surname surname . img img img ."
+            ". . surname surname surname surname surname . img img img ."
+            ". . info info info info info . img img img ."
+            ". . contacts contacts contacts contacts contacts . img img img .";
+        .decor__block {
+            bottom: 0;
+            left: 15vw;
+        }
+    }
     color: #fffcf2;
     .trainers__img {
         position: relative;
         grid-area: img;
-        max-width: clamp(400px, calc(520vw / var(--ratio)), 520px);
-        aspect-ratio: 520/610;
+        max-width: clamp(300px, calc(400vw / var(--ratio)), 400px);
+        // max-width: clamp(400px, calc(520vw / var(--ratio)), 520px);
+        aspect-ratio: 3/4;
         .img__train {
             position: absolute;
             top: 0;
@@ -179,7 +169,7 @@ export default {
         transition: all 0.25s;
     }
     .trainers__contacts {
-        margin-top: auto;
+        margin-top: clamp(16px, calc(24vw / var(--ratio)), 24px);
         grid-area: contacts;
         display: flex;
         align-items: center;
@@ -245,7 +235,7 @@ export default {
 @media screen and (max-width: 1368px) {
     .trainers {
         .decor__block {
-            aspect-ratio: 1200/386;
+            // aspect-ratio: 1200/386;
         }
     }
 }
@@ -257,15 +247,35 @@ export default {
         grid-template-areas:
             "img img img img img des des des des des des  ."
             "img img img img img surname surname surname surname surname surname ."
-            "img img img img img surname surname surname surname surname surname ."
             "img img img img img info info info info info . arrow "
             "img img img img img contacts contacts contacts contacts contacts contacts  .";
         grid-gap: 0px 16px;
+        // &:nth-child(2n) {
+        //     grid-template-areas:
+        //         ". . . . . . . img img img img img"
+        //         ". surname surname surname surname surname surname img img img img img"
+        //         ". info info info info info info img img img img img"
+        //         ". contacts contacts contacts contacts contacts contacts img img img img img";
 
+        //     .decor__block {
+        //         width: 100vw;
+        //         left: -5vw;
+        //     }
+        //     .trainers__name {
+        //         padding-top: 0;
+        //         margin-top: 0;
+        //     }
+        //     .trainers__info {
+        //         // margin-top: 30px;
+        //     }
+        //     .trainers__contacts {
+        //         margin-top: 50px;
+        //     }
+        // }
         .trainers__img {
             margin-top: auto;
             max-width: clamp(135px, calc(255vw / var(--ratio)), 255px);
-            aspect-ratio: 255/354;
+            // aspect-ratio: 255/354;
         }
         .trainers__des {
             .des__title {
@@ -339,11 +349,20 @@ export default {
             "img img img contacts contacts arrow"
             "info info info info info .";
         grid-gap: 0px 16px;
+        &:nth-child(2n) {
+            grid-template-areas:
+                ". . . img img img"
+                ". . . img img img"
+                "surname surname surname img img img "
+                "contacts contacts contacts img img img "
+                "contacts contacts contacts img img img "
+                "info info info info info info ";
+        }
 
         .trainers__img {
             margin-top: auto;
             max-width: clamp(100px, calc(135vw / var(--ratio)), 135px);
-            aspect-ratio: 1/1;
+            // aspect-ratio: 1/1;
         }
         .trainers__des {
             .des__title {

@@ -26,7 +26,7 @@ export default {
         };
         return {
             allWindow,
-            images: computed(() => store.getters.getAllGallery),
+            images: computed(() => store.getters.getChildrenAllGallery),
             people: computed(() => store.getters.getFederationMembers),
             news: computed(() => store.getters.getBlog("federation")),
             store,

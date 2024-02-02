@@ -59,7 +59,7 @@ export default {
         return {
             goals,
             trainers: computed(() => store.getters.getTrainers("all")),
-            images: computed(() => store.getters.getAllGallery),
+            images: computed(() => store.getters.getChildrenAllGallery),
             store,
         };
     },

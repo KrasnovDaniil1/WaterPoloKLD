@@ -14,6 +14,7 @@ export default {
     setup() {
         const store = useStore();
         store.dispatch("actPage");
+
         return {
             store,
             loader: computed(() => store.getters.getLoader),

@@ -1,5 +1,5 @@
 <script>
-import { computed, ref } from "vue";
+import { computed, onMounted, ref } from "vue";
 import BtnSeeAll from "../Btn/BtnSeeAll.vue";
 import BtnDownload from "../Btn/BtnDownload.vue";
 import { useStore } from "vuex";
@@ -14,7 +14,7 @@ export default {
     setup() {
         const store = useStore();
         const activeBtn = ref(0);
-        const blockCard = ref();
+        const blockCard = ref([]);
         const panelBtn = [
             {
                 title: "Новые",
@@ -37,15 +37,19 @@ export default {
                 icon: "federation",
             },
         ];
+
         const changeCategory = (category, index) => {
             blockCard.value = store.getters.getBlog(category);
             activeBtn.value = index;
+            console.log(category, "mainNews");
         };
-
+        onMounted(() => {
+            blockCard.value = store.getters.getBlog("new");
+        });
         return {
             panelBtn,
             activeBtn,
-            blockCard: computed(() => store.getters.getBlog("new")),
+            blockCard,
             store,
             changeCategory,
         };

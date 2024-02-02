@@ -39,7 +39,7 @@ export default {
     <div class="galery" v-if="images.length != 0">
         <h2 class="galery__title">Галерея</h2>
         <p class="galery__info">
-            Наслаждайтесь потрясающими моментами преодоления преград, точных
+            Наслаждайтесь потрясающими моментами точных
             бросков и блестящих командных действий. Галерея водного поло — это
             искусство водной борьбы, запечатленное в волнующих кадрах.
         </p>
@@ -106,7 +106,7 @@ export default {
     .galery__title {
         grid-area: title;
         font-family: "Akrobat ExtraBold";
-        font-size: clamp(64px, calc(160vw / var(--ratio)), 160px);
+        font-size: clamp(64px, calc(128vw / var(--ratio)), 128px);
         font-weight: 800;
         line-height: 65%; /* 104px */
         letter-spacing: 3.2px;
@@ -117,7 +117,7 @@ export default {
         font-size: clamp(12px, calc(20vw / var(--ratio)), 20px);
         line-height: 150%; /* 30px */
         letter-spacing: 1.6px;
-        margin-top: 10px;
+        margin-top: 15px;
     }
     .galery__btn-learn-more {
         grid-area: btn;
@@ -178,7 +178,9 @@ export default {
         position: relative;
         grid-area: img;
         max-width: clamp(400px, calc(925vw / var(--ratio)), 925px);
-        aspect-ratio: 925/858;
+        // aspect-ratio: 925/858;
+        aspect-ratio: 16/9;
+
         .visible__image {
             position: absolute;
             top: 0;
@@ -213,7 +215,7 @@ export default {
         .galery__visible-image {
             margin-top: clamp(12px, calc(24vw / var(--ratio)), 24px);
             max-width: 100%;
-            aspect-ratio: 526/318;
+            // aspect-ratio: 526/318;
         }
         .galery__info {
             text-align: center;
@@ -274,7 +276,7 @@ export default {
         }
         .galery__visible-image {
             margin-top: 16px;
-            aspect-ratio: 294/180;
+            // aspect-ratio: 294/180;
         }
         .galery__info {
             font-size: 10px;

@@ -87,6 +87,7 @@ export default {
     margin: 0 auto;
     color: #fffcf2;
     text-align: center;
+    padding: 20px;
     .carusel__title {
         font-family: "Akrobat ExtraBold";
         font-size: clamp(64px, calc(160vw / var(--ratio)), 160px);
@@ -140,7 +141,9 @@ export default {
     .galery__visible-image {
         position: relative;
         max-width: 100%;
-        aspect-ratio: 1330/560;
+        // aspect-ratio: 1330/560;
+        aspect-ratio: 16/9;
+
         .visible__image {
             position: absolute;
             top: 0;
@@ -210,7 +213,7 @@ export default {
             }
         }
         .galery__visible-image {
-            aspect-ratio: 526/240;
+            // aspect-ratio: 526/240;
         }
         .carusel__title-info {
             margin-top: clamp(16px, calc(24vw / var(--ratio)), 24px);
@@ -259,7 +262,7 @@ export default {
             }
         }
         .galery__visible-image {
-            aspect-ratio: 294/180;
+            // aspect-ratio: 294/180;
         }
         .carusel__title-info {
             margin-top: clamp(12px, calc(16vw / var(--ratio)), 16px);

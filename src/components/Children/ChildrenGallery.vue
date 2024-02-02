@@ -39,10 +39,10 @@ export default {
     <div class="galery" v-if="images.length != 0">
         <h2 class="galery__title">Что же такое Водное поло?</h2>
         <p class="galery__info">
-            Водное поло — командная водная игра, в которой две команды пытаются
-            забить мяч в ворота противника, плавая по бассейну. Игра проводится
-            в специальном бассейне, и участники должны соблюдать определенные
-            правила, включая ограниченное время на попытку заброса.
+            Водное поло - командная игра, в которой две команды пытаются
+            забить мяч в ворота противника,. Игра проводится
+            в воде, и участники должны соблюдать определенные
+            правила.
         </p>
         <nav class="galery__check">
             <div class="check__block">
@@ -180,7 +180,9 @@ export default {
         position: relative;
         grid-area: img;
         max-width: clamp(400px, calc(925vw / var(--ratio)), 925px);
-        aspect-ratio: 925/858;
+        // aspect-ratio: 925/858;
+        aspect-ratio: 16/9;
+
         .visible__image {
             position: absolute;
             top: 0;
@@ -216,7 +218,7 @@ export default {
         .galery__visible-image {
             margin-top: clamp(16px, calc(24vw / var(--ratio)), 24px);
             max-width: 100%;
-            aspect-ratio: 526/318;
+            // aspect-ratio: 526/318;
         }
         .galery__info {
             text-align: center;
@@ -272,7 +274,7 @@ export default {
         }
         .galery__visible-image {
             margin-top: 10px;
-            aspect-ratio: 214/130;
+            // aspect-ratio: 214/130;
         }
         .galery__info {
             font-size: 12px;

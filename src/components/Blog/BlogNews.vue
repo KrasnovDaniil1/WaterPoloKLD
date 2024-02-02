@@ -13,7 +13,7 @@ export default {
     setup() {
         const store = useStore();
         const activeBtn = ref(0);
-        const blockCard = ref(store.getters.getBlog("new"));
+        const blockCard = ref([]);
         const panelBtn = [
             {
                 title: "Новые",

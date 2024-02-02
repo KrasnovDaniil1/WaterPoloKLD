@@ -11,13 +11,15 @@ export default {
 <template>
     <main class="contacts">
         <h2 class="contacts__title">
-            Калининградская региональная общественная организация
-            “Калининградская областная федерация водного поло”
+            <!-- Калининградская региональная общественная организация
+            “Калининградская областная федерация водного поло” -->
+            Название
         </h2>
         <div class="contacts__card">
             <h3 class="card__title">
                 Дата окончания аккредитации:
-                <span class="title__bold">24 октября 2025</span>
+                <!-- <span class="title__bold">24 октября 2025</span> -->
+                <span class="title__bold">в стадии получения</span>
             </h3>
             <div class="card__social network">
                 <h3 class="social__title">Социальные сети</h3>

@@ -127,7 +127,9 @@ export default {
                         background: #161616;
                         .content__img {
                             width: 100%;
-                            aspect-ratio: 430/320;
+                            // aspect-ratio: 430/320;
+                            aspect-ratio: 16/9;
+
                             object-fit: cover;
                             opacity: 0.4;
                         }
@@ -201,7 +203,8 @@ export default {
                     .item {
                         .item__content {
                             .content__img {
-                                aspect-ratio: 165/123;
+                                // aspect-ratio: 165/123;
+                                aspect-ratio: 16/9;
                             }
                             .content__about {
                                 font-size: 20px;
@@ -249,7 +252,8 @@ export default {
                         min-width: 100%;
                         .item__content {
                             .content__img {
-                                aspect-ratio: 213/150;
+                                // aspect-ratio: 213/150;
+                                aspect-ratio: 16/9;
                             }
                         }
                     }

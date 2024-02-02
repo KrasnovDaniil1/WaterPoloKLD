@@ -93,3 +93,9 @@ export const getTime = (state) => (active) => {
     }
     return sortTime;
 };
+
+export const getChildrenAllGallery = (state) => {
+    let gallery = [...state.allGallery, ...state.childrenGallery];
+    gallery.sort(() => Math.random() - 0.5);
+    return gallery;
+};
