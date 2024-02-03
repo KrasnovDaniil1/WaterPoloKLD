@@ -15,6 +15,8 @@ export default {
         const store = useStore();
         const activeBtn = ref(0);
         const blockCard = ref([]);
+
+        // blockCard.value = store.getters.getBlog("new");
         const panelBtn = [
             {
                 title: "Новые",
@@ -38,12 +40,15 @@ export default {
             },
         ];
 
-        const changeCategory = (category, index) => {
-            blockCard.value = store.getters.getBlog(category);
+        const changeCategory = async (category, index) => {
+            blockCard.value = await store.getters.getBlog(category);
+            console.log(blockCard.value, "даннык");
             activeBtn.value = index;
         };
         onMounted(() => {
-            blockCard.value = store.getters.getBlog("new");
+            setTimeout(() => {
+                blockCard.value = store.getters.getBlog("new");
+            }, 1000);
         });
         return {
             panelBtn,
