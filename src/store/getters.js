@@ -25,7 +25,6 @@ export const getBlog = (state) => (sort) => {
             return true;
         }
     });
-    console.log(sortBlog, sort, "отправляю");
     return sortBlog;
 };
 

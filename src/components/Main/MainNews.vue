@@ -42,7 +42,6 @@ export default {
 
         const changeCategory = async (category, index) => {
             blockCard.value = await store.getters.getBlog(category);
-            console.log(blockCard.value, "даннык");
             activeBtn.value = index;
         };
         onMounted(() => {

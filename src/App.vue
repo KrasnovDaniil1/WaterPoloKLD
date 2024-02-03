@@ -48,4 +48,10 @@ html {
         }
     }
 }
+@media screen and (max-width: 400px) {
+    .app {
+        max-width: 100%;
+        overflow: hidden;
+    }
+}
 </style>

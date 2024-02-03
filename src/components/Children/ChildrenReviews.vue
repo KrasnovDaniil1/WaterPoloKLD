@@ -1,5 +1,5 @@
 <script>
-import { onMounted, ref } from "vue";
+import { computed, onMounted, ref } from "vue";
 import Icons from "../Other/Icons.vue";
 import { useStore } from "vuex";
 export default {
@@ -10,7 +10,7 @@ export default {
         const store = useStore();
         const activeElem = ref(1);
         const cardBlock = ref();
-        const reviews = ref(store.getters.getReviews);
+        const reviews = ref([]);
         const widthBlock = ref(1600);
         const scrolAdaptive = ref(0);
         const transformTranslate = ref(0);
@@ -53,9 +53,10 @@ export default {
                 scrolAdaptive.value
             }px)`;
         };
-
-        onMounted(() => {
-            setTimeout(() => {
+        let t = setInterval(() => {
+            console.log("a");
+            if (reviews.value.length != 0) {
+                clearInterval(t);
                 reviews.value.push(reviews.value[reviews.value.length - 1]);
                 reviews.value.unshift(reviews.value[0]);
 
@@ -72,13 +73,34 @@ export default {
                         (widthBlock.value - window.innerWidth) / 2;
                     cardBlock.value.style.transform = `translateX(-${scrolAdaptive.value}px)`;
                 }
-            }, 500);
-        });
+            }
+        }, 500);
+        // onMounted(() => {
+        //     reviews.value = store.getters.getReviews;
+        //     setTimeout(() => {
+        //         reviews.value.push(reviews.value[reviews.value.length - 1]);
+        //         reviews.value.unshift(reviews.value[0]);
+
+        //         transformTranslate.value =
+        //             cardBlock.value.children[0].clientWidth;
+        //         if (window.innerWidth <= 834) {
+        //             widthBlock.value = 801;
+        //         }
+        //         if (window.innerWidth <= 390) {
+        //             widthBlock.value = 480;
+        //         }
+        //         if (widthBlock.value >= window.innerWidth) {
+        //             scrolAdaptive.value =
+        //                 (widthBlock.value - window.innerWidth) / 2;
+        //             cardBlock.value.style.transform = `translateX(-${scrolAdaptive.value}px)`;
+        //         }
+        //     }, 1000);
+        // });
 
         return {
             activeAbout,
             store,
-            reviews,
+            reviews: computed(() => (reviews.value = store.getters.getReviews)),
             activeElem,
             scrolCard,
             cardBlock,
@@ -94,7 +116,7 @@ export default {
 };
 </script>
 <template>
-    <main class="reviews">
+    <main class="reviews" v-if="reviews.length != 0">
         <h2 class="reviews__title">Отзывы</h2>
         <nav class="reviews__block">
             <div class="block__card" ref="cardBlock">

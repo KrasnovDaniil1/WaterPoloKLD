@@ -1,5 +1,4 @@
 export const mutPage = (state, data) => {
-    console.log(data, "получаю");
     state.trainers = data.trainers;
     state.blog = data.blog;
     state.time = data.time;
