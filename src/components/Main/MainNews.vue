@@ -41,7 +41,6 @@ export default {
         const changeCategory = (category, index) => {
             blockCard.value = store.getters.getBlog(category);
             activeBtn.value = index;
-            console.log(category, "mainNews");
         };
         onMounted(() => {
             blockCard.value = store.getters.getBlog("new");

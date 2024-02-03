@@ -8,7 +8,7 @@ const state = {
     blog: [],
     federationMembers: [],
     reviews: [],
-    time: {},
+    time: [],
     price: [],
     statistics: {},
     childrenGallery: [],

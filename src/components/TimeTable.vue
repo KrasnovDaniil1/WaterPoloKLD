@@ -41,15 +41,24 @@ export default {
         const currentTime = new Date();
         const generateDay = () => {
             let dayAll = currentTime.getDate() - currentTime.getDay();
+
             for (let i = 0; i < 14; i++) {
                 dayAll++;
                 if (dayAll > dayInMonth()) {
                     dayAll = 1;
                 }
                 if (i < 7) {
-                    time.value.one[i].day = dayAll;
+                    if (dayAll <= 0) {
+                        time.value.one[i].day = dayInPastMonth() + dayAll;
+                    } else {
+                        time.value.one[i].day = dayAll;
+                    }
                 } else {
-                    time.value.two[i - 7].day = dayAll;
+                    if (dayAll < 0) {
+                        time.value.two[i - 7].day = dayInPastMonth() + dayAll;
+                    } else {
+                        time.value.two[i - 7].day = dayAll;
+                    }
                 }
             }
         };
@@ -62,6 +71,20 @@ export default {
             let date2 = new Date(
                 currentTime.getFullYear(),
                 currentTime.getMonth() + 1,
+                1
+            );
+            let dayMonth = Math.round((date2 - date1) / 1000 / 3600 / 24);
+            return dayMonth;
+        };
+        const dayInPastMonth = () => {
+            let date1 = new Date(
+                currentTime.getFullYear(),
+                currentTime.getMonth() - 1,
+                1
+            );
+            let date2 = new Date(
+                currentTime.getFullYear(),
+                currentTime.getMonth(),
                 1
             );
             let dayMonth = Math.round((date2 - date1) / 1000 / 3600 / 24);
@@ -97,6 +120,7 @@ export default {
         });
 
         return {
+            dayInPastMonth,
             table,
             carusel,
             clickLeft,

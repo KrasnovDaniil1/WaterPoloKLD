@@ -63,7 +63,6 @@ export const getFederationMembers = (state) => {
 };
 
 export const getReviews = (state) => {
-    console.log("1111");
     return state.reviews;
 };
 
@@ -92,16 +91,18 @@ export const getTime = (state) => (active) => {
     } else if (active.in == "Вс") {
         active.in = "sunday";
     }
-
-    let sortTime = state.time.filter((elem) => {
-        if (
-            elem.week == active.in &&
-            elem[active.week] &&
-            elem.category == active.category
-        ) {
-            return true;
-        }
-    });
+    let sortTime = [];
+    if (state.time.length != 0) {
+        sortTime = state.time.filter((elem) => {
+            if (
+                elem.week == active.in &&
+                elem[active.week] &&
+                elem.category == active.category
+            ) {
+                return true;
+            }
+        });
+    }
     if (sortTime.length == 0) {
         sortTime = [
             {
