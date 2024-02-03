@@ -15,7 +15,16 @@ export default {
         const scrolAdaptive = ref(0);
         const transformTranslate = ref(0);
         const windowWidth = ref(window.innerWidth);
+        const activeAbout = ref(false);
+        const contentActiveAbout = ref({ text: "", name: "" });
 
+        const changeAboutContent = (item) => {
+            activeAbout.value = true;
+            contentActiveAbout.value = {
+                text: item.text,
+                name: item.name,
+            };
+        };
         const scrolCard = (index) => {
             if (activeElem.value - 1 == index) {
                 scrolLeft();
@@ -67,6 +76,7 @@ export default {
         });
 
         return {
+            activeAbout,
             store,
             reviews,
             activeElem,
@@ -77,6 +87,8 @@ export default {
             scrolAdaptive,
             scrolLeft,
             windowWidth,
+            changeAboutContent,
+            contentActiveAbout,
         };
     },
 };
@@ -92,7 +104,10 @@ export default {
                     :key="index"
                     :class="{ card__active: index == activeElem }"
                 >
-                    <div class="card__content">
+                    <div
+                        class="card__content"
+                        @click="changeAboutContent(item)"
+                    >
                         <Icons icons="quote" class="content__icon" />
                         <p class="content__text">
                             {{ item.text }}
@@ -111,6 +126,24 @@ export default {
                 </nav>
             </div>
         </nav>
+    </main>
+    <main class="about" v-if="activeAbout">
+        <div class="block__card">
+            <nav class="card">
+                <div class="card__content">
+                    <Icons
+                        icons="close"
+                        class="card__close"
+                        @click="activeAbout = false"
+                    />
+                    <Icons icons="quote" class="content__icon" />
+                    <p class="content__text">
+                        {{ contentActiveAbout.text }}
+                    </p>
+                    <h3 class="content__name">{{ contentActiveAbout.name }}</h3>
+                </div>
+            </nav>
+        </div>
     </main>
 </template>
 
@@ -176,11 +209,13 @@ export default {
                             rgba(0, 77, 243, 0.1) 100%
                         )
                     );
+
                     .content__icon {
                         width: 32px;
                         height: 23px;
                     }
                     .content__text {
+                        cursor: pointer;
                         margin-top: clamp(
                             24px,
                             calc(40vw / var(--ratio)),
@@ -190,6 +225,10 @@ export default {
                         font-size: 16px;
                         line-height: 150%; /* 24px */
                         letter-spacing: 1.28px;
+                        display: -webkit-box;
+                        -webkit-line-clamp: 6;
+                        -webkit-box-orient: vertical;
+                        overflow: hidden;
                     }
                     .content__name {
                         padding-top: clamp(
@@ -217,6 +256,80 @@ export default {
                     opacity: 1;
                     transform: scale(1.35);
                 }
+            }
+        }
+    }
+}
+.about {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 99;
+
+    color: white;
+    .block__card {
+        max-width: 100%;
+        width: 500px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        .card {
+            display: flex;
+            align-items: center;
+
+            .card__content {
+                position: relative;
+
+                width: 100%;
+                height: 100%;
+                padding: clamp(24px, calc(40vw / var(--ratio)), 40px);
+                display: flex;
+                flex-direction: column;
+                border-radius: 24px;
+                background: #003362;
+                .card__close {
+                    position: absolute;
+                    top: clamp(24px, calc(40vw / var(--ratio)), 40px);
+                    right: clamp(24px, calc(40vw / var(--ratio)), 40px);
+                }
+                .content__icon {
+                    width: 32px;
+                    height: 23px;
+                }
+                .content__text {
+                    margin-top: clamp(24px, calc(40vw / var(--ratio)), 40px);
+                    font-family: "Cruinn Bold";
+                    font-size: 16px;
+                    line-height: 150%; /* 24px */
+                    max-height: 50vh;
+                    overflow-y: scroll;
+                }
+                .content__name {
+                    padding-top: clamp(24px, calc(40vw / var(--ratio)), 40px);
+                    margin-top: auto;
+                    font-family: "Cruinn Black";
+                    font-size: 20px;
+                    line-height: 85%; /* 34px */
+                    letter-spacing: 0.8px;
+                }
+            }
+        }
+        .card__active {
+            .card__arrow__block {
+                opacity: 0.4;
+                transform: translateX(50%) rotate(0deg);
+                &:hover {
+                    opacity: 1;
+                }
+            }
+            .card__content {
+                opacity: 1;
+                transform: scale(1.35);
             }
         }
     }
