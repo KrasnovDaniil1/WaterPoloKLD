@@ -46,13 +46,14 @@ export default {
     background: #161616;
     color: #fffcf2;
     .block__img {
+        
         width: 100%;
         height: 100%;
         position: absolute;
         top: 0;
         left: 0;
         opacity: 0.6;
-        object-fit: cover;
+        // object-fit: cover;
     }
     .block__title {
         max-width: 704px;

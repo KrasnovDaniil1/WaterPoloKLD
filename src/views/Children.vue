@@ -62,7 +62,7 @@ export default {
             store,
             allWindow,
             goals,
-            images: computed(() => store.getters.getChildrenAllGallery),
+            // images: computed(() => store.getters.getChildrenAllGallery),
             imagesChildren: computed(() => store.getters.getChildrenGallery),
 
             trainers: computed(() => store.getters.getTrainers("children")),
@@ -76,7 +76,7 @@ export default {
     <section>
         <AllWindow :allWindow="allWindow" />
         <main class="block__bg">
-            <Gallery :images="images" />
+            <Gallery :images="imagesChildren" />
         </main>
         <Goals :goals="goals" />
         <Reviews />

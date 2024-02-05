@@ -207,8 +207,8 @@ export default {
                 <h4 class="info">{{ t.title }}</h4>
                 <h4 class="info">{{ t.address }}</h4>
             </div>
+            <h4 class="info__trainer">тренер:{{ t.trainer }}</h4>
             <div class="table__decor__line"></div>
-            <h4 class="info__trainer">{{ t.trainer }}</h4>
         </nav>
     </main>
 </template>
@@ -336,7 +336,7 @@ export default {
             font-size: clamp(20px, calc(40vw / var(--ratio)), 40px);
             line-height: normal;
             letter-spacing: 0.8px;
-            text-align: center;
+            text-align: left;
             margin: clamp(8px, calc(24vw / var(--ratio)), 24px) 0;
         }
     }

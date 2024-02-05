@@ -43,7 +43,7 @@ export const getFederationEvent = (state) => {
         const date2 = new Date(blog.time);
 
         const diffInTime = date2.getTime() - date1.getTime();
-        if (diffInTime > 0) {
+        if (diffInTime < 0 || Number.isNaN(diffInTime)) {
             sortBlog.push(blog);
         }
     }

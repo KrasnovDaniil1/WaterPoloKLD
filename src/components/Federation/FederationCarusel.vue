@@ -86,7 +86,7 @@ export default {
 <style lang="scss" scoped>
 .carusel {
     padding: clamp(40px, calc(80vw / var(--ratio)), 80px) 0;
-    max-width: 1300px;
+    max-width: 1000px;
     margin: 0 auto;
     color: #fffcf2;
     text-align: center;
@@ -143,7 +143,7 @@ export default {
     .galery__visible-image {
         position: relative;
         max-width: 100%;
-        aspect-ratio: 1330/560;
+        aspect-ratio: 16/9;
         .visible__image {
             position: absolute;
             top: 0;
@@ -212,9 +212,9 @@ export default {
                 height: 4px;
             }
         }
-        .galery__visible-image {
-            aspect-ratio: 526/240;
-        }
+        // .galery__visible-image {
+        //     aspect-ratio: 526/240;
+        // }
         .carusel__title-info {
             margin-top: clamp(16px, calc(24vw / var(--ratio)), 24px);
             font-size: clamp(16px, calc(24vw / var(--ratio)), 24px);
@@ -261,9 +261,9 @@ export default {
                 height: 2px;
             }
         }
-        .galery__visible-image {
-            aspect-ratio: 294/180;
-        }
+        // .galery__visible-image {
+        //     aspect-ratio: 294/180;
+        // }
         .carusel__title-info {
             margin-top: clamp(12px, calc(16vw / var(--ratio)), 16px);
             font-size: clamp(12px, calc(16vw / var(--ratio)), 16px);

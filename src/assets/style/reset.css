@@ -148,6 +148,9 @@ svg {
 img {
     width: 100%;
     object-fit: cover;
+    object-position: top;
+
+    /* object-position: center; */
 }
 /*
 
