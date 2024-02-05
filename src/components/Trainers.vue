@@ -115,6 +115,9 @@ export default {
         .decor__block {
             left: 15vw;
         }
+        .trainers__img {
+            margin-left: auto;
+        }
     }
 
     .trainers__img {
