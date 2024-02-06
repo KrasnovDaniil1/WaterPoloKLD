@@ -44,11 +44,17 @@ export default {
             blockCard.value = await store.getters.getBlog(category);
             activeBtn.value = index;
         };
-        onMounted(() => {
-            setTimeout(() => {
-                blockCard.value = store.getters.getBlog("new");
-            }, 1000);
-        });
+        // onMounted(() => {
+        //     setTimeout(() => {
+        //         blockCard.value = store.getters.getBlog("new");
+        //     }, 1000);
+        // });
+        let inter = setInterval(() => {
+            blockCard.value = store.getters.getBlog("new");
+            if (blockCard.value.length > 0) {
+                clearTimeout(inter);
+            }
+        }, 100);
         return {
             panelBtn,
             activeBtn,

@@ -51,7 +51,7 @@ export default {
     color: #fffcf2;
     padding: clamp(40px, calc(80vw / var(--ratio)), 80px)
         clamp(64px, calc(120vw / var(--ratio)), 120px);
-    min-height: 500px;
+    min-height: 600px;
     .id__image {
         width: 50%;
         aspect-ratio: 16/9;

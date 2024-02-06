@@ -4,7 +4,6 @@ import Goals from "../components/Goals.vue";
 import Trainers from "../components/Trainers.vue";
 import Progress from "../components/Progress.vue";
 import TimeTable from "../components/TimeTable.vue";
-import Gallery from "../components/Students/StudentsGallery.vue";
 import { useStore } from "vuex";
 import { computed } from "@vue/runtime-core";
 import img4 from "../assets/images/allWindow/4.jpg";
@@ -21,7 +20,6 @@ export default {
         Trainers,
         Progress,
         TimeTable,
-        Gallery,
     },
     setup() {
         const store = useStore();
@@ -77,7 +75,6 @@ export default {
         <main class="block__bg">
             <Progress :progress="progress" />
         </main>
-        <Gallery v-if="false" />
     </section>
 </template>
 

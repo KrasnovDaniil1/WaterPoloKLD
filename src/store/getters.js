@@ -25,7 +25,7 @@ export const getBlog = (state) => (sort) => {
             return true;
         }
     });
-    return sortBlog;
+    return sortBlog.reverse();
 };
 
 export const getBlogId = (state) => (id) => {
@@ -47,7 +47,7 @@ export const getFederationEvent = (state) => {
             sortBlog.push(blog);
         }
     }
-    return sortBlog;
+    return sortBlog.reverse();
 };
 
 export const getFederationEventId = (state) => (id) => {
@@ -103,6 +103,8 @@ export const getTime = (state) => (active) => {
             }
         });
     }
+    console.log("отпра", sortTime, state.time);
+
     if (sortTime.length == 0) {
         sortTime = [
             {
@@ -114,6 +116,7 @@ export const getTime = (state) => (active) => {
             },
         ];
     }
+
     return sortTime;
 };
 

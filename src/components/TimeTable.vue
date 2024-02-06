@@ -120,6 +120,7 @@ export default {
             for (let i of time.value.one) {
                 if (table.value[0].time == "-") {
                     await lookTime("one", i.week);
+                    console.log(i, table.value, "time");
                 } else {
                     break;
                 }
@@ -127,8 +128,13 @@ export default {
         };
         onMounted(() => {
             generateDay();
-            startTime();
         });
+        let inter = setInterval(() => {
+            startTime();
+            if (table.value[0].time != "-") {
+                clearTimeout(inter);
+            }
+        }, 100);
 
         return {
             startTime,
