@@ -122,3 +122,7 @@ export const getChildrenAllGallery = (state) => {
     gallery.sort(() => Math.random() - 0.5);
     return gallery;
 };
+
+export const getQuestions = (state) => {
+    return state.questions;
+};

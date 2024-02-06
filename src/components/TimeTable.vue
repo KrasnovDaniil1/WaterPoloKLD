@@ -37,7 +37,7 @@ export default {
             ],
         });
 
-        const table = ref();
+        const table = ref([]);
         const currentTime = new Date();
         const generateDay = () => {
             let dayAll = currentTime.getDate() - currentTime.getDay();
@@ -114,12 +114,24 @@ export default {
                 category: props.category,
             });
         };
+
+        const startTime = async () => {
+            await lookTime("one", "Пн");
+            for (let i of time.value.one) {
+                if (table.value[0].time == "-") {
+                    await lookTime("one", i.week);
+                } else {
+                    break;
+                }
+            }
+        };
         onMounted(() => {
             generateDay();
-            lookTime("one", "Пн");
+            startTime();
         });
 
         return {
+            startTime,
             dayInPastMonth,
             table,
             carusel,
@@ -130,7 +142,6 @@ export default {
             time,
             activeTime,
             lookTime,
-            // getTimes: computed(() => store.getters.getTime("children")),s
         };
     },
 };
@@ -207,7 +218,9 @@ export default {
                 <h4 class="info">{{ t.title }}</h4>
                 <h4 class="info">{{ t.address }}</h4>
             </div>
-            <h4 class="info__trainer">тренер:{{ t.trainer }}</h4>
+            <h4 class="info__trainer" v-if="t.trainer">
+                тренер:{{ t.trainer }}
+            </h4>
             <div class="table__decor__line"></div>
         </nav>
     </main>

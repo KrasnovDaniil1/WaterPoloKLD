@@ -4,38 +4,43 @@ import BtnLearnMoreDark from "../Btn/BtnLearnMoreDark.vue";
 import Icons from "../Other/Icons.vue";
 import BtnSignTraining from "../Btn/BtnSignTraining.vue";
 import BtnLearnMore from "../Btn/BtnLearnMore.vue";
+import { useStore } from "vuex";
+import { computed } from "@vue/runtime-core";
+
 export default {
     components: { BtnLearnMoreDark, Icons, BtnSignTraining, BtnLearnMore },
     setup() {
         const currentQuestion = ref(0);
-        const questions = [
-            {
-                title: "Со скольких лет могут заниматься дети водным поло?",
-                answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus suscipit metus sit amet nisi lacinia condimentum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus suscipit metus sit amet nisi lacinia condimentum. ",
-            },
-            {
-                title: "Какие документы необходимы для записи ребенка на тренировки?",
-                answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus suscipit metus sit amet nisi lacinia condimentum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus suscipit metus sit amet nisi lacinia condimentum. ",
-            },
-            {
-                title: "Каков график тренировок?",
-                answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus suscipit metus sit amet nisi lacinia condimentum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus suscipit metus sit amet nisi lacinia condimentum. ",
-            },
-            {
-                title: "Какова стоимость занятий и есть ли скидки?",
-                answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus suscipit metus sit amet nisi lacinia condimentum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus suscipit metus sit amet nisi lacinia condimentum. ",
-            },
-        ];
+        const store = useStore();
+        // const questions = [
+        //     {
+        //         title: "Со скольких лет могут заниматься дети водным поло?",
+        //         answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus suscipit metus sit amet nisi lacinia condimentum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus suscipit metus sit amet nisi lacinia condimentum. ",
+        //     },
+        //     {
+        //         title: "Какие документы необходимы для записи ребенка на тренировки?",
+        //         answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus suscipit metus sit amet nisi lacinia condimentum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus suscipit metus sit amet nisi lacinia condimentum. ",
+        //     },
+        //     {
+        //         title: "Каков график тренировок?",
+        //         answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus suscipit metus sit amet nisi lacinia condimentum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus suscipit metus sit amet nisi lacinia condimentum. ",
+        //     },
+        //     {
+        //         title: "Какова стоимость занятий и есть ли скидки?",
+        //         answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus suscipit metus sit amet nisi lacinia condimentum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus suscipit metus sit amet nisi lacinia condimentum. ",
+        //     },
+        // ];
         return {
+            store,
             currentQuestion,
-            questions,
+            questions: computed(() => store.getters.getQuestions),
         };
     },
 };
 </script>
 
 <template>
-    <main class="questions">
+    <main class="questions" v-if="questions.length > 0">
         <nav class="questions__header">
             <h4 class="header__title">Часто задаваемые вопросы</h4>
             <div class="header__contacts">

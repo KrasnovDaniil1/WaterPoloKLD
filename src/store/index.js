@@ -14,6 +14,8 @@ const state = {
     childrenGallery: [],
     federationEvent: [],
     allGallery: [],
+    questions: [],
+
     loader: false,
 };
 
