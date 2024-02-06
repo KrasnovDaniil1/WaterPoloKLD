@@ -103,7 +103,6 @@ export const getTime = (state) => (active) => {
             }
         });
     }
-    console.log("отпра", sortTime, state.time);
 
     if (sortTime.length == 0) {
         sortTime = [

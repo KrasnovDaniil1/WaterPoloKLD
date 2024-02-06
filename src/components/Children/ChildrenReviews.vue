@@ -54,7 +54,6 @@ export default {
             }px)`;
         };
         let t = setInterval(() => {
-            console.log("a");
             if (reviews.value.length != 0) {
                 clearInterval(t);
                 reviews.value.push(reviews.value[reviews.value.length - 1]);
