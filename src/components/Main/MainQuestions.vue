@@ -150,8 +150,12 @@ export default {
                 letter-spacing: 0.8px;
             }
             .icon {
-                max-width: clamp(32px, calc(48vw / var(--ratio)), 48px);
-                max-height: clamp(32px, calc(48vw / var(--ratio)), 48px);
+                max-width: clamp(16px, calc(24vw / var(--ratio)), 24px);
+                min-width: clamp(16px, calc(24vw / var(--ratio)), 24px);
+
+                max-height: clamp(16px, calc(24vw / var(--ratio)), 24px);
+                min-height: clamp(16px, calc(24vw / var(--ratio)), 24px);
+                margin-left: 50px;
                 transform: rotate(45deg);
                 transition: all 0.25s;
             }
@@ -221,8 +225,12 @@ export default {
                     letter-spacing: 0.48px;
                 }
                 .icon {
-                    max-width: clamp(16px, calc(32vw / var(--ratio)), 32px);
-                    max-height: clamp(16px, calc(32vw / var(--ratio)), 32px);
+                    max-width: clamp(12px, calc(12vw / var(--ratio)), 16px);
+                    min-width: clamp(12px, calc(12vw / var(--ratio)), 16px);
+
+                    max-height: clamp(12px, calc(12vw / var(--ratio)), 16px);
+                    min-height: clamp(12px, calc(12vw / var(--ratio)), 16px);
+
                     margin-left: 24px;
                 }
             }
@@ -270,8 +278,12 @@ export default {
                     letter-spacing: 0.32px;
                 }
                 .icon {
-                    max-width: 16px;
-                    max-height: 16px;
+                    max-width: 12px;
+                    min-width: 12px;
+
+                    max-height: 12px;
+                    min-height: 12px;
+
                     margin-left: 20px;
                 }
             }

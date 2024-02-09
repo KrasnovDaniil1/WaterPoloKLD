@@ -1,259 +1,242 @@
 {
     "trainers": [
         {
-            "src": "https://klwp.pro/uploads/657b8bb0.jpg",
-            "name": "Алексей Иванович",
-            "phone_number": "+79990001122",
-            "info": "Тренер с хорошей карьерой",
-            "vk": "https://klwp.pro/",
-            "telegram": "https://klwp.pro/",
-            "train": ["children", "student", "amateur"]
+            "src": "https://klwp.pro/uploads/d48f81b1.jpeg",
+            "name": "Артём Александрович Шефер",
+            "phone_number": "+79093747337",
+            "info": "Тренер детской, студенческой и команды Мастерс. Призёр Чемпионата России по водному поло. Переехал развивать спорт из Астрахани.",
+            "vk": "https://vk.com/waterpolo39",
+            "telegram": "@+79093747337",
+            "train": ["children", "amateur", "student"],
+            "addTrain": ["children", "amateur", "student"]
         },
         {
-            "src": "https://klwp.pro/uploads/657b8bb0.jpg",
-            "name": "Алексей Иванович",
-            "phone_number": "+79990001122",
-            "info": "Тренер с хорошей карьерой",
-            "vk": "https://klwp.pro/",
-            "telegram": "https://klwp.pro/",
-            "train": ["children", "student"]
-        },
-        {
-            "src": "https://klwp.pro/uploads/657b8bb0.jpg",
-            "name": "Алексей Иванович",
-            "phone_number": "+79990001122",
-            "info": "Тренер с хорошей карьерой",
-            "vk": "https://klwp.pro/",
-            "telegram": "https://klwp.pro/",
-            "train": ["children", "student"]
+            "src": "https://klwp.pro/uploads/e9d663a0.jpeg",
+            "name": "Юрий Гайратович Мурадов",
+            "phone_number": "+79062154594",
+            "info": "Занимается развитием детской секции в ДС \"Автотор-Арена\" и помогает тренировать команду любителей",
+            "vk": "https://vk.com/id34256207",
+            "telegram": "@sang300572",
+            "train": ["children", "amateur"]
         }
     ],
-
-    "time": {
-        "children": {
-            "first": [
-                [
-                    {
-                        "time": "9.00",
-                        "category": "Дети",
-                        "address": "Тихоокеанская улица, 5"
-                    },
-                    {
-                        "time": "9.00",
-                        "category": "Дети",
-                        "address": "Тихоокеанская улица, 5"
-                    }
-                ],
-                [
-                    {
-                        "time": "12.00",
-                        "category": "Дети",
-                        "address": "Тихоокеанская улица, 5"
-                    }
-                ],
-                [
-                    {
-                        "time": "-",
-                        "category": "-",
-                        "address": "-"
-                    }
-                ],
-                [
-                    {
-                        "time": "-",
-                        "category": "-",
-                        "address": "-"
-                    }
-                ],
-                [
-                    {
-                        "time": "-",
-                        "category": "-",
-                        "address": "-"
-                    }
-                ],
-                [
-                    {
-                        "time": "-",
-                        "category": "-",
-                        "address": "-"
-                    }
-                ],
-                [
-                    {
-                        "time": "-",
-                        "category": "-",
-                        "address": "-"
-                    }
-                ]
-            ],
-            "second": [
-                [
-                    {
-                        "time": "12.00",
-                        "category": "Дети",
-                        "address": "Тихоокеанская улица, 5"
-                    }
-                ],
-                [
-                    {
-                        "time": "-",
-                        "category": "-",
-                        "address": "-"
-                    }
-                ],
-                [
-                    {
-                        "time": "-",
-                        "category": "-",
-                        "address": "-"
-                    }
-                ],
-                [
-                    {
-                        "time": "-",
-                        "category": "-",
-                        "address": "-"
-                    }
-                ],
-                [
-                    {
-                        "time": "-",
-                        "category": "-",
-                        "address": "-"
-                    }
-                ],
-                [
-                    {
-                        "time": "-",
-                        "category": "-",
-                        "address": "-"
-                    }
-                ],
-                [
-                    {
-                        "time": "-",
-                        "category": "-",
-                        "address": "-"
-                    }
-                ]
-            ]
+    "time": [
+        {
+            "week": "sunday",
+            "time": "09:00 - 11:00",
+            "title": "Игровой день",
+            "category": "amateur",
+            "one": "true",
+            "two": "true",
+            "trainer": "Артём Александрович Шефер",
+            "address": "ДС \"Автотор-Арена\", Тихоокеанская, 5"
+        },
+        {
+            "week": "sunday",
+            "time": "09:00 - 11:00",
+            "title": "Игровой день",
+            "address": "ДС \"Автотор-Арена\", Тихоокеанская, 5",
+            "category": "student",
+            "one": "true",
+            "two": "true",
+            "trainer": "Артём Александрович Шефер"
+        },
+        {
+            "week": "sunday",
+            "time": "11:00 - 12:00",
+            "title": "Игровой день",
+            "category": "children",
+            "one": "true",
+            "two": "true",
+            "trainer": "Артём Александрович Шефер",
+            "address": "ДС \"Автотор-Арена\", Тихоокеанская, 5"
+        },
+        {
+            "week": "tuesday",
+            "time": "19:00 - 20:00",
+            "title": "Вторник",
+            "category": "children",
+            "one": "true",
+            "two": "true",
+            "trainer": "Юрий Гайратович Мурадов",
+            "address": "ДС \"Автотор-Арена\", Тихоокеанская, 5"
+        },
+        {
+            "week": "thursday",
+            "time": "19:00 - 20:00",
+            "title": "Четверг",
+            "address": "ДС \"Автотор-Арена\", Тихоокеанская, 5",
+            "category": "children",
+            "one": "true",
+            "two": "true",
+            "trainer": "Юрий Муратович Гайратов"
+        },
+        {
+            "week": "thursday",
+            "time": "19:30 - 21:00",
+            "title": "Четверг (вечер)",
+            "address": "Бассейн БФУ, Римская, 18",
+            "category": "student",
+            "one": "true",
+            "two": "true",
+            "trainer": "Артём Александрович Шефер"
+        },
+        {
+            "week": "saturday",
+            "time": "18:30 - 20:00",
+            "title": "Суббота (вечер)",
+            "address": "Бассейн БФУ, Римская, 18",
+            "category": "student",
+            "one": "true",
+            "two": "true",
+            "trainer": "Артём Александрович Шефер"
         }
-    },
-
+    ],
     "reviews": [
         {
-            "text": "1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus suscipit metus sit amet nisi lacinia condimentum. Phasellus eu nibh lobortis, tincidunt nisi in, ornare leo. Donec hendrerit interdum mollis. Vestibulum consequat erat sapien, a pellentesque quam accumsan nec.",
-            "name": "Имя Отчеств"
-        },
-        {
-            "text": "2 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus suscipit metus sit amet nisi lacinia condimentum. Phasellus eu nibh lobortis, tincidunt nisi in, ornare leo. Donec hendrerit interdum mollis. Vestibulum consequat erat sapien, a pellentesque quam accumsan nec.",
-            "name": "Имя Отчест"
-        },
-        {
-            "text": "3 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus suscipit metus sit amet nisi lacinia condimentum. Phasellus eu nibh lobortis, tincidunt nisi in, ornare leo. Donec hendrerit interdum mollis. Vestibulum consequat erat sapien, a pellentesque quam accumsan nec.",
-            "name": "Имя Отчес"
-        },
-
-        {
-            "text": "4 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus suscipit metus sit amet nisi lacinia condimentum. Phasellus eu nibh lobortis, tincidunt nisi in, ornare leo. Donec hendrerit interdum mollis. ",
-            "name": "Имя -2"
-        },
-        {
-            "text": "5 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus suscipit metus sit amet nisi lacinia condimentum. Phasellus eu nibh lobortis, tincidunt nisi in, ornare leo. Donec hendrerit interdum mollis. ",
-            "name": "Имя -1"
+            "text": "Мой сын занимается с Ноября 2023 года. Ранее ходил просто на плавание. Если говорить откровенно, сначала мы с подозрением отнеслись к данному виду спорта! Но сейчас сын меня благодарит  каждый день, в том, что я настояла на его занятиях!  Во первых он заметно поменялся в плане физической формы! Во вторых  данный вид спорта  закаляет весь организм! В третьих  повышает выносливость и работоспособность. Это не  просто тренировки,  это включает в себя игру, тренировку и просто огромный заряд положительной  энергии!  Всем , кто еще сомневается, не сомневайтесь!!! Вступайте в команду и вы увидите результат!",
+            "name": "Аннета Азима"
         }
     ],
-
     "blog": [
         {
-            "id": 0,
-            "title": "student",
-            "time": "11.12.2023",
-            "msg": "sfsd",
-            "src": "https://klwp.pro/uploads/2974e7a2.jpeg",
-            "category": "student"
+            "title": "7",
+            "time": "7",
+            "msg": "<p>7</p>",
+            "src": "https://klwp.pro/uploads/836646da.jpg",
+            "category": "amateur",
+            "id": 5
         },
         {
-            "id": 1,
-            "title": "amateur",
-            "time": "11.12.2023",
-            "msg": "sfsd",
-            "src": "https://klwp.pro/uploads/2974e7a2.jpeg",
-            "category": "amateur"
+            "title": "4",
+            "time": "4",
+            "msg": "<p>4</p>",
+            "src": "https://klwp.pro/uploads/99a95c48.jpg",
+            "category": "children",
+            "id": 4
         },
         {
-            "id": 2,
-            "title": "children",
-            "time": "11.12.2023",
-            "msg": "sfsd",
-            "src": "https://klwp.pro/uploads/2974e7a2.jpeg",
-            "category": "children"
+            "title": "3",
+            "time": "3",
+            "msg": "<p>3</p>",
+            "src": "https://klwp.pro/uploads/8d82bfb3.jpg",
+            "category": "children",
+            "id": 3
         },
         {
-            "id": 3,
-            "title": "federation",
-            "time": "11.12.2023",
-            "msg": "sfsd",
-            "src": "https://klwp.pro/uploads/2974e7a2.jpeg",
-            "category": "federation"
+            "title": "2",
+            "time": "2",
+            "msg": "<p>2</p>",
+            "src": "https://klwp.pro/uploads/00e5b2fa.jpg",
+            "category": "children",
+            "id": 2
+        },
+        {
+            "title": "1",
+            "time": "1",
+            "msg": "<p>1</p>",
+            "src": "https://klwp.pro/uploads/974da521.jpg",
+            "category": "children",
+            "id": 1
         }
     ],
-
-    "federationMembers": [
+    "federationMembers": [],
+    "federationEvent": [
         {
-            "src": "https://klwp.pro/uploads/657b8bb0.jpg",
-            "name": "Алексей Иванович",
-            "post": "Должность",
-            "info": "Тренер с хорошей карьерой"
-        },
-        {
-            "src": "https://klwp.pro/uploads/657b8bb0.jpg",
-            "name": "Алексей Иванович",
-            "post": "Должность",
-            "info": "Тренер с хорошей карьерой"
-        },
-        {
-            "src": "https://klwp.pro/uploads/657b8bb0.jpg",
-            "name": "Алексей Иванович",
-            "post": "Должность",
-            "info": "Тренер с хорошей карьерой"
-        },
-        {
-            "src": "https://klwp.pro/uploads/657b8bb0.jpg",
-            "name": "Алексей Иванович",
-            "post": "Должность",
-            "info": "Тренер с хорошей карьерой"
-        },
-        {
-            "src": "https://klwp.pro/uploads/657b8bb0.jpg",
-            "name": "Алексей Иванович",
-            "post": "Должность",
-            "info": "Тренер с хорошей карьерой"
+            "title": "Фестиваль водного поло в Калининграде",
+            "time": "24.02.2024",
+            "msg": "<p>24.02.2024 в ДС \"Автотор-Арена\" пройдёт фестиваль водного поло посвящённый годовщине образования этого вида спорта в Калининграде. Мы подведём итоги и проведём спарринги детских и взрослых команд. Фестиваль будет организован с открытыми трибунами, а в качестве гостей ждём президента Федерации водного поло России, который прибудет с рабочим визитом. В этот же день планируется памятное событие в истории Автотор-Арена с личным его участием.</p><p><br></p><p>С 16:00 до 17:00 про ведём спарринги наших юных спортсменов</p><p>С 17:00 до 19:00 покажут своё мастерство взрослые команды</p>",
+            "src": "https://klwp.pro/uploads/0e014b93.jpg",
+            "id": 1
         }
     ],
     "price": [
         {
-            "title": "Разовое посещение",
-            "info": "Разовый платеж",
+            "title": "Разовое посещение (Взрослый)",
+            "info": "1 занятие",
+            "cost": "800",
+            "category": "amateur"
+        },
+        {
+            "title": "Абонемент воскресный (Взрослый)",
+            "info": "Каждое воскресенье",
+            "cost": "3000",
+            "category": "amateur"
+        },
+        {
+            "title": "Разовое посещение (детский)",
+            "info": "1 занятие",
             "cost": "600",
-            "descriptions": [
-                "Первая тренировка бесплатно",
-                "Разовое посещение тренировки"
-            ],
             "category": "children"
         },
         {
-            "title": "Абонемент посещение",
-            "info": "Абонемент платеж",
-            "cost": "600",
-            "descriptions": [
-                "Первая тренировка бесплатно",
-                "Разовое посещение тренировки"
-            ],
+            "title": "Абонемент воскресный (детский)",
+            "info": "Каждое воскресенье",
+            "cost": "2000",
+            "category": "children"
+        },
+        {
+            "title": "Абонемент 8 занятий (детский)",
+            "info": "8 занятий в месяц",
+            "cost": 3200,
+            "category": "children"
+        },
+        {
+            "title": "Абонемент 12 занятий (детский)",
+            "info": "12 занятий в месяц",
+            "cost": 4200,
             "category": "children"
         }
     ],
-
-    "studentsTeams": []
+    "statistics": {
+        "awards": "11",
+        "members": "55",
+        "competition": "34"
+    },
+    "questions": [
+        {
+            "title": "Хочу заниматься водным поло, с чего начать? ",
+            "answer": "Для любой категории у нас есть пробное занятие. Для того чтобы на него попасть необходимо зарегистрироваться. По ссылке - телеграмм бот, который выполнит все необходимые действия и подскажет. Просто перейдите по ней и ответьте на вопросы.\nhttps://t.me/waterpolo39_bot"
+        },
+        {
+            "title": "С какого возраста можно привести ребёнка в водное поло? ",
+            "answer": "С 7 лет ребенок уже может начать заниматься. ЕСли он держится на воде - прекрасно, если нет, то наши опытные наставники помогут ему \"лечь\" на воду и поплыть уже за 4 занятия. Тренировки проходят в игровой форме, что способствует увлечённости ребёнка во время тренировок, а занятия даются легко. Зато по отзывам родителей, после наших тренировок они засыпают в \"правильное\" время. Регистрируйтесь и приводите ребёнка на пробное занятие каждое воскресенье.\nhttps://t.me/waterpolo_kids_bot"
+        },
+        {
+            "title": "Когда проходят пробные занятия?",
+            "answer": "Каждое воскресенье для взрослых и детей мы предоставляем возможность бесплатно потренироваться. Для этого надо только зарегистрироваться и мы вас пригласим. https://t.me/waterpolo39_bot"
+        }
+    ],
+    "childrenGallery": [
+        "https://klwp.pro/uploads/419a7e51.jpeg",
+        "https://klwp.pro/uploads/d9a2f626.jpeg",
+        "https://klwp.pro/uploads/f9fc1693.jpeg",
+        "https://klwp.pro/uploads/50f2291e.jpeg",
+        "https://klwp.pro/uploads/a0e87928.jpeg",
+        "https://klwp.pro/uploads/b0c78972.jpeg",
+        "https://klwp.pro/uploads/a345092a.jpeg",
+        "https://klwp.pro/uploads/2b527107.jpeg",
+        "https://klwp.pro/uploads/c64279da.jpeg",
+        "https://klwp.pro/uploads/5e7af1ad.jpeg",
+        "https://klwp.pro/uploads/8e3e412e.jpeg",
+        "https://klwp.pro/uploads/b227e268.jpeg",
+        "https://klwp.pro/uploads/2a1f6a1f.jpeg",
+        "https://klwp.pro/uploads/0a418aaa.jpeg",
+        "https://klwp.pro/uploads/a34fb527.jpeg"
+    ],
+    "allGallery": [
+        "https://klwp.pro/uploads/aa5fe8e2.jpeg",
+        "https://klwp.pro/uploads/0d3a2b28.jpeg",
+        "https://klwp.pro/uploads/fc67dc0b.jpeg",
+        "https://klwp.pro/uploads/2fea85b6.jpeg",
+        "https://klwp.pro/uploads/02f5548e.jpeg",
+        "https://klwp.pro/uploads/5aa69c20.jpeg",
+        "https://klwp.pro/uploads/d1780d33.jpeg",
+        "https://klwp.pro/uploads/49408544.jpeg",
+        "https://klwp.pro/uploads/48072251.jpeg",
+        "https://klwp.pro/uploads/00153f94.jpeg",
+        "https://klwp.pro/uploads/c7e6fa3b.jpeg",
+        "https://klwp.pro/uploads/7d0edcd2.jpeg",
+        "https://klwp.pro/uploads/8c532bf1.jpeg"
+    ]
 }

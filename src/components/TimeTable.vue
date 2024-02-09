@@ -224,7 +224,7 @@ export default {
                 <h4 class="info">{{ t.address }}</h4>
             </div>
             <h4 class="info__trainer" v-if="t.trainer">
-                тренер:{{ t.trainer }}
+                Тренер: {{ t.trainer }}
             </h4>
             <div class="table__decor__line"></div>
         </nav>
