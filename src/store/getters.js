@@ -40,10 +40,12 @@ export const getFederationEvent = (state) => {
     let sortBlog = [];
     const date1 = new Date();
     for (let blog of state.federationEvent) {
-        const date2 = new Date(blog.time);
-
-        const diffInTime = date2.getTime() - date1.getTime();
-        if (diffInTime < 0 || Number.isNaN(diffInTime)) {
+        const date2 = new Date(blog.time.split(".").reverse().join("."));
+        // const diffInTime = date2.getTime() - date1.getTime();
+        // if (diffInTime < 0 || Number.isNaN(diffInTime)) {
+        //     sortBlog.push(blog);
+        // }
+        if (date2 >= date1) {
             sortBlog.push(blog);
         }
     }

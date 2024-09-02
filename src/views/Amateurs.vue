@@ -3,7 +3,6 @@ import AllWindow from "../components/AllWindow.vue";
 import Goals from "../components/Goals.vue";
 import TimeTable from "../components/TimeTable.vue";
 import Progress from "../components/Progress.vue";
-import Benefit from "../components/Amateurs/AmateursBenefit.vue";
 import Trainers from "../components/Trainers.vue";
 import { useStore } from "vuex";
 import { computed } from "@vue/runtime-core";
@@ -21,7 +20,6 @@ export default {
         TimeTable,
         Progress,
         Trainers,
-        Benefit,
         Price,
     },
     setup() {
@@ -74,7 +72,6 @@ export default {
         <main class="block__bg">
             <Progress :progress="progress" />
         </main>
-        <Benefit v-if="false" />
     </section>
 </template>
 
