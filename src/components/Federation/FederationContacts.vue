@@ -11,9 +11,7 @@ export default {
 <template>
     <main class="contacts">
         <h2 class="contacts__title">
-            <!-- Калининградская региональная общественная организация
-            “Калининградская областная федерация водного поло” -->
-            Название
+            РФСОО "ФЕДЕРАЦИЯ ВОДНОГО ПОЛО КАЛИНИНГРАДСКОЙ ОБЛАСТИ"
         </h2>
         <div class="contacts__card">
             <h3 class="card__title">
@@ -70,11 +68,46 @@ export default {
             </div>
             <div class="card__social name__first">
                 <h3 class="social__title">Президент Федерации</h3>
-                <p class="social__text">в стадии открытия</p>
+                <p class="social__text">Попов Павел Сергеевич</p>
             </div>
             <div class="card__social name__second">
                 <h3 class="social__title">Вице-президент</h3>
-                <p class="social__text">в стадии открытия</p>
+                <p class="social__text">Томашевский Евгений Станиславович</p>
+            </div>
+            <div class="card__social" style="grid-area: inn">
+                <h3 class="social__title">ИНН</h3>
+                <p class="social__text">3900027360</p>
+            </div>
+            <div class="card__social" style="grid-area: kpp">
+                <h3 class="social__title">КПП</h3>
+                <p class="social__text">390001001</p>
+            </div>
+            <div class="card__social" style="grid-area: ogrn">
+                <h3 class="social__title">ОГРН</h3>
+                <p class="social__text">1243900007504</p>
+            </div>
+            <div class="card__social" style="grid-area: okpo">
+                <h3 class="social__title">ОКПО</h3>
+                <p class="social__text">99313324</p>
+            </div>
+            <div class="card__social" style="grid-area: bank">
+                <h3 class="social__title">Банк</h3>
+                <p class="social__text">ООО "Банк Точка"</p>
+            </div>
+            <div class="card__social" style="grid-area: bik">
+                <h3 class="social__title">БИК</h3>
+                <p class="social__text">044525104</p>
+            </div>
+            <div class="card__social" style="grid-area: schet">
+                <h3 class="social__title">Корр. счет</h3>
+                <p class="social__text">30101810745374525104</p>
+            </div>
+            <div class="card__social" style="grid-area: adres">
+                <h3 class="social__title">Юридический адрес</h3>
+                <p class="social__text">
+                    236003, Калининградская область, г.о. город Калининград, г
+                    Калининград, ул Толбухина, д. 20, офис 14
+                </p>
             </div>
         </div>
     </main>
@@ -99,7 +132,12 @@ export default {
         grid-template-areas:
             ". title title title title title title title title ."
             ". network network network network nameFirst nameFirst nameFirst nameFirst ."
-            ". contact contact contact contact nameSecond nameSecond nameSecond nameSecond .";
+            ". contact contact contact contact nameSecond nameSecond nameSecond nameSecond ."
+            ". inn inn inn inn kpp kpp kpp kpp ."
+            ". ogrn ogrn ogrn ogrn okpo okpo okpo okpo ."
+            ". bank bank bank bank bik bik bik bik ."
+            ". schet schet schet schet schet schet schet schet ."
+            ". adres adres adres adres adres adres adres adres .";
         border-radius: 24px;
         background: linear-gradient(
             180deg,
@@ -199,11 +237,17 @@ export default {
         .contacts__card {
             padding: clamp(16px, calc(24vw / var(--ratio)), 24px) 0;
             border-radius: 16px;
-            grid-template-columns: repeat(6, 1fr);
+            grid-template-columns: repeat(2, 1fr);
             grid-template-areas:
-                "title title title title title title"
-                "network network network nameFirst nameFirst nameFirst "
-                "contact contact contact nameSecond nameSecond nameSecond ";
+                "title title"
+                "network nameFirst "
+                "contact nameSecond "
+                "inn kpp "
+                "ogrn okpo "
+                "bank bik "
+                "schet schet "
+                "adres adres ";
+
             .card__title {
                 margin-bottom: 0px;
 
@@ -284,13 +328,21 @@ export default {
         }
         .contacts__card {
             padding: 16px 0;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(1, 1fr);
             grid-template-areas:
-                "title title title title"
-                "network network network network"
-                "contact contact contact contact"
-                "nameFirst nameFirst nameFirst nameFirst"
-                "nameSecond nameSecond nameSecond nameSecond";
+                "title"
+                "network"
+                "contact"
+                "nameFirst"
+                "nameSecond"
+                "inn"
+                "kpp"
+                "ogrn"
+                "okpo"
+                "bank"
+                "bik"
+                "schet"
+                "adres";
             .card__title {
                 font-size: 16px;
             }

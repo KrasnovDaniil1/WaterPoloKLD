@@ -3,7 +3,7 @@ import Icons from "./Other/Icons.vue";
 import BtnSignTraining from "./Btn/BtnSignTraining.vue";
 import BtnToMain from "./Btn/BtnToMain.vue";
 import { useRoute } from "vue-router";
-import { onMounted, ref, watch } from "vue";
+import { ref, watch } from "vue";
 
 export default {
     components: {
@@ -130,11 +130,15 @@ export default {
                 <BtnToMain />
             </nav>
         </div>
+        <a class="oferta" download="../assets/oferta_3900027360.docx"
+            >скачать и ознакомиться с офертой</a
+        >
     </footer>
 </template>
 
 <style lang="scss" scoped>
 .footer {
+    position: relative;
     background: #041d56;
     display: flex;
     padding-top: 40px;
@@ -257,6 +261,18 @@ export default {
             }
         }
     }
+    .oferta {
+        position: absolute;
+        font-size: clamp(16px, calc(24vw / var(--ratio)), 24px);
+        bottom: 0;
+        left: 0;
+        transition: all 0.5s;
+        opacity: 0.6;
+        font-family: "Cruinn Bold";
+    }
+    .oferta:hover {
+        opacity: 1;
+    }
 }
 .router-link-active {
     opacity: 1 !important;
@@ -340,6 +356,9 @@ export default {
                 }
             }
         }
+        .oferta {
+            font-size: 14px;
+        }
     }
 }
 @media screen and (max-width: 650px) {
@@ -397,6 +416,10 @@ export default {
                     margin-right: 8px;
                 }
             }
+        }
+        .oferta {
+            width: 100%;
+            text-align: center;
         }
     }
 }
