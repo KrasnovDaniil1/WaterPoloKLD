@@ -20,7 +20,7 @@ export default {
             () => route.name,
             () => {
                 if (route.name == "federation") {
-                    adress.value = "в стадии открытия";
+                    adress.value = "ул Толбухина, д. 20, офис 14";
                 } else {
                     adress.value = "Тихоокеанская улица, 5";
                 }
@@ -130,7 +130,10 @@ export default {
                 <BtnToMain />
             </nav>
         </div>
-        <a class="oferta" download="../assets/oferta_3900027360.docx"
+        <a
+            class="oferta"
+            href="https://klwp.ru/oferta_3900027360.docx" 
+            download
             >скачать и ознакомиться с офертой</a
         >
     </footer>
