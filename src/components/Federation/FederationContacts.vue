@@ -17,7 +17,13 @@ export default {
             <h3 class="card__title">
                 Дата окончания аккредитации:
                 <!-- <span class="title__bold">24 октября 2025</span> -->
-                <span class="title__bold">в стадии получения</span>
+                <a
+                    href="https://klwp.ru/accreditation.pdf"
+                    class="title__bold"
+                    target="_blank"
+                    style="text-decoration: underline"
+                    >24.10.2025</a
+                >
             </h3>
             <div class="card__social network">
                 <h3 class="social__title">Социальные сети</h3>
@@ -90,18 +96,7 @@ export default {
                 <h3 class="social__title">ОКПО</h3>
                 <p class="social__text">99313324</p>
             </div>
-            <div class="card__social" style="grid-area: bank">
-                <h3 class="social__title">Банк</h3>
-                <p class="social__text">ООО "Банк Точка"</p>
-            </div>
-            <div class="card__social" style="grid-area: bik">
-                <h3 class="social__title">БИК</h3>
-                <p class="social__text">044525104</p>
-            </div>
-            <div class="card__social" style="grid-area: schet">
-                <h3 class="social__title">Корр. счет</h3>
-                <p class="social__text">30101810745374525104</p>
-            </div>
+
             <div class="card__social" style="grid-area: adres">
                 <h3 class="social__title">Юридический адрес</h3>
                 <p class="social__text">
@@ -135,8 +130,6 @@ export default {
             ". contact contact contact contact nameSecond nameSecond nameSecond nameSecond ."
             ". inn inn inn inn kpp kpp kpp kpp ."
             ". ogrn ogrn ogrn ogrn okpo okpo okpo okpo ."
-            ". bank bank bank bank bik bik bik bik ."
-            ". schet schet schet schet schet schet schet schet ."
             ". adres adres adres adres adres adres adres adres .";
         border-radius: 24px;
         background: linear-gradient(
@@ -244,8 +237,6 @@ export default {
                 "contact nameSecond "
                 "inn kpp "
                 "ogrn okpo "
-                "bank bik "
-                "schet schet "
                 "adres adres ";
 
             .card__title {
@@ -339,9 +330,6 @@ export default {
                 "kpp"
                 "ogrn"
                 "okpo"
-                "bank"
-                "bik"
-                "schet"
                 "adres";
             .card__title {
                 font-size: 16px;

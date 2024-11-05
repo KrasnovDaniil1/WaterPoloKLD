@@ -133,6 +133,7 @@ export default {
         <a
             class="oferta"
             href="https://klwp.ru/oferta_3900027360.docx" 
+            target="_blank"
             download
             >скачать и ознакомиться с офертой</a
         >
